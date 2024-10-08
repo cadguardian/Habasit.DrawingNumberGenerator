@@ -1,0 +1,1 @@
+# Habasit.CAD.DrawingCodeManager
