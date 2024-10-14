@@ -1,0 +1,113 @@
+.page[b-tmopy668it] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-tmopy668it] {
+    flex: 1;
+}
+
+.sidebar[b-tmopy668it] {
+    background-image: linear-gradient(320deg, rgb(0, 157, 0, 0.91) 1%, #fff 70%);
+}
+
+.top-row[b-tmopy668it] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-tmopy668it]  a, .top-row[b-tmopy668it]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+        .top-row[b-tmopy668it]  a:hover, .top-row[b-tmopy668it]  .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        .top-row[b-tmopy668it]  a:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+@media (max-width: 640.98px) {
+    .top-row[b-tmopy668it] {
+        justify-content: space-between;
+    }
+
+        .top-row[b-tmopy668it]  a, .top-row[b-tmopy668it]  .btn-link {
+            margin-left: 0;
+        }
+}
+
+@media (min-width: 641px) {
+    .page[b-tmopy668it] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-tmopy668it] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-tmopy668it] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+        .top-row.auth[b-tmopy668it]  a:first-child {
+            flex: 1;
+            text-align: right;
+            width: 0;
+        }
+
+    .top-row[b-tmopy668it], article[b-tmopy668it] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+/* Centering the image container */
+.image-container[b-tmopy668it] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+/* Image styling with smooth hover animation and glow effect */
+.hover-image[b-tmopy668it] {
+    animation: hoverUpDown-b-tmopy668it 3s ease-in-out infinite; /* Animation autostarts */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for transform and glow */
+}
+
+/* Keyframes for the up-and-down movement */
+@keyframes hoverUpDown-b-tmopy668it {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+    /* Moves the image up */
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects */
+.image-link:hover .hover-image[b-tmopy668it] {
+    animation-play-state: paused; /* Pauses the animation when hovered */
+    transform: translateY(0); /* Ensures image returns to normal position */
+    box-shadow: 0 0 15px 5px rgb(0, 157, 0, 0.41); /* Green glow effect */
+}

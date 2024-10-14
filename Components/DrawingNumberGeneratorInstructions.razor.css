@@ -1,0 +1,27 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    padding: 4rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 1rem 0.5rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}

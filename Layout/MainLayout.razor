@@ -1,0 +1,29 @@
+﻿@inherits LayoutComponentBase
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4 auth">
+            <LoginDisplay />
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            <div class="image-container" aria-live="polite">
+                <!-- Image with Alt text and Tooltip for general users -->
+                <a href="https://portal.habasit.com/view/v_portal_pmb" class="image-link"
+                   target="_blank" aria-label="Go to the Plastic Modular Belts Product Portal |  Explore a variety of Plastic Modular Belting options with details like product specifications, belt types, widths, thicknesses, rod types, and available accessories.">
+                    <img src="icons/habasit-icon-192.png"
+                         alt="Habasit America - Plastic Modular Belts Product Portal |  Explore a variety of Plastic Modular Belting options with details like product specifications, belt types, widths, thicknesses, rod types, and available accessories."
+                         class="hover-image"
+                         title="Click to view detailed information on Plastic Modular Belts |  Explore a variety of Plastic Modular Belting options with details like product specifications, belt types, widths, thicknesses, rod types, and available accessories." />
+                </a>
+            </div>
+
+
+            @Body
+        </article>
+    </main>
+</div>

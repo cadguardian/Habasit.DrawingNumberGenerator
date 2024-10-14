@@ -1,0 +1,74 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    padding: 4rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 1rem 0.5rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
+
+.animated-number {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    animation: color-change 5s infinite;
+    margin: 20px;
+    cursor: url('https://example.com/funky-cursor.png'), auto; /* Change to funky pointer */
+    transition: transform 0.3s ease;
+}
+
+    .animated-number:hover {
+        transform: scale(1.1); /* Hover effect to zoom slightly */
+    }
+
+.copy-button {
+    border: dashed;
+    cursor: grab;
+}
+
+.dialog {
+    display: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+    margin: 10px;
+}
+
+/* Keyframes for smooth color transition */
+@keyframes color-change {
+    0% {
+        color: rgb(255, 0, 0); /* Red */
+    }
+
+    33% {
+        color: rgb(0, 255, 0); /* Green */
+    }
+
+    66% {
+        color: rgb(0, 0, 255); /* Blue */
+    }
+
+    100% {
+        color: rgb(255, 0, 0); /* Back to Red */
+    }
+}
