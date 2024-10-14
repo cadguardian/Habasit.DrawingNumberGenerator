@@ -1,4 +1,4 @@
-﻿namespace DNG.Library.Models;
+namespace DNG.Library.Models;
 
 public class BeltMaterial : RuleWithOptions, IOptions
 {

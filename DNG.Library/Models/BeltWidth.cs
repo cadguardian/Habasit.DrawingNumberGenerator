@@ -1,4 +1,4 @@
-﻿using DNG.Library.Models;
+using DNG.Library.Models;
 
 public class BeltWidth : IRule, INumberRule
 {
