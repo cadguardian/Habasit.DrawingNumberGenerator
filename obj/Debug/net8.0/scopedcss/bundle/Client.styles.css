@@ -234,13 +234,6 @@ main[b-tmopy668it] {
     }
 }
 /* /Pages/DrawingNumberGenerator.razor.rz.scp.css */
-.form-container[b-o0m35uarhm] {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: auto;
-    padding: 4rem;
-}
 
 .form-group[b-o0m35uarhm] {
     margin-bottom: 1rem;
@@ -263,7 +256,7 @@ input[b-o0m35uarhm], select[b-o0m35uarhm], button[b-o0m35uarhm] {
 }
 
 .animated-number[b-o0m35uarhm] {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
     animation: color-change-b-o0m35uarhm 5s infinite;
