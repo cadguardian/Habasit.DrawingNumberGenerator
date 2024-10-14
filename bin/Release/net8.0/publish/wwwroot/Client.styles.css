@@ -75,7 +75,7 @@ main[b-tmopy668it] {
 }
 
 .sidebar[b-tmopy668it] {
-    background-image: linear-gradient(320deg, rgb(0, 157, 0, 0.91) 1%, #fff 70%);
+    background-image: linear-gradient(320deg, rgba(14, 63, 4, 0.91) 1%, #0b7a27 70%);
 }
 
 .top-row[b-tmopy668it] {
@@ -185,7 +185,7 @@ main[b-tmopy668it] {
 
 .top-row[b-9qkkwgv1yd] {
     height: 3.5rem;
-    background-color: white;
+    background-color: rgb(23, 90, 5);
 }
 
 .navbar-brand[b-9qkkwgv1yd] {
@@ -206,7 +206,7 @@ main[b-tmopy668it] {
     }
 
     .nav-item[b-9qkkwgv1yd]  a {
-        color: rgb(0, 0, 0);
+        color: rgb(197, 241, 186);
         border-radius: 4px;
         height: 3rem;
         display: flex;
@@ -216,14 +216,14 @@ main[b-tmopy668it] {
     }
 
         .nav-item[b-9qkkwgv1yd]  a.active {
-            background-color: black;
+            background-color: forestgreen;
             color: white;
             font-weight: bolder;
         }
 
         .nav-item[b-9qkkwgv1yd]  a:hover {
-            background-color: forestgreen;
-            color: gold;
+            background-color: rgb(12, 102, 12);
+            color: rgb(255, 255, 255);
         }
 
 /* Ensure sidebar is scrollable on tall screens */
@@ -263,7 +263,7 @@ input[b-o0m35uarhm], select[b-o0m35uarhm], button[b-o0m35uarhm] {
 }
 
 .animated-number[b-o0m35uarhm] {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
     animation: color-change-b-o0m35uarhm 5s infinite;
