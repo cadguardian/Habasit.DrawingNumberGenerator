@@ -117,11 +117,16 @@
 
         <h2>Flights/Rollers/Grip Section</h2>
 
+        <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="noFlightsSwitch" @bind="NoFlightsRollerOrGrips" />
+    <label class="form-check-label" for="noFlightsSwitch">No Flights Roller Or Grips</label>
+</div>
+
         <div class="form-group">
             <label for="flightsRollersGrip">Flights/Rollers/Grip</label>
-            <select id="flightsRollersGrip" @ref="flightsRollersGripDropdownRef" @onkeydown="@(e => HandleKeyDown(e, flightsRollersGripDropdownRef))"
+            <select id="flightsRollersGrip" disabled="@NoFlightsRollerOrGrips" @ref="flightsRollersGripDropdownRef" @onkeydown="@(e => HandleKeyDown(e, flightsRollersGripDropdownRef))"
                     @onblur="@(e => HandleBlur(flightsRollersGripDropdownRef))" aria-required="true"
-                    aria-describedby="flightsRollersGripHelp" @bind="userInput.FlightsRollersGrip" class="form-control" required>
+                    aria-describedby="flightsRollersGripHelp" @bind="userInput.FlightsRollersGrip" class="form-control">
                 <option value="" disabled selected>Select a flight, roller or grip...</option>
                 @foreach (var type in flightsRollersGrips)
                 {
@@ -134,17 +139,17 @@
 
         <div class="form-group">
             <label for="qtyRollersAcrossWidth">Qty. Rollers Across Width</label>
-            <InputNumber id="qtyRollersAcrossWidth" aria-required="true" aria-describedby="qtyRollersAcrossWidthHelp"
-                         @bind-Value="userInput.QtyRollersAcrossWidth" Min="1" Max="20" class="form-control" required />
-            @* <small id="qtyRollersAcrossWidthHelp" class="form-text text-muted">Please input the quantity of rollers across the width.</small> *@
+            <InputNumber id="qtyRollersAcrossWidth" disabled aria-required="true" aria-describedby="qtyRollersAcrossWidthHelp"
+                         @bind-Value="userInput.QtyRollersAcrossWidth" Min="1" Max="20" class="form-control" />
+            <small id="qtyRollersAcrossWidthHelp" class="form-text text-muted">Field disabled for quantity of rollers across the width until further notice.</small>
             <ValidationMessage For="@(() => userInput.QtyRollersAcrossWidth)" />
         </div>
 
         <div class="form-group">
             <label for="frgCenters">F/R/G Centers (inches)</label>
-            <InputNumber id="frgCenters" aria-required="true" aria-describedby="frgCentersHelp"
-                         @bind-Value="userInput.FRGCenters" Min="1" Max="100" class="form-control" required />
-            @* <small id="frgCentersHelp" class="form-text text-muted">Please input the F/R/G centers in inches.</small> *@
+            <InputNumber id="frgCenters" disabled aria-required="true" aria-describedby="frgCentersHelp"
+                         @bind-Value="userInput.FRGCenters" Min="1" Max="100" class="form-control" />
+            <small id="frgCentersHelp" class="form-text text-muted">Field disabled for the F/R/G centers in inches until further notice.</small>
             <ValidationMessage For="@(() => userInput.FRGCenters)" />
         </div>
 
@@ -195,7 +200,6 @@
             <ValidationMessage For="@(() => userInput.SidePLLaneDV)" />
         </div>
 
-
         <h2>Unique Identification Section</h2>
 
         <div class="form-group">
@@ -209,15 +213,22 @@
 
         <div class="form-group">
             <label for="indentCode">Indent Code</label>
-            <InputNumber id="indentCode" aria-required="true" aria-describedby="indentCodeHelp" @bind-Value="userInput.IndentCode"
-                         Min="0.5" Max="12.0" Step="0.25" class="form-control" required />
-            @* <small id="indentCodeHelp" class="form-text text-muted">Please input the indent code.</small> *@
+            <select id="indentCode" @ref="indentCodeDropdownRef" @onkeydown="@(e => HandleKeyDown(e, indentCodeDropdownRef))"
+                    @onblur="@(e => HandleBlur(indentCodeDropdownRef))" aria-required="true"
+                    aria-describedby="indentCodeHelp" @bind="userInput.IndentCode" class="form-control" required>
+                <option value="" disabled selected>Select Indent...</option>
+                @foreach (var type in indents)
+                {
+                    <option value="@type">@type</option>
+                }
+            </select>
+            @* <small id="sidePLLaneDVHelp" class="form-text text-muted">Please select the indent.</small> *@
             <ValidationMessage For="@(() => userInput.IndentCode)" />
         </div>
 
         <button type="submit" disabled="@isProcessing" class="btn btn-primary btn-block" aria-label="Generate Drawing Number">Generate Drawing Number</button>
 
-        <div class="animated-number copy-button" @onclick="CopyDrawingNumberToClipboard" id="drawingNumber">@DrawingNumber.GetDrawingNumber()</div>
+        <div class="animated-number copy-button" @onclick="CopyDrawingNumberToClipboard" id="drawingNumber">@DrawingNumber.GetDrawingNumber(NoFlightsRollerOrGrips)</div>
         <div id="copyDialog" class="dialog" style="display: none;">Drawing number has been copied to clipboard!</div>
 <hr>
         <ConsoleLogger DrawingNumber="DrawingNumber" />

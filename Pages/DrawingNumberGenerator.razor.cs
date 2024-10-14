@@ -10,6 +10,7 @@ namespace Client.Pages;
 public partial class DrawingNumberGenerator
 {
     private readonly DrawingNumberInput userInput = new();
+    private bool NoFlightsRollerOrGrips {get;set;}= true;
     private bool isProcessing = false;
     private ElementReference beltTypeDropdownRef;
     private ElementReference beltSeriesDropdownRef;
@@ -21,6 +22,7 @@ public partial class DrawingNumberGenerator
     private ElementReference beltAccessoriesDropdownRef;
     private ElementReference frictionAntiStaticDropdownRef;
     private ElementReference sidePLLaneDVDropdownRef;
+    private ElementReference indentCodeDropdownRef;
 
     private readonly List<string> beltTypes = BeltType.Options?.Values?.Where(x => x != "").OrderBy(x => x).ToList()!;
     private readonly List<string> beltSeries = BeltSeries.Options?.Keys?.Where(x => x != "").OrderBy(x => x).ToList()!;
@@ -32,6 +34,7 @@ public partial class DrawingNumberGenerator
     private readonly List<string> beltAccessories = BeltAccessories.Options?.Values?.Where(x => x != "").OrderBy(x => x).ToList()!;
     private readonly List<string> frictionAntiStatics = FrictionAntiStatic.Options?.Values?.Where(x => x != "").OrderBy(x => x).ToList()!;
     private readonly List<string> sidePLLaneDVs = SidePLLaneDV.Options?.Values?.Where(x => x != "").OrderBy(x => x).ToList()!;
+    private readonly List<string> indents = IndentCode.Options?.Values?.Where(x => x != "").ToList()!;
 
     private DrawingNumber DrawingNumber { get; set; } = DrawingNumber.Create();
 
@@ -47,13 +50,13 @@ public partial class DrawingNumberGenerator
         DrawingNumber.RodMaterialCode = RuleWithOptions.GetCodeByName(userInput.RodMaterial, RodMaterial.Options);
         DrawingNumber.BeltWidthCode = BeltWidth.Create(userInput.BeltWidth).Code;
         DrawingNumber.FlightsRollersGripsCode = RuleWithOptions.GetCodeByName(userInput.FlightsRollersGrip, Flights_Rollers_Grips.Options);
-        DrawingNumber.QtyRollersAcrossWidth =
-        //DrawingNumber.FRGCenters
+        DrawingNumber.QtyRollersAcrossWidth = "*";
+        DrawingNumber.FRGCenters = "*";
         DrawingNumber.BeltAccessoriesCode = RuleWithOptions.GetCodeByName(userInput.BeltAccessories, BeltAccessories.Options);
         DrawingNumber.FrictionAntiStaticCode = RuleWithOptions.GetCodeByName(userInput.FrictionAntiStatic, FrictionAntiStatic.Options);
         DrawingNumber.SidePLLaneDVCode = RuleWithOptions.GetCodeByName(userInput.SidePLLaneDV, SidePLLaneDV.Options);
         DrawingNumber.UniqueIdentification = userInput.UniqueIdentification.ToUpper();
-        DrawingNumber.IndentCode = userInput.IndentCode.ToString("0.##");
+        DrawingNumber.IndentCode = IndentCode.GetCodeByName(userInput.IndentCode,IndentCode.Options);
         isProcessing = false;
     }
 
@@ -82,7 +85,7 @@ public partial class DrawingNumberGenerator
 
     private async Task CopyDrawingNumberToClipboard()
     {
-        var drawingNumber = DrawingNumber.GetDrawingNumber();  // Assuming this is the method that generates the drawing number.
+        var drawingNumber = DrawingNumber.GetDrawingNumber(NoFlightsRollerOrGrips);  // Assuming this is the method that generates the drawing number.
         await JSRuntime.InvokeVoidAsync("CopyDrawingNumber", drawingNumber);
     }
 }
