@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HoQaLTB8mk2ccebsBVpGwwU6Nll0rYhXl8egSGVRBaA=",
+  "Hash": "p+toqRBrCy0NthatwDmAKCNa3y7j42jriD/wSr6CHy0=",
   "Source": "Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -3530,25 +3530,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
-    },
-    {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\vercel.json",
-      "SourceId": "Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "vercel.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\vercel.json"
     },
     {
       "Identity": "C:\\Users\\Thomas.Smith\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\8.0.10\\staticwebassets\\AuthenticationService.js",

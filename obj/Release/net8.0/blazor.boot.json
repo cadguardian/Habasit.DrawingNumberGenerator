@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Client",
   "resources": {
-    "hash": "sha256-C6WtIygpYpSvpP5MN11Ter2db7PFAgpsWE+dGQLDZ4w=",
+    "hash": "sha256-Z5ZbLMX2g3BbaGK7IO1dy18ZtJ/ve1YYtMJGxfMf/lU=",
     "jsModuleNative": {
       "dotnet.native.8.0.10.w6lt2f84zx.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
     },
@@ -211,11 +211,11 @@
       "netstandard.wasm": "sha256-v+s7sWxtOM6bnOvC0jFrtnm6uMfbDymwl2nHNgbS2LM=",
       "System.Private.CoreLib.wasm": "sha256-pklll63uFQoY6vaD3vbluS9osYiJWLLLmob1yHFgepI=",
       "DNG.Library.wasm": "sha256-NT+f1xha9dpjf9Ce/N7S1iPJN+koMWfLgLyZT2pfoRY=",
-      "Client.wasm": "sha256-mXbUtwKrAFM6y6GXmW6U8xe0Vu8aLAaCWNcJiFQaA44="
+      "Client.wasm": "sha256-4yYCPBq4jUVEXJy0YodGOQ4fq31jaxxoh196ux5iuso="
     },
     "pdb": {
       "DNG.Library.pdb": "sha256-Ln8Ow/xXF40ptYfSHRYNrhqyuS7W2SI3UdR4KYEWVzM=",
-      "Client.pdb": "sha256-m4Ov/AzgbLzKWQko8PY5FUiLtL4oeq4u8WGy1nrKzSs="
+      "Client.pdb": "sha256-e1grnSa25YGg2orOIAbXYSNrqvn5uhaXkieI1R5uTp0="
     }
   },
   "cacheBootResources": true,
