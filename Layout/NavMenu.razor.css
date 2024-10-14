@@ -5,7 +5,7 @@
 
 .top-row {
     height: 3.5rem;
-    background-color: white;
+    background-color: rgb(23, 90, 5);
 }
 
 .navbar-brand {
@@ -26,7 +26,7 @@
     }
 
     .nav-item ::deep a {
-        color: rgb(0, 0, 0);
+        color: rgb(197, 241, 186);
         border-radius: 4px;
         height: 3rem;
         display: flex;
@@ -36,14 +36,14 @@
     }
 
         .nav-item ::deep a.active {
-            background-color: black;
+            background-color: forestgreen;
             color: white;
             font-weight: bolder;
         }
 
         .nav-item ::deep a:hover {
-            background-color: forestgreen;
-            color: gold;
+            background-color: rgb(12, 102, 12);
+            color: rgb(255, 255, 255);
         }
 
 /* Ensure sidebar is scrollable on tall screens */

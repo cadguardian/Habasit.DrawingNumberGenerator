@@ -5,7 +5,7 @@
 
 .top-row[b-9qkkwgv1yd] {
     height: 3.5rem;
-    background-color: white;
+    background-color: rgb(23, 90, 5);
 }
 
 .navbar-brand[b-9qkkwgv1yd] {
@@ -26,7 +26,7 @@
     }
 
     .nav-item[b-9qkkwgv1yd]  a {
-        color: rgb(0, 0, 0);
+        color: rgb(197, 241, 186);
         border-radius: 4px;
         height: 3rem;
         display: flex;
@@ -36,14 +36,14 @@
     }
 
         .nav-item[b-9qkkwgv1yd]  a.active {
-            background-color: black;
+            background-color: forestgreen;
             color: white;
             font-weight: bolder;
         }
 
         .nav-item[b-9qkkwgv1yd]  a:hover {
-            background-color: forestgreen;
-            color: gold;
+            background-color: rgb(12, 102, 12);
+            color: rgb(255, 255, 255);
         }
 
 /* Ensure sidebar is scrollable on tall screens */

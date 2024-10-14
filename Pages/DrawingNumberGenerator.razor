@@ -14,10 +14,6 @@
     <ValidationSummary />
 
     <div class="form-container">
-        <div class="animated-number copy-button" @onclick="CopyDrawingNumberToClipboard" id="drawingNumber">@DrawingNumber.GetDrawingNumber()</div>
-        <div id="copyDialog" class="dialog" style="display: none;">Drawing number has been copied to clipboard!</div>
-
-
         <h2>Belt Information Section</h2>
 
         <div class="form-group">
@@ -222,9 +218,8 @@
         <button type="submit" disabled="@isProcessing" class="btn btn-primary btn-block" aria-label="Generate Drawing Number">Generate Drawing Number</button>
 
         <div class="animated-number copy-button" @onclick="CopyDrawingNumberToClipboard" id="drawingNumber">@DrawingNumber.GetDrawingNumber()</div>
-
         <div id="copyDialog" class="dialog" style="display: none;">Drawing number has been copied to clipboard!</div>
-
+<hr>
         <ConsoleLogger DrawingNumber="DrawingNumber" />
         </div>
 
