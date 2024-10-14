@@ -27,7 +27,7 @@ input, select, button {
 }
 
 .animated-number {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
     animation: color-change 5s infinite;
