@@ -29,7 +29,7 @@
 /* Console Content - Displays log content and handles scrolling when it overflows */
 .console-content {
     overflow-y: auto;
-    font-size: 18px;
+    font-size: 12px;
     white-space: pre-wrap; /* Keeps text formatting for better readability */
     padding: 10px;
     max-height: calc(100% - 40px); /* Adjusts height based on header height */
