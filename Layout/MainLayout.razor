@@ -3,33 +3,51 @@
     
 
     <main>
-
+        <div class="content-wrapper d-flex flex-column min-vh-100">
         <div class="container-fluid bg-light">
-            <!-- Navbar Section -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
-                    <!-- Logo and Title -->
-                    <a class="navbar-brand" href="#">
-                        <h1 class="mb-0">Habasit America <small class="text-muted">| Suwanee, GA</small></h1>
+                    <a class="navbar-brand small" href="#">
+                        <small class="mb-0">Habasit America <small class="text-muted">| Suwanee, GA</small></small>
                     </a>
-
-                    <!-- Navbar Items (Product Portal) -->
                     <div class="d-flex ms-auto">
-                        <a class="btn btn-success mt-2 mt-lg-0" href="https://portal.habasit.com/view/v_portal_pmb" target="_blank">Product Portal</a>
+                        <small class="text-center text-success">CAD Drawing Tools</small>
                     </div>
                 </div>
             </nav>
 
-            <!-- Page Header -->
-            <div class="py-4">
-                <h3 class="text-center text-success">CAD Drawing Tools</h3>
-            </div>
+            <ul class="nav justify-content-center nav-underline small gap-5">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://portal.habasit.com/view/v_portal_pmb" target="_blank">Product Portal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://oursharedarea.sharepoint.com/sites/HabaWeb/SitePages/Plastics-and-Chains.aspx" target="_blank">Product Number Codes</a>
+                </li>
+            </ul>
+            
+
+
+
+
         </div>
 
-        <article class="content px-4 mt-3">
-            <!-- Main Body Content -->
+            <article class="flex-grow-1 p-4">
             @Body
         </article>
 
+            <footer class="container-fluid bg-success text-light py-3 mt-auto">
+                <blockquote class="blockquote text-center mb-0">
+                    <p class="small mb-0">"Simplifying special build drawing delivery"</p>
+                </blockquote>
+                <div class="text-center">
+                    <p class="mb-1">Thomas Smith, CAD Drafter</p>
+                    <a href="mailto:thomas.smith@habasit.com" class="text-light small" style="text-decoration: underline;">thomas.smith@habasit.com</a>
+                </div>
+            </footer>
+
+        </div>
     </main>
 </div>

@@ -78,6 +78,21 @@ main[b-tmopy668it] {
     background-image: linear-gradient(320deg,#FFF 1%, #FFF 70%);
 }
 
+/* Ensures the footer always appears at the bottom */
+.content-wrapper[b-tmopy668it] {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+}
+
+.flex-grow-1[b-tmopy668it] {
+    flex-grow: 1; /* This makes the main content expand to fill available space */
+}
+
+footer[b-tmopy668it] {
+    /* You can customize the footer's appearance further if needed */
+}
+
 .top-row[b-tmopy668it] {
     background-color: #f7f7f7;
     border-bottom: 1px solid #d6d5d5;
