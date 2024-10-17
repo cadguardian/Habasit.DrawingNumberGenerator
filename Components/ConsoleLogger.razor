@@ -1,39 +1,89 @@
-﻿@using DNG.Library.Models
+﻿@using DNG.Library.Data
+@using DNG.Library.Models
+@using DrawingNumberGenerator.Library.Models
 
 
-<div class="console-logger-container">
-    <div class="console-header" @onclick="ToggleVisibility">
-        <span>@(IsVisible ? "Hide Logger" : "Show Logger")</span>
-    </div>
-
+<div class="container">
     @if (IsVisible)
     {
-        <div class="console-content" style="height:@($"{ConsoleHeight}px")">
-            <pre>
-Belt Type:              @DrawingNumber.BeltTypeCode
-Belt Series:            @DrawingNumber.BeltSeriesCode
-Color:                  @DrawingNumber.ColorCode
-Material:               @DrawingNumber.MaterialCode
-Adder Material:         @DrawingNumber.AdderMaterialCode
-Rod Material:           @DrawingNumber.RodMaterialCode
-Belt Width:             @DrawingNumber.BeltWidthCode
-Flights/Rollers/Grip:   @DrawingNumber.FlightsRollersGripsCode
-Qty. Rollers:           @DrawingNumber.QtyRollersAcrossWidth
-F/R/G Centers:          @DrawingNumber.FRGCenters
-Belt Accessories:       @DrawingNumber.BeltAccessoriesCode
-Friction/Anti Static:   @DrawingNumber.FrictionAntiStaticCode
-Side-PL/Lane-DV:        @DrawingNumber.SidePLLaneDVCode
-Unique Identification:  @DrawingNumber.UniqueIdentification
-Indent Code:            @DrawingNumber.IndentCode
-                </pre>
-        </div>
+        <div class="row d-flex align-items-stretch mb-4">
+            <!-- Left Column -->
+            <div class="col-12 col-md-6 d-flex">
+                <div class="card mb-3 flex-fill">
+                    <div class="card-body">
+                        <pre class="mb-0">
+    Belt Type: @BeltType.Options.GetValueOrDefault(@DrawingNumber.BeltTypeCode)
+    Belt Series: @BeltSeries.Options.GetValueOrDefault(@DrawingNumber.BeltSeriesCode)
+    Color: @DrawingNumber.ColorCode
+    Material: @DrawingNumber.MaterialCode
+    Adder Material: @DrawingNumber.AdderMaterialCode
+    Rod: @DrawingNumber.RodMaterialCode
+    Belt Width: @DrawingNumber.BeltWidthCode
+                            </pre>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Right Column -->
+            <div class="col-12 col-md-6 d-flex">
+                <div class="card mb-3 flex-fill">
+                    <div class="card-body">
+                        <pre class="mb-0">
+    Flights/Rollers/Grip: @DrawingNumber.FlightsRollersGripsCode
+    Qty. Rollers: @DrawingNumber.QtyRollersAcrossWidth
+    F/R/G Centers: @DrawingNumber.FRGCenters
+    Belt Accessories: @DrawingNumber.BeltAccessoriesCode
+    Friction/Anti Static: @DrawingNumber.FrictionAntiStaticCode
+    Side-PL/Lane-DV: @DrawingNumber.SidePLLaneDVCode
+    Unique Identification: @DrawingNumber.UniqueIdentification
+    Indent Code: @DrawingNumber.IndentCode
+                            </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
 </div>
+
+<!-- Custom CSS for readability and responsiveness -->
+<style>
+    .container {
+        max-width: 1140px;
+    }
+
+    pre {
+        white-space: pre-wrap; /* Ensures long lines wrap instead of overflowing */
+        word-wrap: break-word; /* Breaks long words if necessary */
+        font-family: 'Courier New', monospace;
+        background-color: #f8f9fa; /* Light background */
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: inset 0 0 10px rgba(0,0,0,.1);
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .flex-fill {
+        display: flex;
+        flex: 1;
+        min-height: 100%;
+    }
+</style>
+
 
 @code {
     [Parameter]
     public DrawingNumber DrawingNumber { get; set; }
+
+    [Parameter]
+    public DrawingRequest userInput  { get; set; }
 
     private bool IsVisible { get; set; } = true;
     private int ConsoleHeight { get; set; } = 300; // default height

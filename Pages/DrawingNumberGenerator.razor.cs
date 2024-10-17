@@ -9,8 +9,7 @@ namespace Client.Pages;
 
 public partial class DrawingNumberGenerator
 {
-    private readonly DrawingNumberInput userInput = new();
-    private bool NoFlightsRollerOrGrips {get;set;}= true;
+    private bool NoFlightsRollerOrGrips { get; set; } = true;
     private bool isProcessing = false;
     private ElementReference beltTypeDropdownRef;
     private ElementReference beltSeriesDropdownRef;
@@ -18,13 +17,16 @@ public partial class DrawingNumberGenerator
     private ElementReference materialDropdownRef;
     private ElementReference adderMaterialDropdownRef;
     private ElementReference rodMaterialDropdownRef;
+    private ElementReference beltWidthRef;
     private ElementReference flightsRollersGripDropdownRef;
     private ElementReference beltAccessoriesDropdownRef;
     private ElementReference frictionAntiStaticDropdownRef;
     private ElementReference sidePLLaneDVDropdownRef;
     private ElementReference indentCodeDropdownRef;
+    private ElementReference qtyRollerWidth;
+    private ElementReference frgCenters;
 
-    private readonly List<string> beltTypes = BeltType.Options?.Values?.Where(x => x != "").OrderBy(x => x).ToList()!;
+    private readonly List<string> beltTypes = BeltType.Options?.Keys?.Where(x => x != "").OrderBy(x => x).ToList()!;
     private readonly List<string> beltSeries = BeltSeries.Options?.Keys?.Where(x => x != "").OrderBy(x => x).ToList()!;
     private readonly List<string> colors = MaterialColor.Options?.Values?.Where(x => x != "").OrderBy(x => x).ToList()!;
     private readonly List<string> materials = BeltMaterial.Options?.Values?.Where(x => x != "").OrderBy(x => x).ToList()!;
@@ -36,13 +38,22 @@ public partial class DrawingNumberGenerator
     private readonly List<string> sidePLLaneDVs = SidePLLaneDV.Options?.Values?.Where(x => x != "").OrderBy(x => x).ToList()!;
     private readonly List<string> indents = IndentCode.Options?.Values?.Where(x => x != "").ToList()!;
 
-    private DrawingNumber DrawingNumber { get; set; } = DrawingNumber.Create();
+    [Parameter]
+    public DrawingNumber DrawingNumber { get; set; } = DrawingNumber.Create();
+
+    private readonly DrawingRequest userInput = new();
+
+    protected override void OnInitialized()
+    {
+        // Set the default value here
+        userInput.BeltType = "M";
+    }
 
     private void GenerateDrawingNumber()
     {
         isProcessing = true;
 
-        DrawingNumber.BeltTypeCode = RuleWithOptions.GetCodeByName(userInput.BeltType, BeltType.Options);
+        DrawingNumber.BeltTypeCode = userInput.BeltType;
         DrawingNumber.BeltSeriesCode = userInput.BeltSeries;
         DrawingNumber.ColorCode = RuleWithOptions.GetCodeByName(userInput.Color, MaterialColor.Options);
         DrawingNumber.MaterialCode = RuleWithOptions.GetCodeByName(userInput.Material, BeltMaterial.Options);
@@ -56,7 +67,7 @@ public partial class DrawingNumberGenerator
         DrawingNumber.FrictionAntiStaticCode = RuleWithOptions.GetCodeByName(userInput.FrictionAntiStatic, FrictionAntiStatic.Options);
         DrawingNumber.SidePLLaneDVCode = RuleWithOptions.GetCodeByName(userInput.SidePLLaneDV, SidePLLaneDV.Options);
         DrawingNumber.UniqueIdentification = userInput.UniqueIdentification.ToUpper();
-        DrawingNumber.IndentCode = IndentCode.GetCodeByName(userInput.IndentCode,IndentCode.Options);
+        DrawingNumber.IndentCode = IndentCode.GetCodeByName(userInput.IndentCode, IndentCode.Options);
         isProcessing = false;
     }
 
@@ -70,6 +81,9 @@ public partial class DrawingNumberGenerator
 
     private Task HandleBlur(ElementReference dropdownRef)
     {
+        GenerateDrawingNumber();
+        userInput.QueryString = DrawingNumber.GetDrawingNumber(true);
+
         return CloseDropdown(dropdownRef);
     }
 

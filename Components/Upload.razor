@@ -1,0 +1,72 @@
+﻿@page "/export-upload"
+@using DNG.Library.Data
+@using DNG.Library.Models
+@using System.Text.Json
+@inject IJSRuntime JS
+
+
+<!-- Export DrawingNumber button -->
+<button @onclick="ExportDrawingNumber" class="btn btn-outline-success mb-3">Export Drawing Number As JSON</button>
+
+@* <!-- Upload File for DrawingNumber -->
+<input type="file" @onchange="OnFileChange" class="form-control mb-3" />
+
+ *@
+@code {
+    public class DrawingExportData
+    {
+        public DrawingNumber DrawingNumber { get; set; }
+        public DrawingRequest UserInput { get; set; }
+    }
+
+
+    [Parameter]
+    public DrawingNumber DrawingNumber { get; set; }
+    [Parameter]
+    public DrawingRequest userInput { get; set; } 
+    private string uploadedData;
+
+    // Export the QueryString to a JSON file
+    // Export the QueryString to a JSON file
+    private async Task ExportDrawingNumber()
+    {
+        // Create the export data using the named class
+        var exportData = new DrawingExportData
+            {
+                DrawingNumber = DrawingNumber,  // Assuming QueryString is a public string property or can be converted to string
+                UserInput = userInput  // Ensure userInput is a structured object (not flattened)
+            };
+
+        // Serialize to JSON and maintain hierarchy
+        var json = System.Text.Json.JsonSerializer.Serialize(exportData, new JsonSerializerOptions
+            {
+                WriteIndented = true  // Pretty print for better readability (optional)
+            });
+
+        // Trigger JavaScript to save the file
+        await JS.InvokeVoidAsync("saveAsFile", "drawingnumber.json", json);
+    }
+
+
+
+    // Handle file change and upload the JSON file
+    private async Task OnFileChange(ChangeEventArgs e)
+    {
+        var file = ((Microsoft.AspNetCore.Components.Forms.IBrowserFile)e.Value).OpenReadStream();
+
+        using (var streamReader = new System.IO.StreamReader(file))
+        {
+            var content = await streamReader.ReadToEndAsync();
+            uploadedData = content;
+
+            // Deserialize the JSON content and populate QueryString and userInput
+            var importedData = System.Text.Json.JsonSerializer.Deserialize<DrawingExportData>(content);
+
+            if (importedData != null)
+            {
+                DrawingNumber = importedData.DrawingNumber;
+                userInput = importedData.UserInput;
+            }
+        }
+    }
+}

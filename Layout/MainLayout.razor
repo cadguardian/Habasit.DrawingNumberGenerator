@@ -1,45 +1,35 @@
 ﻿@inherits LayoutComponentBase
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+    
 
     <main>
-        <div class="top-row px-4 auth">
-            <LoginDisplay />
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+
+        <div class="container-fluid bg-light">
+            <!-- Navbar Section -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <!-- Logo and Title -->
+                    <a class="navbar-brand" href="#">
+                        <h1 class="mb-0">Habasit America <small class="text-muted">| Suwanee, GA</small></h1>
+                    </a>
+
+                    <!-- Navbar Items (Product Portal) -->
+                    <div class="d-flex ms-auto">
+                        <a class="btn btn-success mt-2 mt-lg-0" href="https://portal.habasit.com/view/v_portal_pmb" target="_blank">Product Portal</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Header -->
+            <div class="py-4">
+                <h3 class="text-center text-success">CAD Drawing Tools</h3>
+            </div>
         </div>
 
-        <article class="content px-4">
-            <div class="image-container" aria-live="polite">
-                <!-- Image with Alt text and Tooltip for general users -->
-                <a href="https://portal.habasit.com/view/v_portal_pmb" class="image-link"
-                   target="_blank" aria-label="Go to the Plastic Modular Belts Product Portal |  Explore a variety of Plastic Modular Belting options with details like product specifications, belt types, widths, thicknesses, rod types, and available accessories.">
-                    <img src="icons/habasit-icon-192.png"
-                         alt="Habasit America - Plastic Modular Belts Product Portal |  Explore a variety of Plastic Modular Belting options with details like product specifications, belt types, widths, thicknesses, rod types, and available accessories."
-                         class="hover-image"
-                         title="Click to view detailed information on Plastic Modular Belts |  Explore a variety of Plastic Modular Belting options with details like product specifications, belt types, widths, thicknesses, rod types, and available accessories." />
-                </a>
-            </div>
-
-
+        <article class="content px-4 mt-3">
+            <!-- Main Body Content -->
             @Body
-
-            <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ddd; margin-top: 20px;">
-  <h2 style="color: #333;">We Value Your Feedback!</h2>
-  <p>Hi there,</p>
-  <p>I just released a new version of our app, and I would love to hear about your experience using it. Your feedback will help us improve the app and better serve your needs.</p>
-  <p>Please take a moment to test the app and email me your thoughts, including:</p>
-  <ul>
-    <li>Your overall experience</li>
-    <li>Any tips or ideas you think could enhance the app</li>
-    <li>Any bugs or issues you’ve encountered</li>
-  </ul>
-  <p>You can reach me at <a href="mailto:thomas.smith@habasit.com">thomas.smith@habasit.com</a>.</p>
-  <p>Thank you for your time and input!</p>
-  <p>Best regards,<br> Thomas Smith</p>
-</div>
-
         </article>
+
     </main>
 </div>

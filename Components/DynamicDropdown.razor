@@ -1,0 +1,59 @@
+﻿@typeparam TValue
+@inject IJSRuntime JSRuntime
+
+
+<div class="col-6 col-md-4 col-lg-3">
+    <label for="@Label">@Label</label>
+    <select id="@Label" class="form-control" @bind="SelectedValue" @ref="DropdownRef" @onkeydown="@(e => HandleKeyDown(e, DropdownRef))"
+            @onblur="@(e => HandleBlur(DropdownRef))" aria-required="true" aria-describedby="@HelpId">
+            
+        @foreach (var option in Options.Where(x=>!string.IsNullOrEmpty(x.Value)))
+        {
+            switch (Label)
+            {
+                case "Type":
+                case "Series":
+                    <option value="@option.Key">@option.Key</option>
+                    break;
+                default:
+                    <option value="@option.Key">@option.Value</option>
+                    break;
+            }
+        }
+    </select>
+    @if (!string.IsNullOrEmpty(SelectedValue))
+    {
+        switch (Label)
+        {
+            case "Type":
+                <label id="@HelpId" class="form-text alert-success p-2 m-2"></label>
+                break;
+            case "Series":
+                <label id="@HelpId" class="form-text alert-success p-2 m-2">@SelectedValue</label>
+                break;
+            default:
+                <label id="@HelpId" class="form-text alert-success p-2 m-2">@SelectedValue</label>
+                break;
+        }
+    }
+</div>
+
+@code {
+    [Parameter] public string Label { get; set; } = string.Empty;
+    [Parameter] public Dictionary<TValue, string> Options { get; set; } 
+    [Parameter] public string HelpId { get; set; } = string.Empty;
+    [Parameter] public string SelectedValue { get; set; } = string.Empty;
+    [Parameter] public EventCallback<TValue> SelectedValueChanged { get; set; }
+
+    private ElementReference DropdownRef;
+
+    private async Task HandleKeyDown(KeyboardEventArgs e, ElementReference dropdown)
+    {
+        await JSRuntime.InvokeVoidAsync("selectAllText", dropdown);
+    }
+
+    private void HandleBlur(ElementReference dropdown)
+    {
+        // Custom blur handling logic
+    }
+}

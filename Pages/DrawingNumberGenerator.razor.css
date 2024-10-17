@@ -1,4 +1,3 @@
-
 .form-group {
     margin-bottom: 1rem;
 }
@@ -24,17 +23,16 @@ input, select, button {
     font-weight: bold;
     text-align: center;
     animation: color-change 5s infinite;
-    margin: 20px;
+    margin: 16px;
     cursor: url('https://example.com/funky-cursor.png'), auto; /* Change to funky pointer */
     transition: transform 0.3s ease;
 }
 
     .animated-number:hover {
-        transform: scale(1.1); /* Hover effect to zoom slightly */
+        transform: scale(1.05); /* Hover effect to zoom slightly */
     }
 
 .copy-button {
-    border: dashed;
     cursor: grab;
 }
 
@@ -50,18 +48,18 @@ input, select, button {
 /* Keyframes for smooth color transition */
 @keyframes color-change {
     0% {
-        color: rgb(255, 0, 0); /* Red */
+        color: rgb(255, 255, 255); /* Red */
     }
 
     33% {
-        color: rgb(0, 255, 0); /* Green */
+        color: rgb(201, 221, 201); /* Green */
     }
 
     66% {
-        color: rgb(0, 0, 255); /* Blue */
+        color: rgb(240, 241, 239); /* Blue */
     }
 
     100% {
-        color: rgb(255, 0, 0); /* Back to Red */
+        color: rgb(165, 236, 141); /* Back to Red */
     }
 }

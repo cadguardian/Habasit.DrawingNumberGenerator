@@ -1,240 +1,525 @@
-@page "/drawing-number-generator"
 @using DNG.Library.Data
 @using DNG.Library.Models
 @using Microsoft.AspNetCore.Components.Forms
 @using global::DrawingNumberGenerator.Library.Models
 @inject IJSRuntime JSRuntime
 
-<h1 class="text-center">Drawing Number Generator</h1>
-<p class="text-center" style="color: red; font-weight: bold;">
-    ‚ö†Ô∏è Do not refresh this page! Bookmark the Home page only. This is a test page!
-</p>
-
-<DrawingNumberGeneratorInstructions/>
+@*<DrawingNumberGeneratorInstructions/>*@
 
 <EditForm Model="@userInput" OnValidSubmit="GenerateDrawingNumber">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
 
-    <div class="form-container">
-        <h2>Belt Information Section</h2>
+    <script>
+        function selectAllText(element) {
+            setTimeout(function() {
+                element.select();
+            }, 0);
+        }
+    </script>
 
-        <div class="form-group">
-             <label for="beltType" class="form-label">Belt Type</label>
-            <select id="beltType" @ref="beltTypeDropdownRef" @onkeydown="@(e => HandleKeyDown(e, beltTypeDropdownRef))"
-                    @onblur="@(e => HandleBlur(beltTypeDropdownRef))" aria-required="true"
-                    aria-describedby="beltTypeHelp" @bind="userInput.BeltType" class="form-select" required autofocus>
-                <option value="" disabled selected>Select a belt type...</option>
-                @foreach (var type in beltTypes)
+
+
+    <div class="row d-flex mb-4">
+        <!-- Left Column -->
+        <div class="col-12 d-flex">
+            <div class="card mb-3 flex-fill">
+                <div class="card-body">
+                    <!-- Drawing Number Display -->
+                    <h1 class="copy-button text-center" @onclick="CopyDrawingNumberToClipboard" id="drawingNumber">
+                        @DrawingNumber.GetDrawingNumber(NoFlightsRollerOrGrips)
+                    </h1>
+                    <div id="copyDialog" class="dialog" style="display: none;">
+                        Drawing number has been copied to clipboard!
+                    </div>
+
+                    <!-- Instructions Section -->
+                    <div class="instructions-section">
+                        <button @onclick="ToggleInstructions" class="btn btn-outline-secondary mb-3 btn-sm">
+                            @if (showInstructions)
+                            {
+                                <span>Hide Instructions</span>
+                            }
+                            else
+                            {
+                                <span>Show Instructions</span>
+                            }
+                        </button>
+
+                        <div class="instructions-content" style="display: @(showInstructions ? "block" : "none")">
+                            <div class="alert alert-success mt-2">
+                                <p><strong>Instructions for using the Drawing Number:</strong></p>
+                                <p>When you generate a drawing number, use it to search for CAD files on the network drive. The drawing number helps you find specific files like CAD drawings, manuals, PDFs, and more.</p>
+
+                                <p><strong>Hereís how it works:</strong></p>
+                                <ul>
+                                    <li><strong>Drop-down Menus:</strong> Each part of the drawing number comes from choices in drop-down menus. You can leave parts out by using asterisks (*). For example, if you don't need to specify the belt type, you can use * to search more broadly.</li>
+                                    <li><strong>Use Asterisks Strategically:</strong> Add an asterisk (*) in place of parts of the drawing number that arenít important to your search. This widens your search to include similar belts.</li>
+                                    <li><strong>Search Example:</strong> If your drawing number is <code>123-M-ABC-456</code>, and you want to search for all belts of a similar type but not the exact same, try <code>123-*-ABC-456</code>. This will find belts with the same part numbers but different belt types.</li>
+                                </ul>
+
+                                <p class="mt-2"><strong>Tip:</strong> This makes it faster to find related parts and documentation for special builds.</p>
+
+                                <p class="mt-2"><strong>Best Practice:</strong> When you don't know the full drawing number, using asterisks (*) helps you get a wider search. Just be sure to keep the important parts, like part numbers, as they are.</p>
+
+                                <div class="mt-2">
+                                    <strong>Summary of Steps:</strong>
+                                    <ol>
+                                        <li>Generate the drawing number using the form.</li>
+                                        <li>Copy it to the clipboard and paste it in the network search.</li>
+                                        <li>Use asterisks in place of non-critical parts of the drawing number to widen your search for similar builds.</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <!-- Export JSON Button Instructions -->
+                            <div class="alert alert-info mt-2">
+                                <p><strong>Export JSON Button:</strong></p>
+                                <p>This button allows you to export the data from the form in a concise JSON format. Itís useful for storing project details or sharing with team members without manually inputting each field.</p>
+                                <p class="mt-2"><strong>How to leverage it for faster data entry:</strong></p>
+                                <ul>
+                                    <li><strong>Pre-fill Projects:</strong> Use the JSON export feature to save previous configurations. This can act as a template for new projects, allowing you to quickly load and adjust parameters instead of starting from scratch.</li>
+                                    <li><strong>Efficiency:</strong> Exporting data as JSON makes it easier to reference multiple projects and avoid re-entering repetitive information. Simply load the JSON to fill out the fields instantly.</li>
+                                </ul>
+                                <p class="mt-2"><strong>Tip:</strong> When exporting JSON, be sure to use consistent naming conventions and structure for quick retrieval later.</p>
+                            </div>
+
+                            <!-- Disabled Fields Info -->
+                            <div class="alert alert-warning mt-2">
+                                <p><strong>Note on Disabled Fields:</strong></p>
+                                <p>The <strong>F/R/G Centers</strong> and <strong>Qty. Rollers Across Width</strong> fields have been temporarily disabled for now. They will be available once we fully understand their relevance and how to best integrate them into the workflow.</p>
+                                <p class="mt-2"><strong>For now:</strong> Please proceed with other fields, and we will update you when these become active.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Upload Component -->
+                    <div class="d-flex justify-content-center">
+                        <Upload DrawingNumber="@DrawingNumber" userInput="@userInput" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @code {
+        private bool showInstructions = false;
+
+        // Method to toggle the instructions visibility
+        private void ToggleInstructions()
+        {
+        showInstructions = !showInstructions;
+        }
+    }
+
+    
+
+
+    @code {
+        private void OnSelectedValueChanged(ChangeEventArgs e)
+        {
+            GenerateDrawingNumber();
+        }
+    }
+
+    <h2>Belt Information Section</h2>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@BeltType.GetNameByCode(userInput.BeltType, BeltType.Options)</span>
+        <label class="input-group-text" for="beltType">Type</label>
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+        </div>
+        <select id="beltType"
+                @ref="beltTypeDropdownRef"
+                @onkeydown="@(e => HandleKeyDown(e, beltTypeDropdownRef))"
+                @onblur="@(e => HandleBlur(beltTypeDropdownRef))"
+                @bind="userInput.BeltType"
+                aria-required="true"
+                aria-describedby="beltTypeHelp"
+                class="form-select form-select-sm" required autofocus>
+
+            @foreach (var type in beltTypes)
+            {
+                if (type?.ToLower() == "m")
+                {
+                    <option value="@type" selected>@type</option>
+                }
+                else
                 {
                     <option value="@type">@type</option>
                 }
-            </select>
-            @* <div id="beltTypeHelp" class="form-text text-muted">Please select the belt type.</div> *@
-            <ValidationMessage For="@(() => userInput.BeltType)" class="text-danger" />
+            }
+        </select>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@BeltSeries.GetBeltSeriesType(userInput.BeltSeries)</span>
+        <label class="input-group-text" for="beltSeries">Series</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <div class="form-group">
-            <label for="beltSeries">Belt Series</label>
-            <select id="beltSeries" @ref="beltSeriesDropdownRef" @onkeydown="@(e => HandleKeyDown(e, beltSeriesDropdownRef))"
-                    @onblur="@(e => HandleBlur(beltSeriesDropdownRef))" aria-required="true"
-                    aria-describedby="beltSeriesHelp" @bind="userInput.BeltSeries" class="form-control" required>
-                <option value="" disabled selected>Select a belt series...</option>
-                @foreach (var series in beltSeries)
-                {
-                    <option value="@series">@series</option>
-                }
-            </select>
-            @* <small id="beltSeriesHelp" class="form-text text-muted">Please select the belt series.</small> *@
-            <ValidationMessage For="@(() => userInput.BeltSeries)" />
+        <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
+        <select id="beltSeries"
+                @ref="beltSeriesDropdownRef"
+                @onkeydown="@(e => HandleKeyDown(e, beltSeriesDropdownRef))"
+                @onblur="@(e => HandleBlur(beltSeriesDropdownRef))"
+                @bind="userInput.BeltSeries"
+                aria-required="true"
+                aria-describedby="beltSeriesHelp"
+                class="form-select form-select-sm" required autofocus>
+
+            @foreach (var series in beltSeries)
+            {
+                <option value="@series">@series</option>
+            }
+        </select>
+
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@MaterialColor.GetCodeByName(userInput.Color, MaterialColor.Options)</span>
+        <label class="input-group-text" for="color">Color</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <div class="form-group">
-            <label for="color">Color</label>
-            <select id="color" @ref="colorDropdownRef" @onkeydown="@(e => HandleKeyDown(e, colorDropdownRef))"
-                    @onblur="@(e => HandleBlur(colorDropdownRef))" aria-required="true"
-                    aria-describedby="colorHelp" @bind="userInput.Color" class="form-control" required>
-                <option value="" disabled selected>Select a color...</option>
-                @foreach (var color in colors)
-                {
-                    <option value="@color">@color</option>
-                }
-            </select>
-            @* <small id="colorHelp" class="form-text text-muted">Please select the color.</small> *@
-            <ValidationMessage For="@(() => userInput.Color)" />
+        <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
+        <select id="color"
+                @ref="colorDropdownRef"
+                @onkeydown="@(e => HandleKeyDown(e, colorDropdownRef))"
+                @onblur="@(e => HandleBlur(colorDropdownRef))"
+                @bind="userInput.Color"
+                aria-required="true"
+                aria-describedby="colorHelp"
+                class="form-select form-select-sm" required autofocus>
+
+            @foreach (var color in colors)
+            {
+                <option value="@color">@color</option>
+            }
+        </select>
+
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@BeltMaterial.GetCodeByName(userInput.Material, BeltMaterial.Options)</span>
+        <label class="input-group-text" for="material">Material</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <div class="form-group">
-            <label for="material">Material</label>
-            <select id="material" @ref="materialDropdownRef" @onkeydown="@(e => HandleKeyDown(e, materialDropdownRef))"
-                    @onblur="@(e => HandleBlur(materialDropdownRef))" aria-required="true"
-                    aria-describedby="materialHelp" @bind="userInput.Material" class="form-control" required>
-                <option value="" disabled selected>Select a material...</option>
-                @foreach (var material in materials)
-                {
-                    <option value="@material">@material</option>
-                }
-            </select>
-            @* <small id="materialHelp" class="form-text text-muted">Please select the material.</small> *@
-            <ValidationMessage For="@(() => userInput.Material)" />
+        <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
+        <select id="material"
+                @ref="materialDropdownRef"
+                @onkeydown="@(e => HandleKeyDown(e, materialDropdownRef))"
+                @onblur="@(e => HandleBlur(materialDropdownRef))"
+                @bind="userInput.Material"
+                aria-required="true"
+                aria-describedby="materialHelp"
+                class="form-select form-select-sm" required autofocus>
+
+            @foreach (var material in materials)
+            {
+                <option value="@material">@material</option>
+            }
+        </select>
+
+
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@AdderMaterial.GetCodeByName(userInput.AdderMaterial, AdderMaterial.Options)</span>
+        <label class="input-group-text" for="adderMaterial">Adder Material</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <div class="form-group">
-            <label for="adderMaterial">Adder Material</label>
-            <select id="adderMaterial" @ref="adderMaterialDropdownRef" @onkeydown="@(e => HandleKeyDown(e, adderMaterialDropdownRef))"
-                    @onblur="@(e => HandleBlur(adderMaterialDropdownRef))" aria-required="true"
-                    aria-describedby="adderMaterialHelp" @bind="userInput.AdderMaterial" class="form-control" required>
-                <option value="" disabled selected>Select a adder material...</option>
-                @foreach (var adder in adderMaterials)
-                {
-                    <option value="@adder">@adder</option>
-                }
-            </select>
-            @* <small id="adderMaterialHelp" class="form-text text-muted">Please select the adder material.</small> *@
-            <ValidationMessage For="@(() => userInput.AdderMaterial)" />
+        <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
+        <select id="adderMaterial"
+                @ref="adderMaterialDropdownRef"
+                @onkeydown="@(e => HandleKeyDown(e, adderMaterialDropdownRef))"
+                @onblur="@(e => HandleBlur(adderMaterialDropdownRef))"
+                @bind="userInput.AdderMaterial"
+                aria-required="true"
+                aria-describedby="adderMaterialHelp"
+                class="form-select form-select-sm" required autofocus>
+
+            @foreach (var adder in adderMaterials)
+            {
+                <option value="@adder">@adder</option>
+            }
+        </select>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@RodMaterial.GetCodeByName(userInput.RodMaterial, RodMaterial.Options)</span>
+        <label class="input-group-text" for="rodMaterial">Rod</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <div class="form-group">
-            <label for="rodMaterial">Rod Material</label>
-            <select id="rodMaterial" @ref="rodMaterialDropdownRef" @onkeydown="@(e => HandleKeyDown(e, rodMaterialDropdownRef))"
-                    @onblur="@(e => HandleBlur(rodMaterialDropdownRef))" aria-required="true"
-                    aria-describedby="rodMaterialHelp" @bind="userInput.RodMaterial" class="form-control" required>
-                <option value="" disabled selected>Select a rod material...</option>
-                @foreach (var rod in rodMaterials)
-                {
-                    <option value="@rod">@rod</option>
-                }
-            </select>
-            @* <small id="rodMaterialHelp" class="form-text text-muted">Please select the rod material.</small> *@
-            <ValidationMessage For="@(() => userInput.RodMaterial)" />
+        <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
+        <select id="rodMaterial"
+                @ref="rodMaterialDropdownRef"
+                @onkeydown="@(e => HandleKeyDown(e, rodMaterialDropdownRef))"
+                @onblur="@(e => HandleBlur(rodMaterialDropdownRef))"
+                @bind="userInput.RodMaterial"
+                aria-required="true"
+                aria-describedby="rodMaterialHelp"
+                class="form-select form-select-sm" required autofocus>
+
+            @foreach (var rod in rodMaterials)
+            {
+                <option value="@rod">@rod</option>
+            }
+        </select>
+    </div>
+
+    @*Width*@
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@DrawingNumber.BeltWidthCode</span>
+        <label class="input-group-text" for="beltWidth">Width (inches)</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <div class="form-group">
-            <label for="beltWidth">Belt Width (inches)</label>
-            <InputNumber id="beltWidth" aria-required="true" aria-describedby="beltWidthHelp" @bind-Value="userInput.BeltWidth"
-                         Min="1" Max="999" class="form-control" required />
-            @* <small id="beltWidthHelp" class="form-text text-muted">Please input the belt width in inches.</small> *@
-            <ValidationMessage For="@(() => userInput.BeltWidth)" />
-        </div>
+        <InputNumber @onblur="@(e => HandleBlur(beltWidthRef))"
+                     id="beltWidth"
+                     aria-required="true"
+                     aria-describedby="beltWidthHelp"
+                     @bind-Value="userInput.BeltWidth"
+                     Min="1"
+                     Max="999"
+                     class="form-control"
+                     onfocus="selectAllText(this)" />
+    </div>
 
+    <h2>Flights/Rollers/Grip Section</h2>
 
-        <h2>Flights/Rollers/Grip Section</h2>
+    @*Flights/Rollers/Grip*@
+    <div class="input-group input-group-sm mb-3">
+    <span class="input-group-text">@DrawingNumber.FlightsRollersGripsCode</span>
+    <label class="input-group-text" for="flightsRollersGrip">Flights/Rollers/Grip</label>
 
-        <div class="form-check form-switch">
-    <input class="form-check-input" type="checkbox" id="noFlightsSwitch" @bind="NoFlightsRollerOrGrips" />
-    <label class="form-check-label" for="noFlightsSwitch">No Flights Roller Or Grips</label>
+    <div class="input-group-text">
+        <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+    </div>
+
+    <select id="flightsRollersGrip"
+            @ref="flightsRollersGripDropdownRef"
+            @onkeydown="@(e => HandleKeyDown(e, flightsRollersGripDropdownRef))"
+            @onblur="@(e => HandleBlur(flightsRollersGripDropdownRef))"
+            aria-required="true"
+            aria-describedby="flightsRollersGripHelp"
+            @bind="userInput.FlightsRollersGrip"
+            class="form-select form-select-sm">
+        @foreach (var type in flightsRollersGrips)
+        {
+            <option value="@type">@type</option>
+        }
+    </select>
+
 </div>
 
-        <div class="form-group">
-            <label for="flightsRollersGrip">Flights/Rollers/Grip</label>
-            <select id="flightsRollersGrip" disabled="@NoFlightsRollerOrGrips" @ref="flightsRollersGripDropdownRef" @onkeydown="@(e => HandleKeyDown(e, flightsRollersGripDropdownRef))"
-                    @onblur="@(e => HandleBlur(flightsRollersGripDropdownRef))" aria-required="true"
-                    aria-describedby="flightsRollersGripHelp" @bind="userInput.FlightsRollersGrip" class="form-control">
-                <option value="" disabled selected>Select a flight, roller or grip...</option>
-                @foreach (var type in flightsRollersGrips)
-                {
-                    <option value="@type">@type</option>
-                }
-            </select>
-            @* <small id="flightsRollersGripHelp" class="form-text text-muted">Please select the type of flights, rollers, or grip.</small> *@
-            <ValidationMessage For="@(() => userInput.FlightsRollersGrip)" />
+    @*Qty Rollers Width*@
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@DrawingNumber.QtyRollersAcrossWidth</span>
+        <label class="input-group-text" for="qtyRollersAcrossWidth">Qty. Rollers Width</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <div class="form-group">
-            <label for="qtyRollersAcrossWidth">Qty. Rollers Across Width</label>
-            <InputNumber id="qtyRollersAcrossWidth" disabled aria-required="true" aria-describedby="qtyRollersAcrossWidthHelp"
-                         @bind-Value="userInput.QtyRollersAcrossWidth" Min="1" Max="20" class="form-control" />
-            <small id="qtyRollersAcrossWidthHelp" class="form-text text-muted">Field disabled for quantity of rollers across the width until further notice.</small>
-            <ValidationMessage For="@(() => userInput.QtyRollersAcrossWidth)" />
+        <InputNumber id="qtyRollersAcrossWidth"
+                     aria-required="true"
+                     aria-describedby="qtyRollersAcrossWidthHelp"
+                     @onblur="@(e => HandleBlur(qtyRollerWidth))"
+                     @bind-Value="userInput.QtyRollersAcrossWidth"
+                     Min="1"
+                     Max="20"
+                     class="form-control"
+                     disabled
+                     onfocus="selectAllText(this)" />
+    </div>
+
+    @*F/R/G Centers*@
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@DrawingNumber.FRGCenters</span>
+        <label class="input-group-text" for="frgCenters">F/R/G Centers</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <div class="form-group">
-            <label for="frgCenters">F/R/G Centers (inches)</label>
-            <InputNumber id="frgCenters" disabled aria-required="true" aria-describedby="frgCentersHelp"
-                         @bind-Value="userInput.FRGCenters" Min="1" Max="100" class="form-control" />
-            <small id="frgCentersHelp" class="form-text text-muted">Field disabled for the F/R/G centers in inches until further notice.</small>
-            <ValidationMessage For="@(() => userInput.FRGCenters)" />
+        <InputNumber id="frgCenters"
+                     aria-required="true"
+                     aria-describedby="frgCentersHelp"
+                     @onblur="@(e => HandleBlur(frgCenters))"
+                     @bind-Value="userInput.FRGCenters"
+                     Min="1"
+                     Max="100"
+                     class="form-control"
+                     disabled
+                     onfocus="selectAllText(this)" />
+    </div>
+
+    <h2>Belt Accessories Section</h2>
+
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@DrawingNumber.BeltAccessoriesCode</span>
+        <label class="input-group-text" for="beltAccessories">Accessories</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <h2>Belt Accessories Section</h2>
+        <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
+        <select id="beltAccessories"
+                @ref="beltAccessoriesDropdownRef"
+                @onkeydown="@(e => HandleKeyDown(e, beltAccessoriesDropdownRef))"
+                @onblur="@(e => HandleBlur(beltAccessoriesDropdownRef))"
+                @bind="userInput.BeltAccessories"
+                aria-required="true"
+                aria-describedby="beltAccessoriesHelp"
+                class="form-select form-select-sm" required autofocus>
 
-        <div class="form-group">
-            <label for="beltAccessories">Belt Accessories</label>
-            <select id="beltAccessories" @ref="beltAccessoriesDropdownRef" @onkeydown="@(e => HandleKeyDown(e, beltAccessoriesDropdownRef))"
-                    @onblur="@(e => HandleBlur(beltAccessoriesDropdownRef))" aria-required="true"
-                    aria-describedby="beltAccessoriesHelp" @bind="userInput.BeltAccessories" class="form-control" required>
-                <option value="" disabled selected>Select a belt accessory...</option>
-                @foreach (var type in beltAccessories)
-                {
-                    <option value="@type">@type</option>
-                }
-            </select>
-            @* <small id="beltAccessoriesHelp" class="form-text text-muted">Please select the belt accessories.</small> *@
-            <ValidationMessage For="@(() => userInput.BeltAccessories)" />
+            @foreach (var accessory in beltAccessories)
+            {
+                <option value="@accessory">@accessory</option>
+            }
+        </select>
+
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@DrawingNumber.FrictionAntiStaticCode</span>
+        <label class="input-group-text" for="frictionAntiStatic">Friction/Anti Static</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <div class="form-group">
-            <label for="frictionAntiStatic">Friction/Anti Static</label>
-            <select id="frictionAntiStatic" @ref="frictionAntiStaticDropdownRef" @onkeydown="@(e => HandleKeyDown(e, frictionAntiStaticDropdownRef))"
-                    @onblur="@(e => HandleBlur(frictionAntiStaticDropdownRef))" aria-required="true"
-                    aria-describedby="frictionAntiStaticHelp" @bind="userInput.FrictionAntiStatic" class="form-control" required>
-                <option value="" disabled selected>Select friction or anti-static ...</option>
-                @foreach (var type in frictionAntiStatics)
-                {
-                    <option value="@type">@type</option>
-                }
-            </select>
-            @* <small id="frictionAntiStaticHelp" class="form-text text-muted">Please select the friction/anti-static material.</small> *@
-            <ValidationMessage For="@(() => userInput.FrictionAntiStatic)" />
+        <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
+        <select id="frictionAntiStatic"
+                @ref="frictionAntiStaticDropdownRef"
+                @onkeydown="@(e => HandleKeyDown(e, frictionAntiStaticDropdownRef))"
+                @onblur="@(e => HandleBlur(frictionAntiStaticDropdownRef))"
+                @bind="userInput.FrictionAntiStatic"
+                aria-required="true"
+                aria-describedby="frictionAntiStaticHelp"
+                class="form-select form-select-sm" required autofocus>
+
+            @foreach (var type in frictionAntiStatics)
+            {
+                <option value="@type">@type</option>
+            }
+        </select>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@SidePLLaneDV.GetCodeByName(userInput.SidePLLaneDV, SidePLLaneDV.Options)</span>
+        <label class="input-group-text" for="sidePLLaneDV">Side-PL/Lane-DV</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <div class="form-group">
-            <label for="sidePLLaneDV">Side-PL/Lane-DV</label>
-            <select id="sidePLLaneDV" @ref="sidePLLaneDVDropdownRef" @onkeydown="@(e => HandleKeyDown(e, sidePLLaneDVDropdownRef))"
-                    @onblur="@(e => HandleBlur(sidePLLaneDVDropdownRef))" aria-required="true"
-                    aria-describedby="sidePLLaneDVHelp" @bind="userInput.SidePLLaneDV" class="form-control" required>
-                <option value="" disabled selected>Select Side-PL/Lane-DV...</option>
-                @foreach (var type in sidePLLaneDVs)
-                {
-                    <option value="@type">@type</option>
-                }
-            </select>
-            @* <small id="sidePLLaneDVHelp" class="form-text text-muted">Please select the Side-PL/Lane-DV.</small> *@
-            <ValidationMessage For="@(() => userInput.SidePLLaneDV)" />
+        <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
+        <select id="sidePLLaneDV"
+                @ref="sidePLLaneDVDropdownRef"
+                @onkeydown="@(e => HandleKeyDown(e, sidePLLaneDVDropdownRef))"
+                @onblur="@(e => HandleBlur(sidePLLaneDVDropdownRef))"
+                @bind="userInput.SidePLLaneDV"
+                aria-required="true"
+                aria-describedby="sidePLLaneDVHelp"
+                class="form-select form-select-sm" required autofocus>
+
+            @foreach (var type in sidePLLaneDVs)
+            {
+                <option value="@type">@type</option>
+            }
+        </select>
+    </div>
+
+    <h2>Unique Identification Section</h2>
+
+
+
+
+
+  
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@DrawingNumber.UniqueIdentification</span>
+        <label class="input-group-text" for="uniqueIdentification">Unique Identification</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <h2>Unique Identification Section</h2>
+        <InputText id="uniqueIdentification"
+                   aria-required="true"
+                   aria-describedby="uniqueIdentificationHelp"
+                   @bind-Value="userInput.UniqueIdentification"
+                   class="form-select form-select-sm"
+                   minlength="1"
+                   maxlength="2"
+                   onfocus="selectAllText(this)" />
 
-        <div class="form-group">
-            <label for="uniqueIdentification">Unique Identification</label>
-            <InputText id="uniqueIdentification" aria-required="true" aria-describedby="uniqueIdentificationHelp"
-                       @bind-Value="userInput.UniqueIdentification" class="form-control"
-                       minlength="1" maxlength="2" required />
-            @* <small id="uniqueIdentificationHelp" class="form-text text-muted">Please input the unique identification (1-2 characters).</small> *@
-            <ValidationMessage For="@(() => userInput.UniqueIdentification)" />
+        <div id="uniqueIdentificationHelp" class="form-text text-muted">
+            @DrawingNumber.UniqueIdentification
+        </div>
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+        <span class="input-group-text">@DrawingNumber.IndentCode</span>
+        <label class="input-group-text" for="indentCode">Indent Code</label>
+
+        <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
         </div>
 
-        <div class="form-group">
-            <label for="indentCode">Indent Code</label>
-            <select id="indentCode" @ref="indentCodeDropdownRef" @onkeydown="@(e => HandleKeyDown(e, indentCodeDropdownRef))"
-                    @onblur="@(e => HandleBlur(indentCodeDropdownRef))" aria-required="true"
-                    aria-describedby="indentCodeHelp" @bind="userInput.IndentCode" class="form-control" required>
-                <option value="" disabled selected>Select Indent...</option>
-                @foreach (var type in indents)
-                {
-                    <option value="@type">@type</option>
-                }
-            </select>
-            @* <small id="sidePLLaneDVHelp" class="form-text text-muted">Please select the indent.</small> *@
-            <ValidationMessage For="@(() => userInput.IndentCode)" />
+        <select id="indentCode"
+                @ref="indentCodeDropdownRef"
+                @onkeydown="@(e => HandleKeyDown(e, indentCodeDropdownRef))"
+                @onblur="@(e => HandleBlur(indentCodeDropdownRef))"
+                @bind="userInput.IndentCode"
+                aria-required="true"
+                aria-describedby="indentCodeHelp"
+                class="form-select form-select-sm">
+            @foreach (var type in indents)
+            {
+                <option value="@type">@type</option>
+            }
+        </select>
+
+        <div id="indentCodeHelp" class="form-text text-muted">
+            @DrawingNumber.IndentCode
+        </div>
+    </div>
+
+
+    <div class="row p-3">
+
+
+        <div class="form-check form-switch col-6 col-md-4 col-lg-3 mt-3">
+
+            <input class="form-check-input" type="checkbox" id="noFlightsSwitch" @bind="NoFlightsRollerOrGrips" />
+            <label class="form-check-label" for="noFlightsSwitch">No Flights Roller Or Grips</label>
         </div>
 
-        <button type="submit" disabled="@isProcessing" class="btn btn-primary btn-block" aria-label="Generate Drawing Number">Generate Drawing Number</button>
+        @* <button type="submit" disabled="@isProcessing" class="btn btn-primary btn-block mt-4" aria-label="Generate Drawing Number">Generate Drawing Number</button> *@
 
-        <div class="animated-number copy-button" @onclick="CopyDrawingNumberToClipboard" id="drawingNumber">@DrawingNumber.GetDrawingNumber(NoFlightsRollerOrGrips)</div>
-        <div id="copyDialog" class="dialog" style="display: none;">Drawing number has been copied to clipboard!</div>
+    
+       
 <hr>
-        <ConsoleLogger DrawingNumber="DrawingNumber" />
         </div>
 
     
