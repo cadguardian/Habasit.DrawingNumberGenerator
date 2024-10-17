@@ -148,6 +148,7 @@
 
                 <!-- Autocomplete input for Belt Type -->
                 <input list="beltTypes" id="beltType"
+                    @onblur="@(e => HandleBlur(beltTypeDropdownRef))"
                        @bind="drawingRequest.BeltType"
                        class="form-control form-control-sm"
                        placeholder="Select or type Belt Type" required autofocus />
@@ -162,7 +163,7 @@
                 
                 <span class="input-group-text">@BeltType.GetNameByCode(drawingRequest.BeltType, BeltType.Options)</span>
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
             </div>
 
@@ -172,6 +173,7 @@
 
                 <!-- Autocomplete input for Belt Series -->
                 <input list="beltSeriesList" id="beltSeries"
+                       @onblur="@(e => HandleBlur(beltSeriesDropdownRef))"
                        @bind="drawingRequest.BeltSeries"
                        class="form-control form-control-sm"
                        placeholder="Select or type Belt Series" required autofocus />
@@ -185,7 +187,7 @@
                 </datalist>
                 <span class="input-group-text">@BeltSeries.GetBeltSeriesType(drawingRequest.BeltSeries)</span>
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
 
                 
@@ -197,6 +199,7 @@
 
                 <!-- Autocomplete input for Color -->
                 <input list="colorList" id="color"
+                       @onblur="@(e => HandleBlur(colorDropdownRef))"
                        @bind="drawingRequest.Color"
                        class="form-control form-control-sm"
                        placeholder="Select or type Color" required autofocus />
@@ -212,7 +215,7 @@
                 <span class="input-group-text">@MaterialColor.GetCodeByName(drawingRequest.Color, MaterialColor.Options)</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
             </div>
 
@@ -222,6 +225,7 @@
 
                 <!-- Autocomplete input for Material -->
                 <input list="materialsList" id="material"
+                       @onblur="@(e => HandleBlur(materialDropdownRef))"
                        @bind="drawingRequest.Material"
                        class="form-control form-control-sm"
                        placeholder="Select or type Material" required autofocus />
@@ -236,7 +240,7 @@
                 <span class="input-group-text">@BeltMaterial.GetCodeByName(drawingRequest.Material, BeltMaterial.Options)</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
             </div>
 
@@ -246,6 +250,7 @@
                 <label class="input-group-text" for="adderMaterial">Adder Material</label>
 
                 <input list="adderMaterialsList" id="adderMaterial"
+                       @onblur="@(e => HandleBlur(adderMaterialDropdownRef))"
                        @bind="drawingRequest.AdderMaterial"
                        class="form-control form-control-sm"
                        placeholder="Select or type Adder Material" required autofocus />
@@ -260,7 +265,7 @@
                 <span class="input-group-text">@AdderMaterial.GetCodeByName(drawingRequest.AdderMaterial, AdderMaterial.Options)</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
             </div>
 
@@ -270,6 +275,7 @@
 
                 <!-- Autocomplete input for Rod Material -->
                 <input list="rodMaterialsList" id="rodMaterial"
+                       @onblur="@(e => HandleBlur(rodMaterialDropdownRef))"
                        @bind="drawingRequest.RodMaterial"
                        class="form-control form-control-sm"
                        placeholder="Select or type Rod Material" required autofocus />
@@ -284,7 +290,7 @@
                 <span class="input-group-text">@RodMaterial.GetCodeByName(drawingRequest.RodMaterial, RodMaterial.Options)</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
             </div>
 
@@ -305,7 +311,7 @@
                 <span class="input-group-text">@DrawingNumber.BeltWidthCode</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
             </div>
 
@@ -317,6 +323,7 @@
 
                 <!-- Autocomplete input for Flights/Rollers/Grip -->
                 <input list="flightsRollersGripList" id="flightsRollersGrip"
+                       @onblur="@(e => HandleBlur(flightsRollersGripDropdownRef))"
                        @bind="drawingRequest.FlightsRollersGrip"
                        class="form-control form-control-sm"
                        placeholder="Select or type Flights/Rollers/Grip" required />
@@ -331,7 +338,7 @@
                 <span class="input-group-text">@DrawingNumber.FlightsRollersGripsCode</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
 
                
@@ -354,7 +361,7 @@
                 <span class="input-group-text">@DrawingNumber.QtyRollersAcrossWidth</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
 
                 
@@ -378,7 +385,7 @@
                 <span class="input-group-text">@DrawingNumber.FRGCenters</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
 
                 
@@ -392,6 +399,7 @@
 
                 <!-- Autocomplete input for Belt Accessories -->
                 <input list="beltAccessoriesList" id="beltAccessories"
+                       @onblur="@(e => HandleBlur(beltAccessoriesDropdownRef))"
                        @bind="drawingRequest.BeltAccessories"
                        class="form-control form-control-sm"
                        placeholder="Select or type Accessories" required />
@@ -407,7 +415,7 @@
                 <span class="input-group-text">@DrawingNumber.BeltAccessoriesCode</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
 
                 
@@ -419,6 +427,7 @@
 
                 <!-- Autocomplete input for Friction/Anti Static -->
                 <input list="frictionAntiStaticList" id="frictionAntiStatic"
+                       @onblur="@(e => HandleBlur(frictionAntiStaticDropdownRef))"
                        @bind="drawingRequest.FrictionAntiStatic"
                        class="form-control form-control-sm"
                        placeholder="Select or type Friction/Anti Static" required />
@@ -433,7 +442,7 @@
                 <span class="input-group-text">@DrawingNumber.FrictionAntiStaticCode</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
 
                 
@@ -445,6 +454,7 @@
 
                 <!-- Autocomplete input for Side-PL/Lane-DV -->
                 <input list="sidePLLaneDVList" id="sidePLLaneDV"
+                       @onblur="@(e => HandleBlur(sidePLLaneDVDropdownRef))"
                        @bind="drawingRequest.SidePLLaneDV"
                        class="form-control form-control-sm"
                        placeholder="Select or type Side-PL/Lane-DV" required />
@@ -459,7 +469,7 @@
                 <span class="input-group-text">@SidePLLaneDV.GetCodeByName(drawingRequest.SidePLLaneDV, SidePLLaneDV.Options)</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
 
                 
@@ -483,7 +493,7 @@
                 <span class="input-group-text">@DrawingNumber.UniqueIdentification</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
 
                 
@@ -495,6 +505,7 @@
 
                 <!-- Autocomplete input for Indent Code -->
                 <input list="indentCodeList" id="indentCode"
+                       @onblur="@(e => HandleBlur(indentCodeDropdownRef))"
                        @bind="drawingRequest.IndentCode"
                        class="form-control form-control-sm"
                        placeholder="Select or type Indent Code" required />
@@ -509,7 +520,7 @@
                 <span class="input-group-text">@DrawingNumber.IndentCode</span>
 
                 <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
                 </div>
             </div>
 
