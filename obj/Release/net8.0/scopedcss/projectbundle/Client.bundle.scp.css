@@ -75,14 +75,14 @@ main[b-tmopy668it] {
 }
 
 .sidebar[b-tmopy668it] {
-    background-image: linear-gradient(320deg, rgba(14, 63, 4, 0.91) 1%, #0b7a27 70%);
+    background-image: linear-gradient(320deg,#FFF 1%, #FFF 70%);
 }
 
 .top-row[b-tmopy668it] {
     background-color: #f7f7f7;
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
-    height: 3.5rem;
+    height: 3rem;
     display: flex;
     align-items: center;
 }
@@ -145,9 +145,9 @@ main[b-tmopy668it] {
 /* Centering the image container */
 .image-container[b-tmopy668it] {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
+    justify-content: left;
+    align-items: left;
+    margin-bottom: 20px;
 }
 
 /* Image styling with smooth hover animation and glow effect */
@@ -177,64 +177,7 @@ main[b-tmopy668it] {
     transform: translateY(0); /* Ensures image returns to normal position */
     box-shadow: 0 0 15px 5px rgb(0, 157, 0, 0.41); /* Green glow effect */
 }
-/* /Layout/NavMenu.razor.rz.scp.css */
-/* Navbar and sidebar styles */
-.navbar-toggler[b-9qkkwgv1yd] {
-    background-color: rgb(255, 255, 255, 0.32);
-}
-
-.top-row[b-9qkkwgv1yd] {
-    height: 3.5rem;
-    background-color: rgb(23, 90, 5);
-}
-
-.navbar-brand[b-9qkkwgv1yd] {
-    font-size: 1.1rem;
-}
-
-.nav-item[b-9qkkwgv1yd] {
-    font-size: 0.9rem;
-    padding-bottom: 0.5rem;
-}
-
-    .nav-item:first-of-type[b-9qkkwgv1yd] {
-        padding-top: 1rem;
-    }
-
-    .nav-item:last-of-type[b-9qkkwgv1yd] {
-        padding-bottom: 1rem;
-    }
-
-    .nav-item[b-9qkkwgv1yd]  a {
-        color: rgb(197, 241, 186);
-        border-radius: 4px;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        line-height: 3rem;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    }
-
-        .nav-item[b-9qkkwgv1yd]  a.active {
-            background-color: forestgreen;
-            color: white;
-            font-weight: bolder;
-        }
-
-        .nav-item[b-9qkkwgv1yd]  a:hover {
-            background-color: rgb(12, 102, 12);
-            color: rgb(255, 255, 255);
-        }
-
-/* Ensure sidebar is scrollable on tall screens */
-@media (min-width: 641px) {
-    .nav-scrollable[b-9qkkwgv1yd] {
-        height: calc(100vh - 3.5rem);
-        overflow-y: auto;
-    }
-}
 /* /Pages/DrawingNumberGenerator.razor.rz.scp.css */
-
 .form-group[b-o0m35uarhm] {
     margin-bottom: 1rem;
 }
@@ -260,17 +203,16 @@ input[b-o0m35uarhm], select[b-o0m35uarhm], button[b-o0m35uarhm] {
     font-weight: bold;
     text-align: center;
     animation: color-change-b-o0m35uarhm 5s infinite;
-    margin: 20px;
+    margin: 16px;
     cursor: url('https://example.com/funky-cursor.png'), auto; /* Change to funky pointer */
     transition: transform 0.3s ease;
 }
 
     .animated-number:hover[b-o0m35uarhm] {
-        transform: scale(1.1); /* Hover effect to zoom slightly */
+        transform: scale(1.05); /* Hover effect to zoom slightly */
     }
 
 .copy-button[b-o0m35uarhm] {
-    border: dashed;
     cursor: grab;
 }
 
@@ -286,18 +228,18 @@ input[b-o0m35uarhm], select[b-o0m35uarhm], button[b-o0m35uarhm] {
 /* Keyframes for smooth color transition */
 @keyframes color-change-b-o0m35uarhm {
     0% {
-        color: rgb(255, 0, 0); /* Red */
+        color: rgb(255, 255, 255); /* Red */
     }
 
     33% {
-        color: rgb(0, 255, 0); /* Green */
+        color: rgb(201, 221, 201); /* Green */
     }
 
     66% {
-        color: rgb(0, 0, 255); /* Blue */
+        color: rgb(240, 241, 239); /* Blue */
     }
 
     100% {
-        color: rgb(255, 0, 0); /* Back to Red */
+        color: rgb(165, 236, 141); /* Back to Red */
     }
 }
