@@ -304,6 +304,12 @@
 
             <h2 class="text-center bg-success text-light">Flights/Rollers/Grip Section</h2>
 
+            <div class="form-check form-switch  mt-3">
+
+                <input class="form-check-input" type="checkbox" id="noFlightsSwitch" @bind="NoFlightsRollerOrGrips" />
+                <label class="form-check-label" for="noFlightsSwitch">No Flights Roller Or Grips</label>
+            </div>
+
             @*Flights/Rollers/Grip*@
             <div class="input-group input-group-sm mb-3">
                 <span class="input-group-text">@DrawingNumber.FlightsRollersGripsCode</span>
@@ -510,11 +516,7 @@
             <div class="row p-3">
 
 
-                <div class="form-check form-switch col-6 col-md-4 col-lg-3 mt-3">
-
-                    <input class="form-check-input" type="checkbox" id="noFlightsSwitch" @bind="NoFlightsRollerOrGrips" />
-                    <label class="form-check-label" for="noFlightsSwitch">No Flights Roller Or Grips</label>
-                </div>
+                
 
                 @* <button type="submit" disabled="@isProcessing" class="btn btn-primary btn-block mt-4" aria-label="Generate Drawing Number">Generate Drawing Number</button> *@
 
