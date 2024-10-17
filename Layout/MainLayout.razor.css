@@ -1,56 +1,71 @@
+/* Ensure the body and html take up the full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page layout using flex-direction column */
 .page {
     position: relative;
     display: flex;
     flex-direction: column;
+    min-height: 100vh; /* Ensure the page takes up the full height of the viewport */
+    padding-bottom: 100px; /* Add extra space for the footer */
 }
 
-main {
-    flex: 1;
+/* Set the main content area to be scrollable */
+.main-content {
+    flex-grow: 1;
+    overflow-y: auto; /* Make content scrollable if it's too long */
+    padding-bottom: 80px; /* Space for the footer */
+    min-height: calc(100vh - 100px); /* Set a minimum height for the main content */
+    /* Custom scrollbar styles */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #28a745 #f7f7f7; /* Firefox scrollbar color (thumb, track) */
 }
 
-.sidebar {
-    background-image: linear-gradient(320deg,#FFF 1%, #FFF 70%);
-}
-
-/* Ensures the footer always appears at the bottom */
-.content-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Full viewport height */
-}
-
-.flex-grow-1 {
-    flex-grow: 1; /* This makes the main content expand to fill available space */
-}
-
-footer {
-    /* You can customize the footer's appearance further if needed */
-}
-
-.top-row {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-}
-
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
+    /* Webkit-based scrollbars (for Chrome, Safari, Edge) */
+    .main-content::-webkit-scrollbar {
+        width: 8px; /* Set width of the scrollbar */
     }
 
-        .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
-            text-decoration: underline;
+    .main-content::-webkit-scrollbar-thumb {
+        background-color: #28a745; /* Scrollbar thumb color */
+        border-radius: 10px; /* Rounded corners for the thumb */
+        transition: background-color 0.3s ease; /* Smooth transition on hover */
+    }
+
+        .main-content::-webkit-scrollbar-thumb:hover {
+            background-color: #1e7e34; /* Darker color on hover */
         }
 
-        .top-row ::deep a:first-child {
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+    .main-content::-webkit-scrollbar-track {
+        background-color: #f7f7f7; /* Track color */
+        border-radius: 10px;
+    }
 
+/* Footer that always stays at the bottom */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #28a745; /* Customize the background color */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%; /* Make sure the footer takes full width */
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+/* Sidebar styling (if applicable) */
+.sidebar {
+    background-image: linear-gradient(320deg, #FFF 1%, #FFF 70%);
+}
+
+/* Media Queries */
 @media (max-width: 640.98px) {
     .top-row {
         justify-content: space-between;
@@ -79,50 +94,8 @@ footer {
         z-index: 1;
     }
 
-        .top-row.auth ::deep a:first-child {
-            flex: 1;
-            text-align: right;
-            width: 0;
-        }
-
     .top-row, article {
         padding-left: 2rem !important;
         padding-right: 1.5rem !important;
     }
-}
-
-/* Centering the image container */
-.image-container {
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    margin-bottom: 20px;
-}
-
-/* Image styling with smooth hover animation and glow effect */
-.hover-image {
-    animation: hoverUpDown 3s ease-in-out infinite; /* Animation autostarts */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for transform and glow */
-}
-
-/* Keyframes for the up-and-down movement */
-@keyframes hoverUpDown {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-    /* Moves the image up */
-    100% {
-        transform: translateY(0);
-    }
-}
-
-/* Hover effects */
-.image-link:hover .hover-image {
-    animation-play-state: paused; /* Pauses the animation when hovered */
-    transform: translateY(0); /* Ensures image returns to normal position */
-    box-shadow: 0 0 15px 5px rgb(0, 157, 0, 0.41); /* Green glow effect */
 }

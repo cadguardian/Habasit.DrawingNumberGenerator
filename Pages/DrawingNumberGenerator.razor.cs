@@ -81,7 +81,7 @@ public partial class DrawingNumberGenerator
     private Task HandleBlur(ElementReference dropdownRef)
     {
         GenerateDrawingNumber();
-        drawingRequest.QueryString = DrawingNumber.GetDrawingNumber();
+        drawingRequest.QueryString = DrawingNumber.GetDrawingQueryString();
 
         return CloseDropdown(dropdownRef);
     }
@@ -98,7 +98,7 @@ public partial class DrawingNumberGenerator
 
     private async Task CopyDrawingNumberToClipboard()
     {
-        var drawingNumber = DrawingNumber.GetDrawingNumber();  // Assuming this is the method that generates the drawing number.
+        var drawingNumber = DrawingNumber.GetDrawingQueryString();  // Assuming this is the method that generates the drawing number.
         await JSRuntime.InvokeVoidAsync("CopyDrawingNumber", drawingNumber);
     }
 }

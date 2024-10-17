@@ -1,49 +1,51 @@
 ﻿@inherits LayoutComponentBase
-<div class="page">
-    
 
-    <main>
-        <div class="content-wrapper d-flex flex-column min-vh-100" style="max-width: 600px; margin: 0 auto;">
-        <div class="container-fluid bg-light">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <div class="container-fluid">
-                    <a class="navbar-brand small" href="#">
-                        <small class="mb-0">Habasit America <small class="text-muted">| Suwanee, GA</small></small>
-                    </a>
-                    <div class="d-flex ms-auto">
-                        <small class="text-center text-success">Drawing Tools</small>
+<div class="page d-flex flex-column min-vh-100">
+
+    <main class="flex-grow-1">
+        <div class="content-wrapper d-flex flex-column" style="max-width: 600px; margin: 0 auto;">
+            <div class="container-fluid bg-light">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <a class="navbar-brand small" href="#">
+                            <small class="mb-0">Habasit America <small class="text-muted">| Suwanee, GA</small></small>
+                        </a>
+                        <div class="d-flex ms-auto">
+                            <small class="text-center text-success">Drawing Tools</small>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
 
-            <ul class="nav justify-content-center nav-underline small gap-4">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://portal.habasit.com/view/v_portal_pmb" target="_blank">Product Portal</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://oursharedarea.sharepoint.com/sites/HabaWeb/SitePages/Plastics-and-Chains.aspx" target="_blank">Product Number Codes</a>
-                </li>
-            </ul>
-            
-        </div>
+                <ul class="nav justify-content-center nav-underline small gap-4">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://portal.habasit.com/view/v_portal_pmb" target="_blank">Product Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://oursharedarea.sharepoint.com/sites/HabaWeb/SitePages/Plastics-and-Chains.aspx" target="_blank">Product Number Codes</a>
+                    </li>
+                </ul>
 
-            <article class="flex-grow-1 p-4">
-            @Body
-        </article>
+            </div>
 
-            <footer class="container-fluid bg-success text-light py-3 mt-auto">
-                <blockquote class="blockquote text-center mb-0">
-                    <p class="small mb-0">"Simplifying special build drawing delivery"</p>
-                </blockquote>
-                <div class="text-center">
-                    <p class="mb-1">Thomas Smith, CAD Drafter</p>
-                    <a href="mailto:thomas.smith@habasit.com" class="text-light small" style="text-decoration: underline;">thomas.smith@habasit.com</a>
-                </div>
-            </footer>
-
+            <!-- Main Content (scrollable if necessary) -->
+            <article class="p-4" style="overflow-y: auto; flex-grow: 1;">
+                @Body
+            </article>
         </div>
     </main>
+
 </div>
+
+<!-- Fixed Footer at the bottom of the screen -->
+<footer class="container-fluid bg-success text-light py-3 fixed-bottom">
+    <blockquote class="blockquote text-center mb-0">
+        <p class="small mb-0">"Simplifying special build drawing delivery"</p>
+    </blockquote>
+    <div class="text-center">
+        <p class="mb-1">Thomas Smith, CAD Drafter</p>
+        <a href="mailto:thomas.smith@habasit.com" class="text-light small" style="text-decoration: underline;">thomas.smith@habasit.com</a>
+    </div>
+</footer>

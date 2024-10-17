@@ -22,16 +22,34 @@
             <div class="card mb-3 flex-fill">
                 <div class="card-body">
                     <!-- Drawing Number Display -->
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <label class="form-check-label me-3">Drawing Number</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="toggleQueryString" @bind="showQueryString" />
+                        </div>
+                        <label class="form-check-label ms-3">Drawing Query String</label>
+                    </div>
+
                     <h1 class="copy-button text-center" @onclick="CopyDrawingNumberToClipboard" id="drawingNumber">
-                        @DrawingNumber.GetDrawingNumber()
+                        @GetDisplayValue()
                     </h1>
+
+                    @code {
+        private bool showQueryString = false;
+
+        private string GetDisplayValue()
+        {
+                        return showQueryString ? DrawingNumber.GetDrawingQueryString() : DrawingNumber.GetDrawingNumber();
+        }
+                    }
+
                     <div id="copyDialog" class="dialog" style="display: none;">
                         Drawing number has been copied to clipboard!
                     </div>
 
                     <!-- Instructions Section -->
-                    <div class="instructions-section">
-                        <button @onclick="ToggleInstructions" class="btn btn-outline-secondary mb-3 btn-sm">
+                    <div class="instructions-section" >
+                        <button type="button" @onclick="ToggleInstructions" class="btn btn-outline-secondary mb-3 btn-sm">
                             @if (showInstructions)
                             {
                                 <span>Hide Instructions</span>
@@ -124,171 +142,155 @@
     <FormContent>
             <h2 class="text-center bg-success text-light">Belt Information Section</h2>
 
+            <!-- Belt Type Component -->
             <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@BeltType.GetNameByCode(drawingRequest.BeltType, BeltType.Options)</span>
                 <label class="input-group-text" for="beltType">Type</label>
-                <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                </div>
-                <select id="beltType"
-                        @ref="beltTypeDropdownRef"
-                        @onkeydown="@(e => HandleKeyDown(e, beltTypeDropdownRef))"
-                        @onblur="@(e => HandleBlur(beltTypeDropdownRef))"
-                        @bind="drawingRequest.BeltType"
-                        aria-required="true"
-                        aria-describedby="beltTypeHelp"
-                        class="form-select form-select-sm" required autofocus>
 
+                <!-- Autocomplete input for Belt Type -->
+                <input list="beltTypes" id="beltType"
+                       @bind="drawingRequest.BeltType"
+                       class="form-control form-control-sm"
+                       placeholder="Select or type Belt Type" required autofocus />
+
+                <!-- Datalist providing options -->
+                <datalist id="beltTypes">
                     @foreach (var type in beltTypes)
                     {
-                        if (type?.ToLower() == "m")
-                        {
-                            <option value="@type" selected>@type</option>
-                        }
-                        else
-                        {
-                            <option value="@type">@type</option>
-                        }
+                        <option value="@type">@type</option>
                     }
-                </select>
-            </div>
-
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@BeltSeries.GetBeltSeriesType(drawingRequest.BeltSeries)</span>
-                <label class="input-group-text" for="beltSeries">Series</label>
-
+                </datalist>
+                
+                <span class="input-group-text">@BeltType.GetNameByCode(drawingRequest.BeltType, BeltType.Options)</span>
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
+            </div>
 
-                <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
-                <select id="beltSeries"
-                        @ref="beltSeriesDropdownRef"
-                        @onkeydown="@(e => HandleKeyDown(e, beltSeriesDropdownRef))"
-                        @onblur="@(e => HandleBlur(beltSeriesDropdownRef))"
-                        @bind="drawingRequest.BeltSeries"
-                        aria-required="true"
-                        aria-describedby="beltSeriesHelp"
-                        class="form-select form-select-sm" required autofocus>
+            <!-- Belt Series Component -->
+            <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" for="beltSeries">Series</label>
 
+                <!-- Autocomplete input for Belt Series -->
+                <input list="beltSeriesList" id="beltSeries"
+                       @bind="drawingRequest.BeltSeries"
+                       class="form-control form-control-sm"
+                       placeholder="Select or type Belt Series" required autofocus />
+
+                <!-- Datalist providing options -->
+                <datalist id="beltSeriesList">
                     @foreach (var series in beltSeries)
                     {
                         <option value="@series">@series</option>
                     }
-                </select>
-
-            </div>
-
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@MaterialColor.GetCodeByName(drawingRequest.Color, MaterialColor.Options)</span>
-                <label class="input-group-text" for="color">Color</label>
-
+                </datalist>
+                <span class="input-group-text">@BeltSeries.GetBeltSeriesType(drawingRequest.BeltSeries)</span>
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
 
-                <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
-                <select id="color"
-                        @ref="colorDropdownRef"
-                        @onkeydown="@(e => HandleKeyDown(e, colorDropdownRef))"
-                        @onblur="@(e => HandleBlur(colorDropdownRef))"
-                        @bind="drawingRequest.Color"
-                        aria-required="true"
-                        aria-describedby="colorHelp"
-                        class="form-select form-select-sm" required autofocus>
+                
+            </div>
 
+            @* Material Color Component with Autocomplete *@
+            <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" for="color">Color</label>
+
+                <!-- Autocomplete input for Color -->
+                <input list="colorList" id="color"
+                       @bind="drawingRequest.Color"
+                       class="form-control form-control-sm"
+                       placeholder="Select or type Color" required autofocus />
+
+                <!-- Datalist providing options -->
+                <datalist id="colorList">
                     @foreach (var color in colors)
                     {
                         <option value="@color">@color</option>
                     }
-                </select>
-
-            </div>
-
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@BeltMaterial.GetCodeByName(drawingRequest.Material, BeltMaterial.Options)</span>
-                <label class="input-group-text" for="material">Material</label>
+                </datalist>
+                
+                <span class="input-group-text">@MaterialColor.GetCodeByName(drawingRequest.Color, MaterialColor.Options)</span>
 
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
+            </div>
 
-                <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
-                <select id="material"
-                        @ref="materialDropdownRef"
-                        @onkeydown="@(e => HandleKeyDown(e, materialDropdownRef))"
-                        @onblur="@(e => HandleBlur(materialDropdownRef))"
-                        @bind="drawingRequest.Material"
-                        aria-required="true"
-                        aria-describedby="materialHelp"
-                        class="form-select form-select-sm" required autofocus>
+            <!-- Belt Material Component -->
+            <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" for="material">Material</label>
 
+                <!-- Autocomplete input for Material -->
+                <input list="materialsList" id="material"
+                       @bind="drawingRequest.Material"
+                       class="form-control form-control-sm"
+                       placeholder="Select or type Material" required autofocus />
+
+                <!-- Datalist providing options -->
+                <datalist id="materialsList">
                     @foreach (var material in materials)
                     {
                         <option value="@material">@material</option>
                     }
-                </select>
-
-
-            </div>
-
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@AdderMaterial.GetCodeByName(drawingRequest.AdderMaterial, AdderMaterial.Options)</span>
-                <label class="input-group-text" for="adderMaterial">Adder Material</label>
+                </datalist>
+                <span class="input-group-text">@BeltMaterial.GetCodeByName(drawingRequest.Material, BeltMaterial.Options)</span>
 
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
+            </div>
 
-                <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
-                <select id="adderMaterial"
-                        @ref="adderMaterialDropdownRef"
-                        @onkeydown="@(e => HandleKeyDown(e, adderMaterialDropdownRef))"
-                        @onblur="@(e => HandleBlur(adderMaterialDropdownRef))"
-                        @bind="drawingRequest.AdderMaterial"
-                        aria-required="true"
-                        aria-describedby="adderMaterialHelp"
-                        class="form-select form-select-sm" required autofocus>
+            <!-- AdderMaterial Component -->
+            <div class="input-group input-group-sm mb-3">
+                <!-- Autocomplete input for Adder Material -->
+                <label class="input-group-text" for="adderMaterial">Adder Material</label>
+
+                <input list="adderMaterialsList" id="adderMaterial"
+                       @bind="drawingRequest.AdderMaterial"
+                       class="form-control form-control-sm"
+                       placeholder="Select or type Adder Material" required autofocus />
+
+                <!-- Datalist providing options -->
+                <datalist id="adderMaterialsList">
                     @foreach (var adder in adderMaterials)
                     {
                         <option value="@adder">@adder</option>
                     }
-                </select>
-            </div>
-
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@RodMaterial.GetCodeByName(drawingRequest.RodMaterial, RodMaterial.Options)</span>
-                <label class="input-group-text" for="rodMaterial">Rod</label>
+                </datalist>
+                <span class="input-group-text">@AdderMaterial.GetCodeByName(drawingRequest.AdderMaterial, AdderMaterial.Options)</span>
 
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
+            </div>
 
-                <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
-                <select id="rodMaterial"
-                        @ref="rodMaterialDropdownRef"
-                        @onkeydown="@(e => HandleKeyDown(e, rodMaterialDropdownRef))"
-                        @onblur="@(e => HandleBlur(rodMaterialDropdownRef))"
-                        @bind="drawingRequest.RodMaterial"
-                        aria-required="true"
-                        aria-describedby="rodMaterialHelp"
-                        class="form-select form-select-sm" required autofocus>
+            <!-- RodMaterial Component -->
+            <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" for="rodMaterial">Rod</label>
 
+                <!-- Autocomplete input for Rod Material -->
+                <input list="rodMaterialsList" id="rodMaterial"
+                       @bind="drawingRequest.RodMaterial"
+                       class="form-control form-control-sm"
+                       placeholder="Select or type Rod Material" required autofocus />
+
+                <!-- Datalist providing options -->
+                <datalist id="rodMaterialsList">
                     @foreach (var rod in rodMaterials)
                     {
                         <option value="@rod">@rod</option>
                     }
-                </select>
-            </div>
-
-            @*Width*@
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@DrawingNumber.BeltWidthCode</span>
-                <label class="input-group-text" for="beltWidth">Width (inches)</label>
+                </datalist>
+                <span class="input-group-text">@RodMaterial.GetCodeByName(drawingRequest.RodMaterial, RodMaterial.Options)</span>
 
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
+            </div>
+
+            @*Width*@
+            <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" for="beltWidth">Width (inches)</label>
 
                 <InputNumber @onblur="@(e => HandleBlur(beltWidthRef))"
                              id="beltWidth"
@@ -299,43 +301,45 @@
                              Max="999"
                              class="form-control"
                              onfocus="selectAllText(this)" />
+            
+                <span class="input-group-text">@DrawingNumber.BeltWidthCode</span>
+
+                <div class="input-group-text">
+                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
             </div>
 
             <h2 class="text-center bg-success text-light">Flights/Rollers/Grip Section</h2>
 
-            @*Flights/Rollers/Grip*@
+            @* Flights/Rollers/Grip *@
             <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@DrawingNumber.FlightsRollersGripsCode</span>
                 <label class="input-group-text" for="flightsRollersGrip">Flights/Rollers/Grip</label>
 
-                <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                </div>
+                <!-- Autocomplete input for Flights/Rollers/Grip -->
+                <input list="flightsRollersGripList" id="flightsRollersGrip"
+                       @bind="drawingRequest.FlightsRollersGrip"
+                       class="form-control form-control-sm"
+                       placeholder="Select or type Flights/Rollers/Grip" required />
 
-                <select id="flightsRollersGrip"
-                        @ref="flightsRollersGripDropdownRef"
-                        @onkeydown="@(e => HandleKeyDown(e, flightsRollersGripDropdownRef))"
-                        @onblur="@(e => HandleBlur(flightsRollersGripDropdownRef))"
-                        aria-required="true"
-                        aria-describedby="flightsRollersGripHelp"
-                        @bind="drawingRequest.FlightsRollersGrip"
-                        class="form-select form-select-sm">
+                <!-- Datalist providing options -->
+                <datalist id="flightsRollersGripList">
                     @foreach (var type in flightsRollersGrips)
                     {
                         <option value="@type">@type</option>
                     }
-                </select>
-
-            </div>
-
-            @*Qty Rollers Width*@
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@DrawingNumber.QtyRollersAcrossWidth</span>
-                <label class="input-group-text" for="qtyRollersAcrossWidth">Qty. Rollers Width</label>
+                </datalist>
+                <span class="input-group-text">@DrawingNumber.FlightsRollersGripsCode</span>
 
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
+
+               
+            </div>
+
+            @*Qty Rollers Width*@
+            <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" for="qtyRollersAcrossWidth">Qty. Rollers Width</label>
 
                 <InputNumber id="qtyRollersAcrossWidth"
                              aria-required="true"
@@ -347,16 +351,18 @@
                              class="form-control"
                              disabled
                              onfocus="selectAllText(this)" />
-            </div>
-
-            @*F/R/G Centers*@
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@DrawingNumber.FRGCenters</span>
-                <label class="input-group-text" for="frgCenters">F/R/G Centers</label>
+                <span class="input-group-text">@DrawingNumber.QtyRollersAcrossWidth</span>
 
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
+
+                
+            </div>
+
+            @*F/R/G Centers*@
+            <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" for="frgCenters">F/R/G Centers</label>
 
                 <InputNumber id="frgCenters"
                              aria-required="true"
@@ -368,101 +374,103 @@
                              class="form-control"
                              disabled
                              onfocus="selectAllText(this)" />
+
+                <span class="input-group-text">@DrawingNumber.FRGCenters</span>
+
+                <div class="input-group-text">
+                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                </div>
+
+                
             </div>
 
             <h2 class="text-center bg-success text-light">Belt Accessories Section</h2>
 
-
+            @* Belt Accessories *@
             <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@DrawingNumber.BeltAccessoriesCode</span>
                 <label class="input-group-text" for="beltAccessories">Accessories</label>
 
-                <div class="input-group-text">
-                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                </div>
+                <!-- Autocomplete input for Belt Accessories -->
+                <input list="beltAccessoriesList" id="beltAccessories"
+                       @bind="drawingRequest.BeltAccessories"
+                       class="form-control form-control-sm"
+                       placeholder="Select or type Accessories" required />
 
-                <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
-                <select id="beltAccessories"
-                        @ref="beltAccessoriesDropdownRef"
-                        @onkeydown="@(e => HandleKeyDown(e, beltAccessoriesDropdownRef))"
-                        @onblur="@(e => HandleBlur(beltAccessoriesDropdownRef))"
-                        @bind="drawingRequest.BeltAccessories"
-                        aria-required="true"
-                        aria-describedby="beltAccessoriesHelp"
-                        class="form-select form-select-sm" required autofocus>
-
+                <!-- Datalist providing options -->
+                <datalist id="beltAccessoriesList">
                     @foreach (var accessory in beltAccessories)
                     {
                         <option value="@accessory">@accessory</option>
                     }
-                </select>
+                </datalist>
 
-            </div>
-
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@DrawingNumber.FrictionAntiStaticCode</span>
-                <label class="input-group-text" for="frictionAntiStatic">Friction/Anti Static</label>
+                <span class="input-group-text">@DrawingNumber.BeltAccessoriesCode</span>
 
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
 
-                <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
-                <select id="frictionAntiStatic"
-                        @ref="frictionAntiStaticDropdownRef"
-                        @onkeydown="@(e => HandleKeyDown(e, frictionAntiStaticDropdownRef))"
-                        @onblur="@(e => HandleBlur(frictionAntiStaticDropdownRef))"
-                        @bind="drawingRequest.FrictionAntiStatic"
-                        aria-required="true"
-                        aria-describedby="frictionAntiStaticHelp"
-                        class="form-select form-select-sm" required autofocus>
+                
+            </div>
 
+            @* Friction/Anti Static *@
+            <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" for="frictionAntiStatic">Friction/Anti Static</label>
+
+                <!-- Autocomplete input for Friction/Anti Static -->
+                <input list="frictionAntiStaticList" id="frictionAntiStatic"
+                       @bind="drawingRequest.FrictionAntiStatic"
+                       class="form-control form-control-sm"
+                       placeholder="Select or type Friction/Anti Static" required />
+
+                <!-- Datalist providing options -->
+                <datalist id="frictionAntiStaticList">
                     @foreach (var type in frictionAntiStatics)
                     {
                         <option value="@type">@type</option>
                     }
-                </select>
-            </div>
-
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@SidePLLaneDV.GetCodeByName(drawingRequest.SidePLLaneDV, SidePLLaneDV.Options)</span>
-                <label class="input-group-text" for="sidePLLaneDV">Side-PL/Lane-DV</label>
+                </datalist>
+                <span class="input-group-text">@DrawingNumber.FrictionAntiStaticCode</span>
 
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
 
-                <!-- Updated Select Dropdown with @onchange calling GenerateDrawingNumber() -->
-                <select id="sidePLLaneDV"
-                        @ref="sidePLLaneDVDropdownRef"
-                        @onkeydown="@(e => HandleKeyDown(e, sidePLLaneDVDropdownRef))"
-                        @onblur="@(e => HandleBlur(sidePLLaneDVDropdownRef))"
-                        @bind="drawingRequest.SidePLLaneDV"
-                        aria-required="true"
-                        aria-describedby="sidePLLaneDVHelp"
-                        class="form-select form-select-sm" required autofocus>
+                
+            </div>
 
+            @* Side-PL/Lane-DV Component with Autocomplete *@
+            <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" for="sidePLLaneDV">Side-PL/Lane-DV</label>
+
+                <!-- Autocomplete input for Side-PL/Lane-DV -->
+                <input list="sidePLLaneDVList" id="sidePLLaneDV"
+                       @bind="drawingRequest.SidePLLaneDV"
+                       class="form-control form-control-sm"
+                       placeholder="Select or type Side-PL/Lane-DV" required />
+
+                <!-- Datalist providing options -->
+                <datalist id="sidePLLaneDVList">
                     @foreach (var type in sidePLLaneDVs)
                     {
                         <option value="@type">@type</option>
                     }
-                </select>
-            </div>
-
-            <h2 class="text-center bg-success text-light">Unique Identification Section</h2>
-
-
-
-
-
-
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@DrawingNumber.UniqueIdentification</span>
-                <label class="input-group-text" for="uniqueIdentification">Unique Identification</label>
+                </datalist>
+                <span class="input-group-text">@SidePLLaneDV.GetCodeByName(drawingRequest.SidePLLaneDV, SidePLLaneDV.Options)</span>
 
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
+
+                
+            </div>
+
+
+            <h2 class="text-center bg-success text-light">Unique Identification Section</h2>
+
+
+            <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" for="uniqueIdentification">Unique Identification</label>
 
                 <InputText id="uniqueIdentification"
                            aria-required="true"
@@ -472,49 +480,42 @@
                            minlength="1"
                            maxlength="2"
                            onfocus="selectAllText(this)" />
-
-                <div id="uniqueIdentificationHelp" class="form-text text-muted">
-                    @DrawingNumber.UniqueIdentification
-                </div>
-            </div>
-
-            <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">@DrawingNumber.IndentCode</span>
-                <label class="input-group-text" for="indentCode">Indent Code</label>
+                <span class="input-group-text">@DrawingNumber.UniqueIdentification</span>
 
                 <div class="input-group-text">
                     <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
 
-                <select id="indentCode"
-                        @ref="indentCodeDropdownRef"
-                        @onkeydown="@(e => HandleKeyDown(e, indentCodeDropdownRef))"
-                        @onblur="@(e => HandleBlur(indentCodeDropdownRef))"
-                        @bind="drawingRequest.IndentCode"
-                        aria-required="true"
-                        aria-describedby="indentCodeHelp"
-                        class="form-select form-select-sm">
+                
+            </div>
+
+            @* Indent Code Component with Autocomplete *@
+            <div class="input-group input-group-sm mb-3">
+                <label class="input-group-text" for="indentCode">Indent Code</label>
+
+                <!-- Autocomplete input for Indent Code -->
+                <input list="indentCodeList" id="indentCode"
+                       @bind="drawingRequest.IndentCode"
+                       class="form-control form-control-sm"
+                       placeholder="Select or type Indent Code" required />
+
+                <!-- Datalist providing options -->
+                <datalist id="indentCodeList">
                     @foreach (var type in indents)
                     {
                         <option value="@type">@type</option>
                     }
-                </select>
+                </datalist>
+                <span class="input-group-text">@DrawingNumber.IndentCode</span>
 
-                <div id="indentCodeHelp" class="form-text text-muted">
-                    @DrawingNumber.IndentCode
+                <div class="input-group-text">
+                    <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
                 </div>
             </div>
 
-
             <div class="row p-3">
 
-
-                
-
                 @* <button type="submit" disabled="@isProcessing" class="btn btn-primary btn-block mt-4" aria-label="Generate Drawing Number">Generate Drawing Number</button> *@
-
-
-
                 <hr>
             </div>
     </FormContent>
