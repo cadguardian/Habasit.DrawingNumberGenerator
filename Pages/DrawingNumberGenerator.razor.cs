@@ -41,33 +41,33 @@ public partial class DrawingNumberGenerator
     [Parameter]
     public DrawingNumber DrawingNumber { get; set; } = DrawingNumber.Create();
 
-    private readonly DrawingRequest userInput = new();
+    private readonly DrawingRequest drawingRequest = new();
 
     protected override void OnInitialized()
     {
         // Set the default value here
-        userInput.BeltType = "M";
+        drawingRequest.BeltType = "M";
     }
 
     private void GenerateDrawingNumber()
     {
         isProcessing = true;
 
-        DrawingNumber.BeltTypeCode = userInput.BeltType;
-        DrawingNumber.BeltSeriesCode = userInput.BeltSeries;
-        DrawingNumber.ColorCode = RuleWithOptions.GetCodeByName(userInput.Color, MaterialColor.Options);
-        DrawingNumber.MaterialCode = RuleWithOptions.GetCodeByName(userInput.Material, BeltMaterial.Options);
-        DrawingNumber.AdderMaterialCode = RuleWithOptions.GetCodeByName(userInput.AdderMaterial, AdderMaterial.Options);
-        DrawingNumber.RodMaterialCode = RuleWithOptions.GetCodeByName(userInput.RodMaterial, RodMaterial.Options);
-        DrawingNumber.BeltWidthCode = BeltWidth.Create(userInput.BeltWidth).Code;
-        DrawingNumber.FlightsRollersGripsCode = RuleWithOptions.GetCodeByName(userInput.FlightsRollersGrip, Flights_Rollers_Grips.Options);
+        DrawingNumber.BeltTypeCode = drawingRequest.BeltType;
+        DrawingNumber.BeltSeriesCode = drawingRequest.BeltSeries;
+        DrawingNumber.ColorCode = RuleWithOptions.GetCodeByName(drawingRequest.Color, MaterialColor.Options);
+        DrawingNumber.MaterialCode = RuleWithOptions.GetCodeByName(drawingRequest.Material, BeltMaterial.Options);
+        DrawingNumber.AdderMaterialCode = RuleWithOptions.GetCodeByName(drawingRequest.AdderMaterial, AdderMaterial.Options);
+        DrawingNumber.RodMaterialCode = RuleWithOptions.GetCodeByName(drawingRequest.RodMaterial, RodMaterial.Options);
+        DrawingNumber.BeltWidthCode = BeltWidth.Create(drawingRequest.BeltWidth).Code;
+        DrawingNumber.FlightsRollersGripsCode = RuleWithOptions.GetCodeByName(drawingRequest.FlightsRollersGrip, Flights_Rollers_Grips.Options);
         DrawingNumber.QtyRollersAcrossWidth = "*";
         DrawingNumber.FRGCenters = "*";
-        DrawingNumber.BeltAccessoriesCode = RuleWithOptions.GetCodeByName(userInput.BeltAccessories, BeltAccessories.Options);
-        DrawingNumber.FrictionAntiStaticCode = RuleWithOptions.GetCodeByName(userInput.FrictionAntiStatic, FrictionAntiStatic.Options);
-        DrawingNumber.SidePLLaneDVCode = RuleWithOptions.GetCodeByName(userInput.SidePLLaneDV, SidePLLaneDV.Options);
-        DrawingNumber.UniqueIdentification = userInput.UniqueIdentification.ToUpper();
-        DrawingNumber.IndentCode = IndentCode.GetCodeByName(userInput.IndentCode, IndentCode.Options);
+        DrawingNumber.BeltAccessoriesCode = RuleWithOptions.GetCodeByName(drawingRequest.BeltAccessories, BeltAccessories.Options);
+        DrawingNumber.FrictionAntiStaticCode = RuleWithOptions.GetCodeByName(drawingRequest.FrictionAntiStatic, FrictionAntiStatic.Options);
+        DrawingNumber.SidePLLaneDVCode = RuleWithOptions.GetCodeByName(drawingRequest.SidePLLaneDV, SidePLLaneDV.Options);
+        DrawingNumber.UniqueIdentification = drawingRequest.UniqueIdentification.ToUpper();
+        DrawingNumber.IndentCode = IndentCode.GetCodeByName(drawingRequest.IndentCode, IndentCode.Options);
         isProcessing = false;
     }
 
@@ -82,7 +82,7 @@ public partial class DrawingNumberGenerator
     private Task HandleBlur(ElementReference dropdownRef)
     {
         GenerateDrawingNumber();
-        userInput.QueryString = DrawingNumber.GetDrawingNumber(true);
+        drawingRequest.QueryString = DrawingNumber.GetDrawingNumber(true);
 
         return CloseDropdown(dropdownRef);
     }

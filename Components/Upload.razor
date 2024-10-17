@@ -34,7 +34,7 @@
         var exportData = new DrawingExportData
             {
                 DrawingNumber = DrawingNumber,  // Assuming QueryString is a public string property or can be converted to string
-                UserInput = userInput  // Ensure userInput is a structured object (not flattened)
+                UserInput = userInput  // Ensure drawingRequest is a structured object (not flattened)
             };
 
         // Serialize to JSON and maintain hierarchy
@@ -59,7 +59,7 @@
             var content = await streamReader.ReadToEndAsync();
             uploadedData = content;
 
-            // Deserialize the JSON content and populate QueryString and userInput
+            // Deserialize the JSON content and populate QueryString and drawingRequest
             var importedData = System.Text.Json.JsonSerializer.Deserialize<DrawingExportData>(content);
 
             if (importedData != null)
