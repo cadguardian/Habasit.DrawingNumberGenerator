@@ -9,7 +9,6 @@ namespace Client.Pages;
 
 public partial class DrawingNumberGenerator
 {
-    private bool NoFlightsRollerOrGrips { get; set; } = true;
     private bool isProcessing = false;
     private ElementReference beltTypeDropdownRef;
     private ElementReference beltSeriesDropdownRef;
@@ -82,7 +81,7 @@ public partial class DrawingNumberGenerator
     private Task HandleBlur(ElementReference dropdownRef)
     {
         GenerateDrawingNumber();
-        drawingRequest.QueryString = DrawingNumber.GetDrawingNumber(true);
+        drawingRequest.QueryString = DrawingNumber.GetDrawingNumber();
 
         return CloseDropdown(dropdownRef);
     }
@@ -99,7 +98,7 @@ public partial class DrawingNumberGenerator
 
     private async Task CopyDrawingNumberToClipboard()
     {
-        var drawingNumber = DrawingNumber.GetDrawingNumber(NoFlightsRollerOrGrips);  // Assuming this is the method that generates the drawing number.
+        var drawingNumber = DrawingNumber.GetDrawingNumber();  // Assuming this is the method that generates the drawing number.
         await JSRuntime.InvokeVoidAsync("CopyDrawingNumber", drawingNumber);
     }
 }

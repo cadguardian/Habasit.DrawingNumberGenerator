@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <!-- Drawing Number Display -->
                     <h1 class="copy-button text-center" @onclick="CopyDrawingNumberToClipboard" id="drawingNumber">
-                        @DrawingNumber.GetDrawingNumber(NoFlightsRollerOrGrips)
+                        @DrawingNumber.GetDrawingNumber()
                     </h1>
                     <div id="copyDialog" class="dialog" style="display: none;">
                         Drawing number has been copied to clipboard!
@@ -249,7 +249,6 @@
                         aria-required="true"
                         aria-describedby="adderMaterialHelp"
                         class="form-select form-select-sm" required autofocus>
-
                     @foreach (var adder in adderMaterials)
                     {
                         <option value="@adder">@adder</option>
@@ -303,12 +302,6 @@
             </div>
 
             <h2 class="text-center bg-success text-light">Flights/Rollers/Grip Section</h2>
-
-            <div class="form-check form-switch  mt-3">
-
-                <input class="form-check-input" type="checkbox" id="noFlightsSwitch" @bind="NoFlightsRollerOrGrips" />
-                <label class="form-check-label" for="noFlightsSwitch">No Flights Roller Or Grips</label>
-            </div>
 
             @*Flights/Rollers/Grip*@
             <div class="input-group input-group-sm mb-3">
