@@ -15,6 +15,10 @@ html, body {
     padding-top: 55px; /* Add extra space for the header */
 }
 
+input, select, textarea {
+    font-size: 16px;
+}
+
 /* Set the main content area to be scrollable */
 .main-content {
     flex-grow: 1;

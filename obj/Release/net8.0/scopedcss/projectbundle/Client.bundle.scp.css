@@ -81,6 +81,10 @@ html[b-tmopy668it], body[b-tmopy668it] {
     padding-top: 55px; /* Add extra space for the header */
 }
 
+input[b-tmopy668it], select[b-tmopy668it], textarea[b-tmopy668it] {
+    font-size: 16px;
+}
+
 /* Set the main content area to be scrollable */
 .main-content[b-tmopy668it] {
     flex-grow: 1;
