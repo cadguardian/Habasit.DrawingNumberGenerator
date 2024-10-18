@@ -3,8 +3,15 @@
 }
 
 .input-group-text[b-o0m35uarhm] {
-    width: 125px;
-    justify-content: center;
+    justify-content: left;
+}
+
+@media (min-width: 768px) {
+    .input-group-text[b-o0m35uarhm] {
+        width: 125px;
+        text-align: center;
+        justify-content: center;
+    }
 }
 
 .form-control[b-o0m35uarhm] {
@@ -17,7 +24,7 @@ input[b-o0m35uarhm], select[b-o0m35uarhm], button[b-o0m35uarhm] {
     box-sizing: border-box;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .form-container[b-o0m35uarhm] {
         padding: 1rem 0.5rem;
     }
