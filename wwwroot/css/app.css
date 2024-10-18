@@ -132,7 +132,7 @@ code {
 /* Belt pattern that will move */
 .belt-pattern {
     position: absolute;
-    width: 200%; /* Twice the width of the container for smooth looping */
+    width: 80%; /* Twice the width of the container for smooth looping */
     height: 150%;
     background-image: linear-gradient(90deg, transparent 24%, #ccc 25%, #ccc 35%, transparent 36%, transparent 49%, #ccc 50%, #ccc 60%, transparent 61%, transparent), /* Horizontal gaps */
     linear-gradient(transparent 24%, #ccc 25%, #ccc 35%, transparent 36%, transparent); /* Vertical gaps for teeth */
