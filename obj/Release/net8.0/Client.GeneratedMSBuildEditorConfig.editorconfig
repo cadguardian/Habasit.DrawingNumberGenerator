@@ -13,75 +13,67 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = Client
 build_property.RootNamespace = Client
-build_property.ProjectDir = C:\localrepos\DrawingNumberGenerator\Client\
+build_property.ProjectDir = C:\localrepos\DrawingNumberGenerator\client\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\localrepos\DrawingNumberGenerator\Client
+build_property.MSBuildProjectDirectory = C:\localrepos\DrawingNumberGenerator\client
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/App.razor]
+[C:/localrepos/DrawingNumberGenerator/client/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/Components/Architecture.razor]
+[C:/localrepos/DrawingNumberGenerator/client/Components/Architecture.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcmNoaXRlY3R1cmUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/Components/DrawingFormContainer.razor]
+[C:/localrepos/DrawingNumberGenerator/client/Components/DrawingFormContainer.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEcmF3aW5nRm9ybUNvbnRhaW5lci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/Components/DynamicDropdown.razor]
+[C:/localrepos/DrawingNumberGenerator/client/Components/DynamicDropdown.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEeW5hbWljRHJvcGRvd24ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/Components/Upload.razor]
+[C:/localrepos/DrawingNumberGenerator/client/Components/ShowInstructionsComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaG93SW5zdHJ1Y3Rpb25zQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/localrepos/DrawingNumberGenerator/client/Components/Upload.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVcGxvYWQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/Layout/LoginDisplay.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XExvZ2luRGlzcGxheS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/localrepos/DrawingNumberGenerator/Client/Layout/RedirectToLogin.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XFJlZGlyZWN0VG9Mb2dpbi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/localrepos/DrawingNumberGenerator/Client/Pages/Authentication.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb24ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/localrepos/DrawingNumberGenerator/Client/Pages/Home.razor]
+[C:/localrepos/DrawingNumberGenerator/client/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/Services/DrawingRequestExtractor/DrawingRequestComponent.razor]
+[C:/localrepos/DrawingNumberGenerator/client/Services/DrawingRequestExtractor/DrawingRequestComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = U2VydmljZXNcRHJhd2luZ1JlcXVlc3RFeHRyYWN0b3JcRHJhd2luZ1JlcXVlc3RDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/Services/DrawingRequestExtractor/DrawingRequestInstruction.razor]
+[C:/localrepos/DrawingNumberGenerator/client/Services/DrawingRequestExtractor/DrawingRequestInstruction.razor]
 build_metadata.AdditionalFiles.TargetPath = U2VydmljZXNcRHJhd2luZ1JlcXVlc3RFeHRyYWN0b3JcRHJhd2luZ1JlcXVlc3RJbnN0cnVjdGlvbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/_Imports.razor]
+[C:/localrepos/DrawingNumberGenerator/client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/Components/ConsoleLogger.razor]
+[C:/localrepos/DrawingNumberGenerator/client/Components/ConsoleLogger.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDb25zb2xlTG9nZ2VyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-xvanemrw4i
 
-[C:/localrepos/DrawingNumberGenerator/Client/Components/DrawingNumberGeneratorInstructions.razor]
+[C:/localrepos/DrawingNumberGenerator/client/Components/DrawingNumberGeneratorInstructions.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEcmF3aW5nTnVtYmVyR2VuZXJhdG9ySW5zdHJ1Y3Rpb25zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-8mdzuvfe1l
 
-[C:/localrepos/DrawingNumberGenerator/Client/Layout/MainLayout.razor]
+[C:/localrepos/DrawingNumberGenerator/client/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-tmopy668it
 
-[C:/localrepos/DrawingNumberGenerator/Client/Pages/DrawingNumberGenerator.razor]
+[C:/localrepos/DrawingNumberGenerator/client/Pages/DrawingNumberGenerator.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRHJhd2luZ051bWJlckdlbmVyYXRvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-o0m35uarhm

@@ -2,6 +2,15 @@
     margin-bottom: 1rem;
 }
 
+.input-group-text {
+    width: 125px;
+    justify-content: center;
+}
+
+.form-control {
+    text-align: center;
+}
+
 input, select, button {
     width: 100%;
     padding: 0.5rem;

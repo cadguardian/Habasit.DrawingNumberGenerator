@@ -11,7 +11,8 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Ensure the page takes up the full height of the viewport */
-    padding-bottom: 100px; /* Add extra space for the footer */
+    padding-bottom: 130px; /* Add extra space for the footer */
+    padding-top: 55px; /* Add extra space for the header */
 }
 
 /* Set the main content area to be scrollable */
@@ -19,10 +20,11 @@ html, body {
     flex-grow: 1;
     overflow-y: auto; /* Make content scrollable if it's too long */
     padding-bottom: 80px; /* Space for the footer */
+    padding-top: 55px; /* Space for the footer */
     min-height: calc(100vh - 100px); /* Set a minimum height for the main content */
     /* Custom scrollbar styles */
     scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #28a745 #f7f7f7; /* Firefox scrollbar color (thumb, track) */
+    scrollbar-color: #1e7e34 #1e7e34; /* Firefox scrollbar color (thumb, track) */
 }
 
     /* Webkit-based scrollbars (for Chrome, Safari, Edge) */
@@ -60,11 +62,6 @@ footer {
     box-sizing: border-box;
 }
 
-/* Sidebar styling (if applicable) */
-.sidebar {
-    background-image: linear-gradient(320deg, #FFF 1%, #FFF 70%);
-}
-
 /* Media Queries */
 @media (max-width: 640.98px) {
     .top-row {
@@ -79,13 +76,6 @@ footer {
 @media (min-width: 641px) {
     .page {
         flex-direction: row;
-    }
-
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
     }
 
     .top-row {

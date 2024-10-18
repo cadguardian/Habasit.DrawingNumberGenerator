@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\localrepos\\DrawingNumberGenerator\\Client\\Client.csproj": {}
+    "C:\\localrepos\\DrawingNumberGenerator\\client\\Client.csproj": {}
   },
   "projects": {
-    "C:\\localrepos\\DrawingNumberGenerator\\Client\\Client.csproj": {
+    "C:\\localrepos\\DrawingNumberGenerator\\client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\localrepos\\DrawingNumberGenerator\\Client\\Client.csproj",
+        "projectUniqueName": "C:\\localrepos\\DrawingNumberGenerator\\client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\localrepos\\DrawingNumberGenerator\\Client\\Client.csproj",
+        "projectPath": "C:\\localrepos\\DrawingNumberGenerator\\client\\Client.csproj",
         "packagesPath": "C:\\Users\\Thomas.Smith\\.nuget\\packages\\",
-        "outputPath": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\",
+        "outputPath": "C:\\localrepos\\DrawingNumberGenerator\\client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -55,10 +55,6 @@
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.Components.WebAssembly": {
-              "target": "Package",
-              "version": "[8.0.10, )"
-            },
-            "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
               "target": "Package",
               "version": "[8.0.10, )"
             },

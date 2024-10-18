@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Client",
   "resources": {
-    "hash": "sha256-f2PWpycVwy69v4dqpnqqI0FsPsd3+0Dt/ekvtV2gptI=",
+    "hash": "sha256-NfpnrJuB55DVUsACHKMrWmi8TroS4ZLozCMoPCHbb8I=",
     "jsModuleNative": {
       "dotnet.native.8.0.10.w6lt2f84zx.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
     },
@@ -19,11 +19,9 @@
     "assembly": {
       "Microsoft.AspNetCore.Authorization.wasm": "sha256-qvUVaVXCx0vIwC1ftYywcGopJB8y43BbfcCt3G9PQgM=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-xr0Ov2b8dQS8xDDq0cDAHAiTk03Nhy7Nb/TaMeGY25U=",
-      "Microsoft.AspNetCore.Components.Authorization.wasm": "sha256-Baqx7hhBkIpYRwYfeaobznQftLbl1qf4Z43xmYAE45M=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-xdmm/nojXhCuTTDwhSWKmv9GQ/HGjW58Sxp2/m3FH8w=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-/zzHB7rnx0Gx4tbnqVwlEKZU2SvctKMEhndyH8nlgr4=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-6PDNWhWSc3nmVfcFJx8tpgDuK9uN5QvlKeQxO4E35pA=",
-      "Microsoft.AspNetCore.Components.WebAssembly.Authentication.wasm": "sha256-9eXYO78Eub2nN2ww9OtPaRtZcs9GewokURUBuwWY9WM=",
       "Microsoft.AspNetCore.Metadata.wasm": "sha256-HTOKr4q1iKdV48HlVg7nfuuiWU2pxjXNpmm1pVHETko=",
       "Microsoft.Extensions.Configuration.wasm": "sha256-UDGEQR7J3WTfzYMgOzxVIBwFQtKEeJvO8UgrWagypdE=",
       "Microsoft.Extensions.Configuration.Abstractions.wasm": "sha256-yNdqbqDWGiJo943D7LPak5xryCBEsNH0wtdiuU1R9VE=",
@@ -210,12 +208,12 @@
       "mscorlib.wasm": "sha256-KvqZaNpjwhrOuzE4b4aMFsI+VUTyiWfoDI4zn4l9BM8=",
       "netstandard.wasm": "sha256-v+s7sWxtOM6bnOvC0jFrtnm6uMfbDymwl2nHNgbS2LM=",
       "System.Private.CoreLib.wasm": "sha256-pklll63uFQoY6vaD3vbluS9osYiJWLLLmob1yHFgepI=",
-      "DNG.Library.wasm": "sha256-7eWlItY+v6Y8HDniNHIpOfCT3NTU8IYK69KN6RsIvgs=",
-      "Client.wasm": "sha256-DIZLk9/b43E1L/fifO1Qj/hytp81tP+4hp42JFpEj4s="
+      "DNG.Library.wasm": "sha256-9WSpg98eOTVxgTVXPdwMJZuxSxalvteAtXMdisvAaFQ=",
+      "Client.wasm": "sha256-I/8j7du/djpg1M8BU0bJWGQQAsflgyIe2/jk1PTwSkk="
     },
     "pdb": {
-      "DNG.Library.pdb": "sha256-EKW30ja10Pw/0xUMWuilawZY29iK6RsJ7mYQx2gC3Co=",
-      "Client.pdb": "sha256-UX8yNOmDytyrnVieA06lG44fabcjHOESg2eR7xme99g="
+      "DNG.Library.pdb": "sha256-4ac2vrNAaSlr506U5QdQjZmotsneyRByWAG9nvUdfgo=",
+      "Client.pdb": "sha256-T4CouTMdPplmolXqyJ6PEVKfNY6O/dtMKqRPugnpxFU="
     }
   },
   "cacheBootResources": true,

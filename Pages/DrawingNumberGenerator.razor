@@ -3,8 +3,7 @@
 @using Microsoft.AspNetCore.Components.Forms
 @using global::DrawingNumberGenerator.Library.Models
 @inject IJSRuntime JSRuntime
-
-@*<DrawingNumberGeneratorInstructions/>*@
+@inject IDrawingNumber DrawingNumber
 
 <EditForm Model="@drawingRequest" OnValidSubmit="GenerateDrawingNumber">
 
@@ -15,132 +14,10 @@
             }, 0);
         }
     </script>
-
-    <div class="row d-flex mb-4">
-        <!-- Left Column -->
-        <div class="col-12 d-flex">
-            <div class="card mb-3 flex-fill">
-                <div class="card-body">
-                    <!-- Drawing Number Display -->
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <label class="form-check-label me-3">Drawing Number</label>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="toggleQueryString" @bind="showQueryString" />
-                        </div>
-                        <label class="form-check-label ms-3">Drawing Query String</label>
-                    </div>
-
-                    <h1 class="copy-button text-center" @onclick="CopyDrawingNumberToClipboard" id="drawingNumber">
-                        @GetDisplayValue()
-                    </h1>
-
-                    @code {
-        private bool showQueryString = false;
-
-        private string GetDisplayValue()
-        {
-                        return showQueryString ? DrawingNumber.GetDrawingQueryString() : DrawingNumber.GetDrawingNumber();
-        }
-                    }
-
-                    <div id="copyDialog" class="dialog" style="display: none;">
-                        Drawing number has been copied to clipboard!
-                    </div>
-
-                    <!-- Instructions Section -->
-                    <div class="instructions-section" >
-                        <button type="button" @onclick="ToggleInstructions" class="btn btn-outline-secondary mb-3 btn-sm">
-                            @if (showInstructions)
-                            {
-                                <span>Hide Instructions</span>
-                            }
-                            else
-                            {
-                                <span>Show Instructions</span>
-                            }
-                        </button>
-
-                        <div class="instructions-content" style="display: @(showInstructions ? "block" : "none")">
-                            <div class="alert alert-success mt-2">
-                                <p><strong>Instructions for using the Drawing Number:</strong></p>
-                                <p>When you generate a drawing number, use it to search for CAD files on the network drive. The drawing number helps you find specific files like CAD drawings, manuals, PDFs, and more.</p>
-
-                                <p><strong>Here’s how it works:</strong></p>
-                                <ul>
-                                    <li><strong>Drop-down Menus:</strong> Each part of the drawing number comes from choices in drop-down menus. You can leave parts out by using asterisks (*). For example, if you don't need to specify the belt type, you can use * to search more broadly.</li>
-                                    <li><strong>Use Asterisks Strategically:</strong> Add an asterisk (*) in place of parts of the drawing number that aren’t important to your search. This widens your search to include similar belts.</li>
-                                    <li><strong>Search Example:</strong> If your drawing number is <code>123-M-ABC-456</code>, and you want to search for all belts of a similar type but not the exact same, try <code>123-*-ABC-456</code>. This will find belts with the same part numbers but different belt types.</li>
-                                </ul>
-
-                                <p class="mt-2"><strong>Tip:</strong> This makes it faster to find related parts and documentation for special builds.</p>
-
-                                <p class="mt-2"><strong>Best Practice:</strong> When you don't know the full drawing number, using asterisks (*) helps you get a wider search. Just be sure to keep the important parts, like part numbers, as they are.</p>
-
-                                <div class="mt-2">
-                                    <strong>Summary of Steps:</strong>
-                                    <ol>
-                                        <li>Generate the drawing number using the form.</li>
-                                        <li>Copy it to the clipboard and paste it in the network search.</li>
-                                        <li>Use asterisks in place of non-critical parts of the drawing number to widen your search for similar builds.</li>
-                                    </ol>
-                                </div>
-                            </div>
-
-                            <!-- Export JSON Button Instructions -->
-                            <div class="alert alert-info mt-2">
-                                <p><strong>Export JSON Button:</strong></p>
-                                <p>This button allows you to export the data from the form in a concise JSON format. It’s useful for storing project details or sharing with team members without manually inputting each field.</p>
-                                <p class="mt-2"><strong>How to leverage it for faster data entry:</strong></p>
-                                <ul>
-                                    <li><strong>Pre-fill Projects:</strong> Use the JSON export feature to save previous configurations. This can act as a template for new projects, allowing you to quickly load and adjust parameters instead of starting from scratch.</li>
-                                    <li><strong>Efficiency:</strong> Exporting data as JSON makes it easier to reference multiple projects and avoid re-entering repetitive information. Simply load the JSON to fill out the fields instantly.</li>
-                                </ul>
-                                <p class="mt-2"><strong>Tip:</strong> When exporting JSON, be sure to use consistent naming conventions and structure for quick retrieval later.</p>
-                            </div>
-
-                            <!-- Disabled Fields Info -->
-                            <div class="alert alert-warning mt-2">
-                                <p><strong>Note on Disabled Fields:</strong></p>
-                                <p>The <strong>F/R/G Centers</strong> and <strong>Qty. Rollers Across Width</strong> fields have been temporarily disabled for now. They will be available once we fully understand their relevance and how to best integrate them into the workflow.</p>
-                                <p class="mt-2"><strong>For now:</strong> Please proceed with other fields, and we will update you when these become active.</p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Upload Component -->
-                    <div class="d-flex justify-content-center">
-                        <Upload DrawingNumber="@DrawingNumber" userInput="@drawingRequest" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    @code {
-        private bool showInstructions = false;
-
-        // Method to toggle the instructions visibility
-        private void ToggleInstructions()
-        {
-        showInstructions = !showInstructions;
-        }
-    }
-
     
-
-
-    @code {
-        private void OnSelectedValueChanged(ChangeEventArgs e)
-        {
-            GenerateDrawingNumber();
-        }
-    }
-
-    
-    <DrawingFormContainer drawingRequest="@drawingRequest" drawingNumber="@DrawingNumber">
-    <FormContent>
-            <h2 class="text-center bg-success text-light">Belt Information Section</h2>
+    <DrawingFormContainer drawingRequest="@drawingRequest">
+        <FormContent>
+            <h3 class="text-center bg-success text-light p-2">Belt Information Section</h3>
 
             <!-- Belt Type Component -->
             <div class="input-group input-group-sm mb-3">
@@ -148,10 +25,9 @@
 
                 <!-- Autocomplete input for Belt Type -->
                 <input list="beltTypes" id="beltType"
-                    @onblur="@(e => HandleBlur(beltTypeDropdownRef))"
+                    @onblur="HandleInput"
                        @bind="drawingRequest.BeltType"
-                       class="form-control form-control-sm"
-                       placeholder="Select or type Belt Type" required autofocus />
+                       class="form-control form-control-sm" required autofocus />
 
                 <!-- Datalist providing options -->
                 <datalist id="beltTypes">
@@ -162,9 +38,6 @@
                 </datalist>
                 
                 <span class="input-group-text">@BeltType.GetNameByCode(drawingRequest.BeltType, BeltType.Options)</span>
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
             </div>
 
             <!-- Belt Series Component -->
@@ -173,10 +46,10 @@
 
                 <!-- Autocomplete input for Belt Series -->
                 <input list="beltSeriesList" id="beltSeries"
-                       @onblur="@(e => HandleBlur(beltSeriesDropdownRef))"
+                       @onblur="HandleInput"
                        @bind="drawingRequest.BeltSeries"
                        class="form-control form-control-sm"
-                       placeholder="Select or type Belt Series" required autofocus />
+                        required autofocus />
 
                 <!-- Datalist providing options -->
                 <datalist id="beltSeriesList">
@@ -186,10 +59,6 @@
                     }
                 </datalist>
                 <span class="input-group-text">@BeltSeries.GetBeltSeriesType(drawingRequest.BeltSeries)</span>
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
-
                 
             </div>
 
@@ -199,10 +68,9 @@
 
                 <!-- Autocomplete input for Color -->
                 <input list="colorList" id="color"
-                       @onblur="@(e => HandleBlur(colorDropdownRef))"
+                       @onblur="HandleInput"
                        @bind="drawingRequest.Color"
-                       class="form-control form-control-sm"
-                       placeholder="Select or type Color" required autofocus />
+                       class="form-control form-control-sm" required autofocus />
 
                 <!-- Datalist providing options -->
                 <datalist id="colorList">
@@ -213,10 +81,6 @@
                 </datalist>
                 
                 <span class="input-group-text">@MaterialColor.GetCodeByName(drawingRequest.Color, MaterialColor.Options)</span>
-
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
             </div>
 
             <!-- Belt Material Component -->
@@ -225,10 +89,9 @@
 
                 <!-- Autocomplete input for Material -->
                 <input list="materialsList" id="material"
-                       @onblur="@(e => HandleBlur(materialDropdownRef))"
+                       @onblur="HandleInput"
                        @bind="drawingRequest.Material"
-                       class="form-control form-control-sm"
-                       placeholder="Select or type Material" required autofocus />
+                       class="form-control form-control-sm" required autofocus />
 
                 <!-- Datalist providing options -->
                 <datalist id="materialsList">
@@ -238,10 +101,7 @@
                     }
                 </datalist>
                 <span class="input-group-text">@BeltMaterial.GetCodeByName(drawingRequest.Material, BeltMaterial.Options)</span>
-
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
+               
             </div>
 
             <!-- AdderMaterial Component -->
@@ -250,10 +110,9 @@
                 <label class="input-group-text" for="adderMaterial">Adder Material</label>
 
                 <input list="adderMaterialsList" id="adderMaterial"
-                       @onblur="@(e => HandleBlur(adderMaterialDropdownRef))"
+                       @onblur="HandleInput"
                        @bind="drawingRequest.AdderMaterial"
-                       class="form-control form-control-sm"
-                       placeholder="Select or type Adder Material" required autofocus />
+                       class="form-control form-control-sm"  required autofocus />
 
                 <!-- Datalist providing options -->
                 <datalist id="adderMaterialsList">
@@ -264,9 +123,6 @@
                 </datalist>
                 <span class="input-group-text">@AdderMaterial.GetCodeByName(drawingRequest.AdderMaterial, AdderMaterial.Options)</span>
 
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
             </div>
 
             <!-- RodMaterial Component -->
@@ -275,10 +131,9 @@
 
                 <!-- Autocomplete input for Rod Material -->
                 <input list="rodMaterialsList" id="rodMaterial"
-                       @onblur="@(e => HandleBlur(rodMaterialDropdownRef))"
+                       @onblur="HandleInput"
                        @bind="drawingRequest.RodMaterial"
-                       class="form-control form-control-sm"
-                       placeholder="Select or type Rod Material" required autofocus />
+                       class="form-control form-control-sm"  required autofocus />
 
                 <!-- Datalist providing options -->
                 <datalist id="rodMaterialsList">
@@ -288,34 +143,27 @@
                     }
                 </datalist>
                 <span class="input-group-text">@RodMaterial.GetCodeByName(drawingRequest.RodMaterial, RodMaterial.Options)</span>
-
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
             </div>
 
             @*Width*@
             <div class="input-group input-group-sm mb-3">
                 <label class="input-group-text" for="beltWidth">Width (inches)</label>
 
-                <InputNumber @onblur="@(e => HandleBlur(beltWidthRef))"
+                <InputNumber @onblur="HandleInput"
                              id="beltWidth"
                              aria-required="true"
                              aria-describedby="beltWidthHelp"
                              @bind-Value="drawingRequest.BeltWidth"
                              Min="1"
                              Max="999"
-                             class="form-control"
+                             class="form-control text-center"
                              onfocus="selectAllText(this)" />
             
                 <span class="input-group-text">@DrawingNumber.BeltWidthCode</span>
 
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
             </div>
 
-            <h2 class="text-center bg-success text-light">Flights/Rollers/Grip Section</h2>
+            <h3 class="text-center bg-success text-light p-2">Flights/Rollers/Grip Section</h3>
 
             @* Flights/Rollers/Grip *@
             <div class="input-group input-group-sm mb-3">
@@ -323,10 +171,9 @@
 
                 <!-- Autocomplete input for Flights/Rollers/Grip -->
                 <input list="flightsRollersGripList" id="flightsRollersGrip"
-                       @onblur="@(e => HandleBlur(flightsRollersGripDropdownRef))"
+                       @onblur="HandleInput"
                        @bind="drawingRequest.FlightsRollersGrip"
-                       class="form-control form-control-sm"
-                       placeholder="Select or type Flights/Rollers/Grip" required />
+                       class="form-control form-control-sm"  required />
 
                 <!-- Datalist providing options -->
                 <datalist id="flightsRollersGripList">
@@ -336,12 +183,6 @@
                     }
                 </datalist>
                 <span class="input-group-text">@DrawingNumber.FlightsRollersGripsCode</span>
-
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
-
-               
             </div>
 
             @*Qty Rollers Width*@
@@ -351,20 +192,14 @@
                 <InputNumber id="qtyRollersAcrossWidth"
                              aria-required="true"
                              aria-describedby="qtyRollersAcrossWidthHelp"
-                             @onblur="@(e => HandleBlur(qtyRollerWidth))"
+                             @onblur="HandleInput"
                              @bind-Value="drawingRequest.QtyRollersAcrossWidth"
                              Min="1"
                              Max="20"
-                             class="form-control"
+                             class="form-control text-center"
                              disabled
                              onfocus="selectAllText(this)" />
                 <span class="input-group-text">@DrawingNumber.QtyRollersAcrossWidth</span>
-
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
-
-                
             </div>
 
             @*F/R/G Centers*@
@@ -374,24 +209,19 @@
                 <InputNumber id="frgCenters"
                              aria-required="true"
                              aria-describedby="frgCentersHelp"
-                             @onblur="@(e => HandleBlur(frgCenters))"
+                             @onblur="HandleInput"
                              @bind-Value="drawingRequest.FRGCenters"
                              Min="1"
                              Max="100"
-                             class="form-control"
+                             class="form-control text-center"
                              disabled
                              onfocus="selectAllText(this)" />
 
                 <span class="input-group-text">@DrawingNumber.FRGCenters</span>
 
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
-
-                
             </div>
 
-            <h2 class="text-center bg-success text-light">Belt Accessories Section</h2>
+            <h3 class="text-center bg-success text-light p-2">Belt Accessories Section</h3>
 
             @* Belt Accessories *@
             <div class="input-group input-group-sm mb-3">
@@ -399,10 +229,9 @@
 
                 <!-- Autocomplete input for Belt Accessories -->
                 <input list="beltAccessoriesList" id="beltAccessories"
-                       @onblur="@(e => HandleBlur(beltAccessoriesDropdownRef))"
+                       @onblur="HandleInput"
                        @bind="drawingRequest.BeltAccessories"
-                       class="form-control form-control-sm"
-                       placeholder="Select or type Accessories" required />
+                       class="form-control form-control-sm"  required />
 
                 <!-- Datalist providing options -->
                 <datalist id="beltAccessoriesList">
@@ -413,12 +242,6 @@
                 </datalist>
 
                 <span class="input-group-text">@DrawingNumber.BeltAccessoriesCode</span>
-
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
-
-                
             </div>
 
             @* Friction/Anti Static *@
@@ -427,10 +250,9 @@
 
                 <!-- Autocomplete input for Friction/Anti Static -->
                 <input list="frictionAntiStaticList" id="frictionAntiStatic"
-                       @onblur="@(e => HandleBlur(frictionAntiStaticDropdownRef))"
+                       @onblur="HandleInput"
                        @bind="drawingRequest.FrictionAntiStatic"
-                       class="form-control form-control-sm"
-                       placeholder="Select or type Friction/Anti Static" required />
+                       class="form-control form-control-sm"  required />
 
                 <!-- Datalist providing options -->
                 <datalist id="frictionAntiStaticList">
@@ -441,11 +263,6 @@
                 </datalist>
                 <span class="input-group-text">@DrawingNumber.FrictionAntiStaticCode</span>
 
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
-
-                
             </div>
 
             @* Side-PL/Lane-DV Component with Autocomplete *@
@@ -454,10 +271,9 @@
 
                 <!-- Autocomplete input for Side-PL/Lane-DV -->
                 <input list="sidePLLaneDVList" id="sidePLLaneDV"
-                       @onblur="@(e => HandleBlur(sidePLLaneDVDropdownRef))"
+                       @onblur="HandleInput"
                        @bind="drawingRequest.SidePLLaneDV"
-                       class="form-control form-control-sm"
-                       placeholder="Select or type Side-PL/Lane-DV" required />
+                       class="form-control form-control-sm"  required />
 
                 <!-- Datalist providing options -->
                 <datalist id="sidePLLaneDVList">
@@ -468,19 +284,14 @@
                 </datalist>
                 <span class="input-group-text">@SidePLLaneDV.GetCodeByName(drawingRequest.SidePLLaneDV, SidePLLaneDV.Options)</span>
 
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
-
-                
             </div>
 
 
-            <h2 class="text-center bg-success text-light">Unique Identification Section</h2>
+            <h3 class="text-center bg-success text-light p-2">Unique Identification Section</h3>
 
 
             <div class="input-group input-group-sm mb-3">
-                <label class="input-group-text" for="uniqueIdentification">Unique Identification</label>
+                <label class="input-group-text" for="uniqueIdentification">Unique ID</label>
 
                 <InputText id="uniqueIdentification"
                            aria-required="true"
@@ -490,13 +301,8 @@
                            minlength="1"
                            maxlength="2"
                            onfocus="selectAllText(this)" />
-                <span class="input-group-text">@DrawingNumber.UniqueIdentification</span>
-
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
-
                 
+
             </div>
 
             @* Indent Code Component with Autocomplete *@
@@ -505,10 +311,9 @@
 
                 <!-- Autocomplete input for Indent Code -->
                 <input list="indentCodeList" id="indentCode"
-                       @onblur="@(e => HandleBlur(indentCodeDropdownRef))"
+                       @onblur="HandleInput"
                        @bind="drawingRequest.IndentCode"
-                       class="form-control form-control-sm"
-                       placeholder="Select or type Indent Code" required />
+                       class="form-control form-control-sm" required />
 
                 <!-- Datalist providing options -->
                 <datalist id="indentCodeList">
@@ -519,23 +324,10 @@
                 </datalist>
                 <span class="input-group-text">@DrawingNumber.IndentCode</span>
 
-                <div class="input-group-text">
-                    @* <input disabled class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input"> *@
-                </div>
             </div>
 
-            <div class="row p-3">
 
-                @* <button type="submit" disabled="@isProcessing" class="btn btn-primary btn-block mt-4" aria-label="Generate Drawing Number">Generate Drawing Number</button> *@
-                <hr>
-            </div>
     </FormContent>
-</DrawingFormContainer>
+    </DrawingFormContainer>
 
-
-    
-
-    
 </EditForm>
-
-

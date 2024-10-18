@@ -3,42 +3,28 @@
 @using DNG.Library.Models
 @using System.Text.Json
 @inject IJSRuntime JS
+@inject IDrawingNumber DrawingNumber
 
 
 <!-- Export DrawingNumber button -->
-<button type="button" @onclick="ExportDrawingNumber" class="btn btn-outline-success mb-3">Export Drawing Number As JSON</button>
+<button type="button" @onclick="ExportDrawingNumber" class="btn ntn-sm btn-outline-success mb-3">Export Drawing Number As JSON</button>
 
 @* <!-- Upload File for DrawingNumber -->
 <input type="file" @onchange="OnFileChange" class="form-control mb-3" />
 
  *@
 @code {
-    public class DrawingExportData
-    {
-        public DrawingNumber DrawingNumber { get; set; }
-        public DrawingRequest UserInput { get; set; }
-    }
-
 
     [Parameter]
-    public DrawingNumber DrawingNumber { get; set; }
-    [Parameter]
-    public DrawingRequest userInput { get; set; } 
+    public DrawingRequest DrawingRequest { get; set; } 
     private string uploadedData;
 
     // Export the QueryString to a JSON file
     // Export the QueryString to a JSON file
     private async Task ExportDrawingNumber()
     {
-        // Create the export data using the named class
-        var exportData = new DrawingExportData
-            {
-                DrawingNumber = DrawingNumber,  // Assuming QueryString is a public string property or can be converted to string
-                UserInput = userInput  // Ensure drawingRequest is a structured object (not flattened)
-            };
-
         // Serialize to JSON and maintain hierarchy
-        var json = System.Text.Json.JsonSerializer.Serialize(exportData, new JsonSerializerOptions
+        var json = System.Text.Json.JsonSerializer.Serialize(DrawingRequest, new JsonSerializerOptions
             {
                 WriteIndented = true  // Pretty print for better readability (optional)
             });
@@ -60,12 +46,11 @@
             uploadedData = content;
 
             // Deserialize the JSON content and populate QueryString and drawingRequest
-            var importedData = System.Text.Json.JsonSerializer.Deserialize<DrawingExportData>(content);
+            var importedData = System.Text.Json.JsonSerializer.Deserialize<DrawingRequest>(content);
 
             if (importedData != null)
             {
-                DrawingNumber = importedData.DrawingNumber;
-                userInput = importedData.UserInput;
+                DrawingRequest = importedData;
             }
         }
     }
