@@ -3,7 +3,9 @@
 
 @inherits LayoutComponentBase
 @inject IDrawingNumber DrawingNumber
-
+<div class="conveyor-belt">
+    <div class="belt-pattern"></div>
+</div>
 <div class="page d-flex flex-column min-vh-100">
 
     <main class="flex-grow-1">
@@ -13,6 +15,9 @@
                     <a class="navbar-brand small" href="#">
                         <small class="mb-0">Habasit America <small class="text-success"> Suwanee, GA</small></small>
                     </a>
+                    
+
+
                     <div class="d-flex ms-auto">
                         <small class="text-center text-warning">Drawing Tools</small>
                     </div>
@@ -43,8 +48,10 @@
     </main>
 </div>
 
+
 <!-- Fixed Footer at the bottom of the screen -->
-<footer class="container-fluid bg-dark text-light py-1 fixed-bottom">
+<footer class="container-fluid bg-dark py-1 fixed-bottom">
+    
     <div class="row mb-3 justify-content-center">
         <!-- Drawing Number and Query Switch -->
         <div class="col-10 d-flex align-items-center">
@@ -90,7 +97,7 @@
 
     private async Task CopyDrawingNumberToClipboard()
     {
-        var drawingNumber = DrawingNumber.GetDrawingQueryString();  // Assuming this is the method that generates the drawing number.
+        var drawingNumber = GetDisplayValue();  // Assuming this is the method that generates the drawing number.
         await JSRuntime.InvokeVoidAsync("CopyDrawingNumber", drawingNumber);
     }
 }

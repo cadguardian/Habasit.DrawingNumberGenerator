@@ -118,3 +118,35 @@ a, .btn-link {
 code {
     color: #c02d76;
 }
+
+/* Container for the conveyor belt */
+.conveyor-belt {
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff; /* Light background color */
+    border: 1px solid #ddd; /* Optional border */
+    opacity: 0.1; /* Light opacity for accessibility */
+    z-index: -1; /* Push it behind all other elements */
+}
+
+/* Belt pattern that will move */
+.belt-pattern {
+    position: absolute;
+    width: 200%; /* Twice the width of the container for smooth looping */
+    height: 150%;
+    background-image: linear-gradient(90deg, transparent 24%, #ccc 25%, #ccc 35%, transparent 36%, transparent 49%, #ccc 50%, #ccc 60%, transparent 61%, transparent), /* Horizontal gaps */
+    linear-gradient(transparent 24%, #ccc 25%, #ccc 35%, transparent 36%, transparent); /* Vertical gaps for teeth */
+    background-size: 50px 50px, 50px 50px; /* Adjust the size to create a blocky interlock look */
+    animation: moveBelt 15s linear infinite;
+}
+
+/* Keyframe animation to move the pattern horizontally */
+@keyframes moveBelt {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
