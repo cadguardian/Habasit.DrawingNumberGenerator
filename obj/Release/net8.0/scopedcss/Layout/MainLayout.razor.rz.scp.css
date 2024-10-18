@@ -3,6 +3,7 @@ html[b-tmopy668it], body[b-tmopy668it] {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Page layout using flex-direction column */
@@ -15,8 +16,11 @@ html[b-tmopy668it], body[b-tmopy668it] {
     padding-top: 55px; /* Add extra space for the header */
 }
 
+/* Ensure the font size on inputs, select, and textareas */
 input[b-tmopy668it], select[b-tmopy668it], textarea[b-tmopy668it] {
-    font-size: 16px;
+    font-size: 16px; /* Ensure a standard font size to avoid zooming on mobile */
+    -webkit-text-size-adjust: 100%; /* Prevent iOS zoom on form elements */
+    -ms-text-size-adjust: 100%; /* Prevent Windows zoom on form elements */
 }
 
 /* Set the main content area to be scrollable */
@@ -24,7 +28,7 @@ input[b-tmopy668it], select[b-tmopy668it], textarea[b-tmopy668it] {
     flex-grow: 1;
     overflow-y: auto; /* Make content scrollable if it's too long */
     padding-bottom: 80px; /* Space for the footer */
-    padding-top: 55px; /* Space for the footer */
+    padding-top: 55px; /* Space for the header */
     min-height: calc(100vh - 100px); /* Set a minimum height for the main content */
     /* Custom scrollbar styles */
     scrollbar-width: thin; /* Firefox */
