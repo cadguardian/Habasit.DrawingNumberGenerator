@@ -1,4 +1,4 @@
-using DrawingNumberGenerator.Library.Models;
+using DNG.Library.Models;
 using NUnit;
 
 namespace DrawingNumberGenerator.Tests

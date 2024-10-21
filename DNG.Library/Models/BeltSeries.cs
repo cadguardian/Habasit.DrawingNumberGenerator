@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace DrawingNumberGenerator.Library.Models;
+namespace DNG.Library.Models;
 
 public class BeltSeries : RuleWithOptions, IOptions
 {

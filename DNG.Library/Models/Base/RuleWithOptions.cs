@@ -1,4 +1,4 @@
-﻿namespace DrawingNumberGenerator.Library.Models;
+﻿namespace DNG.Library.Models;
 
 public class RuleWithOptions : Rule
 {
@@ -21,13 +21,27 @@ public class RuleWithOptions : Rule
 
     public static string GetNameByCode(string code, Dictionary<string, string> options)
     {
-        return options[code];
+        if (!string.IsNullOrEmpty(code))
+        {
+            return code;
+        }
+        else
+        {
+            options.TryGetValue(code, out var result);
+            return result;
+        }
     }
 
     public static string GetCodeByName(string name, Dictionary<string, string> options)
     {
-        // Use case-insensitive comparison to find the code corresponding to the provided name
-        var entry = options.FirstOrDefault(kvp => kvp.Value.Equals(name, StringComparison.OrdinalIgnoreCase));
-        return entry.Key;
+        if (!string.IsNullOrEmpty(name))
+        {
+            return name;
+        }
+        else
+        {
+            var entry = options.FirstOrDefault(kvp => kvp.Value.Equals(name, StringComparison.OrdinalIgnoreCase));
+            return entry.Key;
+        }
     }
 }

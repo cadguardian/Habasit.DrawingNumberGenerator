@@ -1,4 +1,4 @@
-﻿namespace DrawingNumberGenerator.Library.Models;
+﻿namespace DNG.Library.Models;
 
 public interface INumberRule
 {

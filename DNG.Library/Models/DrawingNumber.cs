@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace DNG.Library.Models;
 
-public class DrawingNumber
+public class DrawingNumber : IDrawingNumber
 {
     [Key]
     public static Guid Id => Guid.NewGuid();
@@ -31,7 +31,7 @@ public class DrawingNumber
     public string BeltWidthCode { get; set; } = string.Empty;
 
     [Range(0, 99, ErrorMessage = "Qty Rollers Across Width must be between 0 and 99.")]
-    public string QtyRollersAcrossWidth { get; set; }
+    public string QtyRollersAcrossWidth { get; set; } = string.Empty;
 
     [StringLength(3, ErrorMessage = "F/R/G Centers must be 3 characters.")]
     public string FRGCenters { get; set; } = string.Empty;
@@ -55,60 +55,55 @@ public class DrawingNumber
     [StringLength(2, ErrorMessage = "Indent Code must be up to 2 characters.")]
     public string IndentCode { get; set; } = string.Empty;
 
+    public string QueryString { get; set; } = string.Empty;
+
     public static DrawingNumber Create()
     {
         return new DrawingNumber();
     }
 
-    public string GetDrawingNumber(bool noFRG)
-{
-    string rawDrawingNumber;
-    string cleanedDrawingNumber;
+    private string _drawingCode = string.Empty;
 
-    // Common parts that are always present
-    rawDrawingNumber = $"{BeltTypeCode}" +
-                       $"{BeltSeriesCode}" +
-                       $"{ColorCode}" +
-                       $"{MaterialCode}" +
-                       $"{AdderMaterialCode}" +
-                       $"{RodMaterialCode}" +
-                       $"{BeltWidthCode}";
-
-    // Clean the raw drawing number by removing any non-alphanumeric characters
-    cleanedDrawingNumber = Regex.Replace(rawDrawingNumber, "[^a-zA-Z0-9]", "");
-
-    if (noFRG)
+    public string GetDrawingQueryString()
     {
-        // When no Flights/Roller/Grips, exclude certain fields
-        cleanedDrawingNumber +=
-                              $"*" +
-                              $"{BeltAccessoriesCode}" +
-                              $"{FrictionAntiStaticCode}" +
-                              $"{SidePLLaneDVCode}" +
-                              $"{UniqueIdentification}" +
-                              $"{IndentCode}";
-    }
-    else
-    {
-        // Include all relevant fields when Flights/Roller/Grips is present
-        cleanedDrawingNumber +=
-                              $"{FlightsRollersGripsCode}" +
-                              $"{QtyRollersAcrossWidth}" +
-                              $"{FRGCenters}" +
-                              $"{BeltAccessoriesCode}" +
-                              $"{FrictionAntiStaticCode}" +
-                              $"{SidePLLaneDVCode}" +
-                              $"{UniqueIdentification}" +
-                              $"{IndentCode}";
+        string rawDrawingNumber;
+
+        // Common parts that are always present
+        rawDrawingNumber = $"{BeltTypeCode}*" +
+                           $"{BeltSeriesCode}*" +
+                           $"{ColorCode}*" +
+                           $"{MaterialCode}*" +
+                           $"{AdderMaterialCode}*" +
+                           $"{RodMaterialCode}*" +
+                           $"{BeltWidthCode}*" +
+                           $"{FlightsRollersGripsCode}" +
+                            $"{QtyRollersAcrossWidth}" +
+                            $"{FRGCenters}" +
+                            $"{BeltAccessoriesCode}" +
+                            $"{FrictionAntiStaticCode}" +
+                            $"{SidePLLaneDVCode}" +
+                            $"{UniqueIdentification}" +
+                            $"{IndentCode}";
+
+        QueryString = rawDrawingNumber;
+
+        return rawDrawingNumber;
     }
 
-    return cleanedDrawingNumber;
-}
+    public string GetDrawingNumber()
+    {
+        var queryString = GetDrawingQueryString();
 
+        // Remove special characters using a regular expression
+        var drawingNumber = System.Text.RegularExpressions.Regex.Replace(queryString, @"[^a-zA-Z0-9]", "");
+
+        return drawingNumber;
+    }
 
     public string GetDrawingNumberLog()
     {
-        return $"Belt Type: {BeltTypeCode}\n" +
+        _drawingCode =
+         $"Belt Type: {BeltTypeCode}\n" +
                $"Belt Series: {BeltSeriesCode}\n" +
                $"Color: {ColorCode}\n" +
                $"Material: {MaterialCode}\n" +
@@ -123,5 +118,6 @@ public class DrawingNumber
                $"Side-PL/Lane-DV: {SidePLLaneDVCode}\n" +
                $"Unique Identification: {UniqueIdentification}\n" +
                $"Indent Code: {IndentCode}";
+        return _drawingCode;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace DrawingNumberGenerator.Library.Models;
+﻿namespace DNG.Library.Models;
 
 // todo assign frgCentersDimension, quantityRollersAcrossWidth appropriately
 // convert all code formats appropriately

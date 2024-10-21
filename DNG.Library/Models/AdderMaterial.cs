@@ -1,4 +1,6 @@
-﻿namespace DrawingNumberGenerator.Library.Models;
+﻿using DNG.Library.Models;
+
+namespace DNG.Library.Models;
 
 public class AdderMaterial : RuleWithOptions, IOptions
 {
@@ -8,13 +10,13 @@ public class AdderMaterial : RuleWithOptions, IOptions
         maxCharacters: 1)
     { }
 
-    public static Dictionary<string, string> Options => new Dictionary<string, string>()
+    public static Dictionary<string, string> Options => new()
     {
         ["-"] = "No Adder",
         ["A"] = "Acid Resistant",
-        ["B"] = "", // Placeholder for an unspecified option
+        //  ["B"] = "", // Placeholder for an unspecified option
         ["C"] = "Chlorine Res.",
-        ["D"] = "", // Placeholder for an unspecified option
+        // ["D"] = "", // Placeholder for an unspecified option
         ["E"] = "Elec. Cond.",
         ["F"] = "Talc Filled",
         ["G"] = "Reinforced",
@@ -24,8 +26,8 @@ public class AdderMaterial : RuleWithOptions, IOptions
         ["K"] = "Wear Resistant",
         ["L"] = "RE Non-Stick",
         ["M"] = "Metal Det.",
-        ["N"] = "", // Placeholder for an unspecified option
-        ["O"] = "", // Placeholder for an unspecified option
+        // ["N"] = "", // Placeholder for an unspecified option
+        // ["O"] = "", // Placeholder for an unspecified option
         ["P"] = "Low Friction",
         ["Q"] = "Special Mat'l",
         ["R"] = "Flame Ret.",

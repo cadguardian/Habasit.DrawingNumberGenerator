@@ -1,4 +1,4 @@
-﻿namespace DrawingNumberGenerator.Library.Models;
+﻿namespace DNG.Library.Models;
 
 public class BeltType : RuleWithOptions, IOptions
 {
@@ -31,4 +31,6 @@ public class BeltType : RuleWithOptions, IOptions
     {
         return new BeltType(name, code);
     }
+
+    public static string DefaultOption => "M";
 }
