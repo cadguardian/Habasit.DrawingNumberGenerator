@@ -1,0 +1,315 @@
+﻿
+
+<h1>Habasit Tools Overview</h1>
+<small>Author: Thomas Smith II | CAD Drafter | 10/14/2024</small>
+
+<hr>
+
+<p>
+    This CAD app suite will include a set of .NET 8, C# 12 applications and services designed to streamline and automate CAD drafting, project management, and data handling for multiple drafters at Habasit America.
+    The solution will be cross-platform, with Progressive Web Applications (PWAs) where applicable, to provide offline capabilities and will focus on asynchronous communication with each drafter's local SolidWorks API instance.
+    This will include a high-performance web API for network-hosted services, ensuring scalability and rapid development.
+</p>
+
+<hr />
+
+<h2>Architecture and Services</h2>
+
+<h4>Core Services (Class Libraries)</h4>
+<ul>
+    <li><b>CoreServices</b>: Provides shared business logic and reusable services for the suite.</li>
+    <li><b>DataSyncService</b>: Synchronizes data between local applications and external systems like ERP or PDM.</li>
+    <li><b>UserManagement</b>: Manages user authentication, roles, and permissions across the suite.</li>
+    <li><b>FileNamingService</b>: Automates file naming conventions based on part, assembly, and project properties.</li>
+    <li><b>SolidWorksAPIClient</b>: Facilitates communication and control of SolidWorks API from other services.</li>
+    <li><b>SolidWorksMetadataService</b>: Handles metadata extraction and management for SolidWorks parts, assemblies, and drawings.</li>
+</ul>
+
+<h4>API and Web (Web API & Blazor)</h4>
+<ul>
+    <li><b>WebAPI (ASP.NET Core Web API)</b>: Exposes core services through a high-performance RESTful API for integration and automation.</li>
+    <li><b>WebClient (Blazor WebAssembly PWA)</b>: Provides the user interface for accessing and interacting with core services, including offline capabilities.</li>
+</ul>
+
+<h4>Integration Services (Worker Services)</h4>
+<ul>
+    <li><b>SolidWorksControlService</b>: Asynchronously controls local instances of SolidWorks to automate design processes.</li>
+    <li><b>SolidWorksPDMService</b>: Integrates SolidWorks PDM to automate file management and revision control.</li>
+    <li><b>EpicorIntegrationService</b>: Automates data flow between SolidWorks and the Epicor ERP system for part numbers, materials, and orders.</li>
+    <li><b>SugarCRMIntegrationService</b>: Extracts drawing request parameters from tasks in SugarCRM.</li>
+    <li><b>AsynchronousSolidWorksService</b>: Ensures non-blocking communication between the web client and SolidWorks on users’ machines.</li>
+</ul>
+
+<h4>Automation Tools (Worker Services)</h4>
+<ul>
+    <li><b>DrawingNumberGenerator</b>: Automatically generates drawing numbers based on specified inputs and conventions.</li>
+    <li><b>ProjectFolderCreator</b>: Creates project folders with organized structures and metadata for new engineering projects.</li>
+    <li><b>EngineeringRequestProcessor</b>: Processes engineering drawing requests and automates the flow of data from request to design.</li>
+</ul>
+
+<h4>Utilities (Class Libraries & Console Application)</h4>
+<ul>
+    <li><b>FileSearchUtility</b>: Searches and categorizes files across the network based on project or part properties.</li>
+    <li><b>MarkdownGenerator</b>: Creates markdown documentation with links and metadata for project folders.</li>
+</ul>
+
+<hr />
+
+<h2>High-Level Architecture Outline</h2>
+
+<h3>Shared Class Library Strategy</h3>
+<p>The goal of shared libraries is to encapsulate reusable functionality that can be leveraged by multiple apps and services, ensuring that the code remains DRY (Don’t Repeat Yourself) and easy to maintain. The following core domains are abstracted into shared libraries:</p>
+
+<ul>
+    <li><b>SolidWorks API Interactions</b>: Seamless communication with local SolidWorks instances, enabling automated access to models, assemblies, and drawing generation.</li>
+    <li><b>PDM & ERP Integration (Windchill, Epicor)</b>: Manages synchronization and communication between SolidWorks, PDM, and ERP systems.</li>
+    <li><b>Metadata & BOM Automation</b>: Automates extraction and synchronization of metadata and Bill of Materials (BOM) between SolidWorks files, ERP, and PDM systems.</li>
+    <li><b>Common Utilities (Validation, Logging, Caching)</b>: Provides reusable utilities for validation, logging, and caching across services.</li>
+    <li><b>Web API Client Services</b>: Client-side functionality for interacting with the Web API, facilitating smooth data transfer between web clients and backend services.</li>
+    <li><b>Authentication & Authorization</b>: Manages user identity and role-based access control across the suite.</li>
+    <li><b>File & Folder Management</b>: Handles file naming conventions, storage, and project folder organization.</li>
+</ul>
+
+<h3>Front-End Layer</h3>
+<p><b>Blazor WebAssembly PWA</b>: The primary cross-platform interface for CAD drafters, providing offline capabilities and a responsive design for multiple devices. Integrates with SolidWorks for tasks like drawing number generation, project folder creation, and file categorization.</p>
+
+<h3>Backend Layer</h3>
+<p><b>ASP.NET Core Web API</b>: The server-side logic, handling requests, data processing, and communication with external systems like SolidWorks PDM, Epicor ERP, and SugarCRM.</p>
+
+<h3>Integration with External Systems</h3>
+<p>Integrates with external systems such as SugarCRM, Epicor ERP, and SolidWorks, facilitating data flow for part numbers, materials, and orders.</p>
+
+<h3>Conclusion</h3>
+<p>This architecture is designed for performance, scalability, and maintainability, supporting a robust suite of tools to automate workflows for multiple CAD drafters while integrating with key systems like SolidWorks, SugarCRM, and Epicor ERP.</p>
+
+
+
+<h2><strong>Risk Mitigation Strategy for CG</strong></h2>
+
+<p>In developing and implementing the <strong>CG</strong> suite, several risks can arise across various dimensions such as performance, security, integration, maintainability, and scalability. Below is a structured risk mitigation strategy to proactively address these risks.</p>
+
+<hr>
+
+<h3><strong>1. Project and Development Risks</strong></h3>
+
+<div class="risk-category">
+    <h4><strong>Risk: Lack of Time for Thorough Testing</strong></h4>
+    <p><span class="mitigation">Mitigation:</span></p>
+    <ul>
+        <li>Use <strong>Test-Driven Development (TDD)</strong> from the start, focusing on critical functions first.</li>
+        <li>Implement <strong>unit tests</strong>, <strong>integration tests</strong>, and <strong>load tests</strong> early to validate components as they’re built.</li>
+        <li>Employ <strong>CI/CD pipelines</strong> (e.g., using GitHub Actions or Azure Pipelines) for continuous testing and validation of the codebase.</li>
+    </ul>
+</div>
+
+<div class="risk-category">
+    <h4><strong>Risk: Scope Creep</strong></h4>
+    <p><span class="mitigation">Mitigation:</span></p>
+    <ul>
+        <li>Clearly define <strong>MVP (Minimum Viable Product)</strong> milestones.</li>
+        <li>Regularly review project requirements and keep stakeholders informed of current progress and potential changes.</li>
+        <li>Implement an <strong>agile development approach</strong> with sprints to maintain focus on the highest priority tasks.</li>
+    </ul>
+</div>
+
+<hr>
+
+<h3><strong>2. Performance and Scalability Risks</strong></h3>
+
+<div class="risk-category">
+    <h4><strong>Risk: Performance Bottlenecks with SolidWorks API</strong></h4>
+    <p><span class="mitigation">Mitigation:</span></p>
+    <ul>
+        <li>Implement <strong>asynchronous communication</strong> between the web client and SolidWorks instances to prevent blocking operations.</li>
+        <li>Use <strong>caching</strong> where applicable to reduce API calls and improve load times (e.g., Redis for frequently accessed data).</li>
+        <li>Use <strong>profiling tools</strong> like <strong>dotTrace</strong> to identify and optimize any performance bottlenecks during the development process.</li>
+    </ul>
+</div>
+
+<div class="risk-category">
+    <h4><strong>Risk: Scalability of Web API and Local Server</strong></h4>
+    <p><span class="mitigation">Mitigation:</span></p>
+    <ul>
+        <li>Leverage <strong>ASP.NET Core’s built-in scalability features</strong> such as <strong>Kestrel</strong>, load balancing, and horizontal scaling options.</li>
+        <li>Host services in a <strong>containerized environment</strong> (e.g., Docker) to facilitate scalability on the local network server.</li>
+        <li>Ensure services are stateless where possible, and use <strong>message queues</strong> (RabbitMQ or Azure Service Bus) for handling high loads.</li>
+    </ul>
+</div>
+
+<hr>
+
+<h3><strong>3. Integration Risks</strong></h3>
+
+<div class="risk-category">
+    <h4><strong>Risk: Errors in Integration with External Systems (PDM, ERP, CRM)</strong></h4>
+    <p><span class="mitigation">Mitigation:</span></p>
+    <ul>
+        <li>Implement <strong>retries</strong> and <strong>error-handling mechanisms</strong> for external API calls to ensure graceful recovery from failures.</li>
+        <li>Ensure robust <strong>data validation</strong> and <strong>sanitization</strong> when transferring data between systems to prevent errors or inconsistencies.</li>
+        <li>Develop a <strong>logging</strong> and <strong>monitoring strategy</strong> (e.g., using Serilog and Application Insights) to track and resolve issues related to integrations in real-time.</li>
+    </ul>
+</div>
+
+<div class="risk-category">
+    <h4><strong>Risk: Changes in External Systems (e.g., API Changes)</strong></h4>
+    <p><span class="mitigation">Mitigation:</span></p>
+    <ul>
+        <li>Use <strong>versioned APIs</strong> when integrating with external systems, ensuring backward compatibility.</li>
+        <li>Implement <strong>feature toggles</strong> or <strong>service wrappers</strong> around external system calls to adapt quickly to system changes without disrupting core functionality.</li>
+    </ul>
+</div>
+
+<hr>
+
+<h3><strong>4. Security Risks</strong></h3>
+
+<div class="risk-category">
+    <h4><strong>Risk: Unauthorized Access to SolidWorks or Sensitive Data</strong></h4>
+    <p><span class="mitigation">Mitigation:</span></p>
+    <ul>
+        <li>Enforce <strong>user authentication and authorization</strong> using OAuth2 or OpenID Connect for web services.</li>
+        <li>Encrypt sensitive data both in transit (using <strong>SSL/TLS</strong>) and at rest (using AES-256 or similar standards).</li>
+        <li>Regularly perform <strong>security audits</strong> and vulnerability scans to identify and patch potential security risks.</li>
+    </ul>
+</div>
+
+<div class="risk-category">
+    <h4><strong>Risk: Data Breaches or Insecure Communication</strong></h4>
+    <p><span class="mitigation">Mitigation:</span></p>
+    <ul>
+        <li>Implement <strong>input sanitization</strong> and prevent <strong>SQL injection</strong> attacks by using parameterized queries (EF Core).</li>
+        <li>Use <strong>role-based access control (RBAC)</strong> to limit system functionality and data visibility based on the user's role.</li>
+    </ul>
+</div>
+
+<hr>
+
+<h3><strong>5. Data Management and Storage Risks</strong></h3>
+
+<div class="risk-category">
+    <h4><strong>Risk: Data Loss or Corruption</strong></h4>
+    <p><span class="mitigation">Mitigation:</span></p>
+    <ul>
+        <li>Use <strong>redundant backups</strong> and regularly scheduled <strong>data snapshots</strong> for both relational (SQL Server) and NoSQL (e.g., MongoDB) databases.</li>
+        <li>Implement <strong>data validation checks</strong> and maintain <strong>data integrity</strong> with atomic transactions and error handling.</li>
+    </ul>
+</div>
+
+<div class="risk-category">
+    <h4><strong>Risk: Poor Data Consistency Between Systems</strong></h4>
+    <p><span class="mitigation">Mitigation:</span></p>
+    <ul>
+        <li>Use <strong>eventual consistency</strong> where appropriate, with clearly defined data synchronization strategies between SolidWorks, PDM, ERP, and CRM systems.</li>
+        <li>Implement a <strong>message queue system</strong> to manage data sync between asynchronous services, ensuring reliable data transfer across services.</li>
+    </ul>
+</div>
+
+<hr>
+
+<h3><strong>6. Maintenance and Technical Debt Risks</strong></h3>
+
+<h4><strong>Risk: Increasing Complexity and Technical Debt</strong></h4>
+<ul>
+    <li>
+        <strong>Mitigation:</strong>
+        <ul>
+            <li>Follow <strong>SOLID principles</strong> and <strong>design patterns</strong> to write maintainable and decoupled code.</li>
+            <li>Regularly refactor code to ensure it remains clean, efficient, and understandable.</li>
+            <li>Maintain <strong>documentation</strong> for all shared libraries, services, and APIs, ensuring other developers can easily onboard and contribute.</li>
+        </ul>
+    </li>
+</ul>
+
+<h4><strong>Risk: Poor API Versioning or Breaking Changes</strong></h4>
+<ul>
+    <li>
+        <strong>Mitigation:</strong>
+        <ul>
+            <li>Ensure <strong>backward compatibility</strong> when introducing new versions of the APIs.</li>
+            <li>Implement <strong>API versioning strategies</strong> (e.g., route-based versioning) to handle updates without breaking existing functionality.</li>
+        </ul>
+    </li>
+</ul>
+
+<hr>
+
+<h3><strong>7. User Adoption and Usability Risks</strong></h3>
+
+<h4><strong>Risk: Low Adoption Due to Complexity or Usability Issues</strong></h4>
+<ul>
+    <li>
+        <strong>Mitigation:</strong>
+        <ul>
+            <li>Engage in <strong>user testing</strong> during development to gather feedback and ensure the tool is easy to use.</li>
+            <li>Provide <strong>comprehensive documentation</strong>, user guides, and video tutorials to onboard new users.</li>
+            <li>Build a <strong>responsive and intuitive UI/UX</strong> using modern frameworks like Blazor and Material UI.</li>
+        </ul>
+    </li>
+</ul>
+
+<h4><strong>Risk: Offline Functionality Fails</strong></h4>
+<ul>
+    <li>
+        <strong>Mitigation:</strong>
+        <ul>
+            <li>Implement <strong>PWA features</strong> to ensure users can continue to work offline and automatically sync changes when back online.</li>
+            <li>Regularly test the offline functionality to ensure seamless transitions between online and offline modes.</li>
+        </ul>
+    </li>
+</ul>
+
+<hr>
+
+<h3><strong>8. Legal and Compliance Risks</strong></h3>
+
+<h4><strong>Risk: Non-Compliance with Industry Standards</strong></h4>
+<ul>
+    <li>
+        <strong>Mitigation:</strong>
+        <ul>
+            <li>Ensure that the software complies with relevant industry standards for data management, especially in areas like product data, engineering drawings, and materials.</li>
+            <li>Conduct regular <strong>compliance audits</strong> and seek legal consultation where needed to ensure the software follows the necessary regulations.</li>
+        </ul>
+    </li>
+</ul>
+
+<h4><strong>Risk: Intellectual Property Violations</strong></h4>
+<ul>
+    <li>
+        <strong>Mitigation:</strong>
+        <ul>
+            <li>Ensure that any third-party libraries, packages, or integrations are used according to their licensing agreements.</li>
+            <li>Maintain an internal record of all licenses and terms associated with third-party software and libraries used in the project.</li>
+        </ul>
+    </li>
+</ul>
+
+<hr>
+
+<h3><strong>9. Cross-Platform Risks</strong></h3>
+
+<h4><strong>Risk: Inconsistent Behavior Across Platforms (Windows, macOS, etc.)</strong></h4>
+<ul>
+    <li>
+        <strong>Mitigation:</strong>
+        <ul>
+            <li>Thoroughly test on all supported platforms (e.g., use <strong>BrowserStack</strong> or similar tools for cross-browser/platform testing).</li>
+            <li>Use <strong>cross-platform libraries</strong> like .NET MAUI or Blazor for consistent behavior across devices.</li>
+        </ul>
+    </li>
+</ul>
+
+<hr>
+
+<h3><strong>10. Performance Risk for Multi-User Environments</strong></h3>
+
+<h4><strong>Risk: Bottlenecks with Concurrent Users</strong></h4>
+<ul>
+    <li>
+        <strong>Mitigation:</strong>
+        <ul>
+            <li>Implement <strong>load balancing</strong> and scale the backend horizontally to handle increased traffic.</li>
+            <li>Use <strong>SignalR</strong> or <strong>gRPC</strong> for real-time, async communication between the web clients and user instances of SolidWorks to avoid overloading.</li>
+        </ul>
+    </li>
+</ul>

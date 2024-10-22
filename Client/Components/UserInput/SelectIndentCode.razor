@@ -1,0 +1,19 @@
+﻿@inherits BaseInputComponent
+
+<div class="input-group mb-3">
+    <label class="input-group-text" for="indentCode">Indent Code</label>
+    <input list="indentCodeList" id="indentCode" 
+           @onblur="HandleInputAsync" 
+           @bind="DrawingRequest.IndentCode" 
+           class="form-control form-control-sm" 
+           required />
+
+    <datalist id="indentCodeList">
+            @foreach (var indent in IndentCode.Options)
+            {
+                <option value="@indent.Key">@indent.Value</option>
+            }
+    </datalist>
+
+    <span class="input-group-text">@DrawingNumber.IndentCode</span>
+</div>

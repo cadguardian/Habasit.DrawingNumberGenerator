@@ -1,0 +1,77 @@
+﻿
+@code {
+    [Parameter]
+    public RenderFragment? Preface { get; set; }
+    
+    [Parameter]
+    public RenderFragment? Article { get; set; }
+    
+     [Parameter]
+     public RenderFragment? Climax { get; set; }
+
+    [Parameter]
+    public RenderFragment? Conclusion { get; set; }
+    
+    [Parameter]
+    public string? PrefaceHeading { get; set; }
+    
+    [Parameter]
+    public string? ArticleHeading { get; set; }
+    
+     [Parameter]
+     public string? ClimaxHeading { get; set; }
+
+    [Parameter]
+    public string? ConclusionHeading { get; set; }
+}
+
+    <div class="accordion accordion-flush mt-4" id="summary">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#preface" aria-expanded="true" aria-controls="preface">
+                    @PrefaceHeading
+                </button>
+            </h2>
+        <div id="preface" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                    @Preface
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#article" aria-expanded="false" aria-controls="article">
+                    @ArticleHeading
+                </button>
+            </h2>
+            <div id="article" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                   @Article
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#climax" aria-expanded="false" aria-controls="climax">
+                    @ClimaxHeading
+                </button>
+            </h2>
+            <div id="climax" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                    @Climax
+                </div>
+            </div>
+        </div> <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#conclusion" aria-expanded="false" aria-controls="conclusion">
+                    @ConclusionHeading
+                </button>
+            </h2>
+            <div id="conclusion" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                    @Conclusion
+                </div>
+            </div>
+        </div>
+
+    </div>

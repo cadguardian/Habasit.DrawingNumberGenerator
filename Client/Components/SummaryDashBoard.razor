@@ -1,0 +1,90 @@
+﻿@page "/drawing-form"
+@using Client.Services
+@using DNG.Library.Data
+@using DNG.Library.Models
+@inject IDrawingNumber DrawingNumber
+@inject IDrawingRequest DrawingRequest
+@inject IDrawingRequestProcessor DrawingRequestProcessor
+
+@code {
+    private bool isFormVisible = true;
+    [Parameter] public RenderFragment FormContent { get; set; }
+}
+
+<div class="container-fluid mt-4">
+    @if (isFormVisible)
+    {
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center mb-4">
+                <button type="button" class="btn btn-outline-secondary" 
+                        @onclick="() => { DrawingRequestProcessor.GenerateDrawingNumber(); isFormVisible = false; }">
+                    Summarize & Hide Form
+                </button>
+            </div>
+            @FormContent
+        </div>
+    }
+    else
+    {
+        <div class="summary-dashboard">
+            <h3>Data Summary Dashboard</h3>
+
+            <!-- Two columns on all screen sizes -->
+            <div class="row row-cols-2 g-2">
+                <!-- Left column: Drawing Request fields -->
+                <div class="col">
+                    <div class="p-2 bg-white rounded shadow-sm">
+                        <h6 class="small-heading">Drawing Request</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Belt Type:</strong> @DrawingRequest.BeltType</li>
+                            <li><strong>Belt Series:</strong> @DrawingRequest.BeltSeries</li>
+                            <li><strong>Color:</strong> @DrawingRequest.Color</li>
+                            <li><strong>Material:</strong> @DrawingRequest.Material</li>
+                            <li><strong>Adder Material:</strong> @DrawingRequest.AdderMaterial</li>
+                            <li><strong>Rod Material:</strong> @DrawingRequest.RodMaterial</li>
+                            <li><strong>Belt Width:</strong> @DrawingRequest.BeltWidth</li>
+                            <li><strong>Flights Rollers Grip:</strong> @DrawingRequest.FlightsRollersGrip</li>
+                            <li><strong>Qty Rollers Across Width:</strong> @DrawingRequest.QtyRollersAcrossWidth</li>
+                            <li><strong>FRG Centers:</strong> @DrawingRequest.FRGCenters</li>
+                            <li><strong>Belt Accessories:</strong> @DrawingRequest.BeltAccessories</li>
+                            <li><strong>Friction/Anti Static:</strong> @DrawingRequest.FrictionAntiStatic</li>
+                            <li><strong>Side-PL/Lane-DV:</strong> @DrawingRequest.SidePLLaneDV</li>
+                            <li><strong>Unique Identification:</strong> @DrawingRequest.UniqueIdentification</li>
+                            <li><strong>Indent Code:</strong> @DrawingRequest.IndentCode</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right column: Drawing Number fields -->
+                <div class="col">
+                    <div class="p-2 bg-white rounded shadow-sm">
+                        <h6 class="small-heading">Drawing Code</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Belt Type Code:</strong> @DrawingNumber.BeltTypeCode</li>
+                            <li><strong>Belt Series Code:</strong> @DrawingNumber.BeltSeriesCode</li>
+                            <li><strong>Color Code:</strong> @DrawingNumber.ColorCode</li>
+                            <li><strong>Material Code:</strong> @DrawingNumber.MaterialCode</li>
+                            <li><strong>Adder Material Code:</strong> @DrawingNumber.AdderMaterialCode</li>
+                            <li><strong>Rod Material Code:</strong> @DrawingNumber.RodMaterialCode</li>
+                            <li><strong>Belt Width Code:</strong> @DrawingNumber.BeltWidthCode</li>
+                            <li><strong>Flights Rollers Grips Code:</strong> @DrawingNumber.FlightsRollersGripsCode</li>
+                            <li><strong>Qty Rollers Across Width:</strong> @DrawingNumber.QtyRollersAcrossWidth</li>
+                            <li><strong>FRG Centers:</strong> @DrawingNumber.FRGCenters</li>
+                            <li><strong>Belt Accessories Code:</strong> @DrawingNumber.BeltAccessoriesCode</li>
+                            <li><strong>Friction/Anti Static Code:</strong> @DrawingNumber.FrictionAntiStaticCode</li>
+                            <li><strong>Side-PL/Lane-DV Code:</strong> @DrawingNumber.SidePLLaneDVCode</li>
+                            <li><strong>Unique Identification:</strong> @DrawingNumber.UniqueIdentification</li>
+                            <li><strong>Indent Code:</strong> @DrawingNumber.IndentCode</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center mt-4">
+                <button type="button" class="btn btn-secondary" @onclick="() => isFormVisible = true">
+                    Edit Form
+                </button>
+            </div>
+        </div>
+    }
+</div>

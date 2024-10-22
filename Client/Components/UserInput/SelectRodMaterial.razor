@@ -1,0 +1,18 @@
+﻿@inherits BaseInputComponent
+
+<div class="input-group mb-3">
+    <label class="input-group-text" for="rodMaterial">Rod</label>
+
+    <select id="rodMaterial" class="form-select form-select-sm" @onblur="HandleInputAsync"
+            @bind="DrawingRequest.RodMaterial" required autofocus>
+        <option value="" disabled selected>Select Rod Material</option>
+            @foreach (var rod in RodMaterial.Options)
+            {
+                <option value="@rod.Key">@rod.Value</option>
+            }
+    </select>
+
+    <span class="input-group-text">
+        @RodMaterial.GetCodeByName(DrawingRequest.RodMaterial, RodMaterial.Options)
+    </span>
+</div>

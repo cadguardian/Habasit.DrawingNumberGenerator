@@ -1,0 +1,121 @@
+﻿@inherits LayoutComponentBase
+@inject IDrawingNumber DrawingNumber
+@inject IDrawingRequest DrawingRequest
+@inject IJSRuntime JSRuntime
+
+<div class="page d-flex flex-column min-vh-100">
+    <main class="flex-grow-1">
+        <div class="container-fluid bg-light">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand small" href="#">Habasit America <small class="text-success">Suwanee, GA</small></a>
+                    <div class="d-flex ms-auto">
+                        <small class="text-warning">Drawing Tools</small>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="content-wrapper d-flex flex-column" style="max-width: 700px; margin: 0 auto;">
+                <CascadingValue Value="(Action)UpdateFooter">
+                    @Body
+                </CascadingValue>
+            </div>
+        </div>
+    </main>
+
+    <footer class="container-fluid bg-dark py-3 fixed-bottom">
+        <div class="row justify-content-center">
+            <div class="col-10 d-flex align-items-center justify-content-center">
+                <!-- Grouped Control: Labels + Switch -->
+                <div class="d-flex align-items-center gap-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Toggle between Drawing Number and Query String">
+                    <label class="form-check-label text-light" for="toggleQueryString">Drawing Number</label>
+
+                    <div class="form-check form-switch">
+    <input 
+        class="form-check-input bg-success border-success" 
+        type="checkbox" 
+        id="toggleQueryString" 
+        @bind="showQueryString" 
+        style="transform: scale(1.5);" 
+    />
+</div>
+
+                    <label class="form-check-label text-light" for="toggleQueryString">Query String</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-3">
+            <h2 
+                class="text-warning mb-0" 
+                @onclick="CopyDrawingNumberToClipboard" 
+                style="cursor: pointer;" 
+                data-bs-toggle="tooltip" 
+                data-bs-placement="top" 
+                title="Click to copy to clipboard">
+                @(string.IsNullOrEmpty(GetDisplayValue()) ? "N/A" : GetDisplayValue())
+            </h2>
+        </div>
+
+        <div class="text-center mt-2">
+            <blockquote class="mb-0">
+                <p class="small mb-0 text-light">"Simplifying special build drawing delivery!"</p>
+            </blockquote>
+            <a href="mailto:thomas.smith@habasit.com" class="text-light small" style="text-decoration: underline;">
+                thomas.smith@habasit.com
+            </a>
+        </div>
+
+        <!-- Bootstrap Toast Notification -->
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
+            <div id="clipboardToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        Value copied to clipboard!
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+@code {
+    private bool showQueryString = false;
+
+    private string GetDisplayValue()
+    {
+        return showQueryString ? DrawingRequest.QueryString : DrawingNumber.GetDrawingNumber();
+    }
+
+    public void UpdateFooter()
+    {
+        StateHasChanged(); // Ensures the footer updates with the latest values
+    }
+
+    private async Task CopyDrawingNumberToClipboard()
+    {
+        var drawingNumber = GetDisplayValue();
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", drawingNumber);
+
+        // Show the toast notification
+        await JSRuntime.InvokeVoidAsync("showToast");
+    }
+}
+
+<script>
+    function showToast() {
+        const toastEl = document.getElementById('clipboardToast');
+        const toast = new bootstrap.Toast(toastEl);
+        toast.show();
+    }
+
+    // Initialize Bootstrap tooltips
+    document.addEventListener('DOMContentLoaded', function () {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+            new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+</script>
+

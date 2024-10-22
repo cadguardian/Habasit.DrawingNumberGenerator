@@ -1,0 +1,17 @@
+﻿@inherits BaseInputComponent
+
+<div class="input-group mb-3">
+    <label class="input-group-text" for="sidePLLaneDV">Side-PL/Lane-DV</label>
+    <select id="sidePLLaneDV" class="form-select form-select-sm" @onblur="HandleInputAsync"
+            @bind="DrawingRequest.SidePLLaneDV" required>
+        <option value="" disabled selected>Select Side-PL/Lane-DV</option>
+            @foreach (var type in SidePLLaneDV.Options)
+            {
+                <option value="@type.Key">@type.Value</option>
+            }
+    </select>
+
+    <span class="input-group-text">
+        @SidePLLaneDV.GetCodeByName(DrawingRequest.SidePLLaneDV, SidePLLaneDV.Options)
+    </span>
+</div>
