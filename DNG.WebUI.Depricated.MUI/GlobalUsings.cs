@@ -1,9 +1,0 @@
-﻿global using System;
-global using System.Collections.Generic;
-global using System.Linq;
-global using System.Net.Http;
-global using Microsoft.AspNetCore.Components;
-global using Microsoft.AspNetCore.Components.Web;
-global using DrawingNumberGenerator;
-global using DrawingNumberGenerator.Library;
-global using DrawingNumberGenerator.WebUI;
