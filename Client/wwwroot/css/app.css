@@ -151,7 +151,6 @@ code {
     }
 }
 
-
 .table-responsive {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -169,4 +168,24 @@ code {
 
 .spinner-border {
     margin-right: 5px;
+}
+
+select:focus {
+    border-color: #28a745; /* Bootstrap's green or use your own shade */
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25); /* Lighter green shadow */
+    outline: none; /* Remove default outline if needed */
+}
+
+/* Change the border and background color for focused accordion header */
+.accordion-button:focus {
+    border-color: #28a745; /* Green border */
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25); /* Green focus shadow */
+    outline: none; /* Remove default outline */
+}
+
+/* Overriding Bootstrap default focus style for select */
+.form-select:focus {
+    border-color: #28a745 !important; /* Green border */
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25) !important; /* Green focus shadow */
+    outline: none !important; /* Remove the default outline */
 }
