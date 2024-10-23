@@ -1,0 +1,91 @@
+﻿@page "/part-numbers"
+@inject IPartNumberService PartNumberService
+@inject IDrawingRequest drawingRequest
+
+@code {
+    private IEnumerable<KeyValuePair<string, string>> partNumbers;
+    private string universalSearch = string.Empty;
+    private bool isLoading = true;
+    private string errorMessage = string.Empty;
+    private bool isSortedAsc = true;
+    private string currentSortColumn = "PartNumber";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Replace "data/partNumbers.json" with your file path
+            await PartNumberService.InitializeAsync("data/partNumbers.json");
+            partNumbers = PartNumberService.FilterPartNumbers(drawingRequest);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private void ApplyFilters()
+    {
+        partNumbers = PartNumberService.FilterPartNumbers(drawingRequest, universalSearch);
+    }
+
+    private void ToggleSort()
+    {
+        isSortedAsc = !isSortedAsc;
+        partNumbers = isSortedAsc
+            ? partNumbers.OrderBy(p => p.Key)
+            : partNumbers.OrderByDescending(p => p.Key);
+    }
+}
+
+<div class="container mt-4">
+    @if (isLoading)
+    {
+        <div class="text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger">@errorMessage</div>
+    }
+    else if (partNumbers == null || !partNumbers.Any())
+    {
+        <div class="alert alert-warning">No data loaded.</div>
+    }
+    else
+    {
+        <input @bind="universalSearch" @oninput="ApplyFilters" class="form-control mb-3" placeholder="Search..." />
+
+        <table class="table table-sm table-hover table-responsive-sm" style="font-size: 0.9em;">
+            <thead>
+                <tr>
+                    <th @onclick="ToggleSort" style="cursor: pointer;">
+                        Part Number
+                        <span>@(isSortedAsc ? "▲" : "▼")</span>
+                    </th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var part in partNumbers)
+                {
+                    <tr>
+                        <td>@part.Key</td>
+                        <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">@part.Value</td>
+                        <td>
+                            <input type="number" class="form-control form-control-sm" min="0" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
