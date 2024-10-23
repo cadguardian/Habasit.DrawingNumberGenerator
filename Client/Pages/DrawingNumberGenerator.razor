@@ -10,14 +10,20 @@
 @inject IDrawingRequest DrawingRequest
 @inject IDrawingRequestProcessor DrawingRequestProcessor
 
+<ShowInstructionsComponent/>
+
 <EditForm Model="@DrawingRequest" OnValidSubmit="DrawingRequestProcessor.GenerateDrawingNumber">
     <SummaryDashBoard>
         <FormContent>
             <SurveyComponent PrefaceHeading="Belt Specification" ArticleHeading="Flights/Rollers/Grips"
                 ClimaxHeading="Accessories" ConclusionHeading="Finalize">
                 <Preface>
+                    
                    <SelectBeltType/>
                    <SelectBeltSeries/>
+                    <div class="alert alert-info small" role="alert">
+                        It is recommended to remove codes marked in black from the query string to achieve broader search results.
+                    </div>
                     <SelectMaterialColor/>
                     <SelectBeltMaterial/>
                     <SelectAdderMaterial/>
@@ -26,10 +32,16 @@
                 </Preface>
                 <Article>
                    <SelectFlightsRollerGrip/>
+                    <div class="alert alert-danger small" role="alert">
+                        Quantity Rollers, Width, and F/R/G Centers will remain blank until I have a better understanding of these parameters. Please do not reference them
+                    </div>
                     <InputQuantityRollersWidth/>
                     <InputFlightRollersGripTopCenters/>
                 </Article>
                 <Climax>
+                    <div class="alert alert-warning small" role="alert">
+                        Accessories have been set to default values for your convenience.
+                    </div>
                    <SelectBeltAccessories/>
                    <SelectFrictionAntiFriction/> 
                    <SelectPLLaneDV/>

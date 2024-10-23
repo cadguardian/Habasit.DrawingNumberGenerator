@@ -14,6 +14,6 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IDrawingNumber, DrawingNumber>();
 builder.Services.AddScoped<IDrawingRequest, DrawingRequest>();
 builder.Services.AddScoped<IDrawingRequestProcessor, DrawingRequestProcessor>();
-builder.Services.AddSingleton<IPartsListService, PartsListService>();
+builder.Services.AddSingleton<IPartNumberService, PartNumberService>();
 
 await builder.Build().RunAsync();
