@@ -14,6 +14,14 @@
     </select>
     <span class="input-group-text">
             @AdderMaterial.GetCodeByName(DrawingRequest.AdderMaterial,
-                 AdderMaterial.Options);
+                 AdderMaterial.Options)
     </span>
 </div>
+
+@code{
+    protected override void OnInitialized()
+    {
+        // Set the default value here, based on some logic
+        DrawingRequest.AdderMaterial = "-"; // Default value set during initialization
+    }
+}

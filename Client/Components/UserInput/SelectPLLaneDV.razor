@@ -15,3 +15,11 @@
         @SidePLLaneDV.GetCodeByName(DrawingRequest.SidePLLaneDV, SidePLLaneDV.Options)
     </span>
 </div>
+
+@code{
+    protected override void OnInitialized()
+    {
+        // Set the default value here, based on some logic
+        DrawingRequest.SidePLLaneDV = "X"; // Default value set during initialization
+    }
+}

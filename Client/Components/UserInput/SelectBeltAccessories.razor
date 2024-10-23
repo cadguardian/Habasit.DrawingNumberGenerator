@@ -13,5 +13,13 @@
             }
     </select>
 
-        <span class="input-group-text">@DrawingNumber.BeltAccessoriesCode</span>
+        <span class="input-group-text">@BeltAccessories.GetNameByCode(DrawingRequest.BeltAccessories, BeltAccessories.Options)</span>
 </div>
+
+@code{
+    protected override void OnInitialized()
+    {
+        // Set the default value here, based on some logic
+        DrawingRequest.BeltAccessories = "XX"; // Default value set during initialization
+    }
+}

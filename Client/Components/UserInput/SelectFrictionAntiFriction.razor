@@ -13,5 +13,13 @@
             }
     </select>
 
-    <span class="input-group-text">@DrawingNumber.FrictionAntiStaticCode</span>
+    <span class="input-group-text">@FrictionAntiStatic.GetNameByCode(DrawingRequest.FrictionAntiStatic, FrictionAntiStatic.Options)</span>
 </div>
+
+@code{
+    protected override void OnInitialized()
+    {
+        // Set the default value here, based on some logic
+        DrawingRequest.FrictionAntiStatic = "X"; // Default value set during initialization
+    }
+}

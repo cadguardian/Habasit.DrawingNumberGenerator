@@ -2,18 +2,15 @@
 
 <div class="input-group mb-3">
     <label class="input-group-text" for="indentCode">Indent Code</label>
-    <input list="indentCodeList" id="indentCode" 
-           @onblur="HandleInputAsync" 
-           @bind="DrawingRequest.IndentCode" 
-           class="form-control form-control-sm" 
-           required />
-
-    <datalist id="indentCodeList">
-            @foreach (var indent in IndentCode.Options)
-            {
-                <option value="@indent.Key">@indent.Value</option>
-            }
-    </datalist>
+    <select id="indentCode" class="form-select form-select-sm"
+        @onblur="HandleInputAsync"
+        @bind="DrawingRequest.IndentCode" required>
+    <option value="" disabled selected>Select Indent Code</option>
+    @foreach (var indent in IndentCode.Options)
+    {
+        <option value="@indent.Key">@indent.Value</option>
+    }
+</select>
 
     <span class="input-group-text">@DrawingNumber.IndentCode</span>
 </div>

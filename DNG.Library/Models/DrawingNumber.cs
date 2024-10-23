@@ -92,10 +92,21 @@ public class DrawingNumber : IDrawingNumber
 
     public string GetDrawingNumber()
     {
-        var queryString = GetDrawingQueryString();
-
-        // Remove special characters using a regular expression
-        var drawingNumber = System.Text.RegularExpressions.Regex.Replace(queryString, @"[^a-zA-Z0-9]", "");
+        var drawingNumber = $"{BeltTypeCode}" +
+                           $"{BeltSeriesCode}" +
+                           $"{ColorCode}" +
+                           $"{MaterialCode}" +
+                           $"{AdderMaterialCode}" +
+                           $"{RodMaterialCode}" +
+                           $"{BeltWidthCode}" +
+                           $"{FlightsRollersGripsCode}" +
+                            $"{QtyRollersAcrossWidth}" +
+                            $"{FRGCenters}" +
+                            $"{BeltAccessoriesCode}" +
+                            $"{FrictionAntiStaticCode}" +
+                            $"{SidePLLaneDVCode}" +
+                            $"{UniqueIdentification}" +
+                            $"{IndentCode}";
 
         return drawingNumber;
     }

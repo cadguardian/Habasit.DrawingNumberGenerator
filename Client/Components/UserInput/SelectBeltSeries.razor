@@ -15,3 +15,11 @@
 
     <span class="input-group-text">@BeltSeries.GetBeltSeriesType(DrawingRequest.BeltSeries)</span>
 </div>
+
+@code{
+    protected override void OnInitialized()
+    {
+        // Set the default value here, based on some logic
+        DrawingRequest.BeltType = "M"; // Default value set during initialization
+    }
+}
