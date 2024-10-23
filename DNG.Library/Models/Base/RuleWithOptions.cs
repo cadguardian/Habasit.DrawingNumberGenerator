@@ -21,9 +21,9 @@ public class RuleWithOptions : Rule
 
     public static string GetNameByCode(string code, Dictionary<string, string> options)
     {
-        if (!string.IsNullOrEmpty(code))
+        if (string.IsNullOrEmpty(code))
         {
-            return code;
+            return "";
         }
         else
         {
@@ -34,9 +34,9 @@ public class RuleWithOptions : Rule
 
     public static string GetCodeByName(string name, Dictionary<string, string> options)
     {
-        if (!string.IsNullOrEmpty(name))
+        if (string.IsNullOrEmpty(name))
         {
-            return name;
+            return "";
         }
         else
         {

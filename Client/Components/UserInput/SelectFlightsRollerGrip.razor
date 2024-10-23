@@ -6,19 +6,19 @@
     <select id="flightsRollersGrip" class="form-select form-select-sm"
             @onblur="HandleInputAsync"
             @bind="DrawingRequest.FlightsRollersGrip" required>
-            @foreach (var grip in Flights_Rollers_Grips.Options)
+            @foreach (var flight in Flights_Rollers_Grips.Options.Values.OrderBy(f=>f))
             {
-                <option value="@grip.Key">@grip.Value</option>
+            <option value="@flight">@flight</option>
             }
     </select>
 
-    <span class="input-group-text">@DrawingRequest.FlightsRollersGrip</span>
+    <span class="input-group-text">@Flights_Rollers_Grips.GetFlightsRollersGripsCode(DrawingRequest.FlightsRollersGrip)</span>
 </div>
 
 @code{
     protected override void OnInitialized()
     {
         // Set the default value here, based on some logic
-        DrawingRequest.FlightsRollersGrip = "00"; // Default value set during initialization
+        DrawingRequest.FlightsRollersGrip = "No Flights"; 
     }
 }

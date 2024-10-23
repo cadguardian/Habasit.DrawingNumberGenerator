@@ -1,5 +1,6 @@
 ﻿using DNG.Library.Data;
 using DNG.Library.Models;
+
 using DNG.Library.Models;
 
 namespace Client.Services
@@ -29,7 +30,7 @@ namespace Client.Services
                     throw new ArgumentException("Belt Type is required.");
                 }
 
-                DrawingNumber.BeltTypeCode = DrawingRequest.BeltType;
+                DrawingNumber.BeltTypeCode = RuleWithOptions.GetCodeByName(DrawingRequest.BeltType, BeltType.Options);
                 DrawingNumber.BeltSeriesCode = DrawingRequest.BeltSeries;
                 DrawingNumber.ColorCode = RuleWithOptions.GetCodeByName(DrawingRequest.Color, MaterialColor.Options);
                 DrawingNumber.MaterialCode = RuleWithOptions.GetCodeByName(DrawingRequest.Material, BeltMaterial.Options);

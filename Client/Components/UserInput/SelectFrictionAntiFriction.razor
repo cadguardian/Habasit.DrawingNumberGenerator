@@ -7,19 +7,19 @@
             @onblur="HandleInputAsync"
             @bind="DrawingRequest.FrictionAntiStatic" required>
         <option value="" disabled selected>Select Friction/Anti Static</option>
-            @foreach (var friction in FrictionAntiStatic.Options)
+            @foreach (var friction in FrictionAntiStatic.Options.Values.OrderBy(f=>f))
             {
-                <option value="@friction.Key">@friction.Value</option>
+                <option value="@friction">@friction</option>
             }
     </select>
 
-    <span class="input-group-text">@FrictionAntiStatic.GetNameByCode(DrawingRequest.FrictionAntiStatic, FrictionAntiStatic.Options)</span>
+    <span class="input-group-text">@FrictionAntiStatic.GetCodeByName(DrawingRequest.FrictionAntiStatic, FrictionAntiStatic.Options)</span>
 </div>
 
 @code{
     protected override void OnInitialized()
     {
         // Set the default value here, based on some logic
-        DrawingRequest.FrictionAntiStatic = "X"; // Default value set during initialization
+        DrawingRequest.FrictionAntiStatic = "No options"; // Default value set during initialization
     }
 }

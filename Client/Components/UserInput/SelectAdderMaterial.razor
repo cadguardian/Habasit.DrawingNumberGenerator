@@ -7,9 +7,9 @@
             @bind="DrawingRequest.AdderMaterial" required autofocus>
         <option value="" disabled selected>Select Adder Material</option>
 
-            @foreach (var adder in AdderMaterial.Options)
+            @foreach (var adder in AdderMaterial.Options.Values.OrderBy(a=>a))
             {
-                <option value="@adder.Key">@adder.Value</option>
+                <option value="@adder">@adder</option>
             }
     </select>
     <span class="input-group-text">
@@ -22,6 +22,6 @@
     protected override void OnInitialized()
     {
         // Set the default value here, based on some logic
-        DrawingRequest.AdderMaterial = "-"; // Default value set during initialization
+        DrawingRequest.AdderMaterial = "No Adder"; // Default value set during initialization
     }
 }

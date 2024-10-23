@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Client",
   "resources": {
-    "hash": "sha256-18SWiSQOs8NXZjf/AxfidXABIDUeG8b/8dHSYRIecz4=",
+    "hash": "sha256-zNt54MMbSep1k/uvo3sK3XspcwH8faxaqaVMuZqmQP4=",
     "jsModuleNative": {
       "dotnet.native.8.0.10.w6lt2f84zx.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
     },
@@ -30,9 +30,11 @@
       "Microsoft.Extensions.Configuration.Json.wasm": "sha256-CtLsl9w5UTJXGXTbp+SQxMzt9f/gjQ4EkywrtuCscvU=",
       "Microsoft.Extensions.DependencyInjection.wasm": "sha256-CS+QrPLaogl32aUg+ES1Ef5QGKoMyjt3V+wGoiG+tpw=",
       "Microsoft.Extensions.DependencyInjection.Abstractions.wasm": "sha256-NICKEw2hjoBhl1lvxOBh8cxOIN8kkrGHz3pvV1eLLbY=",
+      "Microsoft.Extensions.Diagnostics.Abstractions.wasm": "sha256-dpN/LMJr0L1oxGxMzPw+PC8Nkzf+2WG8a3ccmvA35DE=",
       "Microsoft.Extensions.FileProviders.Abstractions.wasm": "sha256-IUopixuV8E09mP+TIgRp/lXEbeacXbUTW7cu0v5B9Tc=",
       "Microsoft.Extensions.FileProviders.Physical.wasm": "sha256-MS+zB0xkKhKk/QdE32ZwKtdlrLMLI/y2NAKPUWhcBVg=",
       "Microsoft.Extensions.FileSystemGlobbing.wasm": "sha256-AnWUKd0qJ8ZNKkRC0AFK2cjjszB7reXiP+bXdIi8bic=",
+      "Microsoft.Extensions.Hosting.Abstractions.wasm": "sha256-aNb/fEY3laCkq3MVPJn/8u4nEDmL0cilWcVA+t9NGSE=",
       "Microsoft.Extensions.Logging.wasm": "sha256-pa0M3exxNvk6g5anUwlaPC99Afawsi1GZvJeU1q/ZGM=",
       "Microsoft.Extensions.Logging.Abstractions.wasm": "sha256-glWux6/5FFNJxVrbRPQ/PhLriEkSd3TllLfjmvZbpKw=",
       "Microsoft.Extensions.Options.wasm": "sha256-5/m+yVFGRuY+N4jQnD+QETKH0AfhAsnVze5dJ5ogIVM=",
@@ -208,12 +210,12 @@
       "mscorlib.wasm": "sha256-KvqZaNpjwhrOuzE4b4aMFsI+VUTyiWfoDI4zn4l9BM8=",
       "netstandard.wasm": "sha256-v+s7sWxtOM6bnOvC0jFrtnm6uMfbDymwl2nHNgbS2LM=",
       "System.Private.CoreLib.wasm": "sha256-pklll63uFQoY6vaD3vbluS9osYiJWLLLmob1yHFgepI=",
-      "DNG.Library.wasm": "sha256-NQYhHoQXf0yIWUapu4NJY/JBXltoofzg6F5qw9GRQnQ=",
-      "Client.wasm": "sha256-WYcZhRJM7kLopH8DWkJJIhmPk6ypyLNsOYShILWmEnE="
+      "DNG.Library.wasm": "sha256-n0IkCom9SN4aWcF8eP+sVvD21VkUMeRZAdRlbRXJiyg=",
+      "Client.wasm": "sha256-d1nJsXJMSIGr/KGah4ypi44RzcsG2BZc6fYA9SCYPp8="
     },
     "pdb": {
-      "DNG.Library.pdb": "sha256-bybEG3mBZeouJSFsKHMZQ2Sb60gGMkqM+/R4CJWgH74=",
-      "Client.pdb": "sha256-qUsSIOHsnQPxZ9fUmlJHndgJ9/O9F1SjjaLxILXWCRA="
+      "DNG.Library.pdb": "sha256-bsTNGA+76I6MvH+ZPZTB/Foa5utcN1h77lPAl8ZD4t4=",
+      "Client.pdb": "sha256-o963Ee+OZc8HTF5aN1sD2OiD1L1gRL9Q4wOUCKte3V8="
     }
   },
   "cacheBootResources": true,

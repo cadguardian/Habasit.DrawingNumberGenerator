@@ -5,9 +5,9 @@
     <select id="sidePLLaneDV" class="form-select form-select-sm" @onblur="HandleInputAsync"
             @bind="DrawingRequest.SidePLLaneDV" required>
         <option value="" disabled selected>Select Side-PL/Lane-DV</option>
-            @foreach (var type in SidePLLaneDV.Options)
+            @foreach (var type in SidePLLaneDV.Options.Values)
             {
-                <option value="@type.Key">@type.Value</option>
+                <option value="@type">@type</option>
             }
     </select>
 
@@ -20,6 +20,6 @@
     protected override void OnInitialized()
     {
         // Set the default value here, based on some logic
-        DrawingRequest.SidePLLaneDV = "X"; // Default value set during initialization
+        DrawingRequest.SidePLLaneDV = "No options";
     }
 }

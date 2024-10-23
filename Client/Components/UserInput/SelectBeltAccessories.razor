@@ -7,19 +7,19 @@
             @bind="DrawingRequest.BeltAccessories" required>
         <option value="" disabled selected>Select Belt Accessories</option>
 
-            @foreach (var accessory in BeltAccessories.Options)
+            @foreach (var accessory in BeltAccessories.Options.Values.OrderBy(a=>a))
             {
-                <option value="@accessory.Key">@accessory.Value</option>
+                <option value="@accessory">@accessory</option>
             }
     </select>
 
-        <span class="input-group-text">@BeltAccessories.GetNameByCode(DrawingRequest.BeltAccessories, BeltAccessories.Options)</span>
+        <span class="input-group-text">@BeltAccessories.GetCodeByName(DrawingRequest.BeltAccessories, BeltAccessories.Options)</span>
 </div>
 
 @code{
     protected override void OnInitialized()
     {
         // Set the default value here, based on some logic
-        DrawingRequest.BeltAccessories = "XX"; // Default value set during initialization
+        DrawingRequest.BeltAccessories = "No options"; 
     }
 }

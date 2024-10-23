@@ -6,11 +6,11 @@
         @onblur="HandleInputAsync"
         @bind="DrawingRequest.IndentCode" required>
     <option value="" disabled selected>Select Indent Code</option>
-    @foreach (var indent in IndentCode.Options)
+    @foreach (var indent in IndentCode.Options.Values)
     {
-        <option value="@indent.Key">@indent.Value</option>
+        <option value="@indent">@indent</option>
     }
 </select>
 
-    <span class="input-group-text">@DrawingNumber.IndentCode</span>
+    <span class="input-group-text">@IndentCode.GetCodeByName(DrawingRequest.IndentCode, IndentCode.Options)</span>
 </div>

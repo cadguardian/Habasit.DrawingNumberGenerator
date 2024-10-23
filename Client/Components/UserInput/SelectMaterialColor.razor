@@ -5,9 +5,9 @@
     <select id="color" class="form-select form-select-sm" @onblur="HandleInputAsync"
             @bind="DrawingRequest.Color" required autofocus>
         <option value="" disabled selected>Select Color</option>
-            @foreach (var color in MaterialColor.Options)
+            @foreach (var color in MaterialColor.Options.Values.OrderBy(c => c))
             {
-                <option value="@color.Key">@color.Value</option>
+                <option value="@color">@color</option>
             }
     </select>
 

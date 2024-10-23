@@ -7,19 +7,11 @@
             @onblur="HandleInputAsync"
             @bind="DrawingRequest.BeltSeries" required autofocus>
         <option value="" disabled selected>Select Belt Series</option>
-            @foreach (var series in BeltSeries.Options)
+            @foreach (var series in BeltSeries.Options.Keys.OrderBy(_=>_))
             {
-                <option value="@series.Key">@series.Key</option>
+                <option value="@series">@series</option>
             }
     </select>
 
     <span class="input-group-text">@BeltSeries.GetBeltSeriesType(DrawingRequest.BeltSeries)</span>
 </div>
-
-@code{
-    protected override void OnInitialized()
-    {
-        // Set the default value here, based on some logic
-        DrawingRequest.BeltType = "M"; // Default value set during initialization
-    }
-}

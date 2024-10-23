@@ -6,9 +6,9 @@
             @onblur="HandleInputAsync"
             @bind="DrawingRequest.Material" required autofocus>
         <option value="" disabled selected>Select Material</option>
-            @foreach (var material in BeltMaterial.Options)
+            @foreach (var material in BeltMaterial.Options.Values.OrderBy(m=>m))
             {
-                <option value="@material.Key">@material.Value</option>
+                <option value="@material">@material</option>
             }
     </select>
 

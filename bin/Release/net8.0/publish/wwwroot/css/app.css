@@ -150,3 +150,23 @@ code {
         transform: translateX(-50%);
     }
 }
+
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 576px) {
+    .input-group > input {
+        font-size: 14px;
+    }
+
+    .input-group > button {
+        font-size: 14px;
+    }
+}
+
+.spinner-border {
+    margin-right: 5px;
+}
