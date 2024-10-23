@@ -1,0 +1,346 @@
+Belt Type					
+	M:Standard Belt					
+	S:Spiral Belt					
+	A:ActivXchange					
+	G:Grip Top Belt					
+	T:Hold Down Tabs					
+	L:Long Hold Down					
+
+Belt Series					
+	KVP
+		SM605		
+		CM605		
+		HDS605FT		
+		HDS05TT		
+		106-10		
+		106-22		
+		106-FT		
+		106-RT		
+		106-V		
+		IS610		
+		ST610		
+		VT610		
+		CVT610		
+		HDS610		
+		208-35		
+		208-FT		
+		208-RR		
+		MB610		
+		MB610MTW		
+		F51		
+		F52		
+		F52SF		
+		F53		
+		F54		
+		PR61216		
+		PR61222		
+		SP615		
+		IS615		
+		ST615		
+		VT615		
+		CC41		
+		CC42		
+		SP620		
+		SE620		
+		IS620		
+		HDS620FT		
+		HDS620CT		
+		HDS620VT		
+		HDS620EZR		
+		HDU620FT		
+		HDU620CT		
+		HDU620VT		
+		HDU620EZR		
+		FF620		
+		FF620WR		
+		FF620MC		
+		MB620		
+		MB620VT		
+		MB620TT		
+		PR620		
+		PR620SPS		
+		PR620SPSCT		
+		PR620TTR		
+
+Belt Series					
+	HabasitLink
+		870		
+		873		
+		1185		
+		1220		
+		1233		
+		1234		
+		1280		
+		2470		
+		2472		
+		2480		
+		2510		
+		2511		
+		2514		
+		2516		
+		2520		
+		2527		
+		2531		
+		2533		
+		2540		
+		2543		
+		2544		
+		2585		
+		2586		
+		2620		
+		2623		
+		2670		
+		3840		
+		3843		
+		3892		
+		5010		
+		5011		
+		5012		
+		5013		
+		5014		
+		5015		
+		5020		
+		5021		
+		5023		
+		5032		
+		5033		
+		5060		
+		5062		
+		5064		
+		5067		
+		5131		
+		5182		
+		5293		
+		5493		
+		5482		
+		6360		
+		6420		
+		6423		
+
+Color	
+	B:Blue				
+	C:Natural				
+	D:Black				
+	E:Beige				
+	F:Green				
+	G:Grey				
+	L:LT Blue				
+	M:Maroon				
+	N:Brown				
+	R:Red				
+	T:Tan				
+	W:White				
+	Y:Yellow				
+
+Belt Material
+	A:POM (Acetal)				
+	B:PBT				
+	E:Polyethylene				
+	N:PA (Nylon)				
+	P:Polypropylene				
+	Q:Polycarbonate				
+	U:Urethane				
+	ST:ST Material				
+
+Adder Material Options					
+	-:No Adder				
+	A:Acid Resistant				
+	B:			
+	C:Chlorine Res.				
+	D:			
+	E:Elec. Cond.				
+	F:Talc Filled				
+	G:Reinforced				
+	H:Habaguard				
+	I:Impact/Cut Res.				
+	J:Fatigue Res.				
+	K:Wear Resistant				
+	L:RE Non-Stick				
+	M:Metal Det.				
+	N:			
+	O:			
+	P:Low Friction				
+	Q:Special Mat'l				
+	R:Flame Ret.				
+	S:Submersible				
+	T:High Temp.				
+	U:ULow Friction				
+	V:UV Resistant				
+	W:H-Water Res.				
+	X:X-Ray Det.				
+	Y:Anti-Static				
+	Z:EC Flame Ret.				
+
+Rod Material								
+	A:POM (Acetal) Rods						
+	B:Blue PA Rods						
+	C:Chlorine Res.Rods						
+	D:PA Black						
+	G:Reinforced PA Rods						
+	K:White PBT Rods						
+	L:Blue POM Rods						
+	N:PA (Nylon) Rods						
+	P:PP Rods						
+	Q:Metal Detectable PA						
+	R:PE Rods						
+	S:Stainless Steel						
+	T:ST Rods						
+	U:UHMW						
+	Y:Natural PA Rods						
+	Z:Black PBT Rods						
+
+Belt Width (Rules)						
+	No Larger then 99” wide.								
+	In Inch. (2 digit format)								
+	In non-whole no.								
+
+Flights/Rollers/Grip	
+	Flights								
+		00:No Flights						
+		01:1” Straight Flight						
+		02:2” Straight Flight						
+		03:3” Straight Flight						
+		04:4” Straight Flight						
+		06:6” Straight Flight						
+		07:6” EZR Flight						
+		0A:1-½” Straight Flight						
+		0B:6” Bucket Flight						
+		0C:4” Bucket Flight						
+		0D:3” Bucket Flight						
+		0E:3" Scoop/Curved Flight						
+		0H:½” Straight Flight						
+		0K:4” Scoop/Curved Flight						
+		0L:6” Scoop/Curved Flight						
+		0N:Bent Flight–See Dwg.						
+		0Q:¼” Mini-Cleat						
+		0R:4” Radius Base Flight						
+		0S:6” Super Flight (Slide)						
+		0U:3” Curve Urethane Flight						
+		0V:3” Str. Urethane Flight						
+		0W:4” Curve Urethane Flight						
+		0X:Special Cut Flight						
+		0Y:2” Str. Urethane Flight						
+		0Z:4” Str. Urethane Flight						
+	Grip Top								
+		GF:Flat Grip Top						
+		GH:High Grip Top	
+	Rollers								
+		R1:.2" Wide Staggered						
+		R2:.6" Wide Staggered						
+		R3:.2" Wide Inline						
+		R4:.6" Wide Inline						
+
+Qty. of rollers across belt										
+	Flight/ Roller/Grip Centers										
+	1st two digits represent inches.										
+	3rd digit fraction of an inch.										
+	(ie 0=0”, 2=.2”, 5=.5”, 7=.7”)										
+	Increments of pitch are necessary										
+
+F/R/G Centers (rules)
+	(Inches)	(Inches)	(Decimal)
+	1	2	0
+
+Belt Accessories										
+	XX:No options								
+	LD:Lane Dividers								
+	HD:Hold Down Device								
+	FR:Flight Retractable								
+	FC:Flights Cam								
+	FP:Flights Pop-up								
+	PG:1.8 Rad. Exp. Plug								
+	PW:2.0 Rad. Exp. Plug								
+	PB:2.2 Rad. Exp. Plug								
+	PF:2.5 Rad. Exp. Plug								
+	PD:3.0 Rad. Exp. Plug								
+
+Friction/Anti Static
+	X:No options								
+	1:1” Wide Anti Stat Strips								
+	2:2” Wide Anti Stat Strips								
+	3:3” Wide Anti Stat Strips								
+	4:4” Wide Anti Stat Strips								
+	5:5” Wide Anti Stat Strips								
+	6:6” Wide Anti Stat Strips								
+	7:7” Wide Anti Stat Strips								
+	8:8” Wide Anti Stat Strips								
+	9:9” Wide Anti Stat Strips								
+	C:Curved Top High Friction								
+	F:Flat High Friction								
+	H:High Friction Flights (M.T.O.)								
+	T:Rough Top High Friction								
+	R:Ribbed High Friction								
+
+Side-PL/Lane-DV
+	X:No options								
+	0:Belt High SP								
+	1:1” High SP								
+	2:2” High SP								
+	3:3” High SP								
+	4:4” High SP								
+	A:½” Lane Dividers								
+	D:1” Lane Dividers								
+	H:½” High SP								
+	J:1-½” High SP								
+	L:2” Lane Dividers								
+	P:4” Lane Dividers								
+	R:w/ Ribbed Side Plates								
+	S:Special Cut Side Plates								
+	T:Tabs – See dwg for placement								
+	U:Special Cut SP/LD								
+
+Unique Identification	(rules)									
+	0			 = Original Version							
+	1 thru 9			 = See Drawing for option							
+	A thru Z			   2 thru 9 and A thru Z							
+	Please check with Engineering for										
+	next consecutive drawing number.										
+
+IndentCode	
+	a:0.5
+	b:0.75
+	c:1
+	d:1.25
+	e:1.5
+	f:1.75
+	g:2
+	h:2.25
+	i:2.5
+	j:2.75
+	k:3
+	l:3.25
+	m:3.5
+	n:3.75
+	o:4
+	p:4.25
+	q:4.5
+	r:4.75
+	s:5
+	t:5.25
+	u:5.5
+	v:5.75
+	w:6
+	x:6.25
+	y:6.5
+	z:6.75
+	aa:7
+	ab:7.25
+	ac:7.5
+	ad:7.75
+	ae:8
+	af:8.25
+	ag:8.5
+	ah:8.75
+	ai:9
+	aj:9.25
+	ak:9.5
+	al:9.75
+	am:10
+	an:10.25
+	ao:10.5
+	ap:10.75
+	aq:11
+	ar:11.25
+	as:11.5
+	at:11.75
+	au:12

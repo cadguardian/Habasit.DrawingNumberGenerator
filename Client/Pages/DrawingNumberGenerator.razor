@@ -1,0 +1,44 @@
+@using Client.Components.UserInput
+@using Client.Services
+@using DNG.Library.Data
+@using DNG.Library.Models
+@using Microsoft.AspNetCore.Components.Forms
+@using global::DNG.Library.Models
+
+@inject IJSRuntime JSRuntime
+@inject IDrawingNumber DrawingNumber
+@inject IDrawingRequest DrawingRequest
+@inject IDrawingRequestProcessor DrawingRequestProcessor
+
+<EditForm Model="@DrawingRequest" OnValidSubmit="DrawingRequestProcessor.GenerateDrawingNumber">
+    <SummaryDashBoard>
+        <FormContent>
+            <SurveyComponent PrefaceHeading="Belt Specification" ArticleHeading="Flights/Rollers/Grips"
+                ClimaxHeading="Accessories" ConclusionHeading="Finalize">
+                <Preface>
+                   <SelectBeltType/>
+                   <SelectBeltSeries/>
+                    <SelectMaterialColor/>
+                    <SelectBeltMaterial/>
+                    <SelectAdderMaterial/>
+                    <SelectRodMaterial/>
+                    <InputBeltWidth/>
+                </Preface>
+                <Article>
+                   <SelectFlightsRollerGrip/>
+                    <InputQuantityRollersWidth/>
+                    <InputFlightRollersGripTopCenters/>
+                </Article>
+                <Climax>
+                   <SelectBeltAccessories/>
+                   <SelectFrictionAntiFriction/> 
+                   <SelectPLLaneDV/>
+                </Climax>
+                <Conclusion>
+                    <InputUniqueIdentification/>
+                    <SelectIndentCode/>
+                </Conclusion>
+            </SurveyComponent>
+        </FormContent>
+    </SummaryDashBoard>
+</EditForm>

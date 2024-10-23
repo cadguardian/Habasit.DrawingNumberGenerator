@@ -1,0 +1,15 @@
+﻿@inherits BaseInputComponent
+
+<div class="input-group mb-3">
+    <div class="form-floating">
+
+    <InputText id="uniqueIdentification" aria-required="true"
+               aria-describedby="uniqueIdentificationHelp"
+               @bind-Value="DrawingRequest.UniqueIdentification"
+               class="form-control form-control-sm"
+               onfocus="selectAllText(this)" />
+
+        <label for="uniqueIdentification">Unique ID</label>
+    </div>
+
+</div>

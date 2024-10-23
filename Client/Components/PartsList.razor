@@ -1,0 +1,98 @@
+@page "/partslist"
+@inject IPartsListService PartsListService
+@inject IDrawingRequest DrawingRequest
+
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Components
+
+@code {
+    public List<KeyValuePair<string, string>> FilteredParts { get; set; } // Ensure there are getter and setter
+
+    private bool isLoading = false;
+    private string errorMessage;
+
+    protected override void OnInitialized()
+    {
+        FilteredParts = new List<KeyValuePair<string, string>>();
+    }
+
+    private void FilterParts()
+    {
+        isLoading = true;
+        errorMessage = null;
+
+        // Debug: Show properties and values
+        string debugMessage = $"BeltType: {DrawingRequest.BeltType}\n" +
+                              $"BeltSeries: {DrawingRequest.BeltSeries}\n" +
+                              $"Color: {DrawingRequest.Color}\n" +
+                              $"Material: {DrawingRequest.Material}";
+
+        // Display the debug alert
+        Console.WriteLine(debugMessage); // Use this for debugging in the console
+                                         // You can use JS interop to show alert if needed:
+                                         // await jsRuntime.InvokeVoidAsync("alert", debugMessage);
+
+        try
+        {
+            FilteredParts = PartsListService.FilterParts(DrawingRequest.BeltType, DrawingRequest.BeltSeries, DrawingRequest.Color, DrawingRequest.Material).ToList();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error filtering parts: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}
+
+<div class="container my-4">
+    <h3 class="text-center">Parts List</h3>
+    <div class="mb-3">
+        <div class="input-group">
+            <button class="btn btn-primary" @onclick="FilterParts" disabled="@isLoading">
+                @if (isLoading)
+                {
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                }
+                else
+                {
+                        <span>Filter</span>
+                }
+            </button>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+            <div class="alert alert-danger">@errorMessage</div>
+    }
+
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>Part</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (FilteredParts != null && FilteredParts.Count > 0)
+            {
+                foreach (var part in FilteredParts)
+                {
+                            <tr>
+                                <td>@part.Key</td>
+                                <td>@part.Value</td>
+                            </tr>
+                }
+            }
+            else if (!isLoading)
+            {
+                    <tr>
+                        <td colspan="2" class="text-center">No parts found.</td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+</div>

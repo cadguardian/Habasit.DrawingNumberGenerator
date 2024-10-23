@@ -1,0 +1,15 @@
+﻿@inherits BaseInputComponent
+
+<div class="input-group mb-3">
+    <div class="form-floating">
+
+    <InputNumber id="qtyRollersAcrossWidth" aria-required="true"
+                 aria-describedby="qtyRollersAcrossWidthHelp" @onblur="HandleInputAsync"
+                 @bind-Value="DrawingRequest.QtyRollersAcrossWidth" Min="1" Max="20"
+                 class="form-control text-center"
+                 onfocus="selectAllText(this)" />
+        <label for="qtyRollersAcrossWidth">Qty. Rollers Width</label>
+                 </div>
+
+    <span class="input-group-text">@DrawingNumber.QtyRollersAcrossWidth</span>
+</div>
