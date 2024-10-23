@@ -25,6 +25,30 @@
     public string? ConclusionHeading { get; set; }
 }
 
+<style>
+    /* Custom styles for the accordion */
+    .accordion-flush .accordion-item {
+        border: none; /* Remove the default border */
+    }
+
+    .accordion-flush .accordion-button {
+        background-color: black; /* Set the background color to green */
+        color: white; /* Set text color to white */
+    }
+
+    .accordion-flush .accordion-button:not(.collapsed) {
+        background-color: black; /* Darker shade when expanded */
+        color: white; /* Ensure text remains white */
+    }
+
+    .accordion-flush .accordion-button:hover {
+        background-color: darkgreen; 
+    }
+</style>
+
+
+
+
     <div class="accordion accordion-flush mt-4" id="summary">
         <div class="accordion-item">
             <h2 class="accordion-header">
