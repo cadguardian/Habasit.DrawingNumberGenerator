@@ -38,6 +38,9 @@ namespace Client.Services
                 // Read the CSV header
                 var header = await reader.ReadLineAsync();
 
+                // HashSet to track existing part numbers
+                var existingParts = new HashSet<string>();
+
                 while (!reader.EndOfStream)
                 {
                     var line = await reader.ReadLineAsync();
@@ -53,10 +56,27 @@ namespace Client.Services
                     }
 
                     // Assuming the CSV has Part and Description columns
+                    var part = values[0].Trim();
+                    var description = values[1].Trim();
+
+                    // Check for empty Part key and duplicates
+                    if (string.IsNullOrEmpty(part))
+                    {
+                        _logger.LogWarning($"Skipped a row due to empty Part key: {line}");
+                        continue;
+                    }
+
+                    if (!existingParts.Add(part))
+                    {
+                        _logger.LogWarning($"Skipped a duplicate Part: {part}");
+                        continue; // Skip duplicate entries
+                    }
+
+                    // Create and add the PartNumber
                     var partNumber = new PartNumber
                     {
-                        Part = values[0].Trim(),
-                        Description = values[1].Trim()
+                        Part = part,
+                        Description = description
                     };
 
                     _partNumbers.Add(partNumber);
