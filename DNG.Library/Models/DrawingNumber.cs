@@ -87,6 +87,8 @@ public class DrawingNumber : IDrawingNumber
 
         QueryString = rawDrawingNumber;
 
+        Console.WriteLine($"Query String Generated {DateTime.Now}");
+
         return rawDrawingNumber;
     }
 

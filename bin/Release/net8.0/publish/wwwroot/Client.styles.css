@@ -41,18 +41,8 @@ input[b-8mdzuvfe1l], select[b-8mdzuvfe1l], button[b-8mdzuvfe1l] {
     margin-bottom: 10px;
 }
 
-.summary-dashboard ul[b-7piasjtpar] {
-    font-size: 0.75rem; /* Reduced font size for mobile */
-}
-
 .row-cols-2 > .col[b-7piasjtpar] {
     margin-bottom: 10px;
-}
-
-@media (max-width: 576px) {
-    .summary-dashboard ul[b-7piasjtpar] {
-        font-size: 0.65rem; /* Even smaller font size for very small screens */
-    }
 }
 /* /Layout/MainLayout.razor.rz.scp.css */
 /* Ensure the body and html take up the full height */
@@ -235,4 +225,35 @@ input[b-o0m35uarhm], select[b-o0m35uarhm], button[b-o0m35uarhm] {
     100% {
         color: rgb(165, 236, 141); /* Back to Red */
     }
+}
+
+.animate-card[b-o0m35uarhm] {
+    animation: pulse-b-o0m35uarhm 3s infinite;
+}
+
+@keyframes pulse-b-o0m35uarhm {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.hover-effect[b-o0m35uarhm] {
+    transition: transform 0.3s;
+}
+
+    .hover-effect:hover[b-o0m35uarhm] {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+.card-header[b-o0m35uarhm] {
+    font-size: 1.25rem;
+}
+
+.card-title[b-o0m35uarhm] {
+    font-weight: bold;
 }

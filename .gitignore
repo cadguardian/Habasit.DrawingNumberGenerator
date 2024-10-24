@@ -1,9 +1,64 @@
-.vs/DrawingNumberGenerator/config/applicationhost.config
-.vs/DrawingNumberGenerator/DesignTimeBuild/.dtbcache.v2
-.vs/DrawingNumberGenerator/FileContentIndex/40ad8594-dba4-43d1-aecf-cff5521f1944.vsidx
-.vs/DrawingNumberGenerator/FileContentIndex/822a5690-38f3-417f-913c-dff7813d021f.vsidx
-.vs/DrawingNumberGenerator/FileContentIndex/926e89bf-1feb-428c-8bb0-4f2d9931b5be.vsidx
-.vs/DrawingNumberGenerator/FileContentIndex/9556e59d-5329-4898-b25f-76e1c8f29a07.vsidx
-.vs/DrawingNumberGenerator/FileContentIndex/247142dc-97d2-4ebf-a4c8-eb431fb70093.vsidx
-.vs/DrawingNumberGenerator/v17/TestStore/0/008.testlog
-.vs/DrawingNumberGenerator/v17/TestStore/0/testlog.manifest
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Bb]in/
+[Oo]bj/
+!bin/Release/net8.0/publish/  # Include this specific publish directory
+
+# C# build files
+*.dll
+*.exe
+*.pdb
+*.appx
+*.appxbundle
+*.appxupload
+*.deploy
+*.package
+*.msix
+*.msixbundle
+*.msixupload
+
+# NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+
+# Logs
+*.log
+
+# User-specific files
+*.userprefs
+*.dbmdl
+*.dbproj.schemaview
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+*.pdb
+*.ipch/
+
+# Rider
+.idea/
+
+# Other common files
+*.class
+*.jar
+*.war
+*.tgz
+*.gz
+*.zip
+*.tar
+*.7z
+*.rar
+*.iso

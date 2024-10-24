@@ -8,6 +8,13 @@
 
   <ItemGroup>
     <None Remove="Components\UserInput\InputBeltWidth.razor.bk" />
+    <None Remove="Docs\Instructions-10-24-24.md" />
+    <None Remove="Docs\Overall-ImproveApp-10-24-24.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Docs\Overall-ImproveApp-10-24-24.md" />
+    <Content Include="Docs\Instructions-10-24-24.md" />
   </ItemGroup>
 
   <ItemGroup>
