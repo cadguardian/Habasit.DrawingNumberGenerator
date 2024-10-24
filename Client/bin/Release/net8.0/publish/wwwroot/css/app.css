@@ -2,6 +2,50 @@ html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+@media print {
+    /* Make header and footer position static for print view */
+    .fixed-top, .fixed-bottom {
+        position: static !important;
+    }
+
+    /* Ensure content wrapper takes full width for printing */
+    .content-wrapper {
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    /* Adjust container padding to avoid clipping */
+    .container-fluid {
+        padding: 0 10px !important;
+        margin-top: 20px !important; /* Add a top margin for print */
+    }
+
+    /* Optionally, hide elements you don't want in print */
+    .navbar, .footer .form-check, .footer .position-fixed, .no-print {
+        display: none !important;
+    }
+}
+
+@media print {
+    .page-break {
+        page-break-before: always; /* Starts a new page before this element */
+    }
+}
+
+@media print {
+    /* Limit the height of the section to one page */
+    .limited-page {
+        max-height: 5.7in; /* Approx. height of an A4 or Letter page with margins */
+        overflow: hidden; /* Hide content that exceeds the max height */
+        page-break-inside: avoid; /* Avoid breaking inside the section */
+    }
+
+        /* Optionally, force a page break after the section if needed */
+        .limited-page + .limited-page {
+            page-break-before: always;
+        }
+}
+
 h1:focus {
     outline: none;
 }

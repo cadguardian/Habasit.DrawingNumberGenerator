@@ -38,8 +38,8 @@ namespace Client.Services
                 DrawingNumber.RodMaterialCode = RuleWithOptions.GetCodeByName(DrawingRequest.RodMaterial, RodMaterial.Options);
                 DrawingNumber.BeltWidthCode = BeltWidth.Create(DrawingRequest.BeltWidth).Code;
                 DrawingNumber.FlightsRollersGripsCode = RuleWithOptions.GetCodeByName(DrawingRequest.FlightsRollersGrip, Flights_Rollers_Grips.Options);
-                DrawingNumber.QtyRollersAcrossWidth = "*";
-                DrawingNumber.FRGCenters = "*";
+                DrawingNumber.QtyRollersAcrossWidth = Flights_Rollers_Grips.GetFRGQuantityAcrossWidthCode(DrawingRequest.QtyRollersAcrossWidth);
+                DrawingNumber.FRGCenters = Flights_Rollers_Grips.GetFRGCentersCode(DrawingRequest.FRGCenters);
                 DrawingNumber.BeltAccessoriesCode = RuleWithOptions.GetCodeByName(DrawingRequest.BeltAccessories, BeltAccessories.Options);
                 DrawingNumber.FrictionAntiStaticCode = RuleWithOptions.GetCodeByName(DrawingRequest.FrictionAntiStatic, FrictionAntiStatic.Options);
                 DrawingNumber.SidePLLaneDVCode = RuleWithOptions.GetCodeByName(DrawingRequest.SidePLLaneDV, SidePLLaneDV.Options);

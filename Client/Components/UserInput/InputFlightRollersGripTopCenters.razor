@@ -3,12 +3,13 @@
 <div class="input-group mb-3">
     <div class="form-floating">
 
-    <InputNumber id="frgCenters" disabled aria-required="true" aria-describedby="frgCentersHelp"
+    <InputNumber id="frgCenters"aria-required="true" aria-describedby="frgCentersHelp"
                  @onblur="HandleInputAsync" @bind-Value="DrawingRequest.FRGCenters"
                  Min="1" Max="100" class="form-control text-center"
                  onfocus="selectAllText(this)" />
         <label for="frgCenters">F/R/G Centers</label>
                  </div>
 
-    <span class="input-group-text">@DrawingNumber.FRGCenters</span>
+       <span class="input-group-text">@Flights_Rollers_Grips.GetFRGCentersCode(DrawingRequest.FRGCenters)</span>
+
 </div>

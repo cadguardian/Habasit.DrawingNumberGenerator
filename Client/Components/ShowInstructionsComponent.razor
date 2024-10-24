@@ -12,7 +12,7 @@
 <!-- Button Group -->
 <!-- Button Group -->
 <!-- Centered Button Group -->
-<div class="text-center mb-3">
+<div class="text-center mb-3 no-print">
     <div class="btn-group mt-2" role="group" aria-label="Button group with nested dropdown">
         <!-- Button to open Offcanvas -->
         <button type="button" @onclick="ToggleOffcanvas" class="btn btn-sm btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
@@ -35,7 +35,7 @@
 
 
 <!-- Offcanvas Component -->
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="display: @(showOffcanvas ? "block" : "none")">
+<div class="offcanvas offcanvas-start no-print" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="display: @(showOffcanvas ? "block" : "none")">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Instructions</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" @onclick="ToggleOffcanvas"></button>
