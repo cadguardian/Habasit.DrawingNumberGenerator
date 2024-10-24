@@ -1,16 +1,10 @@
-# Ignore build artifacts
-bin/
-obj/
-*.pdb
-*.zip
-
-# Visual Studio specific
+# Visual Studio
 .vs/
-*.vscode/
-
-# User-specific files
-*.user
 *.suo
+*.user
+*.userosscache
+*.sln.docstates
 
-# Do not ignore the publish folder
-!bin/Release/net8.0/publish/
+# Build results
+
+!bin/Release/net8.0/publish/  # Include this specific publish directory
