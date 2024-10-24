@@ -1,0 +1,136 @@
+﻿@* Razor Component: DrawingNumberGenerator.razor *@
+<div class="container-fluid px-3 py-2">
+    <header class="mb-2">
+        <h6 class="text-primary fw-bold">Purpose of the Drawing Number Generator Tool</h6>
+        <ul class="small text-muted">
+            <li><strong>Designed For:</strong> CAD Drafters at Habasit America, Suwanee, GA, focusing on special-build plastic modular belting products.</li>
+            <li><strong>Role & Impact:</strong> Aligns the CAD drafting process with business strategy to maximize efficiency, accuracy, and repeatability.</li>
+            <li><strong>Purpose:</strong> Combines, documents, and implements collected knowledge to impact business outcomes and ease onboarding.</li>
+            <li><strong>Streamlined Workflow:</strong> From receiving drawing requests from the CSR team to delivering production-ready CAD drawings.</li>
+        </ul>
+    </header>
+
+    <section class="mb-3">
+        <h6 class="fw-bold">1. Filling Out the Form Completely</h6>
+        <p class="text-muted small">Complete all sections of the form to generate the correct drawing number and ensure data integrity:</p>
+        <ul class="small">
+            <li>Belt Specifications (e.g., type, color, material)</li>
+            <li>Belt Accessories (e.g., cleats, flights, guides)</li>
+            <li>Friction/Anti-Static Options (e.g., low friction coating)</li>
+            <li>Side-PL/Lane-DV Options (e.g., side walls, lane dividers)</li>
+            <li>Unique Identification Details (e.g., customer-specific requirements)</li>
+        </ul>
+    </section>
+
+    <section class="mb-3">
+        <h6 class="fw-bold">2. Identifying Constraints and Strategy</h6>
+        <p class="text-muted small">The description of each part in the table provides essential details such as:</p>
+        <ul class="small">
+            <li>Part Type (e.g., module, flight)</li>
+            <li>Dimensions, Color, and Material</li>
+            <li>Number of Links and Link Position (e.g., left edge, right edge, middle)</li>
+        </ul>
+        <p class="text-muted small">
+            This information helps you understand constraints and plan your assembly strategy (bricklay). It ensures the correct CAD templates and AutoCAD blocks are utilized, resulting in:
+        </p>
+        <ul class="small">
+            <li>Accurate Bills of Materials</li>
+            <li>Clear Assembly Guides</li>
+            <li>Fewer Revisions Downstream</li>
+        </ul>
+        <p class="text-muted small">Precision at this stage directly impacts project outcomes, operational efficiency, and cost-effectiveness.</p>
+    </section>
+
+    <section class="mb-3">
+        <h6 class="fw-bold">3. Generating and Using the Drawing Number</h6>
+        <ul class="small text-muted">
+            <li><strong>Toggle the Switch:</strong> Generate a unique drawing number and corresponding query string.</li>
+            <li><strong>Search Strategy:</strong> Use the query string to search the network drive for existing drawings using fuzzy matching (include asterisks: *).</li>
+            <li><strong>Naming New Drawings:</strong> If no match is found, name new drawing files using the generated number for consistency and traceability.</li>
+        </ul>
+        <p class="text-muted small">This procedure enhances data integrity and ensures uniform application of design standards across all special builds.</p>
+    </section>
+
+    <section class="mb-3">
+        <h6 class="fw-bold">4. Finding Available Parts Using the Part Table</h6>
+        <ul class="small text-muted">
+            <li><strong>Filter Button:</strong> Click to apply both universal and specific filters above the part table.</li>
+            <li><strong>Search Bar:</strong> Narrow results using the part number search bar.</li>
+            <li><strong>Free Search:</strong> Leave the form blank to search freely using just the search bar.</li>
+            <li><strong>Compatibility Check:</strong> Carefully review part descriptions for compatibility and strategic placement within assemblies.</li>
+        </ul>
+        <p class="text-muted small">Proper selection and identification of parts optimize assembly and inventory accuracy, enhancing operational throughput.</p>
+    </section>
+
+    <section class="mb-3">
+        <h6 class="fw-bold">5. Summarizing the Form</h6>
+        <ul class="small text-muted">
+            <li><strong>Click "Summarize Form":</strong> Review all input data to verify the applicable belt codes.</li>
+            <li><strong>Error Mitigation:</strong> Mitigates errors and ensures the completeness of required information before finalizing a drawing number.</li>
+            <li><strong>Data Integrity Checkpoint:</strong> Acts as a checkpoint to reduce rework and align with key performance metrics for first-time-right quality standards.</li>
+        </ul>
+    </section>
+
+    <section class="mb-3">
+        <h6 class="fw-bold">6. Accessing Product Portal and Assembly Guides</h6>
+        <ul class="small text-muted">
+            <li><strong>Quick-Access Links:</strong> Open the product portal and assembly guides directly from the top of the page.</li>
+            <li><strong>Verification:</strong> Verify specific belt configurations and access real-time part data.</li>
+            <li><strong>Assembly Alignment:</strong> Ensure that assembly techniques align consistently with company standards and customer requirements.</li>
+        </ul>
+    </section>
+
+    <section class="mb-3">
+        <h6 class="fw-bold">7. Support and Quick Tips</h6>
+        <ul class="small text-muted">
+            <li><strong>Support Contact:</strong> For support, suggestions, or concerns, reach out via the email link in the footer.</li>
+            <li><strong>Quick Tips:</strong> Additional notes are embedded throughout the app for contextual guidance, empowering new and experienced team members.</li>
+        </ul>
+    </section>
+
+    
+
+    <section class="mb-3">
+        <div class="card border-primary shadow-sm">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h6 class="mb-4">Pro Tips for Data Entry 📋</h6>
+                <span class="badge bg-warning text-dark rounded-pill">Important</span>
+            </div>
+            <div class="card-body">
+        <ul class="small text-muted">
+            <li><strong>Auto-Focus on First Field:</strong> Start typing immediately without clicking.</li>
+            <li><strong>Use Tab:</strong> Move to the next field with <kbd>Tab</kbd> after finishing one.</li>
+            <li><strong>Use Shift + Tab:</strong> Go back to the previous field using <kbd>Shift</kbd> + <kbd>Tab</kbd> as needed.</li>
+            <li><strong>Autocomplete:</strong> Start typing in dropdowns for quick selection of matching options.</li>
+            <li><strong>Keyboard Navigation:</strong> Navigate dropdowns with arrow keys and select with <kbd>Tab</kbd>.</li>
+            <li><strong>Default Values:</strong> Commonly used fields are prefilled with defaults to save time.</li>
+            <li><strong>Save Time with Autofill:</strong> Use prefilled or past data-based fields for faster entry.</li>
+            <li><strong>Clear Form Quickly:</strong> Use <kbd>Ctrl</kbd> + <kbd>A</kbd> and press <kbd>Delete</kbd> to clear text or the "Clear All" button.</li>
+            <li><strong>Form Validation:</strong> Check for error messages to correct any missing or incorrect data after submission.</li>
+            <li><strong>Asterisk Usage:</strong> Replace non-critical parts of the drawing number with an asterisk (*) for fuzzy searches (e.g., 123-M-ABC-456 to 123-*-ABC-456).</li>
+            <li><strong>Form Visibility Toggle:</strong> Click "Summarize & Hide Form" to focus on summarized information while verifying accuracy.</li>
+            <li><strong>Exporting Data as JSON:</strong> Use the export feature to save form configurations for easy reloading in future projects, optimizing repeat processes and reducing the time required for similar builds.</li>
+        </ul>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    /* Styling adjustments for mobile readability */
+    .container-fluid {
+        font-size: 0.875rem; /* Small text size for mobile readability */
+    }
+
+    h6 {
+        font-size: 1rem; /* Slightly larger font for section headers */
+    }
+
+    ul {
+        padding-left: 1rem; /* Consistent indentation for lists */
+    }
+
+    p, li {
+        margin-bottom: 0.5rem; /* Improved spacing between text elements */
+    }
+</style>

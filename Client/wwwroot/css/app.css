@@ -189,3 +189,13 @@ select:focus {
     box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25) !important; /* Green focus shadow */
     outline: none !important; /* Remove the default outline */
 }
+
+.summary-dashboard ul {
+    font-size: 0.75rem; /* Reduced font size for mobile */
+}
+
+@media (max-width: 576px) {
+    .summary-dashboard ul {
+        font-size: 0.65rem; /* Even smaller font size for very small screens */
+    }
+}

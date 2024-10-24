@@ -45,6 +45,8 @@ namespace Client.Services
                 DrawingNumber.SidePLLaneDVCode = RuleWithOptions.GetCodeByName(DrawingRequest.SidePLLaneDV, SidePLLaneDV.Options);
                 DrawingNumber.UniqueIdentification = DrawingRequest.UniqueIdentification.ToUpper();
                 DrawingNumber.IndentCode = IndentCode.GetCodeByName(DrawingRequest.IndentCode, IndentCode.Options);
+
+                Console.WriteLine($"Generated Drawing Number {DateTime.Now}");
             }
             catch (Exception ex)
             {

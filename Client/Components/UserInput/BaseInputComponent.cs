@@ -9,6 +9,7 @@ public class BaseInputComponent : ComponentBase
     [Inject] protected IDrawingNumber DrawingNumber { get; set; }
     [Inject] protected IDrawingRequest DrawingRequest { get; set; }
     [Inject] protected IDrawingRequestProcessor DrawingRequestProcessor { get; set; }
+    [Inject] protected IPartNumberService PartNumberService { get; set; }
 
     // EventCallback to notify parent component (layout) when the value changes
     [Parameter] public EventCallback OnValueChanged { get; set; }
@@ -24,5 +25,7 @@ public class BaseInputComponent : ComponentBase
         {
             await OnValueChanged.InvokeAsync();
         }
+
+        Console.WriteLine("Input Handled!");
     }
 }

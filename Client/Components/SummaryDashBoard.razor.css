@@ -12,16 +12,6 @@
     margin-bottom: 10px;
 }
 
-.summary-dashboard ul {
-    font-size: 0.75rem; /* Reduced font size for mobile */
-}
-
 .row-cols-2 > .col {
     margin-bottom: 10px;
-}
-
-@media (max-width: 576px) {
-    .summary-dashboard ul {
-        font-size: 0.65rem; /* Even smaller font size for very small screens */
-    }
 }

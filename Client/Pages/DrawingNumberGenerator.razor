@@ -1,4 +1,4 @@
-@using Client.Components.UserInput
+﻿@using Client.Components.UserInput
 @using Client.Services
 @using DNG.Library.Data
 @using DNG.Library.Models
@@ -12,6 +12,24 @@
 
 <ShowInstructionsComponent/>
 
+<div class="container-fluid px-3 py-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card text-center shadow-lg border-0 rounded animate-card">
+                <div class="card-header bg-success text-white fw-bold">
+                    🌟 Welcome! 🌟
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Transform Your CAD Experience</h5>
+                    <p class="card-text">
+                        As a CAD Drafter at Habasit America, you'll have access to cutting-edge tools designed to streamline your workflow and enhance creativity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <EditForm Model="@DrawingRequest" OnValidSubmit="DrawingRequestProcessor.GenerateDrawingNumber">
     <SummaryDashBoard>
         <FormContent>
@@ -21,7 +39,7 @@
                     
                    <SelectBeltType/>
                    <SelectBeltSeries/>
-                    <div class="alert alert-info small" role="alert">
+                    <div class="alert alert-secondary small" role="alert">
                         It is recommended to remove codes marked in black from the query string to achieve broader search results.
                     </div>
                     <SelectMaterialColor/>
@@ -39,7 +57,7 @@
                     <InputFlightRollersGripTopCenters/>
                 </Article>
                 <Climax>
-                    <div class="alert alert-warning small" role="alert">
+                    <div class="alert alert-secondary small" role="alert">
                         Accessories have been set to default values for your convenience.
                     </div>
                    <SelectBeltAccessories/>
@@ -54,3 +72,5 @@
         </FormContent>
     </SummaryDashBoard>
 </EditForm>
+
+<PartNumberTable/>

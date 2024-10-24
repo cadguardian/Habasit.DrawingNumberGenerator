@@ -79,3 +79,34 @@ input, select, button {
         color: rgb(165, 236, 141); /* Back to Red */
     }
 }
+
+.animate-card {
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.hover-effect {
+    transition: transform 0.3s;
+}
+
+    .hover-effect:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+.card-header {
+    font-size: 1.25rem;
+}
+
+.card-title {
+    font-weight: bold;
+}
