@@ -143,6 +143,7 @@
     }
     else
     {
+        <div class="alert alert-danger text-center m-0 p-0">Coming Soon!</div>
         <table class="table table-hover table-bordered table-striped table-responsive" style="font-size: 0.9em;">
             <thead class="table-dark">
                 <tr>
@@ -152,7 +153,7 @@
                     <th scope="col" aria-label="Description">Description</th>
                 </tr>
             </thead>
-            <tbody>
+            @* <tbody>
                 @foreach (var part in FilteredPartNumbers)
                 {
                     <tr>
@@ -160,7 +161,7 @@
                         <td class="small">@part.Value</td>
                     </tr>
                 }
-            </tbody>
+            </tbody> *@
         </table>
     }
 
