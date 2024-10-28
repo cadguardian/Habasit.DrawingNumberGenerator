@@ -5,7 +5,6 @@ using DNG.Library.Data;
 using DNG.Library.Models;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);

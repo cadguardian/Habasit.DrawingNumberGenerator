@@ -26,6 +26,44 @@ input[b-8mdzuvfe1l], select[b-8mdzuvfe1l], button[b-8mdzuvfe1l] {
         font-size: 1rem;
     }
 }
+/* /Components/Search/SearchTermComponent.razor.rz.scp.css */
+/* Enhanced Styling for Better Readability and Accessibility */
+.container-fluid[b-nh89s5o2zg] {
+    font-size: 1rem; /* Increased text size for better readability */
+}
+
+h2[b-nh89s5o2zg],
+h3[b-nh89s5o2zg],
+h5[b-nh89s5o2zg],
+h6[b-nh89s5o2zg] {
+    font-weight: bold;
+}
+
+/* Ensuring no overlap and maintaining clarity */
+.carousel-item[b-nh89s5o2zg] {
+    padding: 10px; /* Add some padding to ensure text does not touch edges */
+}
+
+.card[b-nh89s5o2zg] {
+    margin: auto; /* Center cards */
+    transition: transform 0.3s; /* Smooth transition on hover */
+}
+
+    .card:hover[b-nh89s5o2zg] {
+        transform: scale(1.05); /* Slight zoom on hover for emphasis */
+    }
+
+@media (max-width: 768px) {
+    .card[b-nh89s5o2zg] {
+        max-width: 90%; /* Make cards responsive on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption[b-nh89s5o2zg] {
+        font-size: 0.9rem; /* Smaller captions on very small screens */
+    }
+}
 /* /Components/SummaryDashBoard.razor.rz.scp.css */
 .summary-dashboard[b-7piasjtpar] {
     border: 1px solid #ccc;
@@ -45,7 +83,7 @@ input[b-8mdzuvfe1l], select[b-8mdzuvfe1l], button[b-8mdzuvfe1l] {
     margin-bottom: 10px;
 }
 /* /Layout/MainLayout.razor.rz.scp.css */
-/* Ensure the body and html take up the full height */
+/* Reset Margin and Padding for Full-Height Layout */
 html[b-tmopy668it], body[b-tmopy668it] {
     height: 100%;
     margin: 0;
@@ -53,95 +91,142 @@ html[b-tmopy668it], body[b-tmopy668it] {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Page layout using flex-direction column */
+/* Page Layout Styling */
 .page[b-tmopy668it] {
-    position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the page takes up the full height of the viewport */
-    padding-bottom: 130px; /* Add extra space for the footer */
-    padding-top: 55px; /* Add extra space for the header */
+    min-height: 100vh;
+    padding-top: 10px; /* Space for fixed header */
+    padding-bottom: 130px; /* Space for fixed footer */
+    position: relative;
+    background-color: #fff;
 }
 
-/* Ensure the font size on inputs, select, and textareas */
-input[b-tmopy668it], select[b-tmopy668it], textarea[b-tmopy668it] {
-    font-size: 16px; /* Ensure a standard font size to avoid zooming on mobile */
-    -webkit-text-size-adjust: 100%; /* Prevent iOS zoom on form elements */
-    -ms-text-size-adjust: 100%; /* Prevent Windows zoom on form elements */
+/* Header Styling */
+header[b-tmopy668it] {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: #333; /* Dark background for header */
+    color: #fff;
 }
 
-/* Set the main content area to be scrollable */
-.main-content[b-tmopy668it] {
-    flex-grow: 1;
-    overflow-y: auto; /* Make content scrollable if it's too long */
-    padding-bottom: 80px; /* Space for the footer */
-    padding-top: 55px; /* Space for the header */
-    min-height: calc(100vh - 100px); /* Set a minimum height for the main content */
-    /* Custom scrollbar styles */
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #1e7e34 #1e7e34; /* Firefox scrollbar color (thumb, track) */
+/* Navbar Styling */
+.navbar[b-tmopy668it] {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    border-bottom: 2px solid #27950b; /* Accent color for header */
 }
 
-    /* Webkit-based scrollbars (for Chrome, Safari, Edge) */
-    .main-content[b-tmopy668it]::-webkit-scrollbar {
-        width: 8px; /* Set width of the scrollbar */
-    }
+.navbar-brand small[b-tmopy668it] {
+    font-weight: bold;
+    color: #ffffff;
+}
 
-    .main-content[b-tmopy668it]::-webkit-scrollbar-thumb {
-        background-color: #28a745; /* Scrollbar thumb color */
-        border-radius: 10px; /* Rounded corners for the thumb */
-        transition: background-color 0.3s ease; /* Smooth transition on hover */
-    }
+.navbar .ms-auto small[b-tmopy668it] {
+    color: #f5c518; /* Text color to match warning theme */
+}
 
-        .main-content[b-tmopy668it]::-webkit-scrollbar-thumb:hover {
-            background-color: #1e7e34; /* Darker color on hover */
-        }
-
-    .main-content[b-tmopy668it]::-webkit-scrollbar-track {
-        background-color: #f7f7f7; /* Track color */
-        border-radius: 10px;
-    }
-
-/* Footer that always stays at the bottom */
+/* Footer Styling */
 footer[b-tmopy668it] {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #f1f3f1; /* Customize the background color */
-    color: white;
+    background-color: #f1f3f1;
+    color: #333;
     text-align: center;
     padding: 1rem 0;
-    width: 100%; /* Make sure the footer takes full width */
+    width: 100%;
     z-index: 10;
     box-sizing: border-box;
 }
 
-/* Media Queries */
-@media (max-width: 640.98px) {
-    .top-row[b-tmopy668it] {
-        justify-content: space-between;
+    /* Toggle Buttons for Footer */
+    footer .form-check-label[b-tmopy668it] {
+        color: #333;
+        font-weight: bold;
     }
 
-        .top-row[b-tmopy668it]  a, .top-row[b-tmopy668it]  .btn-link {
-            margin-left: 0;
-        }
+/* Tooltip Styling for Better Accessibility */
+.tooltip-inner[b-tmopy668it] {
+    font-size: 0.875rem;
+    background-color: #333;
+    color: #fff;
 }
 
-@media (min-width: 641px) {
-    .page[b-tmopy668it] {
-        flex-direction: row;
+/* Belt Background Animation */
+.conveyor-belt[b-tmopy668it] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    overflow: hidden;
+}
+
+.belt-pattern[b-tmopy668it] {
+    position: absolute;
+    width: 200%; /* Creates a seamless looping effect */
+    height: 100%;
+    background-image: linear-gradient(90deg, transparent 24%, #ccc 25%, #ccc 35%, transparent 36%, transparent 49%, #ccc 50%, #ccc 60%, transparent 61%, transparent);
+    background-size: 50px 50px;
+    animation: moveBelt-b-tmopy668it 15s linear infinite;
+}
+
+@keyframes moveBelt-b-tmopy668it {
+    from {
+        transform: translateX(0);
     }
 
-    .top-row[b-tmopy668it] {
-        position: sticky;
-        top: 0;
-        z-index: 1;
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Content Wrapper for Centered Main Content */
+.content-wrapper[b-tmopy668it] {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Validation Styling */
+.valid.modified:not([type=checkbox])[b-tmopy668it] {
+    outline: 1px solid #26b050;
+}
+
+.invalid[b-tmopy668it] {
+    outline: 1px solid red;
+}
+
+.validation-message[b-tmopy668it] {
+    color: red;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .navbar-brand small[b-tmopy668it], .navbar .ms-auto small[b-tmopy668it] {
+        font-size: 0.9rem;
+    }
+}
+
+@media print {
+    /* Print-friendly adjustments */
+    .fixed-top[b-tmopy668it], .fixed-bottom[b-tmopy668it] {
+        position: static !important;
     }
 
-    .top-row[b-tmopy668it], article[b-tmopy668it] {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
+    .content-wrapper[b-tmopy668it] {
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .navbar[b-tmopy668it], footer[b-tmopy668it], .no-print[b-tmopy668it] {
+        display: none !important;
     }
 }
 /* /Pages/DrawingNumberGenerator.razor.rz.scp.css */

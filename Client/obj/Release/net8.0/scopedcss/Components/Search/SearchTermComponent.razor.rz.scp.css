@@ -1,0 +1,37 @@
+/* Enhanced Styling for Better Readability and Accessibility */
+.container-fluid[b-nh89s5o2zg] {
+    font-size: 1rem; /* Increased text size for better readability */
+}
+
+h2[b-nh89s5o2zg],
+h3[b-nh89s5o2zg],
+h5[b-nh89s5o2zg],
+h6[b-nh89s5o2zg] {
+    font-weight: bold;
+}
+
+/* Ensuring no overlap and maintaining clarity */
+.carousel-item[b-nh89s5o2zg] {
+    padding: 10px; /* Add some padding to ensure text does not touch edges */
+}
+
+.card[b-nh89s5o2zg] {
+    margin: auto; /* Center cards */
+    transition: transform 0.3s; /* Smooth transition on hover */
+}
+
+    .card:hover[b-nh89s5o2zg] {
+        transform: scale(1.05); /* Slight zoom on hover for emphasis */
+    }
+
+@media (max-width: 768px) {
+    .card[b-nh89s5o2zg] {
+        max-width: 90%; /* Make cards responsive on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption[b-nh89s5o2zg] {
+        font-size: 0.9rem; /* Smaller captions on very small screens */
+    }
+}

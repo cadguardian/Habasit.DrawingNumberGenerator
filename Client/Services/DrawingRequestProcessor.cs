@@ -1,20 +1,23 @@
-﻿using DNG.Library.Data;
+﻿using System.Text;
+using System.Text.Json;
+using DNG.Library.Data;
 using DNG.Library.Models;
-
-using DNG.Library.Models;
+using Microsoft.AspNetCore.Components;
 
 namespace Client.Services
 {
     public class DrawingRequestProcessor : IDrawingRequestProcessor
     {
-        public DrawingRequestProcessor(IDrawingNumber drawingNumber, IDrawingRequest drawingRequest)
+        public DrawingRequestProcessor(IDrawingNumber drawingNumber, IDrawingRequest drawingRequest, IPartNumberService partNumberService)
         {
             DrawingNumber = drawingNumber;
             DrawingRequest = drawingRequest;
+            PartNumberService = partNumberService;
         }
 
-        public IDrawingNumber DrawingNumber { get; }
-        public IDrawingRequest DrawingRequest { get; }
+        [Inject] public IDrawingNumber DrawingNumber { get; set; }
+        [Inject] public IDrawingRequest DrawingRequest { get; set; }
+        public IPartNumberService PartNumberService { get; }
 
         private bool isProcessing = false;
 
@@ -24,12 +27,12 @@ namespace Client.Services
             {
                 isProcessing = true;
 
-                // Validations before processing
                 if (string.IsNullOrWhiteSpace(DrawingRequest.BeltType))
                 {
                     throw new ArgumentException("Belt Type is required.");
                 }
 
+                // Business logic to generate the drawing number
                 DrawingNumber.BeltTypeCode = RuleWithOptions.GetCodeByName(DrawingRequest.BeltType, BeltType.Options);
                 DrawingNumber.BeltSeriesCode = DrawingRequest.BeltSeries;
                 DrawingNumber.ColorCode = RuleWithOptions.GetCodeByName(DrawingRequest.Color, MaterialColor.Options);
@@ -50,14 +53,33 @@ namespace Client.Services
             }
             catch (Exception ex)
             {
-                // Handle exceptions (log, notify user, etc.)
                 Console.WriteLine($"Error generating drawing number: {ex.Message}");
-                // You could also implement a user-friendly error display mechanism here
             }
             finally
             {
                 isProcessing = false;
             }
         }
+
+        public string SerializeDrawingData()
+        {
+            var partNumbers = PartNumberService.FilterPartNumbers(DrawingRequest);
+
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var dataToSerialize = new
+            {
+                DrawingRequest,
+                DrawingNumber,
+                partNumbers
+            };
+            return JsonSerializer.Serialize(dataToSerialize, options);
+        }
+    }
+
+    // Wrapper class to facilitate deserialization of both DrawingRequest and DrawingNumber together
+    public class DrawingDataWrapper
+    {
+        public DrawingRequest? DrawingRequest { get; set; }
+        public DrawingNumber? DrawingNumber { get; set; }
     }
 }

@@ -1,0 +1,74 @@
+﻿@using System.Text
+@inject IDrawingRequest DrawingRequest
+@inject IDrawingRequestProcessor DrawingRequestProcessor
+@inject IDrawingNumber DrawingNumber
+
+<div class="container-fluid my-4">
+    <div class="card p-4 shadow">
+        <InputGroupTitle Title="Drawing Request Management"
+                         Subtitle="Click the button to download or preview your current drawing request as a JSON file."
+                         Description="" />
+
+        <!-- Download Drawing Request Button -->
+        <div class="text-center mb-4">
+            <a href="@DownloadJsonUrl" download="drawing_request.json" class="btn btn-success btn-lg" @onclick="GenerateDownloadUrl">Download Request</a>
+            <button class="btn btn-dark btn-lg ms-3" @onclick="ShowPreview" data-bs-toggle="modal" data-bs-target="#jsonPreviewModal">Preview</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for JSON Preview -->
+<div class="modal fade" id="jsonPreviewModal" tabindex="-1" aria-labelledby="jsonPreviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="jsonPreviewModalLabel">JSON Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <pre><code class="json">@((MarkupString)HighlightedJson)</code></pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string HighlightedJson { get; set; } = string.Empty;
+    private string DownloadJsonUrl { get; set; } = string.Empty;
+
+    private void ShowPreview()
+    {
+        HighlightedJson = DrawingRequestProcessor.SerializeDrawingData();
+    }
+
+    private void GenerateDownloadUrl()
+    {
+        var jsonString = DrawingRequestProcessor.SerializeDrawingData();
+        var jsonBytes = Encoding.UTF8.GetBytes(jsonString);
+        DownloadJsonUrl = "data:application/json;base64," + Convert.ToBase64String(jsonBytes);
+    }
+}
+
+<script>
+        .card {
+        border - radius: 8px; /* Rounded corners for a modern look */
+        background - color: #ffffff; /* Clean background for clarity */
+    }
+
+    .btn {
+        transition: background - color 0.3s, transform 0.2s; /* Smooth transitions */
+    }
+
+    .btn:hover {
+        background - color: #28a745; /* Slightly darker green on hover */
+        transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+    .text - dark {
+        font - weight: bold;
+    }
+
+</script>

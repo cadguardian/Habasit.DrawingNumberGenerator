@@ -8,39 +8,50 @@
     }
 }
 
-<!-- Button to open Offcanvas -->
-<!-- Button Group -->
-<!-- Button Group -->
 <!-- Centered Button Group -->
-<div class="text-center mb-3 no-print">
-    <div class="btn-group mt-2" role="group" aria-label="Button group with nested dropdown">
-        <!-- Button to open Offcanvas -->
-        <button type="button" @onclick="ToggleOffcanvas" class="btn btn-sm btn-warning" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-            Show Instructions
+<div class="text-center no-print">
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        
+        <!-- Help Button to open Offcanvas -->
+        <button type="button" @onclick="ToggleOffcanvas" class="btn btn-outline-dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"  title="Get Help">
+            <i class="fas fa-question-circle"></i> Help
         </button>
 
-        <!-- Product Portal Button -->
-        <a href="https://product-portal.intranet.habasit.com/view/v_portal_pmb" target="_blank" class="btn btn-sm btn-primary">
-            Product Portal
+        <!-- Engineering Guide Button -->
+        <a href="https://misbelt.com/wp-content/uploads/2018/01/HabaLINK-Plastic-Modular.pdf" target="_blank" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Open Engineering Guide">
+            <i class="fas fa-book"></i> Engineering
         </a>
 
         <!-- Assembly Guide Button -->
-        <a href="https://www.habasit.com/-/media/Project/Habasit/PublicWebSite/Documents/English/Products/Plastic-Modular/4178_Habasit-Link-Plastic-Modular-Belts-Product-Guide_0124_en.pdf" target="_blank" class="btn btn-sm btn-info">
-            Assembly Guide
+        <a href="https://www.habasit.com/-/media/Project/Habasit/PublicWebSite/Documents/English/Products/Plastic-Modular/4178_Habasit-Link-Plastic-Modular-Belts-Product-Guide_0124_en.pdf" target="_blank" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Open Assembly Guide">
+            <i class="fas fa-tools"></i> Assembly
+        </a>
+
+        <!-- Product Portal Button -->
+        <a href="https://product-portal.intranet.habasit.com/view/v_portal_pmb" target="_blank" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Visit Product Portal">
+            <i class="fas fa-portal-enter"></i> Products
         </a>
     </div>
 </div>
 
-
+<!-- Include FontAwesome for Icons (Add in the <head> section of your HTML) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script>
+    // Enable Bootstrap Tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
 
 
 <!-- Offcanvas Component -->
 <div class="offcanvas offcanvas-start no-print" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="display: @(showOffcanvas ? "block" : "none")">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Instructions</h5>
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Help</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" @onclick="ToggleOffcanvas"></button>
     </div>
-    <div class="offcanvas-body overflow-auto " style="max-height: 80vh;">
+    <div class="offcanvas-body overflow-auto " style="max-height: 95vh;">
         <BusinessInstructions />
 </div>
 </div>
@@ -65,6 +76,6 @@
 
     /* Smaller text style */
     .small-text {
-        font-size: 0.8rem; /* Adjust size as needed */
+        font-size: 0.6rem; /* Adjust size as needed */
     }
 </style>

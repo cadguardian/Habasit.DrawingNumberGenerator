@@ -1,4 +1,4 @@
-/* Ensure the body and html take up the full height */
+/* Reset Margin and Padding for Full-Height Layout */
 html, body {
     height: 100%;
     margin: 0;
@@ -6,94 +6,141 @@ html, body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Page layout using flex-direction column */
+/* Page Layout Styling */
 .page {
-    position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the page takes up the full height of the viewport */
-    padding-bottom: 130px; /* Add extra space for the footer */
-    padding-top: 55px; /* Add extra space for the header */
+    min-height: 100vh;
+    padding-top: 10px; /* Space for fixed header */
+    padding-bottom: 130px; /* Space for fixed footer */
+    position: relative;
+    background-color: #fff;
 }
 
-/* Ensure the font size on inputs, select, and textareas */
-input, select, textarea {
-    font-size: 16px; /* Ensure a standard font size to avoid zooming on mobile */
-    -webkit-text-size-adjust: 100%; /* Prevent iOS zoom on form elements */
-    -ms-text-size-adjust: 100%; /* Prevent Windows zoom on form elements */
+/* Header Styling */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: #333; /* Dark background for header */
+    color: #fff;
 }
 
-/* Set the main content area to be scrollable */
-.main-content {
-    flex-grow: 1;
-    overflow-y: auto; /* Make content scrollable if it's too long */
-    padding-bottom: 80px; /* Space for the footer */
-    padding-top: 55px; /* Space for the header */
-    min-height: calc(100vh - 100px); /* Set a minimum height for the main content */
-    /* Custom scrollbar styles */
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #1e7e34 #1e7e34; /* Firefox scrollbar color (thumb, track) */
+/* Navbar Styling */
+.navbar {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    border-bottom: 2px solid #27950b; /* Accent color for header */
 }
 
-    /* Webkit-based scrollbars (for Chrome, Safari, Edge) */
-    .main-content::-webkit-scrollbar {
-        width: 8px; /* Set width of the scrollbar */
-    }
+.navbar-brand small {
+    font-weight: bold;
+    color: #ffffff;
+}
 
-    .main-content::-webkit-scrollbar-thumb {
-        background-color: #28a745; /* Scrollbar thumb color */
-        border-radius: 10px; /* Rounded corners for the thumb */
-        transition: background-color 0.3s ease; /* Smooth transition on hover */
-    }
+.navbar .ms-auto small {
+    color: #f5c518; /* Text color to match warning theme */
+}
 
-        .main-content::-webkit-scrollbar-thumb:hover {
-            background-color: #1e7e34; /* Darker color on hover */
-        }
-
-    .main-content::-webkit-scrollbar-track {
-        background-color: #f7f7f7; /* Track color */
-        border-radius: 10px;
-    }
-
-/* Footer that always stays at the bottom */
+/* Footer Styling */
 footer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #f1f3f1; /* Customize the background color */
-    color: white;
+    background-color: #f1f3f1;
+    color: #333;
     text-align: center;
     padding: 1rem 0;
-    width: 100%; /* Make sure the footer takes full width */
+    width: 100%;
     z-index: 10;
     box-sizing: border-box;
 }
 
-/* Media Queries */
-@media (max-width: 640.98px) {
-    .top-row {
-        justify-content: space-between;
+    /* Toggle Buttons for Footer */
+    footer .form-check-label {
+        color: #333;
+        font-weight: bold;
     }
 
-        .top-row ::deep a, .top-row ::deep .btn-link {
-            margin-left: 0;
-        }
+/* Tooltip Styling for Better Accessibility */
+.tooltip-inner {
+    font-size: 0.875rem;
+    background-color: #333;
+    color: #fff;
 }
 
-@media (min-width: 641px) {
-    .page {
-        flex-direction: row;
+/* Belt Background Animation */
+.conveyor-belt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    overflow: hidden;
+}
+
+.belt-pattern {
+    position: absolute;
+    width: 200%; /* Creates a seamless looping effect */
+    height: 100%;
+    background-image: linear-gradient(90deg, transparent 24%, #ccc 25%, #ccc 35%, transparent 36%, transparent 49%, #ccc 50%, #ccc 60%, transparent 61%, transparent);
+    background-size: 50px 50px;
+    animation: moveBelt 15s linear infinite;
+}
+
+@keyframes moveBelt {
+    from {
+        transform: translateX(0);
     }
 
-    .top-row {
-        position: sticky;
-        top: 0;
-        z-index: 1;
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Content Wrapper for Centered Main Content */
+.content-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Validation Styling */
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .navbar-brand small, .navbar .ms-auto small {
+        font-size: 0.9rem;
+    }
+}
+
+@media print {
+    /* Print-friendly adjustments */
+    .fixed-top, .fixed-bottom {
+        position: static !important;
     }
 
-    .top-row, article {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
+    .content-wrapper {
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .navbar, footer, .no-print {
+        display: none !important;
     }
 }

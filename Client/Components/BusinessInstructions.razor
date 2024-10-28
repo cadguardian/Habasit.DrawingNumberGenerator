@@ -1,136 +1,262 @@
-﻿@* Razor Component: DrawingNumberGenerator.razor *@
-<div class="container-fluid px-3 py-2">
-    <header class="mb-2">
-        <h6 class="text-primary fw-bold">Purpose of the Drawing Number Generator Tool</h6>
-        <ul class="small text-muted">
-            <li><strong>Designed For:</strong> CAD Drafters at Habasit America, Suwanee, GA, focusing on special-build plastic modular belting products.</li>
-            <li><strong>Role & Impact:</strong> Aligns the CAD drafting process with business strategy to maximize efficiency, accuracy, and repeatability.</li>
-            <li><strong>Purpose:</strong> Combines, documents, and implements collected knowledge to impact business outcomes and ease onboarding.</li>
-            <li><strong>Streamlined Workflow:</strong> From receiving drawing requests from the CSR team to delivering production-ready CAD drawings.</li>
-        </ul>
+﻿@page "/drawing-number-generator"
+
+<div class="container-fluid px-3 py-4">
+    <!-- Header Section -->
+    <header class="text-center mb-4">
+        <h2 class="fw-bold text-dark">HBS Belt Tools</h2>
+        <p class="text-muted">Efficient CAD drawing creation for special build plastic modular belting.</p>
+        
     </header>
 
-    <section class="mb-3">
-        <h6 class="fw-bold">1. Filling Out the Form Completely</h6>
-        <p class="text-muted small">Complete all sections of the form to generate the correct drawing number and ensure data integrity:</p>
-        <ul class="small">
-            <li>Belt Specifications (e.g., type, color, material)</li>
-            <li>Belt Accessories (e.g., cleats, flights, guides)</li>
-            <li>Friction/Anti-Static Options (e.g., low friction coating)</li>
-            <li>Side-PL/Lane-DV Options (e.g., side walls, lane dividers)</li>
-            <li>Unique Identification Details (e.g., customer-specific requirements)</li>
-        </ul>
-    </section>
+    <!-- Instructions Section -->
+    <section>
+        <h3 class="text-dark text-center fw-bold mb-4">How to Use the Tool</h3>
 
-    <section class="mb-3">
-        <h6 class="fw-bold">2. Identifying Constraints and Strategy</h6>
-        <p class="text-muted small">The description of each part in the table provides essential details such as:</p>
-        <ul class="small">
-            <li>Part Type (e.g., module, flight)</li>
-            <li>Dimensions, Color, and Material</li>
-            <li>Number of Links and Link Position (e.g., left edge, right edge, middle)</li>
-        </ul>
-        <p class="text-muted small">
-            This information helps you understand constraints and plan your assembly strategy (bricklay). It ensures the correct CAD templates and AutoCAD blocks are utilized, resulting in:
-        </p>
-        <ul class="small">
-            <li>Accurate Bills of Materials</li>
-            <li>Clear Assembly Guides</li>
-            <li>Fewer Revisions Downstream</li>
-        </ul>
-        <p class="text-muted small">Precision at this stage directly impacts project outcomes, operational efficiency, and cost-effectiveness.</p>
-    </section>
-
-    <section class="mb-3">
-        <h6 class="fw-bold">3. Generating and Using the Drawing Number</h6>
-        <ul class="small text-muted">
-            <li><strong>Toggle the Switch:</strong> Generate a unique drawing number and corresponding query string.</li>
-            <li><strong>Search Strategy:</strong> Use the query string to search the network drive for existing drawings using fuzzy matching (include asterisks: *).</li>
-            <li><strong>Naming New Drawings:</strong> If no match is found, name new drawing files using the generated number for consistency and traceability.</li>
-        </ul>
-        <p class="text-muted small">This procedure enhances data integrity and ensures uniform application of design standards across all special builds.</p>
-    </section>
-
-    <section class="mb-3">
-        <h6 class="fw-bold">4. Finding Available Parts Using the Part Table</h6>
-        <ul class="small text-muted">
-            <li><strong>Filter Button:</strong> Click to apply both universal and specific filters above the part table.</li>
-            <li><strong>Search Bar:</strong> Narrow results using the part number search bar.</li>
-            <li><strong>Free Search:</strong> Leave the form blank to search freely using just the search bar.</li>
-            <li><strong>Compatibility Check:</strong> Carefully review part descriptions for compatibility and strategic placement within assemblies.</li>
-        </ul>
-        <p class="text-muted small">Proper selection and identification of parts optimize assembly and inventory accuracy, enhancing operational throughput.</p>
-    </section>
-
-    <section class="mb-3">
-        <h6 class="fw-bold">5. Summarizing the Form</h6>
-        <ul class="small text-muted">
-            <li><strong>Click "Summarize Form":</strong> Review all input data to verify the applicable belt codes.</li>
-            <li><strong>Error Mitigation:</strong> Mitigates errors and ensures the completeness of required information before finalizing a drawing number.</li>
-            <li><strong>Data Integrity Checkpoint:</strong> Acts as a checkpoint to reduce rework and align with key performance metrics for first-time-right quality standards.</li>
-        </ul>
-    </section>
-
-    <section class="mb-3">
-        <h6 class="fw-bold">6. Accessing Product Portal and Assembly Guides</h6>
-        <ul class="small text-muted">
-            <li><strong>Quick-Access Links:</strong> Open the product portal and assembly guides directly from the top of the page.</li>
-            <li><strong>Verification:</strong> Verify specific belt configurations and access real-time part data.</li>
-            <li><strong>Assembly Alignment:</strong> Ensure that assembly techniques align consistently with company standards and customer requirements.</li>
-        </ul>
-    </section>
-
-    <section class="mb-3">
-        <h6 class="fw-bold">7. Support and Quick Tips</h6>
-        <ul class="small text-muted">
-            <li><strong>Support Contact:</strong> For support, suggestions, or concerns, reach out via the email link in the footer.</li>
-            <li><strong>Quick Tips:</strong> Additional notes are embedded throughout the app for contextual guidance, empowering new and experienced team members.</li>
-        </ul>
-    </section>
-
-    
-
-    <section class="mb-3">
-        <div class="card border-primary shadow-sm">
-            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                <h6 class="mb-4">Pro Tips for Data Entry 📋</h6>
-                <span class="badge bg-warning text-dark rounded-pill">Important</span>
+        <div class="accordion mb-3 shadow-sm" id="instructionAccordion">
+            <!-- Step 1: Complete the Form -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        1. Enter Drawing Request
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#instructionAccordion">
+                    <div class="accordion-body">
+                        <p class="text-muted">Completing all sections ensures accurate drawing numbers, facilitating a
+                            swift transition to drafting.</p>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-        <ul class="small text-muted">
-            <li><strong>Auto-Focus on First Field:</strong> Start typing immediately without clicking.</li>
-            <li><strong>Use Tab:</strong> Move to the next field with <kbd>Tab</kbd> after finishing one.</li>
-            <li><strong>Use Shift + Tab:</strong> Go back to the previous field using <kbd>Shift</kbd> + <kbd>Tab</kbd> as needed.</li>
-            <li><strong>Autocomplete:</strong> Start typing in dropdowns for quick selection of matching options.</li>
-            <li><strong>Keyboard Navigation:</strong> Navigate dropdowns with arrow keys and select with <kbd>Tab</kbd>.</li>
-            <li><strong>Default Values:</strong> Commonly used fields are prefilled with defaults to save time.</li>
-            <li><strong>Save Time with Autofill:</strong> Use prefilled or past data-based fields for faster entry.</li>
-            <li><strong>Clear Form Quickly:</strong> Use <kbd>Ctrl</kbd> + <kbd>A</kbd> and press <kbd>Delete</kbd> to clear text or the "Clear All" button.</li>
-            <li><strong>Form Validation:</strong> Check for error messages to correct any missing or incorrect data after submission.</li>
-            <li><strong>Asterisk Usage:</strong> Replace non-critical parts of the drawing number with an asterisk (*) for fuzzy searches (e.g., 123-M-ABC-456 to 123-*-ABC-456).</li>
-            <li><strong>Form Visibility Toggle:</strong> Click "Summarize & Hide Form" to focus on summarized information while verifying accuracy.</li>
-            <li><strong>Exporting Data as JSON:</strong> Use the export feature to save form configurations for easy reloading in future projects, optimizing repeat processes and reducing the time required for similar builds.</li>
-        </ul>
+
+            <!-- Step 2: Identify & Strategize -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        2. Identify & Strategize
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#instructionAccordion">
+                    <div class="accordion-body">
+                        <p class="text-muted">Strategize your assembly to utilize templates and blocks efficiently,
+                            resulting in accurate bills of materials, clear assembly drawings, and reduced revisions</p>
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-2"><strong>Determine Type:</strong> Module, Flight, Roller, Griptops</li>
+                            <li class="list-group-item p-2"><strong>Details:</strong> Dimensions, Color, Material, Links</li>
+                            <li class="list-group-item p-2"><strong>Links:</strong> Number, Position (Left, Right, Middle), Interlock Type</li>
+                            <li class="list-group-item p-2"><strong>Accessories:</strong> Flights, Side Guards, Hold-Down Tabs</li>
+                            <li class="list-group-item p-2"><strong>Constraints:</strong> Alignment, Pattern, Collinear, Tangent</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Generate Numbers -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        3. Generate Numbers
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#instructionAccordion">
+                    <div class="accordion-body">
+                        <p class="text-muted">Maintain high data integrity and design standards effortlessly.</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-2"><strong>Toggle Switch:</strong> Instantly generate unique drawing numbers.</li>
+                            <li class="list-group-item p-2"><strong>Search:</strong> Use query strings with asterisks (*) for fuzzy matching.</li>
+                            <li class="list-group-item p-2"><strong>Naming:</strong> Consistently name new drawings for easy traceability.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Find Parts -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        4. Find Parts
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                    data-bs-parent="#instructionAccordion">
+                    <div class="accordion-body">
+                        <p class="text-muted">Optimize your workflow and parts list accuracy.</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-2"><strong>Filter Button:</strong> Apply filters with one click.</li>
+                            <li class="list-group-item p-2"><strong>Search Bar:</strong> Quickly find parts by number.</li>
+                            <li class="list-group-item p-2"><strong>Free Search:</strong> Leave form blank for unrestricted searches.</li>
+                            <li class="list-group-item p-2"><strong>Check Compatibility:</strong> Ensure parts fit strategically within assemblies.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Summarize Form -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        5. Verify
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                    data-bs-parent="#instructionAccordion">
+                    <div class="accordion-body">
+                        <p class="text-muted">Reduce delays and maintain a steady flow of CAD drawings.</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-2"><strong>Summarize:</strong> Review all inputs and verify belt codes.</li>
+                            <li class="list-group-item p-2"><strong>Error Mitigation:</strong> Identify and correct errors swiftly.</li>
+                            <li class="list-group-item p-2"><strong>Data Checkpoint:</strong> Ensure completeness before finalizing.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6: Access Resources -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        6. Access Resources
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                     data-bs-parent="#instructionAccordion">
+                    <div class="accordion-body">
+                        <p class="text-muted">Support rapid drafting and assembly processes.</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-2"><strong>Links:</strong> Open product portal and assembly guides quickly.</li>
+                            <li class="list-group-item p-2"><strong>Verify:</strong> Check belt configurations and part data in real-time.</li>
+                            <li class="list-group-item p-2"><strong>Align:</strong> Ensure consistent assembly techniques.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7: Support & Tips -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        7. Support & Tips
+                    </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                     data-bs-parent="#instructionAccordion">
+                    <div class="accordion-body">
+                        <p class="text-muted">Overcome challenges quickly and maintain high output.</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-2"><strong>Support:</strong> Email us for assistance or suggestions.</li>
+                            <li class="list-group-item p-2"><strong>Quick Tips:</strong> Utilize embedded notes for guidance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8: Pro Tips for Data Entry -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEight">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        8. Pro Tips for Data Entry
+                    </button>
+                </h2>
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
+                     data-bs-parent="#instructionAccordion">
+                    <div class="accordion-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-2"><strong>Auto-Focus:</strong> Start typing immediately without clicking.</li>
+                            <li class="list-group-item p-2"><strong>Use Tab:</strong> Move to the next field swiftly with <kbd>Tab</kbd>.</li>
+                            <li class="list-group-item p-2"><strong>Shift + Tab:</strong> Go back using <kbd>Shift</kbd> + <kbd>Tab</kbd>.</li>
+                            <li class="list-group-item p-2"><strong>Autocomplete:</strong> Type in dropdowns for quick selection.</li>
+                            <li class="list-group-item p-2"><strong>Keyboard Navigation:</strong> Use arrow keys and <kbd>Tab</kbd> to navigate.</li>
+                            <li class="list-group-item p-2"><strong>Default Values:</strong> Prefilled fields speed up entry.</li>
+                            <li class="list-group-item p-2"><strong>Autofill:</strong> Use past data for faster input.</li>
+                            <li class="list-group-item p-2"><strong>Clear Quickly:</strong> <kbd>Ctrl</kbd> + <kbd>A</kbd> + <kbd>Delete</kbd> or "Clear All" button.</li>
+                            <li class="list-group-item p-2"><strong>Validation:</strong> Check for errors after submission.</li>
+                            <li class="list-group-item p-2"><strong>Asterisk Usage:</strong> Replace non-critical parts with * for fuzzy searches.</li>
+                            <li class="list-group-item p-2"><strong>Visibility Toggle:</strong> "Summarize & Hide Form" for focused verification.</li>
+                            <li class="list-group-item p-2"><strong>Export as JSON:</strong> Save form configurations for future projects.</li>
+                            <li class="list-group-item p-2"><strong>API Integrations:</strong> Automate repetitive tasks with API features.</li>
+                            <li class="list-group-item p-2"><strong>SolidWorks Integration:</strong> Seamlessly transfer data between AutoCAD LT 2024 and SolidWorks 2023.</li>
+                            <li class="list-group-item p-2"><strong>Optimize Templates:</strong> Use predefined CAD templates for faster creation.</li>
+                            <li class="list-group-item p-2"><strong>Batch Processing:</strong> Handle multiple drawing requests simultaneously.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card mx-auto border-0 shadow-sm" style="max-width: 500px;">
+            <div class="card-body text-start">
+                <dl class="row mb-0">
+                    <dt class="col-4 fw-bold text-secondary">For:</dt>
+                    <dd class="col-8">CAD Drafters</dd>
+
+                    <dt class="col-4 fw-bold text-secondary">Impact:</dt>
+                    <dd class="col-8">Boosts efficiency</dd>
+
+                    <dt class="col-4 fw-bold text-secondary">Purpose:</dt>
+                    <dd class="col-8">Streamlined knowledge</dd>
+
+                    <dt class="col-4 fw-bold text-secondary">Workflow:</dt>
+                    <dd class="col-8">Production-ready CAD</dd>
+                </dl>
             </div>
         </div>
     </section>
 </div>
 
 <style>
-    /* Styling adjustments for mobile readability */
-    .container-fluid {
-        font-size: 0.875rem; /* Small text size for mobile readability */
+    .accordion-item {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 1rem;
     }
 
-    h6 {
-        font-size: 1rem; /* Slightly larger font for section headers */
+    .accordion-button {
+        font-weight: bold;
+        background-color: #f8f9fa;
+        color: #343a40;
     }
 
-    ul {
-        padding-left: 1rem; /* Consistent indentation for lists */
+    .accordion-button.collapsed {
+        color: #6c757d;
+        background-color: #e9ecef;
     }
 
-    p, li {
-        margin-bottom: 0.5rem; /* Improved spacing between text elements */
+    .accordion-body {
+        font-size: 0.95rem;
+        color: #495057;
+    }
+
+    /* Customized List Group */
+    .list-group-item {
+        background-color: #ffffff;
+        border: none;
+        color: #343a40;
+    }
+
+    /* Card styling for the header info */
+    .card {
+        background-color: #f8f9fa;
     }
 </style>
+
+<script>
+    // Initialize Bootstrap tooltips if necessary
+    document.addEventListener('DOMContentLoaded', function () {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+            new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+</script>

@@ -8,32 +8,30 @@
 
 @code {
     private bool isFormVisible = true;
-    [Parameter] public RenderFragment FormContent { get; set; }
+    [Parameter] public RenderFragment? FormContent { get; set; }
 }
 
 <div class="container-fluid">
     @if (isFormVisible)
     {
         <div class="container">
-            <div class="d-flex justify-content-center align-items-center mb-4">
-                <button type="button" class="btn btn btn-sm btn-success no-print"
+            @FormContent
+            <div class="d-flex justify-content-center align-items-center m-4">
+                <button type="button" class="btn btn btn-lg btn-dark no-print"
                         @onclick="() => { DrawingRequestProcessor.GenerateDrawingNumber(); isFormVisible = false; }">
-                    Summarize & Hide Form
+                    Verify
                 </button>
             </div>
-            @FormContent
         </div>
     }
     else
     {
         <div class="summary-dashboard">
-            <h3>Data Summary Dashboard</h3>
-
             <!-- Two columns on all screen sizes -->
-            <div class="row row-cols-2 g-2">
+            <div class="row row-cols-2 -1">
                 <!-- Left column: Drawing Request fields -->
                 <div class="col">
-                    <div class="p-2 bg-white rounded shadow-sm">
+                    <div class="p-2 bg-white rounded shadow-sm p-4 mt-3">
                         <h6 class="small-heading">Drawing Request</h6>
                         <ul class="list-unstyled mb-0">
                             <li><strong>Type:</strong> @DrawingRequest.BeltType</li>
@@ -57,7 +55,7 @@
 
                 <!-- Right column: Drawing Number fields -->
                 <div class="col">
-                    <div class="p-2 bg-white rounded shadow-sm">
+                    <div class="p-2 bg-white rounded shadow-sm p-4 mt-3">
                         <h6 class="small-heading">Drawing Code</h6>
                         <ul class="list-unstyled mb-0">
                             <li><strong>Type:</strong> @DrawingNumber.BeltTypeCode</li>
@@ -81,9 +79,15 @@
             </div>
 
             <div class="d-flex justify-content-center mt-4">
-                <button type="button" class="btn btn-sm btn-secondary" @onclick="() => isFormVisible = true">
-                    Edit Form
+                <div class="text-center no-print">
+    <div class="btn-group mt-2" role="group" aria-label="Button group with nested dropdown">
+       <Upload/>
+                <button type="button" class="btn btn-outline-secondary" @onclick="() => isFormVisible = true">
+                    Edit
                 </button>
+    </div>
+</div>
+                
             </div>
         </div>
     }

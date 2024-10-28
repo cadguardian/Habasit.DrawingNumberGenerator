@@ -5,9 +5,11 @@ namespace Client.Services
 {
     public interface IDrawingRequestProcessor
     {
-        IDrawingNumber DrawingNumber { get; }
-        IDrawingRequest DrawingRequest { get; }
+        IDrawingNumber DrawingNumber { get; set; }
+        IDrawingRequest DrawingRequest { get; set; }
 
         void GenerateDrawingNumber();
+
+        string SerializeDrawingData();
     }
 }

@@ -1,16 +1,32 @@
-﻿@using System.Net.Http
-@using System.Net.Http.Json
+﻿// Core ASP.NET Components
+@using Microsoft.AspNetCore.Components
 @using Microsoft.AspNetCore.Components.Forms
 @using Microsoft.AspNetCore.Components.Routing
 @using Microsoft.AspNetCore.Components.Web
 @using Microsoft.AspNetCore.Components.Web.Virtualization
 @using Microsoft.AspNetCore.Components.WebAssembly.Http
 @using Microsoft.JSInterop
+
+// UI Components
+@using ColorCode;
+
+// System Libraries
+@using System.Collections.Generic
+@using System.Net.Http
+@using System.Net.Http.Json
+@using System.Text.Json
+
+// Client-Specific Components
 @using Client
 @using Client.Layout
-@using System.Collections.Generic;
-@using Client.Components;
-@using Client.Components.UserInput;
-@using Client.Services
+@using Client.Components
+@using Client.Components.Search
+@using Client.Components.BeltConfigurator
+@using Client.Components.BeltConfigurator.UserInputs
+
+// Data and Models
 @using DNG.Library.Data
 @using DNG.Library.Models
+
+// Services
+@using Client.Services

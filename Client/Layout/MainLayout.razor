@@ -1,77 +1,188 @@
 ﻿@inherits LayoutComponentBase
 @inject IDrawingNumber DrawingNumber
 @inject IDrawingRequest DrawingRequest
+@inject IDrawingRequestProcessor DrawingRequestProcessor
 @inject IJSRuntime JSRuntime
 
 <div class="page d-flex flex-column min-vh-100">
-    <main class="flex-grow-1">
-        <div class="container-fluid bg-light">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom fixed-top">
-                <div class="container-fluid">
-                    <a class="navbar-brand small" href="#"><small>Habasit America</small> <small class="text-success">Suwanee, GA</small></a>
-                    <div class="d-flex ms-auto">
-                        <small class="text-warning">Drawing Tools</small>
-                    </div>
-                </div>
-            </nav>
-
-            <div class="content-wrapper d-flex flex-column" style="max-width: 700px; margin: 0 auto;">
-                <CascadingValue Value="(Action)UpdateFooter">
-                    @Body
-                </CascadingValue>
+    <!-- Navbar with centered items and brand -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom fixed-top shadow-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold fs-4" href="#">
+                HBS Belt Tools
+            </a>
+           @*  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold text-light" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold text-light" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold text-light" href="#">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold text-light" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div> *@
+            <div class="d-flex ms-auto">
+                <small class="text-warning">HabaLink and KVP Belts</small>
             </div>
+            
+        </div>
+
+    </nav>
+
+    <!-- Background animation for modular belt effect -->
+    <main class="flex-grow-1 position-relative overflow-hidden">
+        <div class="belt-background"></div>
+        <div class="content-wrapper d-flex flex-column align-items-center" style="max-width: 700px; margin: 5rem auto 0;">
+            <CascadingValue Value="(Action)UpdateFooter">
+                @Body
+            </CascadingValue>
         </div>
     </main>
 
-    <footer class="container-fluid bg-dark py-3 fixed-bottom">
+    <footer class="container-fluid bg-dark py-3 fixed-bottom" style="color: white;">
         <div class="row justify-content-center">
-            <div class="col-10 d-flex align-items-center justify-content-center">
-                <!-- Grouped Control: Labels + Switch -->
-                <div class="d-flex align-items-center gap-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Toggle between Drawing Number and Query String">
-                    <label class="form-check-label text-light" for="toggleQueryString">Drawing Number</label>
-
-                    <div class="form-check form-switch">
-    <input 
-        class="form-check-input bg-success border-success" 
-        type="checkbox" 
-        id="toggleQueryString" 
-        @bind="showQueryString" 
-        style="transform: scale(1.5);" 
-    />
-</div>
-
-                    <label class="form-check-label text-light" for="toggleQueryString">Query String</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-3">
-            <h3 
-                class="text-warning mb-0" 
-                @onclick="CopyDrawingNumberToClipboard" 
-                style="cursor: pointer;" 
-                data-bs-toggle="tooltip" 
-                data-bs-placement="top" 
-                title="Click to copy to clipboard">
-                @(string.IsNullOrEmpty(GetDisplayValue()) ? "N/A" : GetDisplayValue())
-            </h3>
-        </div>
-
-        <div class="text-center mt-2">
-            <a href="mailto:thomas.smith@habasit.com" class="text-light small" style="text-decoration: underline;">
-                thomas.smith@habasit.com
-            </a>
-        </div>
-
-        <!-- Bootstrap Toast Notification -->
-        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
-            <div id="clipboardToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body">
-                        Value copied to clipboard!
+            <div >
+                
+                
+                <!-- Row 1: Radio Inputs for Selecting Drawing Number or Query String -->
+                <div class="d-flex justify-content-center gap-4" style="padding: 0.5rem;">
+                    <div class="form-check" style="padding: 0.5rem;">
+                        <input type="radio" id="drawingNumber" name="numberType" value="drawing" class="form-check-input" @onchange="(e) => showQueryString = false" checked>
+                        <label class="form-check-label text-light" for="drawingNumber">Drawing Number</label>
                     </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    <div class="form-check" style="padding: 0.5rem;">
+                        <input type="radio" id="queryString" name="numberType" value="query" class="form-check-input" @onchange="(e) => showQueryString = true">
+                        <label class="form-check-label text-light" for="queryString">Query String</label>
+                    </div>
+
                 </div>
+
+                <!-- Row 2: Displaying the Drawing Number / Query String -->
+                <h3 class="@(showQueryString ? "text-info" : "text-warning") text-center mb-0"
+                    @onclick="CopyDrawingNumberToClipboard"
+                    style="cursor: pointer; padding: 0.5rem; text-align: center; white-space: nowrap;"
+                    data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Click to copy to clipboard">
+                    @(string.IsNullOrEmpty(GetDisplayValue()) ? "Create Drawing Number" : GetDisplayValue())
+                </h3>
+
+
+                <!-- Bootstrap Toast Notification -->
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
+                    <div id="clipboardToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">Value copied to clipboard!</div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+
+                @if (showQueryString)
+                {
+                    <div class="alert alert-info p-xl-0 p-0 px-2 m-0 small">Toggle changes take place after you click drawing number. <br /> this to search special builds folder on the network.</div>
+
+                
+
+                <!-- Row 3: Toggle Switches for Query String Fields with Horizontal Scroll -->
+                    <div class="px-5 mx-4 d-flex overflow-auto gap-5 small p-2"
+                         style="white-space: nowrap; padding: 0 1rem; overflow-x: auto; display: flex; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+                    <!-- Toggle Switch for Belt Type -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleType" @bind="DrawingNumber.IncludeBeltType">
+                        <label class="form-check-label text-light" for="toggleType">Type</label>
+                    </div>
+
+                    <!-- Toggle Switch for Belt Series -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync"  class="form-check-input" id="toggleSeries" @bind="DrawingNumber.IncludeBeltSeries">
+                        <label class="form-check-label text-light" for="toggleSeries">Series</label>
+                    </div>
+
+                    <!-- Toggle Switch for Color -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" class="form-check-input" id="toggleColor" @onblur="HandleInputAsync" @bind="DrawingNumber.IncludeColor">
+                        <label class="form-check-label text-light" for="toggleColor">Color</label>
+                    </div>
+
+                    <!-- Toggle Switch for Material -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" class="form-check-input" id="toggleMaterial" @onblur="HandleInputAsync" @bind="DrawingNumber.IncludeMaterial">
+                        <label class="form-check-label text-light" for="toggleMaterial">Material</label>
+                    </div>
+
+                    <!-- Toggle Switch for Adder Material -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleAdderMaterial" @bind="DrawingNumber.IncludeAdderMaterial">
+                        <label class="form-check-label text-light" for="toggleAdderMaterial">Adder Material</label>
+                    </div>
+
+                    <!-- Toggle Switch for Rod Material -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleRodMaterial" @bind="DrawingNumber.IncludeRodMaterial">
+                        <label class="form-check-label text-light" for="toggleRodMaterial">Rod Material</label>
+                    </div>
+
+                    <!-- Toggle Switch for Belt Width -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleWidth" @bind="DrawingNumber.IncludeBeltWidth">
+                        <label class="form-check-label text-light" for="toggleWidth">Width</label>
+                    </div>
+
+                    <!-- Toggle Switch for Quantity of Rollers Across Width -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleQtyRollers" @bind="DrawingNumber.IncludeQtyRollersAcrossWidth">
+                        <label class="form-check-label text-light" for="toggleQtyRollers">Rollers Qty</label>
+                    </div>
+
+                    <!-- Toggle Switch for F/R/G Centers -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFRGCenters" @bind="DrawingNumber.IncludeFRGCenters">
+                        <label class="form-check-label text-light" for="toggleFRGCenters">F/R/G Centers</label>
+                    </div>
+
+                    <!-- Toggle Switch for Belt Accessories -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleBeltAccessories" @bind="DrawingNumber.IncludeBeltAccessories">
+                        <label class="form-check-label text-light" for="toggleBeltAccessories">Accessories</label>
+                    </div>
+
+                    <!-- Toggle Switch for Friction/Anti Static -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFrictionAntiStatic" @bind="DrawingNumber.IncludeFrictionAntiStatic">
+                        <label class="form-check-label text-light" for="toggleFrictionAntiStatic">Friction/Anti Static</label>
+                    </div>
+
+                    <!-- Toggle Switch for Flights/Rollers/Grips -->
+                    <div class="mx-5 form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFlightsRollersGrips" @bind="DrawingNumber.IncludeFlightsRollersGrips">
+                        <label class="form-check-label text-light" for="toggleFlightsRollersGrips">Flights/Rollers/Grips</label>
+                    </div>
+
+                    <!-- Toggle Switch for Side-PL/Lane-DV -->
+                    <div class="mx-4 form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleSidePLLaneDV" @bind="DrawingNumber.IncludeSidePLLaneDV">
+                        <label class="form-check-label text-light" for="toggleSidePLLaneDV">Side-PL/Lane-DV</label>
+                    </div>
+
+                    <!-- Toggle Switch for Unique Identification -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync"  class="form-check-input" id="toggleUniqueIdentification" @bind="DrawingNumber.IncludeUniqueIdentification">
+                        <label class="form-check-label text-light" for="toggleUniqueIdentification">Unique ID</label>
+                    </div>
+
+                    <!-- Toggle Switch for Indent Code -->
+                    <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleIndentCode" @bind="DrawingNumber.IncludeIndentCode">
+                        <label class="form-check-label text-light" for="toggleIndentCode">Indent Code</label>
+                    </div>
+                </div>
+                }
             </div>
         </div>
     </footer>
@@ -79,6 +190,17 @@
 
 @code {
     private bool showQueryString = false;
+
+    // Shared input handling logic to generate drawing number and update query string
+    protected async Task HandleInputAsync()
+    {
+        DrawingRequestProcessor!.GenerateDrawingNumber();
+        DrawingRequest!.QueryString = DrawingNumber!.GetDrawingQueryString();
+
+        Console.WriteLine("Input Handled!");
+    }
+
+
 
     private string GetDisplayValue()
     {
@@ -114,5 +236,6 @@
             new bootstrap.Tooltip(tooltipTriggerEl);
         });
     });
-</script>
 
+        
+</script>

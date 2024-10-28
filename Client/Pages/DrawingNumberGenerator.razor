@@ -1,80 +1,54 @@
-﻿@using Client.Components.UserInput
+﻿@using Client.Components.JSONData
 @using Client.Services
 @using DNG.Library.Data
 @using DNG.Library.Models
 @using Microsoft.AspNetCore.Components.Forms
-@using global::DNG.Library.Models
 
 @inject IJSRuntime JSRuntime
 @inject IDrawingNumber DrawingNumber
 @inject IDrawingRequest DrawingRequest
 @inject IDrawingRequestProcessor DrawingRequestProcessor
 
-<ShowInstructionsComponent/>
+@page "/drawing-request-form"
+@inject IDrawingRequestProcessor DrawingRequestProcessor
 
-<div class="container px-3 py-3 mw-75 no-print">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card text-center shadow-lg border-0 rounded animate-card">
-                <div class="card-header bg-success text-white fw-bold">
-                    Special Build Drawing Tools
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Transform Your CAD Experience</h5>
-                    <p class="card-text">
-                        As a CAD Drafter at Habasit America, you'll have access to internally developed tools designed to streamline your workflow and enhance creativity.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<ShowInstructionsComponent />
 
+    <EditForm EditContext="editContext" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
 
+        <GeneralSpecifications />
+        <FlightRollerGripTop />
+        <Accessories />
+        <UniqueIdentificationAndIndentCode />
 
-<EditForm Model="@DrawingRequest" OnValidSubmit="DrawingRequestProcessor.GenerateDrawingNumber">
-    <SummaryDashBoard>
-        <FormContent>
-            <SurveyComponent PrefaceHeading="Belt Specification" ArticleHeading="Flights/Rollers/Grips"
-                ClimaxHeading="Accessories" ConclusionHeading="Finalize">
-                <Preface>
-                    
-                   <SelectBeltType/>
-                   <SelectBeltSeries/>
-                    <div class="alert alert-secondary small" role="alert">
-                        It is recommended to remove codes marked in black from the query string to achieve broader search results. Unique Indentifer is not included in query string!
-                    </div>
-                    <SelectMaterialColor/>
-                    <SelectBeltMaterial/>
-                    <SelectAdderMaterial/>
-                    <SelectRodMaterial/>
-                    <InputBeltWidth/>
-                </Preface>
-                <Article>
-                   <SelectFlightsRollerGrip/>
-                    <div class="alert alert-danger small" role="alert">
-                        Quantity Rollers, Width, and F/R/G Centers will remain blank until I have a better understanding of these parameters. Please do not reference them
-                    </div>
-                    <InputQuantityRollersWidth/>
-                    <InputFlightRollersGripTopCenters/>
-                </Article>
-                <Climax>
-                    <div class="alert alert-secondary small" role="alert">
-                        Accessories have been set to default values for your convenience.
-                    </div>
-                   <SelectBeltAccessories/>
-                   <SelectFrictionAntiFriction/> 
-                   <SelectPLLaneDV/>
-                </Climax>
-                <Conclusion>
-                    <InputUniqueIdentification/>
-                    <SelectIndentCode/>
-                </Conclusion>
-            </SurveyComponent>
-        </FormContent>
-    </SummaryDashBoard>
-</EditForm>
+    </EditForm>
+
+    <PartNumberTable />
+
+    <DrawingRequestManagement />
+
+    <CADWorkflow />
+
+    <AutoCADCommands />
+
+@code {
+    private EditContext editContext;
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(DrawingRequest);
+        editContext.OnFieldChanged += (sender, e) => editContext.Validate(); // Triggers validation on field change
+
+        // Immediately trigger validation when form loads
+        editContext.Validate();
+    }
+
+    private void HandleValidSubmit()
+    {
+        DrawingRequestProcessor.GenerateDrawingNumber();
+    }
+}
 
 <div class="page-break"></div>
-
-<PartNumberTable/>
