@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Client",
   "resources": {
-    "hash": "sha256-LqCiipdbtXLMNuSfALV4LYlCQq9kP7UHcEdF5v7cu8w=",
+    "hash": "sha256-s09DcEHyIbHWaUsPRJ22C981nS3cDXE0qZZJoIe2HzM=",
     "jsModuleNative": {
       "dotnet.native.8.0.10.w6lt2f84zx.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
     },
@@ -17,10 +17,10 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "Client.wasm": "sha256-hER0/9vNpVYIJEPx0iYCZVfJ8aZndV9X/2UwcjnNeiI=",
+      "Client.wasm": "sha256-2zDnfXarKwuvn1om9YQDcoLk5ghRfInOJHYNxnUVTzI=",
       "ColorCode.Core.wasm": "sha256-MU1CG0WM9yn7fhjNqezPvT3DIqEUOz9cPFedLWKX2YQ=",
       "CsvHelper.wasm": "sha256-BXz5RCSFBrg3KCDZD4lxgyWmw1YH6vUT0N/oIQdCKfA=",
-      "DNG.Library.wasm": "sha256-4DlNdOgZirvbuHXOa9HC+rGkDJ2dyOc9G6RvMckxxho=",
+      "DNG.Library.wasm": "sha256-/bEIHI2N+VzMe2Ajn8nA9TPqA8ISZTqxfvr/X3sRz5Q=",
       "DnsClient.wasm": "sha256-oKvInLFvi9OW5TfdVOzpqKamndtUuqvE/5I/Hgj3I/I=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-V0eUpaaj6UhZdEQK77kUTEa+JAV1nHP5d+kkJMouois=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-7FclgI/cjzMaLvqRCKJSOinO6hOCbuVZc3dAm7bDLbg=",
