@@ -26,7 +26,7 @@
 </div>
 
 @code {
-    private DrawingRequest currentRequest;
+    private DrawingRequest? currentRequest;
 
     private async Task HandleFileSelected(InputFileChangeEventArgs e)
     {
@@ -38,7 +38,7 @@
             var jsonString = Encoding.UTF8.GetString(stream.ToArray());
 
             // Deserialize JSON to DrawingRequest object
-            currentRequest = JsonSerializer.Deserialize<DrawingRequest>(jsonString);
+            currentRequest = JsonSerializer.Deserialize<DrawingRequest>(jsonString)!;
 
             if (currentRequest == null)
             {

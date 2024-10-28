@@ -4,11 +4,11 @@
     <div class="form-floating">
 
     <InputNumber @onblur="HandleInputAsync" id="beltWidth" aria-required="true"
-                 aria-describedby="beltWidthHelp" @bind-Value="DrawingRequest.BeltWidth"
+                 aria-describedby="beltWidthHelp" @bind-Value="DrawingRequest!.BeltWidth"
                  Min="1" Max="999" class="form-control text-center"
                  onfocus="selectAllText(this)" />
         <label for="beltWidth">Width (inches)</label>
         </div>
 
-    <span class="input-group-text">@DrawingNumber.BeltWidthCode</span>
+    <span class="input-group-text">@DrawingNumber!.BeltWidthCode</span>
 </div>

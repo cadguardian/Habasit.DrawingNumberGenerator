@@ -4,7 +4,7 @@
     <div class="form-floating">
     <select id="indentCode" class="form-select form-select-sm"
         @onblur="HandleInputAsync"
-        @bind="DrawingRequest.IndentCode" required>
+        @bind="DrawingRequest!.IndentCode" required>
     <option value="" disabled selected>Select Indent Code</option>
     @foreach (var indent in IndentCode.Options.Values)
     {
@@ -15,6 +15,6 @@
 
         </div>
 
-    <span class="input-group-text">@IndentCode.GetCodeByName(DrawingRequest.IndentCode, IndentCode.Options)</span>
+    <span class="input-group-text">@IndentCode.GetCodeByName(DrawingRequest!.IndentCode, IndentCode.Options)</span>
     
 </div>

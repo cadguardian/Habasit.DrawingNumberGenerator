@@ -1,10 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PublishAot>False</PublishAot>
+    <Copyright>CAD Guardian</Copyright>
+	  <NoWarn>1591</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\BeltAssemblyService.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Components\UserInput\InputBeltWidth.razor.bk" />

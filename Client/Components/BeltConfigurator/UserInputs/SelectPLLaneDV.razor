@@ -3,7 +3,7 @@
 <div class="input-group mb-3">
     <div class="form-floating">
     <select id="sidePLLaneDV" class="form-select form-select-sm" @onblur="HandleInputAsync"
-            @bind="DrawingRequest.SidePLLaneDV" required>
+            @bind="DrawingRequest!.SidePLLaneDV" required>
         <option value="" disabled selected>Select Side-PL/Lane-DV</option>
             @foreach (var type in SidePLLaneDV.Options.Values)
             {
@@ -15,7 +15,7 @@
         </div>
 
     <span class="input-group-text">
-        @SidePLLaneDV.GetCodeByName(DrawingRequest.SidePLLaneDV, SidePLLaneDV.Options)
+        @SidePLLaneDV.GetCodeByName(DrawingRequest!.SidePLLaneDV, SidePLLaneDV.Options)
     </span>
 </div>
 
@@ -23,6 +23,6 @@
     protected override void OnInitialized()
     {
         // Set the default value here, based on some logic
-        DrawingRequest.SidePLLaneDV = "No options";
+        DrawingRequest!.SidePLLaneDV = "No options";
     }
 }

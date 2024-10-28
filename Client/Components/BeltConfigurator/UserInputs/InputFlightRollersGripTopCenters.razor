@@ -4,7 +4,7 @@
     <div class="form-floating">
 
     <InputNumber id="frgCenters"aria-required="true" aria-describedby="frgCentersHelp"
-                 @onblur="HandleInputAsync" @bind-Value="DrawingRequest.FRGCenters"
+                 @onblur="HandleInputAsync" @bind-Value="DrawingRequest!.FRGCenters"
                  Min="1" Max="100" class="form-control text-center"
                  onfocus="selectAllText(this)" />
         <label for="frgCenters">F/R/G Centers</label>

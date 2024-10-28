@@ -4,7 +4,7 @@
     <div class="form-floating">
     <select id="beltType" class="form-select"
             @onblur="HandleInputAsync"
-            @bind="DrawingRequest.BeltType" required autofocus>
+            @bind="DrawingRequest!.BeltType" required autofocus>
         <option value="" disabled selected>Select Belt Type</option>
             @foreach (var type in BeltType.Options.Values.OrderBy(t=>t))
             {
@@ -15,7 +15,7 @@
     </div>
 
     <span class="input-group-text">
-            @BeltType.GetCodeByName(DrawingRequest.BeltType, BeltType.Options)
+            @BeltType.GetCodeByName(DrawingRequest!.BeltType, BeltType.Options)
     </span>
 </div>
 
@@ -23,7 +23,7 @@
     protected override void OnInitialized()
     {
         // Set the default value here, based on some logic
-        DrawingRequest.BeltType = "Standard Belt"; 
+        DrawingRequest!.BeltType = "Standard Belt"; 
     }
 }
 

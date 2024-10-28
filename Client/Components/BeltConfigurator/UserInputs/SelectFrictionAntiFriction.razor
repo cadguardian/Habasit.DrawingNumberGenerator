@@ -5,7 +5,7 @@
 
     <select id="frictionAntiStatic" class="form-select form-select-sm"
             @onblur="HandleInputAsync"
-            @bind="DrawingRequest.FrictionAntiStatic" required>
+            @bind="DrawingRequest!.FrictionAntiStatic" required>
         <option value="" disabled selected>Select Friction/Anti Static</option>
             @foreach (var friction in FrictionAntiStatic.Options.Values.OrderBy(f=>f))
             {
@@ -16,13 +16,13 @@
         </div>
 
 
-    <span class="input-group-text">@FrictionAntiStatic.GetCodeByName(DrawingRequest.FrictionAntiStatic, FrictionAntiStatic.Options)</span>
+    <span class="input-group-text">@FrictionAntiStatic.GetCodeByName(DrawingRequest!.FrictionAntiStatic, FrictionAntiStatic.Options)</span>
 </div>
 
 @code{
     protected override void OnInitialized()
     {
         // Set the default value here, based on some logic
-        DrawingRequest.FrictionAntiStatic = "No options"; // Default value set during initialization
+        DrawingRequest!.FrictionAntiStatic = "No options"; // Default value set during initialization
     }
 }

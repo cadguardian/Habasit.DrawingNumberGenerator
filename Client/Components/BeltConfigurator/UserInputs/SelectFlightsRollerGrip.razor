@@ -5,7 +5,7 @@
 
     <select id="flightsRollersGrip" class="form-select form-select-sm"
             @onblur="HandleInputAsync"
-            @bind="DrawingRequest.FlightsRollersGrip" required>
+            @bind="DrawingRequest!.FlightsRollersGrip" required>
             @foreach (var flight in Flights_Rollers_Grips.Options.Values.OrderBy(f=>f))
             {
             <option value="@flight">@flight</option>
@@ -22,6 +22,6 @@
     protected override void OnInitialized()
     {
         // Set the default value here, based on some logic
-        DrawingRequest.FlightsRollersGrip = "No Flights"; 
+        DrawingRequest!.FlightsRollersGrip = "No Flights"; 
     }
 }

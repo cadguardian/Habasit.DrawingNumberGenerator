@@ -4,7 +4,7 @@
     <div class="form-floating">
     <select id="adderMaterial" class="form-select form-select-sm"
             @onblur="HandleInputAsync"
-            @bind="DrawingRequest.AdderMaterial" required autofocus>
+            @bind="DrawingRequest!.AdderMaterial" required autofocus>
         <option value="" disabled selected>Select Adder Material</option>
 
             @foreach (var adder in AdderMaterial.Options.Values.OrderBy(a=>a))
@@ -17,7 +17,7 @@
     </div>
 
     <span class="input-group-text bg-dark text-light" data-bs-toggle="tooltip3">
-            @AdderMaterial.GetCodeByName(DrawingRequest.AdderMaterial,
+            @AdderMaterial.GetCodeByName(DrawingRequest!.AdderMaterial,
                  AdderMaterial.Options)
     </span>
 </div>
@@ -26,6 +26,6 @@
     protected override void OnInitialized()
     {
         // Set the default value here, based on some logic
-        DrawingRequest.AdderMaterial = "No Adder"; // Default value set during initialization
+        DrawingRequest!.AdderMaterial = "No Adder"; // Default value set during initialization
     }
 }

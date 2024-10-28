@@ -3,7 +3,7 @@
 <div class="input-group mb-3">
     <div class="form-floating">
     <select id="rodMaterial" class="form-select form-select-sm" @onblur="HandleInputAsync"
-            @bind="DrawingRequest.RodMaterial" required autofocus>
+            @bind="DrawingRequest!.RodMaterial" required autofocus>
         <option value="" disabled selected>Select Rod Material</option>
             @foreach (var rod in RodMaterial.Options.Values.OrderBy(r=>r))
             {
@@ -14,6 +14,6 @@
     </div>
 
     <span class="input-group-text bg-dark text-light" data-bs-toggle="tooltip4">
-        @RodMaterial.GetCodeByName(DrawingRequest.RodMaterial, RodMaterial.Options)
+        @RodMaterial.GetCodeByName(DrawingRequest!.RodMaterial, RodMaterial.Options)
     </span>
 </div>
