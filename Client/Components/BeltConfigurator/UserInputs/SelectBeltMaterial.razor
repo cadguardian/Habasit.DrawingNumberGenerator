@@ -4,7 +4,7 @@
     <div class="form-floating">
     <select id="material" class="form-select form-select-sm"
             @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.Material" required autofocus>
+            @bind="DrawingRequest!.Material" required>
         <option value="" disabled selected>Select Material</option>
             @foreach (var material in BeltMaterial.Options.Values.OrderBy(m=>m))
             {

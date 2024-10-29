@@ -1,18 +1,10 @@
-/* Reset Margin and Padding for Full-Height Layout */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-/* Page Layout Styling */
+/* Reset and Page Layout */
 .page {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 10px; /* Space for fixed header */
-    padding-bottom: 130px; /* Space for fixed footer */
+    padding-top: 55px;
+    padding-bottom: 130px;
     position: relative;
     background-color: #fff;
 }
@@ -23,7 +15,7 @@ header {
     top: 0;
     width: 100%;
     z-index: 10;
-    background-color: #333; /* Dark background for header */
+    background-color: #333;
     color: #fff;
 }
 
@@ -31,7 +23,7 @@ header {
 .navbar {
     padding: 0.5rem 1rem;
     background-color: #333;
-    border-bottom: 2px solid #27950b; /* Accent color for header */
+    border-bottom: 2px solid #27950b;
 }
 
 .navbar-brand small {
@@ -40,7 +32,7 @@ header {
 }
 
 .navbar .ms-auto small {
-    color: #f5c518; /* Text color to match warning theme */
+    color: #f5c518;
 }
 
 /* Footer Styling */
@@ -58,48 +50,17 @@ footer {
     box-sizing: border-box;
 }
 
-    /* Toggle Buttons for Footer */
     footer .form-check-label {
         color: #333;
         font-weight: bold;
     }
 
-/* Tooltip Styling for Better Accessibility */
+/* Tooltip Styling */
 .tooltip-inner {
     font-size: 0.875rem;
     background-color: #333;
     color: #fff;
-}
-
-/* Belt Background Animation */
-.conveyor-belt {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.1;
-    overflow: hidden;
-}
-
-.belt-pattern {
-    position: absolute;
-    width: 200%; /* Creates a seamless looping effect */
-    height: 100%;
-    background-image: linear-gradient(90deg, transparent 24%, #ccc 25%, #ccc 35%, transparent 36%, transparent 49%, #ccc 50%, #ccc 60%, transparent 61%, transparent);
-    background-size: 50px 50px;
-    animation: moveBelt 15s linear infinite;
-}
-
-@keyframes moveBelt {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
+    padding: 0.5em; /* Improved readability */
 }
 
 /* Content Wrapper for Centered Main Content */
@@ -107,19 +68,8 @@ footer {
     max-width: 700px;
     margin: 0 auto;
     padding: 1rem;
-}
-
-/* Validation Styling */
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
-}
-
-.invalid {
-    outline: 1px solid red;
-}
-
-.validation-message {
-    color: red;
+    background-color: #fff; /* Ensure a consistent background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
 }
 
 /* Responsive Adjustments */
@@ -130,17 +80,7 @@ footer {
 }
 
 @media print {
-    /* Print-friendly adjustments */
-    .fixed-top, .fixed-bottom {
-        position: static !important;
-    }
-
-    .content-wrapper {
-        max-width: 100% !important;
-        margin: 0 !important;
-    }
-
-    .navbar, footer, .no-print {
-        display: none !important;
+    .page, .content-wrapper {
+        display: block !important;
     }
 }

@@ -6,7 +6,7 @@
 
     <select id="beltSeries" class="form-select form-select-sm"
             @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.BeltSeries" required autofocus>
+            @bind="DrawingRequest!.BeltSeries" required>
         <option value="" disabled selected>Select Belt Series</option>
             @foreach (var series in BeltSeries.Options.Keys.OrderBy(_=>_))
             {

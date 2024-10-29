@@ -1,18 +1,10 @@
-/* Reset Margin and Padding for Full-Height Layout */
-html[b-tmopy668it], body[b-tmopy668it] {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-/* Page Layout Styling */
+/* Reset and Page Layout */
 .page[b-tmopy668it] {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 10px; /* Space for fixed header */
-    padding-bottom: 130px; /* Space for fixed footer */
+    padding-top: 55px;
+    padding-bottom: 130px;
     position: relative;
     background-color: #fff;
 }
@@ -23,7 +15,7 @@ header[b-tmopy668it] {
     top: 0;
     width: 100%;
     z-index: 10;
-    background-color: #333; /* Dark background for header */
+    background-color: #333;
     color: #fff;
 }
 
@@ -31,7 +23,7 @@ header[b-tmopy668it] {
 .navbar[b-tmopy668it] {
     padding: 0.5rem 1rem;
     background-color: #333;
-    border-bottom: 2px solid #27950b; /* Accent color for header */
+    border-bottom: 2px solid #27950b;
 }
 
 .navbar-brand small[b-tmopy668it] {
@@ -40,7 +32,7 @@ header[b-tmopy668it] {
 }
 
 .navbar .ms-auto small[b-tmopy668it] {
-    color: #f5c518; /* Text color to match warning theme */
+    color: #f5c518;
 }
 
 /* Footer Styling */
@@ -58,48 +50,17 @@ footer[b-tmopy668it] {
     box-sizing: border-box;
 }
 
-    /* Toggle Buttons for Footer */
     footer .form-check-label[b-tmopy668it] {
         color: #333;
         font-weight: bold;
     }
 
-/* Tooltip Styling for Better Accessibility */
+/* Tooltip Styling */
 .tooltip-inner[b-tmopy668it] {
     font-size: 0.875rem;
     background-color: #333;
     color: #fff;
-}
-
-/* Belt Background Animation */
-.conveyor-belt[b-tmopy668it] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.1;
-    overflow: hidden;
-}
-
-.belt-pattern[b-tmopy668it] {
-    position: absolute;
-    width: 200%; /* Creates a seamless looping effect */
-    height: 100%;
-    background-image: linear-gradient(90deg, transparent 24%, #ccc 25%, #ccc 35%, transparent 36%, transparent 49%, #ccc 50%, #ccc 60%, transparent 61%, transparent);
-    background-size: 50px 50px;
-    animation: moveBelt-b-tmopy668it 15s linear infinite;
-}
-
-@keyframes moveBelt-b-tmopy668it {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
+    padding: 0.5em; /* Improved readability */
 }
 
 /* Content Wrapper for Centered Main Content */
@@ -107,19 +68,8 @@ footer[b-tmopy668it] {
     max-width: 700px;
     margin: 0 auto;
     padding: 1rem;
-}
-
-/* Validation Styling */
-.valid.modified:not([type=checkbox])[b-tmopy668it] {
-    outline: 1px solid #26b050;
-}
-
-.invalid[b-tmopy668it] {
-    outline: 1px solid red;
-}
-
-.validation-message[b-tmopy668it] {
-    color: red;
+    background-color: #fff; /* Ensure a consistent background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
 }
 
 /* Responsive Adjustments */
@@ -130,17 +80,7 @@ footer[b-tmopy668it] {
 }
 
 @media print {
-    /* Print-friendly adjustments */
-    .fixed-top[b-tmopy668it], .fixed-bottom[b-tmopy668it] {
-        position: static !important;
-    }
-
-    .content-wrapper[b-tmopy668it] {
-        max-width: 100% !important;
-        margin: 0 !important;
-    }
-
-    .navbar[b-tmopy668it], footer[b-tmopy668it], .no-print[b-tmopy668it] {
-        display: none !important;
+    .page[b-tmopy668it], .content-wrapper[b-tmopy668it] {
+        display: block !important;
     }
 }

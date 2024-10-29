@@ -3,7 +3,7 @@
 @inject IDrawingRequestProcessor DrawingRequestProcessor
 @inject IDrawingNumber DrawingNumber
 
-<div class="container-fluid my-4">
+<div class="container-fluid my-4 no-print">
     <div class="card p-4 shadow">
         <InputGroupTitle Title="Drawing Request Management"
                          Subtitle="Click the button to download or preview your current drawing request as a JSON file."
@@ -11,7 +11,7 @@
 
         <!-- Download Drawing Request Button -->
         <div class="text-center mb-4">
-            <a href="@DownloadJsonUrl" download="drawing_request.json" class="btn btn-success btn-lg" @onclick="GenerateDownloadUrl">Download Request</a>
+            <a href="@DownloadJsonUrl" download="@($"drawing_request_{DrawingNumber.DrawingCode}")" class="btn btn-success btn-lg" @onclick="GenerateDownloadUrl">Download Request</a>
             <button class="btn btn-dark btn-lg ms-3" @onclick="ShowPreview" data-bs-toggle="modal" data-bs-target="#jsonPreviewModal">Preview</button>
         </div>
     </div>

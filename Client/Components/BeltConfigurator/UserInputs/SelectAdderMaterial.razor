@@ -4,7 +4,7 @@
     <div class="form-floating">
     <select id="adderMaterial" class="form-select form-select-sm"
             @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.AdderMaterial" required autofocus>
+            @bind="DrawingRequest!.AdderMaterial" required >
         <option value="" disabled selected>Select Adder Material</option>
 
             @foreach (var adder in AdderMaterial.Options.Values.OrderBy(a=>a))

@@ -19,12 +19,35 @@
 
     protected override async Task OnInitializedAsync()
     {
+       await  GetPartNumbersGoogleDrive();
+    }
+
+    private async Task GetPartNumbersLocally()
+    {
         try
         {
             // Initialization without loading part numbers
             var csvFilePath = "Data/partNumbers.csv";
             var fullPath = Path.Combine(Directory.GetCurrentDirectory(), csvFilePath);
             await PartNumberService.InitializeAsync(fullPath);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task GetPartNumbersGoogleDrive()
+    {
+        try
+        {
+            // Initialization without loading part numbers
+            var csvFilePath = "https://raw.githubusercontent.com/cadguardian/Habasit-CADMedia/refs/heads/main/partNumbers.csv";
+            await PartNumberService.InitializeAsync(csvFilePath);
         }
         catch (Exception ex)
         {

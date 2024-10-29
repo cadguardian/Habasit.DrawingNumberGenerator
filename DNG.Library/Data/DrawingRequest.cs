@@ -21,7 +21,7 @@ namespace DNG.Library.Data
         public string BeltAccessories { get; set; } = string.Empty;
         public string FrictionAntiStatic { get; set; } = string.Empty;
         public string SidePLLaneDV { get; set; } = string.Empty;
-        public string UniqueIdentification { get; set; } = string.Empty;
+        public string UniqueIdentification { get; set; } = "5";
         public string IndentCode { get; set; } = string.Empty;
         public string SalesOrderNumber { get; set; } = string.Empty;
         public DateTime StartDate { get; set; } = DateTime.Now;
@@ -29,6 +29,10 @@ namespace DNG.Library.Data
         public string QueryString { get; set; } = string.Empty;
 
         public Dictionary<string, string> SpecialCaseInfo { get; set; } = new Dictionary<string, string>();
+        public string QuoteNumber { get; set; } = string.Empty;
+        public int NumberOfLinks { get; set; }
+        public int BeltLengthLinearFeet { get; set; }
+        public int BeltLengthSquareFeet { get; set; }
 
         public string[] GetPropertyValues()
         {

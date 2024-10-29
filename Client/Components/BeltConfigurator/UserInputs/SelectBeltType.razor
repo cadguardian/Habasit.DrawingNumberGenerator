@@ -4,7 +4,7 @@
     <div class="form-floating">
     <select id="beltType" class="form-select"
             @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.BeltType" required autofocus>
+            @bind="DrawingRequest!.BeltType" required>
         <option value="" disabled selected>Select Belt Type</option>
             @foreach (var type in BeltType.Options.Values.OrderBy(t=>t))
             {
