@@ -26,6 +26,99 @@ input[b-8mdzuvfe1l], select[b-8mdzuvfe1l], button[b-8mdzuvfe1l] {
         font-size: 1rem;
     }
 }
+/* /Components/DrawingRequestManager.razor.rz.scp.css */
+.card[b-bqrynmgxdu] {
+    border-radius: 8px; /* Rounded corners for a modern look */
+    background-color: #ffffff; /* Clean background for clarity */
+}
+
+.btn[b-bqrynmgxdu] {
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+    .btn:hover[b-bqrynmgxdu] {
+        background-color: #28a745; /* Slightly darker green on hover */
+        transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+.text-dark[b-bqrynmgxdu] {
+    font-weight: bold;
+}
+
+@media (max-width: 576px) {
+    .card[b-bqrynmgxdu] {
+        padding: 20px; /* Smaller padding on small screens */
+    }
+}
+/* /Components/PartNumberTable.razor.rz.scp.css */
+/* General Table Styling */
+.table-responsive[b-izl36vsmgx] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.table[b-izl36vsmgx] {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+    .table th[b-izl36vsmgx], .table td[b-izl36vsmgx] {
+        padding: 12px;
+        vertical-align: middle;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+/* Responsive Font and Padding Adjustments */
+@media (max-width: 768px) {
+    .table[b-izl36vsmgx] {
+        font-size: 0.9rem;
+    }
+
+        .table th[b-izl36vsmgx], .table td[b-izl36vsmgx] {
+            padding: 8px;
+        }
+}
+
+@media (max-width: 576px) {
+    .table[b-izl36vsmgx] {
+        font-size: 0.8rem;
+    }
+
+        .table th[b-izl36vsmgx], .table td[b-izl36vsmgx] {
+            padding: 6px;
+        }
+}
+
+/* Stacked View for Very Small Screens */
+@media (max-width: 400px) {
+    .table th[b-izl36vsmgx], .table td[b-izl36vsmgx] {
+        display: block;
+        width: 100%;
+        padding: 6px;
+        text-align: left;
+    }
+
+        .table th[b-izl36vsmgx]::before {
+            content: attr(data-label);
+            font-weight: bold;
+            float: left;
+            margin-right: 8px;
+        }
+
+    .table tr[b-izl36vsmgx] {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table th[b-izl36vsmgx], .table td[b-izl36vsmgx] {
+        text-align: left;
+    }
+}
 /* /Components/Search/SearchTermComponent.razor.rz.scp.css */
 /* Enhanced Styling for Better Readability and Accessibility */
 .container-fluid[b-nh89s5o2zg] {
@@ -83,21 +176,13 @@ h6[b-nh89s5o2zg] {
     margin-bottom: 10px;
 }
 /* /Layout/MainLayout.razor.rz.scp.css */
-/* Reset Margin and Padding for Full-Height Layout */
-html[b-tmopy668it], body[b-tmopy668it] {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-/* Page Layout Styling */
+/* Reset and Page Layout */
 .page[b-tmopy668it] {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 10px; /* Space for fixed header */
-    padding-bottom: 130px; /* Space for fixed footer */
+    padding-top: 55px;
+    padding-bottom: 130px;
     position: relative;
     background-color: #fff;
 }
@@ -108,7 +193,7 @@ header[b-tmopy668it] {
     top: 0;
     width: 100%;
     z-index: 10;
-    background-color: #333; /* Dark background for header */
+    background-color: #333;
     color: #fff;
 }
 
@@ -116,7 +201,7 @@ header[b-tmopy668it] {
 .navbar[b-tmopy668it] {
     padding: 0.5rem 1rem;
     background-color: #333;
-    border-bottom: 2px solid #27950b; /* Accent color for header */
+    border-bottom: 2px solid #27950b;
 }
 
 .navbar-brand small[b-tmopy668it] {
@@ -125,7 +210,7 @@ header[b-tmopy668it] {
 }
 
 .navbar .ms-auto small[b-tmopy668it] {
-    color: #f5c518; /* Text color to match warning theme */
+    color: #f5c518;
 }
 
 /* Footer Styling */
@@ -143,48 +228,17 @@ footer[b-tmopy668it] {
     box-sizing: border-box;
 }
 
-    /* Toggle Buttons for Footer */
     footer .form-check-label[b-tmopy668it] {
         color: #333;
         font-weight: bold;
     }
 
-/* Tooltip Styling for Better Accessibility */
+/* Tooltip Styling */
 .tooltip-inner[b-tmopy668it] {
     font-size: 0.875rem;
     background-color: #333;
     color: #fff;
-}
-
-/* Belt Background Animation */
-.conveyor-belt[b-tmopy668it] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.1;
-    overflow: hidden;
-}
-
-.belt-pattern[b-tmopy668it] {
-    position: absolute;
-    width: 200%; /* Creates a seamless looping effect */
-    height: 100%;
-    background-image: linear-gradient(90deg, transparent 24%, #ccc 25%, #ccc 35%, transparent 36%, transparent 49%, #ccc 50%, #ccc 60%, transparent 61%, transparent);
-    background-size: 50px 50px;
-    animation: moveBelt-b-tmopy668it 15s linear infinite;
-}
-
-@keyframes moveBelt-b-tmopy668it {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
+    padding: 0.5em; /* Improved readability */
 }
 
 /* Content Wrapper for Centered Main Content */
@@ -192,19 +246,8 @@ footer[b-tmopy668it] {
     max-width: 700px;
     margin: 0 auto;
     padding: 1rem;
-}
-
-/* Validation Styling */
-.valid.modified:not([type=checkbox])[b-tmopy668it] {
-    outline: 1px solid #26b050;
-}
-
-.invalid[b-tmopy668it] {
-    outline: 1px solid red;
-}
-
-.validation-message[b-tmopy668it] {
-    color: red;
+    background-color: #fff; /* Ensure a consistent background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
 }
 
 /* Responsive Adjustments */
@@ -215,20 +258,53 @@ footer[b-tmopy668it] {
 }
 
 @media print {
-    /* Print-friendly adjustments */
-    .fixed-top[b-tmopy668it], .fixed-bottom[b-tmopy668it] {
-        position: static !important;
-    }
-
-    .content-wrapper[b-tmopy668it] {
-        max-width: 100% !important;
-        margin: 0 !important;
-    }
-
-    .navbar[b-tmopy668it], footer[b-tmopy668it], .no-print[b-tmopy668it] {
-        display: none !important;
+    .page[b-tmopy668it], .content-wrapper[b-tmopy668it] {
+        display: block !important;
     }
 }
+
+/* Footer Container Styling and Transition */
+.footer-container[b-tmopy668it] {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: transform 0.4s ease-in-out; /* Smooth transition for showing/hiding */
+    z-index: 10;
+}
+
+    .footer-container.hidden[b-tmopy668it] {
+        transform: translateY(400%); /* Move footer out of view */
+    }
+
+/* Toggle Button Styling */
+.footer-toggle-btn[b-tmopy668it] {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 11; /* Keep above footer */
+    transition: background-color 0.3s;
+}
+
+    .footer-toggle-btn:hover[b-tmopy668it] {
+        background-color: #495057;
+    }
+
+    /* Icon Styling */
+    .footer-toggle-btn i[b-tmopy668it] {
+        font-size: 1.2rem;
+    }
 /* /Pages/DrawingNumberGenerator.razor.rz.scp.css */
 .form-group[b-o0m35uarhm] {
     margin-bottom: 1rem;

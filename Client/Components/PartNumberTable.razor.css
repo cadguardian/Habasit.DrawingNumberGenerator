@@ -1,0 +1,68 @@
+﻿/* General Table Styling */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.table {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+    .table th, .table td {
+        padding: 12px;
+        vertical-align: middle;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+/* Responsive Font and Padding Adjustments */
+@media (max-width: 768px) {
+    .table {
+        font-size: 0.9rem;
+    }
+
+        .table th, .table td {
+            padding: 8px;
+        }
+}
+
+@media (max-width: 576px) {
+    .table {
+        font-size: 0.8rem;
+    }
+
+        .table th, .table td {
+            padding: 6px;
+        }
+}
+
+/* Stacked View for Very Small Screens */
+@media (max-width: 400px) {
+    .table th, .table td {
+        display: block;
+        width: 100%;
+        padding: 6px;
+        text-align: left;
+    }
+
+        .table th::before {
+            content: attr(data-label);
+            font-weight: bold;
+            float: left;
+            margin-right: 8px;
+        }
+
+    .table tr {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table th, .table td {
+        text-align: left;
+    }
+}

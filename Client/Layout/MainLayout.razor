@@ -45,7 +45,8 @@
         </div>
     </main>
 
-    <footer class="container-fluid bg-dark py-3 fixed-bottom" style="color: white;">
+    <footer class="footer-container @(!isFooterVisible ? "hidden" : "")">
+    <div class="container-fluid bg-dark py-3 fixed-bottom" style="color: white;">
         <div class="row justify-content-center">
             <div >
                 
@@ -185,8 +186,24 @@
                 }
             </div>
         </div>
+    </div>
     </footer>
+
 </div>
+
+@code {
+    private bool isFooterVisible = true; // Initial state of the footer (visible by default)
+
+    private void ToggleFooter()
+    {
+        isFooterVisible = !isFooterVisible;
+    }
+}
+
+<!-- Toggle Button for Footer Visibility -->
+<button class="footer-toggle-btn" @onclick="ToggleFooter" aria-label="Toggle Footer">
+    <span><i class="fa-solid @(isFooterVisible ? "fa-chevron-down" : "fa-chevron-up")"></i></span>
+</button>
 
 @code {
     private bool showQueryString = false;

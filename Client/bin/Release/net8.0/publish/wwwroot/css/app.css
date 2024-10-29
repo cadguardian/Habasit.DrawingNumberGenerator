@@ -1,99 +1,67 @@
-/** {
-    outline: 1px solid red !important;*/ /* Red outline for debugging layout */
-/*}*/
-
-
-/* Global Styles */
+/* Global Reset and Typography */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    font-size: 16px; /* Base font size for better readability */
+    overflow-x: hidden;
+    color: #333; /* Consistent default text color */
 }
 
-/* Flex Layout for Full-Height Page */
-.page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding-top: 55px; /* Header space */
-    padding-bottom: 130px; /* Footer space */
-    position: relative;
-    background-color: #fff; /* Background color */
-}
-
-/* Main Content Area */
-.main-content {
-    flex-grow: 1;
-    overflow-y: auto;
-    padding: 20px;
-    min-height: calc(100vh - 130px); /* Adjust for header and footer */
-    scrollbar-width: thin;
-    scrollbar-color: #28a745 #f7f7f7;
-}
-
-    /* Custom Scrollbar for Main Content */
-    .main-content::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    .main-content::-webkit-scrollbar-thumb {
-        background-color: #28a745;
-        border-radius: 10px;
-    }
-
-        .main-content::-webkit-scrollbar-thumb:hover {
-            background-color: #1e7e34;
-        }
-
-    .main-content::-webkit-scrollbar-track {
-        background-color: #f7f7f7;
-    }
-
-/* Typography */
 h1, h2, h3, h4 {
-    font-weight: bold;
-    color: #333;
+    font-weight: 600; /* Slightly lighter for a modern look */
+    line-height: 1.4; /* Improved readability */
+    color: #333; /* Consistent color for headings */
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 h2 {
-    font-size: 1.375rem;
+    font-size: 1.75rem;
 }
 
 h3 {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
 }
 
 h4 {
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 a, .btn-link {
     color: #27950b;
     font-weight: bold;
+    text-decoration: underline; /* Better accessibility indicator for links */
 }
 
 code {
     color: #c02d76;
+    background-color: #f5f5f5; /* Light background for code snippets */
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
 }
 
 /* Buttons */
 .btn-primary {
     color: #fff;
     background-color: #27950b;
-    border-color: #000803;
+    border-color: #27950b;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
 }
+
+    .btn-primary:hover {
+        background-color: #1e7e34; /* Darker shade for hover */
+    }
 
 .btn:focus, .btn:active:focus, .form-control:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #27950b;
+    outline: none;
 }
 
-/* Validity Indicators */
+/* Validation Styling */
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }
@@ -104,37 +72,41 @@ code {
 
 .validation-message {
     color: red;
+    font-size: 0.875rem; /* Small font size for validation messages */
 }
 
-/* Fixed Footer */
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #f1f3f1;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    width: 100%;
-    z-index: 10;
-    box-sizing: border-box;
+/* Scrollbar Styling */
+.main-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background-color: #28a745;
+    border-radius: 10px;
+}
+
+    .main-content::-webkit-scrollbar-thumb:hover {
+        background-color: #1e7e34;
+    }
+
+.main-content::-webkit-scrollbar-track {
+    background-color: #f7f7f7;
 }
 
 /* Print Styles */
 @media print {
-    .fixed-top, .fixed-bottom, .no-print {
+    .fixed-top, .fixed-bottom, .navbar, footer, .no-print {
         display: none !important;
     }
 
-    .container-fluid {
-        padding: 0 10px;
-        margin-top: 20px;
+    .main-content, .content-wrapper {
+        max-width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
     }
 
-    .content-wrapper {
-        max-width: 100%;
-        margin: 0;
+    .content-wrapper, .page, .modal-body, .summary-dashboard, .card {
+        page-break-inside: auto;
     }
 
     .page-break {
@@ -142,21 +114,10 @@ footer {
     }
 }
 
-/* Responsive Font Sizes for Inputs */
+/* Responsive Adjustments */
 @media (max-width: 576px) {
     .input-group > input, .input-group > button {
         font-size: 14px;
-    }
-}
-
-/* Summary Dashboard */
-.summary-dashboard ul {
-    font-size: 0.75rem;
-}
-
-@media (max-width: 576px) {
-    .summary-dashboard ul {
-        font-size: 0.65rem;
     }
 }
 
@@ -196,10 +157,10 @@ footer {
 
 .belt-pattern {
     position: absolute;
-    width: 200%; /* Looping effect */
+    width: 200%;
     height: 100%;
     background-image: linear-gradient(90deg, transparent 24%, #ccc 25%, #ccc 35%, transparent 36%, transparent 49%, #ccc 50%, #ccc 60%, transparent 61%, transparent), linear-gradient(transparent 24%, #ccc 25%, #ccc 35%, transparent 36%, transparent);
-    background-size: 50px 50px, 50px 50px;
+    background-size: 50px 50px;
     animation: moveBelt 15s linear infinite;
 }
 

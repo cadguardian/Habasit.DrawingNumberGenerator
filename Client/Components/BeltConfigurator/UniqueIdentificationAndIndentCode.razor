@@ -1,20 +1,50 @@
-﻿<div class="card container-fluid my-4 p-4">
+﻿@page "/unique-identification"
+@using Microsoft.AspNetCore.Components
 
-<InputGroupTitle Title="Unique Identification & Indent Code"
-                 Subtitle="Traceability & Cataloging"
-                 Description="Assign a unique identifier and indent code to ensure traceability and proper cataloging of this belt configuration." />
+<div class="container-fluid my-4 no-print">
+    <div class="card p-4 shadow">
+        <span class="me-2"><i class="fa-solid fa-id-badge"></i></span> <!-- Unique Identification & Indent Code Icon -->
 
-    <form class="row g-3">
-        <!-- Input Unique Identification -->
-        <div class="col-12 col-md-6">
-            <label for="inputUniqueIdentification" class="form-label">Unique Identification</label>
-            <InputUniqueIdentification />
+        <InputGroupTitle Title="Unique Identification & Indent Code"
+                         Subtitle="Traceability & Cataloging"
+                         Description="Assign a unique identifier and indent code to ensure traceability and proper cataloging of this belt configuration." />
+
+        <!-- Button to open modal -->
+        <div class="text-center mb-4">
+            <button class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#uniqueIdentificationModal">Open Identification</button>
         </div>
+    </div>
+</div>
 
-        <!-- Select Indent Code -->
-        <div class="col-12 col-md-6">
-            <label for="selectIndentCode" class="form-label">Indent Code</label>
-            <SelectIndentCode />
+<!-- Modal for Unique Identification & Indent Code Form -->
+<div class="modal fade" id="uniqueIdentificationModal" tabindex="-1" aria-labelledby="uniqueIdentificationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uniqueIdentificationModalLabel">Unique Identification & Indent Code</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-secondary">Fill out the form below to assign a unique identifier and indent code for cataloging purposes.</div>
+
+                <!-- Unique Identification & Indent Code Form -->
+                <form class="row g-3">
+                    <!-- Input Unique Identification -->
+                    <div class="col-12 col-md-6">
+                        <label for="inputUniqueIdentification" class="form-label">Unique Identification</label>
+                        <InputUniqueIdentification />
+                    </div>
+
+                    <!-- Select Indent Code -->
+                    <div class="col-12 col-md-6">
+                        <label for="selectIndentCode" class="form-label">Indent Code</label>
+                        <SelectIndentCode />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
-    </form>
+    </div>
 </div>

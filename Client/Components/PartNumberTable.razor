@@ -91,12 +91,6 @@
         }, null, 300, Timeout.Infinite);
     }
 
-    private void ClearSearch()
-    {
-        universalSearch = string.Empty;
-        ApplyFilters();
-    }
-
     private void ChangeItemsPerPage(ChangeEventArgs e)
     {
         itemsPerPage = int.Parse(e.Value?.ToString() ?? "10");
@@ -122,6 +116,8 @@
 
 <div class="card container-fluid my-4 p-4">
     <div class="mb-4">
+        <span class="me-2"><i class="fa-solid fa-boxes-stacked"></i></span> <!-- Available Materials Icon -->
+
         <InputGroupTitle Title="Available Materials"
                          Subtitle="Utilize Effective Search Terms"
                          Description="Enter multiple search terms separated by spaces to filter part numbers effectively. The search will match any part whose type or description contains all specified terms in any order. Additionally, the fields for Type, Series, Color, and Material will further refine your search results. As you fill in these fields, results will dynamically update, allowing you to pinpoint the exact components you need for your assembly." />
@@ -129,8 +125,7 @@
         <div class="input-group mb-3">
             <input id="universalSearch" @oninput="OnInputChange" class="form-control form-control-lg"
                    placeholder="Find available parts..." aria-label="Search for parts" />
-            <button class="btn btn-outline-dark btn-lg" @onclick="ApplyFilters" aria-label="Filter Search">Filter Search</button>
-            <button class="btn btn-outline-secondary btn-lg" @onclick="ClearSearch" aria-label="Clear Search">Clear</button>
+            <button class="btn btn-outline-dark btn-lg" @onclick="ApplyFilters" aria-label="Filter Search">Filter</button>
 
         </div>
         @* Add Free Search Mode Toggle *@
@@ -164,26 +159,31 @@
     }
     else
     {
-       @*  <div class="alert alert-danger text-center m-0 p-0">Coming Soon!</div> *@
-        <table class="table table-hover table-bordered table-striped table-responsive" style="font-size: 0.9em;">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col" @onclick="ToggleSort" style="cursor: pointer;" aria-label="Sort by part number">
-                        Part Number <span>@(isSortedAsc ? "▲" : "▼")</span>
-                    </th>
-                    <th scope="col" aria-label="Description">Description</th>
-                </tr>
-            </thead>
-             <tbody>
-                 @foreach (var part in FilteredPartNumbers)
-                 {
-                     <tr>
-                         <td>@part.Key</td>
-                         <td class="small">@part.Value</td>
-                     </tr>
-                 }
-             </tbody>
-        </table>
+        <!-- Table Wrapper for Mobile Responsiveness -->
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered table-striped" style="font-size: 0.9em;">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col" @onclick="ToggleSort" style="cursor: pointer;" aria-label="Sort by part number" data-label="Part Number">
+                            Part Number <span>@(isSortedAsc ? "▲" : "▼")</span>
+                        </th>
+                        <th scope="col" aria-label="Description" data-label="Description">
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var part in FilteredPartNumbers)
+                    {
+                        <tr>
+                            <td data-label="Part Number">@part.Key</td>
+                            <td class="small" data-label="Description">@part.Value</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
     }
 
     @if (totalPages > 1)

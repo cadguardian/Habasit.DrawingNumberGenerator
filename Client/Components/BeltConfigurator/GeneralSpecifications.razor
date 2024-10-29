@@ -1,57 +1,86 @@
-﻿<div class="card container-fluid my-4 p-4">
+﻿@page "/drawing-request"
+@using Microsoft.AspNetCore.Components
 
-<InputGroupTitle Title="Drawing Request"
-                 Subtitle="Core Attributes"
-                 Description="Define the core attributes of your belt configuration. Select the belt type, series, color, and material to meet your design needs." />
+<div class="container-fluid my-4 no-print">
+    <div class="card p-4 shadow">
+        <span class="me-2"><i class="fa-solid fa-pencil-alt"></i></span> <!-- Drawing Request Icon -->
 
+        <InputGroupTitle Title="Drawing Request"
+                         Subtitle="Core Attributes"
+                         Description="Define the core attributes of your belt configuration. Select the belt type, series, color, and material to meet your design needs." />
 
-    <form class="row g-3">
-        <div class="col-12 col-md-6 col-lg-6">
-            <InputQuoteNumber />
+        <!-- Button to open modal -->
+        <div class="text-center mb-4">
+            <button class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#drawingRequestModal">Open Drawing Request</button>
         </div>
+    </div>
+</div>
 
-        <div class="col-12 col-md-6 col-lg-6">
-            <InputSalesOrderNumber />
-        </div>
+<!-- Modal for Drawing Request Form -->
+<div class="modal fade" id="drawingRequestModal" tabindex="-1" aria-labelledby="drawingRequestModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="drawingRequestModalLabel">Drawing Request</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-secondary">Fill out the form below to define the drawing request attributes.</div>
 
-        <!-- Select Belt Type -->
-        <div class="col-12 col-md-6 col-lg-6">
-            <SelectBeltType />
-        </div>
+                <!-- Drawing Request Form -->
+                <form class="row g-3">
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <InputQuoteNumber />
+                    </div>
 
-        <!-- Select Belt Series -->
-        <div class="col-12 col-md-6 col-lg-6">
-            <SelectBeltSeries />
-        </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <InputSalesOrderNumber />
+                    </div>
 
-        <!-- Select Material Color -->
-        <div class="col-12 col-md-6 col-lg-6">
-            <SelectMaterialColor />
-        </div>
+                    <!-- Select Belt Type -->
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <SelectBeltType />
+                    </div>
 
-        <!-- Select Belt Material -->
-        <div class="col-12 col-md-6 col-lg-6">
-            <SelectBeltMaterial />
-        </div>
+                    <!-- Select Belt Series -->
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <SelectBeltSeries />
+                    </div>
 
-        <!-- Select Adder Material -->
-        <div class="col-12 col-md-6 col-lg-6">
-            <SelectAdderMaterial />
-        </div>
+                    <!-- Select Material Color -->
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <SelectMaterialColor />
+                    </div>
 
-        <!-- Select Rod Material -->
-        <div class="col-12 col-md-6 col-lg-6">
-            <SelectRodMaterial />
-        </div>
+                    <!-- Select Belt Material -->
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <SelectBeltMaterial />
+                    </div>
 
-        <!-- Input Belt Width -->
-        <div class="col-12 col-md-6 col-lg-6">
-            <InputBeltWidth />
-        </div>
+                    <!-- Select Adder Material -->
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <SelectAdderMaterial />
+                    </div>
 
-        <!-- Input Belt Width -->
-        <div class="col-12 col-md-6 col-lg-6">
-            <InputNumberOfLinks />
+                    <!-- Select Rod Material -->
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <SelectRodMaterial />
+                    </div>
+
+                    <!-- Input Belt Width -->
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <InputBeltWidth />
+                    </div>
+
+                    <!-- Input Number of Links -->
+                    <div class="col-12 col-md-6 col-lg-6">
+                        <InputNumberOfLinks />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
-    </form>
+    </div>
 </div>

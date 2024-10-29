@@ -50,6 +50,75 @@ input[b-8mdzuvfe1l], select[b-8mdzuvfe1l], button[b-8mdzuvfe1l] {
         padding: 20px; /* Smaller padding on small screens */
     }
 }
+/* /Components/PartNumberTable.razor.rz.scp.css */
+/* General Table Styling */
+.table-responsive[b-izl36vsmgx] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.table[b-izl36vsmgx] {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+    .table th[b-izl36vsmgx], .table td[b-izl36vsmgx] {
+        padding: 12px;
+        vertical-align: middle;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+/* Responsive Font and Padding Adjustments */
+@media (max-width: 768px) {
+    .table[b-izl36vsmgx] {
+        font-size: 0.9rem;
+    }
+
+        .table th[b-izl36vsmgx], .table td[b-izl36vsmgx] {
+            padding: 8px;
+        }
+}
+
+@media (max-width: 576px) {
+    .table[b-izl36vsmgx] {
+        font-size: 0.8rem;
+    }
+
+        .table th[b-izl36vsmgx], .table td[b-izl36vsmgx] {
+            padding: 6px;
+        }
+}
+
+/* Stacked View for Very Small Screens */
+@media (max-width: 400px) {
+    .table th[b-izl36vsmgx], .table td[b-izl36vsmgx] {
+        display: block;
+        width: 100%;
+        padding: 6px;
+        text-align: left;
+    }
+
+        .table th[b-izl36vsmgx]::before {
+            content: attr(data-label);
+            font-weight: bold;
+            float: left;
+            margin-right: 8px;
+        }
+
+    .table tr[b-izl36vsmgx] {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table th[b-izl36vsmgx], .table td[b-izl36vsmgx] {
+        text-align: left;
+    }
+}
 /* /Components/Search/SearchTermComponent.razor.rz.scp.css */
 /* Enhanced Styling for Better Readability and Accessibility */
 .container-fluid[b-nh89s5o2zg] {
@@ -193,6 +262,49 @@ footer[b-tmopy668it] {
         display: block !important;
     }
 }
+
+/* Footer Container Styling and Transition */
+.footer-container[b-tmopy668it] {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: transform 0.4s ease-in-out; /* Smooth transition for showing/hiding */
+    z-index: 10;
+}
+
+    .footer-container.hidden[b-tmopy668it] {
+        transform: translateY(400%); /* Move footer out of view */
+    }
+
+/* Toggle Button Styling */
+.footer-toggle-btn[b-tmopy668it] {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 11; /* Keep above footer */
+    transition: background-color 0.3s;
+}
+
+    .footer-toggle-btn:hover[b-tmopy668it] {
+        background-color: #495057;
+    }
+
+    /* Icon Styling */
+    .footer-toggle-btn i[b-tmopy668it] {
+        font-size: 1.2rem;
+    }
 /* /Pages/DrawingNumberGenerator.razor.rz.scp.css */
 .form-group[b-o0m35uarhm] {
     margin-bottom: 1rem;
