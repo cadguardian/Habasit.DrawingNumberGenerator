@@ -14,16 +14,20 @@
 
 <ShowInstructionsComponent />
 
-    <EditForm EditContext="editContext" OnValidSubmit="HandleValidSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+<SummaryDashBoard>
+    <FormContent>
+        <EditForm EditContext="editContext" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
 
-        <GeneralSpecifications />
-        <FlightRollerGripTop />
-        <Accessories />
-        <UniqueIdentificationAndIndentCode />
+            <GeneralSpecifications />
+            <FlightRollerGripTop />
+            <Accessories />
+            <UniqueIdentificationAndIndentCode />
 
-    </EditForm>
+        </EditForm>
+    </FormContent>
+    </SummaryDashBoard>
 
     <PartNumberTable />
 
@@ -32,6 +36,9 @@
     <CADWorkflow />
 
     <AutoCADCommands />
+
+<SearchTermComponent />
+
 
 @code {
     private EditContext? editContext;

@@ -96,11 +96,10 @@
     }
 }
 
-<SearchTermComponent />
 
 <div class="card container-fluid my-4 p-4">
     <div class="mb-4">
-        <InputGroupTitle Title="Search for Parts"
+        <InputGroupTitle Title="Available Materials"
                          Subtitle="Utilize Effective Search Terms"
                          Description="Enter multiple search terms separated by spaces to filter part numbers effectively. The search will match any part whose type or description contains all specified terms in any order. Additionally, the fields for Type, Series, Color, and Material will further refine your search results. As you fill in these fields, results will dynamically update, allowing you to pinpoint the exact components you need for your assembly." />
 
@@ -113,7 +112,6 @@
         </div>
         @* Add Free Search Mode Toggle *@
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5 class="text-dark">Part Number Search</h5>
             <div class="form-check form-switch">
                 <input type="checkbox" class="form-check-input" id="freeSearchMode" @bind="isFreeSearchMode">
                 <label class="form-check-label text-dark" for="freeSearchMode">Free Search Mode</label>
@@ -121,7 +119,7 @@
         </div>
         @if (totalItems > 0)
         {
-            <div class="alert alert-secondary text-center">
+            <div class="alert alert-secondary text-center m-0 p-0">
                 @totalItems parts found. Displaying @FilteredPartNumbers.Count() parts.
             </div>
         }
@@ -143,7 +141,7 @@
     }
     else
     {
-        <div class="alert alert-danger text-center m-0 p-0">Coming Soon!</div>
+       @*  <div class="alert alert-danger text-center m-0 p-0">Coming Soon!</div> *@
         <table class="table table-hover table-bordered table-striped table-responsive" style="font-size: 0.9em;">
             <thead class="table-dark">
                 <tr>
@@ -153,15 +151,15 @@
                     <th scope="col" aria-label="Description">Description</th>
                 </tr>
             </thead>
-            @* <tbody>
-                @foreach (var part in FilteredPartNumbers)
-                {
-                    <tr>
-                        <td>@part.Key</td>
-                        <td class="small">@part.Value</td>
-                    </tr>
-                }
-            </tbody> *@
+             <tbody>
+                 @foreach (var part in FilteredPartNumbers)
+                 {
+                     <tr>
+                         <td>@part.Key</td>
+                         <td class="small">@part.Value</td>
+                     </tr>
+                 }
+             </tbody>
         </table>
     }
 

@@ -112,23 +112,6 @@ public class Flights_Rollers_Grips : IOptions
         return Options.FirstOrDefault(kvp => kvp.Value.Equals(flightsRollersGripsName, StringComparison.OrdinalIgnoreCase)).Key ?? "Unknown";
     }
 
-    public static int CalculateTensPlace(decimal width)
-    {
-        int remainingWidth = (int)width % 100;
-        return remainingWidth / 10;
-    }
-
-    public static int CalculateOnesPlace(decimal width)
-    {
-        int remainingWidth = (int)width % 100;
-        return remainingWidth % 10;
-    }
-
-    public static int CalculateDecimalPlace(decimal width)
-    {
-        return (int)((width - Math.Floor(width)) * 10);
-    }
-
     public static string GetAccessoryTypeByCode(string code)
     {
         string codeUpperCase = code.ToUpper();
@@ -149,11 +132,17 @@ public class Flights_Rollers_Grips : IOptions
 
     public static string GetFRGCentersCode(decimal frgCentersDimension)
     {
-        int tensInt = CalculateTensPlace(frgCentersDimension);
-        int hundredsInt = CalculateTensPlace(frgCentersDimension);
-        int decimalInt = CalculateTensPlace(frgCentersDimension);
-        return $"{tensInt}{hundredsInt}{decimalInt}";
+        // Get the integer part and the decimal part
+        int integerPart = (int)frgCentersDimension;
+        int tensInt = integerPart / 10;
+        int onesInt = integerPart % 10;
+
+        // Extract the first decimal digit
+        int decimalInt = (int)((frgCentersDimension - integerPart) * 10) % 10;
+
+        return $"{tensInt}{onesInt}{decimalInt}";
     }
+
 
     public static string GetFRGQuantityAcrossWidthCode(int quantity)
     {
@@ -162,6 +151,6 @@ public class Flights_Rollers_Grips : IOptions
 
     private static string FormatQuantityDecimal(int quantity)
     {
-        return $"{quantity:##}"; // format int to 01, 10, etc.
+        return $"{quantity:00}"; // Formats the integer to always have 2 digits
     }
 }

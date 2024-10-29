@@ -19,6 +19,7 @@ public class BaseInputComponent : ComponentBase
     {
         DrawingRequestProcessor!.GenerateDrawingNumber();
         DrawingRequest!.QueryString = DrawingNumber!.GetDrawingQueryString();
+        DrawingNumber!.DrawingCode = DrawingNumber!.GetDrawingNumber();
 
         // Notify parent component (layout) that the value has changed
         if (OnValueChanged.HasDelegate)

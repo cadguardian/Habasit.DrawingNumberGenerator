@@ -149,11 +149,11 @@ namespace DNG.Library.Models
                 AdderMaterialCode,
                 RodMaterialCode,
                 BeltWidthCode,
+                FlightsRollersGripsCode,
                 QtyRollersAcrossWidth,
                 FRGCenters,
                 BeltAccessoriesCode,
                 FrictionAntiStaticCode,
-                FlightsRollersGripsCode,
                 SidePLLaneDVCode,
                 UniqueIdentification,
                 IndentCode
