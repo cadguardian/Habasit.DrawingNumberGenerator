@@ -1,13 +1,10 @@
-﻿
-namespace DNG.Library.Data
+﻿namespace DNG.Library.Data
 {
     public interface IDrawingRequest
     {
         string AdderMaterial { get; set; }
         string AssignedTo { get; set; }
         string BeltAccessories { get; set; }
-        int BeltLengthLinearFeet { get; set; }
-        int BeltLengthSquareFeet { get; set; }
         string BeltSeries { get; set; }
         string BeltType { get; set; }
         decimal BeltWidth { get; set; }

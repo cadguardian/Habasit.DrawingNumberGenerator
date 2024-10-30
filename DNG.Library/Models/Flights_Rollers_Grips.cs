@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace DNG.Library.Models;
 
 // todo assign frgCentersDimension, quantityRollersAcrossWidth appropriately
@@ -39,6 +41,35 @@ public class Flights_Rollers_Grips : IOptions
             "roller" => GetRollers(),
             _ => []
         };
+    }
+
+    public static bool IsMatchingFlight(string description, string color, string material)
+    {
+        // Color and material patterns
+        var colorPattern = new Regex($@"\b{color}\b", RegexOptions.IgnoreCase);
+        var materialPattern = new Regex($@"\b{material}\b", RegexOptions.IgnoreCase);
+
+        // Check if color and material are in the description
+        bool colorMatch = colorPattern.IsMatch(description);
+        bool materialMatch = materialPattern.IsMatch(description);
+
+        if (!colorMatch || !materialMatch)
+        {
+            return false;
+        }
+
+        // Height pattern: match numbers followed by inch symbols
+        var heightPattern = new Regex(@"(\d+(?:\.\d+)?|\d+\/\d+)[”\""]");
+        var heightMatch = heightPattern.Match(description);
+
+        if (heightMatch.Success)
+        {
+            // Extract height and check if it’s "2" inches
+            string heightValue = heightMatch.Groups[1].Value;
+            return heightValue == "2";
+        }
+
+        return false;
     }
 
     private static Dictionary<string, string> GetFlights()
@@ -142,7 +173,6 @@ public class Flights_Rollers_Grips : IOptions
 
         return $"{tensInt}{onesInt}{decimalInt}";
     }
-
 
     public static string GetFRGQuantityAcrossWidthCode(int quantity)
     {

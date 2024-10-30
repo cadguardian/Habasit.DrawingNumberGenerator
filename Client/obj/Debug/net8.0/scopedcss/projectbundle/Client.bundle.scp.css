@@ -26,30 +26,6 @@ input[b-8mdzuvfe1l], select[b-8mdzuvfe1l], button[b-8mdzuvfe1l] {
         font-size: 1rem;
     }
 }
-/* /Components/DrawingRequestManager.razor.rz.scp.css */
-.card[b-bqrynmgxdu] {
-    border-radius: 8px; /* Rounded corners for a modern look */
-    background-color: #ffffff; /* Clean background for clarity */
-}
-
-.btn[b-bqrynmgxdu] {
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
-}
-
-    .btn:hover[b-bqrynmgxdu] {
-        background-color: #28a745; /* Slightly darker green on hover */
-        transform: scale(1.05); /* Slight zoom on hover */
-    }
-
-.text-dark[b-bqrynmgxdu] {
-    font-weight: bold;
-}
-
-@media (max-width: 576px) {
-    .card[b-bqrynmgxdu] {
-        padding: 20px; /* Smaller padding on small screens */
-    }
-}
 /* /Components/PartNumberTable.razor.rz.scp.css */
 /* General Table Styling */
 .table-responsive[b-izl36vsmgx] {
@@ -274,13 +250,13 @@ footer[b-tmopy668it] {
 }
 
     .footer-container.hidden[b-tmopy668it] {
-        transform: translateY(400%); /* Move footer out of view */
+        transform: translateY(800%); /* Move footer out of view */
     }
 
 /* Toggle Button Styling */
 .footer-toggle-btn[b-tmopy668it] {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
     background-color: #343a40;
     color: white;

@@ -13,9 +13,12 @@
 
         <!-- Download Drawing Request Button -->
         <div class="text-center mb-4">
-            <a href="@DownloadJsonUrl" download="@($"drawing_request_{DrawingNumber.DrawingCode}")" class="btn btn-success btn-lg" @onclick="GenerateDownloadUrl">Download Request</a>
-            <button class="btn btn-dark btn-lg ms-3" @onclick="ShowPreview" data-bs-toggle="modal" data-bs-target="#jsonPreviewModal">Preview</button>
+            <div class="btn-group" role="group">
+                <a href="@DownloadJsonUrl" download="@($"drawing_request_{DrawingNumber.DrawingCode}")" class="btn btn-success btn-lg" @onclick="GenerateDownloadUrl">Download Request</a>
+                <button class="btn btn-dark btn-lg" @onclick="ShowPreview" data-bs-toggle="modal" data-bs-target="#jsonPreviewModal">Preview</button>
+            </div>
         </div>
+
     </div>
 </div>
 

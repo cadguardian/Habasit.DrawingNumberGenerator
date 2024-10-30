@@ -1,9 +1,18 @@
 ﻿@page "/drawing-request"
 @using Microsoft.AspNetCore.Components
 
+@code {
+    private DrawingRequest drawingRequest = new DrawingRequest();
+    private bool HasIncompleteFields { get; set; } = true;
+    }
+
 <div class="container-fluid my-4 no-print">
     <div class="card p-4 shadow">
         <span class="me-2"><i class="fa-solid fa-pencil-alt"></i></span> <!-- Drawing Request Icon -->
+        <!-- Dynamic Required Field Indicator -->
+            <span class="badge bg-danger position-absolute top-0 end-0 m-3" title="Please complete all required fields">
+                <i class="fa-solid fa-exclamation-circle"></i> Required Fields
+            </span>
 
         <InputGroupTitle Title="Drawing Request"
                          Subtitle="Core Attributes"

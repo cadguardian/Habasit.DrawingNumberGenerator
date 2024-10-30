@@ -1,8 +1,7 @@
-﻿using System.Text;
-using System.Text.Json;
-using DNG.Library.Data;
+﻿using DNG.Library.Data;
 using DNG.Library.Models;
 using Microsoft.AspNetCore.Components;
+using System.Text.Json;
 
 namespace Client.Services
 {

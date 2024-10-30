@@ -96,13 +96,13 @@ footer {
 }
 
     .footer-container.hidden {
-        transform: translateY(400%); /* Move footer out of view */
+        transform: translateY(800%); /* Move footer out of view */
     }
 
 /* Toggle Button Styling */
 .footer-toggle-btn {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
     background-color: #343a40;
     color: white;

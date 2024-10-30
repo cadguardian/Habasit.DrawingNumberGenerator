@@ -12,6 +12,8 @@ using DNG.Library.Data;
 using System.Net.Http;
 using System.Text.Json;
 using System.Net.Http.Json;
+using DNG.Library.Models;
+using static Client.Services.PartNumberService;
 
 namespace Client.Services
 {
