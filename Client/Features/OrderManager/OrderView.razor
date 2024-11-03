@@ -1,0 +1,170 @@
+﻿@page "/drawing-form"
+@using Client.Features.Serialization
+@using Client.Services
+@using DNG.Library.Data
+@using DNG.Library.Models
+@inject IDrawingNumber DrawingNumber
+@inject IDrawingRequest DrawingRequest
+@inject IDrawingRequestProcessor DrawingRequestProcessor
+
+@code {
+    private bool isFormVisible = true;
+    [Parameter] public RenderFragment? FormContent { get; set; }
+}
+
+<div class="container-fluid">
+    <div class="small alert alert-info p-2">
+        Complete <strong>form</strong>, <strong>filter</strong>, & <strong>search</strong> to manage CAD blocks, templates, and drawings.
+    </div>
+
+    @if (isFormVisible)
+    {
+        <div class="container">
+            @FormContent
+            <div class="d-flex justify-content-center align-items-center m-4">
+                <button type="button" class="btn btn btn-sm btn-warning no-print"
+                        @onclick="() => { DrawingRequestProcessor.GenerateDrawingNumber(); isFormVisible = false; }">
+                    Start Drawing Request
+                </button>
+            </div>
+        </div>
+    }
+    else
+    {
+       
+
+        <div class="summary-dashboard">
+            
+
+            <div class="d-flex justify-content-between align-items-center card-header mb-3">
+                <span class="fw-bold">DWG Request</span>
+            </div>
+
+
+            @if (!string.IsNullOrEmpty(DrawingRequest.QuoteNumber) || !string.IsNullOrEmpty(DrawingRequest.SalesOrderNumber))
+                        {
+                            <span class="d-block mb-1" style="font-size: 1.1em;"><strong>Quote #:</strong> @DrawingRequest.QuoteNumber</span>
+
+
+            <div class="card bg-light text-dark shadow-sm p-0 mb-3">
+                <div class="card-body text-center">
+                    <p class="card-text">
+                        @if (!string.IsNullOrEmpty(DrawingRequest.QuoteNumber))
+                        {
+                            <span class="d-block mb-1" style="font-size: 1.1em;"><strong>Quote #:</strong> @DrawingRequest.QuoteNumber</span>
+
+                        }
+                        @if (!string.IsNullOrEmpty(DrawingRequest.SalesOrderNumber))
+                        {
+                            <span class="d-block" style="font-size: 1.1em;"><strong>Sales Order #:</strong> @DrawingRequest.SalesOrderNumber</span>
+                        }
+                    </p>
+                </div>
+            </div>
+            }
+
+
+            <!-- Two columns on all screen sizes -->
+            <div class="table-responsive" style="overflow-y: auto;">
+                <table class="table table-sm table-hover table-bordered table-striped" style="font-size: 0.9em;">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col" aria-label="Attribute" data-label="Attribute">Attribute</th>
+                            <th scope="col" aria-label="Drawing Request" data-label="Drawing Request">Drawing Request</th>
+                            <th scope="col" aria-label="Drawing Code" data-label="Drawing Code">Drawing Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Type</strong></td>
+                            <td>@DrawingRequest.BeltType</td>
+                            <td>@DrawingNumber.BeltTypeCode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Series</strong></td>
+                            <td>@DrawingRequest.BeltSeries</td>
+                            <td>@DrawingNumber.BeltSeriesCode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Color</strong></td>
+                            <td>@DrawingRequest.Color</td>
+                            <td>@DrawingNumber.ColorCode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Material</strong></td>
+                            <td>@DrawingRequest.Material</td>
+                            <td>@DrawingNumber.MaterialCode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adder Material</strong></td>
+                            <td>@DrawingRequest.AdderMaterial</td>
+                            <td>@DrawingNumber.AdderMaterialCode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rod</strong></td>
+                            <td>@DrawingRequest.RodMaterial</td>
+                            <td>@DrawingNumber.RodMaterialCode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Belt Width</strong></td>
+                            <td>@DrawingRequest.BeltWidth</td>
+                            <td>@DrawingNumber.BeltWidthCode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flights Rollers Grip</strong></td>
+                            <td>@DrawingRequest.FlightsRollersGrip</td>
+                            <td>@DrawingNumber.FlightsRollersGripsCode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Qty Rollers Across Width</strong></td>
+                            <td>@DrawingRequest.QtyRollersAcrossWidth</td>
+                            <td>@DrawingNumber.QtyRollersAcrossWidth</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FRG Centers</strong></td>
+                            <td>@DrawingRequest.FRGCenters</td>
+                            <td>@DrawingNumber.FRGCenters</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Belt Accessories</strong></td>
+                            <td>@DrawingRequest.BeltAccessories</td>
+                            <td>@DrawingNumber.BeltAccessoriesCode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Friction/Anti Static</strong></td>
+                            <td>@DrawingRequest.FrictionAntiStatic</td>
+                            <td>@DrawingNumber.FrictionAntiStaticCode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Side-PL/Lane-DV</strong></td>
+                            <td>@DrawingRequest.SidePLLaneDV</td>
+                            <td>@DrawingNumber.SidePLLaneDVCode</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Unique Identification</strong></td>
+                            <td>@DrawingRequest.UniqueIdentification</td>
+                            <td>@DrawingNumber.UniqueIdentification</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indent Code</strong></td>
+                            <td>@DrawingRequest.IndentCode</td>
+                            <td>@DrawingNumber.IndentCode</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-center mt-4">
+                <div class="text-center no-print">
+                        <button type="button" class="btn btn-sm btn-warning btn-lg" @onclick="() => isFormVisible = true">
+                    Edit Drawing Request
+                </button>
+
+                       
+
+</div>
+                
+            </div>
+        </div>
+    }
+</div>

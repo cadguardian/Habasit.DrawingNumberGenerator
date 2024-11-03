@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\DNG.Library.csproj": {
-                "projectPath": "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\DNG.Library.csproj"
+              "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\Shared.csproj": {
+                "projectPath": "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\Shared.csproj"
               }
             }
           }
@@ -47,9 +47,8 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -92,16 +91,16 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\DNG.Library.csproj": {
+    "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\DNG.Library.csproj",
-        "projectName": "DNG.Library",
-        "projectPath": "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\DNG.Library.csproj",
+        "projectUniqueName": "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\Shared.csproj",
+        "projectName": "Shared",
+        "projectPath": "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\Shared.csproj",
         "packagesPath": "C:\\Users\\Thomas.Smith\\.nuget\\packages\\",
         "outputPath": "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\obj\\",
         "projectStyle": "PackageReference",
@@ -135,9 +134,8 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+          "auditMode": "direct"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -158,7 +156,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -31,12 +31,14 @@
         </member>
         <member name="M:Client.Services.PartNumberService.FilterPartNumbers(DNG.Library.Data.IDrawingRequest,System.String,System.Boolean)">
             <summary>
-            Filters part numbers based on user input without relying on wildcards or commas.
-            Users can input multiple search terms separated by spaces, and only parts containing all terms
-            in any order within the Part or Description fields are returned.
+            Filters part numbers based on user input using standard LINQ queries.
+            Supports two modes:
+            - Free Search Mode: Searches for parts containing the universal search string in either the Part or Description.
+            - Drawing Request Filter Mode: Applies specific filters based on BeltSeries, Color, and Material.
             </summary>
-            <param name="drawingRequest">The drawing request containing additional filters.</param>
-            <param name="universalSearch">The universal search string with multiple search terms separated by spaces.</param>
+            <param name="drawingRequest">The drawing request containing specific filter criteria.</param>
+            <param name="universalSearch">The universal search string for free text searching.</param>
+            <param name="isFreeSearchMode">Determines whether to apply free search filtering or drawing request filters.</param>
             <returns>An enumerable of filtered part numbers and their descriptions.</returns>
         </member>
         <member name="T:Client.Services.PartNumberService.PartNumber">

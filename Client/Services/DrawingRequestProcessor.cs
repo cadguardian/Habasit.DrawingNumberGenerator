@@ -1,4 +1,5 @@
-﻿using DNG.Library.Data;
+﻿using Client.Services.Interfaces;
+using DNG.Library.Data;
 using DNG.Library.Models;
 using Microsoft.AspNetCore.Components;
 using System.Text.Json;
@@ -18,14 +19,10 @@ namespace Client.Services
         [Inject] public IDrawingRequest DrawingRequest { get; set; }
         public IPartNumberService PartNumberService { get; }
 
-        private bool isProcessing = false;
-
         public void GenerateDrawingNumber()
         {
             try
             {
-                isProcessing = true;
-
                 if (string.IsNullOrWhiteSpace(DrawingRequest.BeltType))
                 {
                     throw new ArgumentException("Belt Type is required.");
@@ -53,10 +50,6 @@ namespace Client.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error generating drawing number: {ex.Message}");
-            }
-            finally
-            {
-                isProcessing = false;
             }
         }
 

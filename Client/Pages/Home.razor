@@ -1,5 +1,92 @@
 ﻿@page "/"
 
+
+@using Client.Features.DWGManager
+@using Client.Features.Serialization
+@using Client.Services
+@using DNG.Library.Data
+@using DNG.Library.Models
+@using Microsoft.AspNetCore.Components.Forms
+
 <PageTitle>Drawings | Plastic Modular Belt</PageTitle>
 
-<DrawingNumberGenerator/>
+
+
+@inject IJSRuntime JSRuntime
+@inject IDrawingNumber DrawingNumber
+@inject IDrawingRequest DrawingRequest
+@inject IDrawingRequestProcessor DrawingRequestProcessor
+
+@page "/drawing-request-form"
+@inject IDrawingRequestProcessor DrawingRequestProcessor
+
+<ShowInstructionsComponent />
+
+ <JSONExportView />
+
+ @* <ImageGallery /> *@
+
+<OrderView>
+    <FormContent>
+        <EditForm EditContext="editContext" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <DWGRequestForm />
+            <div class="alert alert-danger p-2">
+                <p class="mb-0"><strong>Errors:</strong></p>
+            </div>
+
+        </EditForm>
+    </FormContent>
+</OrderView>
+
+<label class="small alert alert-info my-4">
+    Locate CAD blocks and templates for your parts list.
+</label>
+
+
+<MaterialView />
+
+<label class="small alert alert-info my-4">
+    Use the CAD library to quickly locate modular belt CAD templates.
+</label>
+
+
+
+
+<CADLibraryView/>
+
+<label class="small alert alert-info my-4">
+    Use the Drawing Manager to quickly locate modular belt drawings.
+</label>
+
+<DWGManagerView/>
+
+ <JSONExportView />
+
+@* <CADWorkflow /> *@
+
+ @* <AutoCADCommands /> *@
+
+@* <FeatureManagerView /> *@
+
+
+@code {
+    private EditContext? editContext;
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(DrawingRequest);
+        editContext.OnFieldChanged += (sender, e) => editContext.Validate(); // Triggers validation on field change
+
+        // Immediately trigger validation when form loads
+        editContext.Validate();
+    }
+
+    private void HandleValidSubmit()
+    {
+        DrawingRequestProcessor.GenerateDrawingNumber();
+    }
+}
+
+<div class="page-break"></div>
+

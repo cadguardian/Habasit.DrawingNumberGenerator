@@ -16,7 +16,7 @@ public class MaterialColor : RuleWithOptions, IOptions
         ["D"] = "Black",
         ["E"] = "Beige",
         ["F"] = "Green",
-        ["G"] = "Grey",
+        ["G"] = "Gray",
         ["L"] = "LT Blue",
         ["M"] = "Maroon",
         ["N"] = "Brown",

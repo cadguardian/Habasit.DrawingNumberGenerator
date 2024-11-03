@@ -1,0 +1,112 @@
+.form-group[b-3ibieg1zn7] {
+    margin-bottom: 1rem;
+}
+
+.input-group-text[b-3ibieg1zn7] {
+    justify-content: left;
+}
+
+@media (min-width: 768px) {
+    .input-group-text[b-3ibieg1zn7] {
+        width: 150px;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+.form-control[b-3ibieg1zn7] {
+    text-align: center;
+}
+
+input[b-3ibieg1zn7], select[b-3ibieg1zn7], button[b-3ibieg1zn7] {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .form-container[b-3ibieg1zn7] {
+        padding: 1rem 0.5rem;
+    }
+
+    button[b-3ibieg1zn7] {
+        font-size: 1rem;
+    }
+}
+
+.animated-number[b-3ibieg1zn7] {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    animation: color-change-b-3ibieg1zn7 5s infinite;
+    margin: 16px;
+    cursor: url('https://example.com/funky-cursor.png'), auto; /* Change to funky pointer */
+    transition: transform 0.3s ease;
+}
+
+    .animated-number:hover[b-3ibieg1zn7] {
+        transform: scale(1.05); /* Hover effect to zoom slightly */
+    }
+
+.copy-button[b-3ibieg1zn7] {
+    cursor: grab;
+}
+
+.dialog[b-3ibieg1zn7] {
+    display: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+    margin: 10px;
+}
+
+/* Keyframes for smooth color transition */
+@keyframes color-change-b-3ibieg1zn7 {
+    0% {
+        color: rgb(255, 255, 255); /* Red */
+    }
+
+    33% {
+        color: rgb(201, 221, 201); /* Green */
+    }
+
+    66% {
+        color: rgb(240, 241, 239); /* Blue */
+    }
+
+    100% {
+        color: rgb(165, 236, 141); /* Back to Red */
+    }
+}
+
+.animate-card[b-3ibieg1zn7] {
+    animation: pulse-b-3ibieg1zn7 3s infinite;
+}
+
+@keyframes pulse-b-3ibieg1zn7 {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.hover-effect[b-3ibieg1zn7] {
+    transition: transform 0.3s;
+}
+
+    .hover-effect:hover[b-3ibieg1zn7] {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+.card-header[b-3ibieg1zn7] {
+    font-size: 1.25rem;
+}
+
+.card-title[b-3ibieg1zn7] {
+    font-weight: bold;
+}

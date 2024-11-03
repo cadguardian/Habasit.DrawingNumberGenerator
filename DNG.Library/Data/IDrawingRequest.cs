@@ -1,8 +1,11 @@
-﻿namespace DNG.Library.Data
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DNG.Library.Data
 {
     public interface IDrawingRequest
     {
         string AdderMaterial { get; set; }
+        string PurchaseOrderNumber { get; set; }
         string AssignedTo { get; set; }
         string BeltAccessories { get; set; }
         string BeltSeries { get; set; }
@@ -27,5 +30,8 @@
         string UniqueIdentification { get; set; }
 
         string[] GetPropertyValues();
+
+        string StructuredText { get; set; }
+        List<KeyValuePair<string, string>> PartsList { get; set; }
     }
 }

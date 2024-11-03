@@ -93,91 +93,91 @@
                          style="white-space: nowrap; padding: 0 1rem; overflow-x: auto; display: flex; -webkit-overflow-scrolling: touch;">
                     <!-- Toggle Switch for Belt Type -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleType" @bind="DrawingNumber.IncludeBeltType">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleType" @bind="DrawingNumberViewModel.IncludeBeltType">
                         <label class="form-check-label text-light" for="toggleType">Type</label>
                     </div>
 
                     <!-- Toggle Switch for Belt Series -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync"  class="form-check-input" id="toggleSeries" @bind="DrawingNumber.IncludeBeltSeries">
+                        <input type="checkbox" @onblur="HandleInputAsync"  class="form-check-input" id="toggleSeries" @bind="DrawingNumberViewModel.IncludeBeltSeries">
                         <label class="form-check-label text-light" for="toggleSeries">Series</label>
                     </div>
 
                     <!-- Toggle Switch for Color -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" class="form-check-input" id="toggleColor" @onblur="HandleInputAsync" @bind="DrawingNumber.IncludeColor">
+                        <input type="checkbox" class="form-check-input" id="toggleColor" @onblur="HandleInputAsync" @bind="DrawingNumberViewModel.IncludeColor">
                         <label class="form-check-label text-light" for="toggleColor">Color</label>
                     </div>
 
                     <!-- Toggle Switch for Material -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" class="form-check-input" id="toggleMaterial" @onblur="HandleInputAsync" @bind="DrawingNumber.IncludeMaterial">
+                        <input type="checkbox" class="form-check-input" id="toggleMaterial" @onblur="HandleInputAsync" @bind="DrawingNumberViewModel.IncludeMaterial">
                         <label class="form-check-label text-light" for="toggleMaterial">Material</label>
                     </div>
 
                     <!-- Toggle Switch for Adder Material -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleAdderMaterial" @bind="DrawingNumber.IncludeAdderMaterial">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleAdderMaterial" @bind="DrawingNumberViewModel.IncludeAdderMaterial">
                         <label class="form-check-label text-light" for="toggleAdderMaterial">Adder Material</label>
                     </div>
 
                     <!-- Toggle Switch for Rod Material -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleRodMaterial" @bind="DrawingNumber.IncludeRodMaterial">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleRodMaterial" @bind="DrawingNumberViewModel.IncludeRodMaterial">
                         <label class="form-check-label text-light" for="toggleRodMaterial">Rod Material</label>
                     </div>
 
                     <!-- Toggle Switch for Belt Width -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleWidth" @bind="DrawingNumber.IncludeBeltWidth">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleWidth" @bind="DrawingNumberViewModel.IncludeBeltWidth">
                         <label class="form-check-label text-light" for="toggleWidth">Width</label>
                     </div>
 
                     <!-- Toggle Switch for Quantity of Rollers Across Width -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleQtyRollers" @bind="DrawingNumber.IncludeQtyRollersAcrossWidth">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleQtyRollers" @bind="DrawingNumberViewModel.IncludeQtyRollersAcrossWidth">
                         <label class="form-check-label text-light" for="toggleQtyRollers">Rollers Qty</label>
                     </div>
 
                     <!-- Toggle Switch for F/R/G Centers -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFRGCenters" @bind="DrawingNumber.IncludeFRGCenters">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFRGCenters" @bind="DrawingNumberViewModel.IncludeFRGCenters">
                         <label class="form-check-label text-light" for="toggleFRGCenters">F/R/G Centers</label>
                     </div>
 
                     <!-- Toggle Switch for Belt Accessories -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleBeltAccessories" @bind="DrawingNumber.IncludeBeltAccessories">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleBeltAccessories" @bind="DrawingNumberViewModel.IncludeBeltAccessories">
                         <label class="form-check-label text-light" for="toggleBeltAccessories">Accessories</label>
                     </div>
 
                     <!-- Toggle Switch for Friction/Anti Static -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFrictionAntiStatic" @bind="DrawingNumber.IncludeFrictionAntiStatic">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFrictionAntiStatic" @bind="DrawingNumberViewModel.IncludeFrictionAntiStatic">
                         <label class="form-check-label text-light" for="toggleFrictionAntiStatic">Friction/Anti Static</label>
                     </div>
 
                     <!-- Toggle Switch for Flights/Rollers/Grips -->
                     <div class="mx-5 form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFlightsRollersGrips" @bind="DrawingNumber.IncludeFlightsRollersGrips">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFlightsRollersGrips" @bind="DrawingNumberViewModel.IncludeFlightsRollersGrips">
                         <label class="form-check-label text-light" for="toggleFlightsRollersGrips">Flights/Rollers/Grips</label>
                     </div>
 
                     <!-- Toggle Switch for Side-PL/Lane-DV -->
                     <div class="mx-4 form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleSidePLLaneDV" @bind="DrawingNumber.IncludeSidePLLaneDV">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleSidePLLaneDV" @bind="DrawingNumberViewModel.IncludeSidePLLaneDV">
                         <label class="form-check-label text-light" for="toggleSidePLLaneDV">Side-PL/Lane-DV</label>
                     </div>
 
                     <!-- Toggle Switch for Unique Identification -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync"  class="form-check-input" id="toggleUniqueIdentification" @bind="DrawingNumber.IncludeUniqueIdentification">
+                        <input type="checkbox" @onblur="HandleInputAsync"  class="form-check-input" id="toggleUniqueIdentification" @bind="DrawingNumberViewModel.IncludeUniqueIdentification">
                         <label class="form-check-label text-light" for="toggleUniqueIdentification">Unique ID</label>
                     </div>
 
                     <!-- Toggle Switch for Indent Code -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleIndentCode" @bind="DrawingNumber.IncludeIndentCode">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleIndentCode" @bind="DrawingNumberViewModel.IncludeIndentCode">
                         <label class="form-check-label text-light" for="toggleIndentCode">Indent Code</label>
                     </div>
                 </div>

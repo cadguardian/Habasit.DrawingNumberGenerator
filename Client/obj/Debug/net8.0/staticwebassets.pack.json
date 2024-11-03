@@ -9,8 +9,24 @@
       "PackagePath": "staticwebassets\\Client.styles.css"
     },
     {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\Data\\BeltProductData.csv",
+      "PackagePath": "staticwebassets\\Data\\BeltProductData.csv"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\Data\\output.json",
+      "PackagePath": "staticwebassets\\Data\\output.json"
+    },
+    {
       "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\Data\\partNumbers.csv",
       "PackagePath": "staticwebassets\\Data\\partNumbers.csv"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\Data\\pdf_drawings.json",
+      "PackagePath": "staticwebassets\\Data\\pdf_drawings.json"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\Data\\pdf_dwg_drawings.json",
+      "PackagePath": "staticwebassets\\Data\\pdf_dwg_drawings.json"
     },
     {
       "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\_redirects",
@@ -65,376 +81,652 @@
       "PackagePath": "staticwebassets\\icons\\habasit-icon-512.png"
     },
     {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belt named images.zip",
+      "PackagePath": "staticwebassets\\images\\belt named images.zip"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_106_10_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_106_10_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_106_22_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_106_22_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_106_CL_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_106_CL_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_106_RT_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_106_RT_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_106_V_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_106_V_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_208_35_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_208_35_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_208_CL_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_208_CL_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_208_RR_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_208_RR_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_CC41_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_CC41_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_CC42_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_CC42_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_CM605_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_CM605_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_CT610-R_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_CT610-R_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_F51_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_F51_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_F52_SMART_FIT_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_F52_SMART_FIT_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_F53_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_F53_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_F54_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_F54_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_FF620_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_FF620_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_FF620_MC_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_FF620_MC_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_FF620_WR_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_FF620_WR_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDS605RT_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDS605RT_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDS605_ST_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDS605_ST_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDS605_TT_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDS605_TT_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDS610_CVT_01A.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDS610_CVT_01A.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDS610_ST_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDS610_ST_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDS620_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDS620_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDSCT620_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDSCT620_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDSEZR620_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDSEZR620_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDSVT620_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDSVT620_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDU620_CT_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDU620_CT_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDU620_EZR_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDU620_EZR_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDU620_ST_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDU620_ST_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_HDU620_VT_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_HDU620_VT_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_IS610-R_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_IS610-R_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_IS610_TP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_IS610_TP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_IS615-R_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_IS615-R_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_IS620-R_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_IS620-R_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M0863_MICROPITCH_CONE_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M0863_MICROPITCH_CONE_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M0863_MICROPITCH_CONE_TOP_MTW_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M0863_MICROPITCH_CONE_TOP_MTW_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M0870_HIGHGRIP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M0870_HIGHGRIP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M0870_MICROPITCH_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M0870_MICROPITCH_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M0873_MICROPITCH_NON_SLIP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M0873_MICROPITCH_NON_SLIP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M0876_MICROPITCH_DIAMOND_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M0876_MICROPITCH_DIAMOND_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M0885_MICROPITCH_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M0885_MICROPITCH_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1065_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1065_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1185_FLUSH_GRID_LIGHT_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1185_FLUSH_GRID_LIGHT_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1220_ACTIVXCHANGE_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1220_ACTIVXCHANGE_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1220_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1220_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1220_GRIPTOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1220_GRIPTOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1220_HIGHGRIP-L_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1220_HIGHGRIP-L_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1230_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1230_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1233_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1233_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1233_GRIPTOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1233_GRIPTOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1234_NUB_TOP_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1234_NUB_TOP_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1280_ACTIVXCHANGE_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1280_ACTIVXCHANGE_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M1280_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M1280_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2420_ACTIVXCHANGE_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2420_ACTIVXCHANGE_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2420_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2420_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2423_NON_SLIP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2423_NON_SLIP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2470_ACTIVXCHANGE_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2470_ACTIVXCHANGE_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2470_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2470_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2470_FLAT_TOP_MTW_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2470_FLAT_TOP_MTW_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2470_GRIPTOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2470_GRIPTOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2472_PERFORATED_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2472_PERFORATED_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2480_ACTIVXCHANGE_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2480_ACTIVXCHANGE_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2480_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2480_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2483_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2483_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2510_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2510_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2511_MESH_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2511_MESH_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2514_NUB_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2514_NUB_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2516_DIAMOND_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2516_DIAMOND_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2520_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2520_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2520_GRIPTOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2520_GRIPTOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2520_ROLLER_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2520_ROLLER_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2527_MINIRIB_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2527_MINIRIB_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2531_RAISED_RIB_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2531_RAISED_RIB_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2533K03_T2_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2533K03_T2_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2533_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2533_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2533_FLUSH_GRID_HR_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2533_FLUSH_GRID_HR_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2533_GRIPTOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2533_GRIPTOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2533_ROLLER_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2533_ROLLER_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2540_RADIUS_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2540_RADIUS_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2540_RADIUS_FLUSH_GRID_MTW_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2540_RADIUS_FLUSH_GRID_MTW_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2540_RADIUS_GRIPTOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2540_RADIUS_GRIPTOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2540_ROLLER_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2540_ROLLER_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2543_TIGHT_RADIUS_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2543_TIGHT_RADIUS_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2544_GRIPTOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2544_GRIPTOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2544_TIGHT_RADIUS_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2544_TIGHT_RADIUS_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2544_TIGHT_RADIUS_MTW_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2544_TIGHT_RADIUS_MTW_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2585_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2585_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2586_RAISED_RIB_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2586_RAISED_RIB_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2592_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2592_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2620_FLAT_TOP_HEAVY_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2620_FLAT_TOP_HEAVY_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2620_GRIPTOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2620_GRIPTOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2620_LBP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2620_LBP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2623_NON_SLIP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2623_NON_SLIP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2626_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2626_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2670_ACTIVXCHANGE_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2670_ACTIVXCHANGE_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2670_FLAT_TOP_HEAVY_DUTY_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2670_FLAT_TOP_HEAVY_DUTY_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2670_FLAT_TOP_HEAVY_MTW_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2670_FLAT_TOP_HEAVY_MTW_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2670_GRIPTOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2670_GRIPTOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2791_RADIUS_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2791_RADIUS_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M2960K24_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M2960K24_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M3398_RADIUS_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M3398_RADIUS_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M3840_RADIUS_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M3840_RADIUS_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M3840_ROLLER_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M3840_ROLLER_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M3843_TIGHT_RADIUS_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M3843_TIGHT_RADIUS_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M3843_TIGHT_RADIUS_GRIPTOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M3843_TIGHT_RADIUS_GRIPTOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M3892_RAISED_DECK_RADIUS_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M3892_RAISED_DECK_RADIUS_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5010_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5010_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5010_ROLLER_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5010_ROLLER_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5011_PERFORATED_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5011_PERFORATED_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5013_CONE_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5013_CONE_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5014_NUB_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5014_NUB_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5015_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5015_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5015_GRIPTOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5015_GRIPTOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5020_FLAT_TOP_HEAVY_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5020_FLAT_TOP_HEAVY_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5021_PERFORATED_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5021_PERFORATED_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5023_NON_SLIP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5023_NON_SLIP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5032_FLUSH_GRID_HEAVY_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5032_FLUSH_GRID_HEAVY_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5032_ROLLER_TOP_HEAVY_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5032_ROLLER_TOP_HEAVY_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5033_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5033_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5033_ROLLER_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5033_ROLLER_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5060_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5060_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5064_NUB_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5064_NUB_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5065_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5065_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5067_MINIRIB_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5067_MINIRIB_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5085_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5085_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5131_RAISED_RIB_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5131_RAISED_RIB_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5182_ROLLER_TOP-90_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5182_ROLLER_TOP-90_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5290_RADIUS_FLUSH_GRID_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5290_RADIUS_FLUSH_GRID_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5293_TIGHT_RADIUS_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5293_TIGHT_RADIUS_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M5482_ROLLER_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M5482_ROLLER_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M6360_FLAT_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M6360_FLAT_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M6420_FLAT_TOP_HEAVY_DUTY_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M6420_FLAT_TOP_HEAVY_DUTY_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M6423_NON_SLIP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M6423_NON_SLIP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M6424_NON_SLIP_PERFORATED_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M6424_NON_SLIP_PERFORATED_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_M6425_REEL_TOP_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_M6425_REEL_TOP_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_MB610_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_MB610_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_MB610_MTW_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_MB610_MTW_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_MB620_ST_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_MB620_ST_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_MB620_TT_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_MB620_TT_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_MB620_VT_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_MB620_VT_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_PR612_1.6_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_PR612_1.6_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_PR612_2.2_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_PR612_2.2_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_PR620_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_PR620_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_PR620_SMARTFIT_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_PR620_SMARTFIT_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_PR620_SPS_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_PR620_SPS_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_PR620_TTR_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_PR620_TTR_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_RS501_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_RS501_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_RS505_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_RS505_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_SE620_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_SE620_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_SM605GT_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_SM605GT_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_SM605_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_SM605_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_SP615_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_SP615_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_SP620_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_SP620_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_ST610_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_ST610_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_ST615_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_ST615_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_VT610_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_VT610_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\ModularBelt_VT615_01.jpg",
+      "PackagePath": "staticwebassets\\images\\belts\\ModularBelt_VT615_01.jpg"
+    },
+    {
+      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\belts\\images.json",
+      "PackagePath": "staticwebassets\\images\\belts\\images.json"
+    },
+    {
       "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\HabaLINK-Plastic-Modular_Page_004_Image_0001.png",
       "PackagePath": "staticwebassets\\images\\engineering-guide\\HabaLINK-Plastic-Modular_Page_004_Image_0001.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_001_Image_0002.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_001_Image_0002.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_001_Image_0003.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_001_Image_0003.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_001_Image_0004.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_001_Image_0004.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_005_Image_0001.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_005_Image_0001.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0001.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0001.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0002.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0002.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0003.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0003.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0004.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0004.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0005.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0005.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0006.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0006.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0007.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0007.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0008.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0008.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0009.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0009.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0010.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0010.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0011.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0011.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0012.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_008_Image_0012.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0001.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0001.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0002.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0002.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0003.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0003.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0004.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0004.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0005.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0005.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0006.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0006.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0007.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0007.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0008.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0008.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0009.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0009.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0010.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0010.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0011.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0011.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0012.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_009_Image_0012.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0001.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0001.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0002.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0002.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0003.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0003.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0004.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0004.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0005.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0005.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0006.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0006.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0007.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0007.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0008.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0008.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0009.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0009.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0010.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0010.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0011.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0011.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0012.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_010_Image_0012.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0001.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0001.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0002.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0002.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0003.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0003.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0004.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0004.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0005.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0005.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0006.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0006.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0007.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0007.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0008.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0008.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0009.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0009.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0010.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_011_Image_0010.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0001.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0001.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0002.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0002.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0003.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0003.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0004.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0004.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0005.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0005.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0006.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0006.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0007.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0007.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0008.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0008.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0009.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0009.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0010.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_012_Image_0010.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0001.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0001.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0002.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0002.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0003.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0003.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0004.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0004.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0005.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0005.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0006.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0006.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0007.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0007.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0008.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0008.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0009.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0009.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0010.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0010.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0011.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0011.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0012.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_013_Image_0012.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0001.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0001.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0002.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0002.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0003.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0003.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0004.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0004.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0005.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0005.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0006.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0006.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0007.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0007.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0008.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0008.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0009.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0009.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0010.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_014_Image_0010.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0001.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0001.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0002.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0002.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0003.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0003.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0004.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0004.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0005.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0005.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0006.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0006.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0007.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_015_Image_0007.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_016_Image_0001.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_016_Image_0001.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_016_Image_0002.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_016_Image_0002.png"
-    },
-    {
-      "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_016_Image_0003.png",
-      "PackagePath": "staticwebassets\\images\\engineering-guide\\belts\\HabaLINK-Plastic-Modular_Page_016_Image_0003.png"
     },
     {
       "Id": "C:\\localrepos\\DrawingNumberGenerator\\client\\wwwroot\\images\\engineering-guide\\content\\HabaLINK-Plastic-Modular_Page_001_Image_0001.png",

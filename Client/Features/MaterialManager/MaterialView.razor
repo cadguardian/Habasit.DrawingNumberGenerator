@@ -1,0 +1,332 @@
+﻿@page "/part-numbers"
+@inject IPartNumberService PartNumberService
+@inject IDrawingRequest drawingRequest
+
+
+<div class="container-fluid no-print">
+    <div class="card p-3 shadow-sm">
+
+    <!-- Search Bar and Buttons -->
+    <div class="d-flex flex-column flex-md-row mb-3">
+            <div class="d-flex justify-content-between align-items-center card-header mb-3">
+                <span class="fw-bold">Materials</span>
+                </div>
+            
+        <div class="input-group me-md-2 flex-grow-1 mb-2 mb-md-0">
+                
+            <input 
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="Find available parts..."
+                aria-label="Search for parts"
+                @bind="universalSearch"
+                @bind:event="oninput" />
+        </div>
+        <div class="btn-group me-2 mb-2 mb-md-0" role="group">
+            <button class="btn btn-sm btn-dark " @onclick="ApplyFilters">Apply Filters</button>
+            <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search Parts</button>
+        </div>
+    </div>
+
+    <!-- Parts Found Header -->
+    @if (isSearchMode)
+    {
+            <div class="alert alert-info p-2" style="font-size: 0.8rem;">
+                Click <strong>Apply Filters</strong> to set specific criteria before searching. Use this to refine results based on selected attributes.
+            </div>
+
+        <div class="mb-3">
+            <h5>Parts Found: @FilteredPartNumbers.Count()</h5>
+        </div>
+    }
+
+    <div class="row">
+        <!-- Search Results List -->
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Search Results</span>
+                    <button class="btn btn-link text-dark p-0" @onclick="ToggleSort" style="text-decoration: none;">
+                        Sort @if (isSortedAsc)
+                        {
+                            <span>▲</span>
+                        }
+                        else
+                        {
+                            <span>▼</span>
+                        }
+                    </button>
+                </div>
+                <div class="card-body" style="max-height: 300px; overflow-y: auto;">
+                    @if (FilteredPartNumbers.Any())
+                    {
+                        @foreach (var part in FilteredPartNumbers)
+                        {
+                            <div class="d-flex justify-content-between align-items-start border-bottom py-2">
+                                <div>
+                                    <strong>@part.Key</strong>
+                                    <br />
+                                    <small class="text-muted">@part.Value</small>
+                                </div>
+                                <button class="btn btn-sm btn-primary" @onclick="() => AddToCart(part)">Add</button>
+                            </div>
+                        }
+                    }
+                    else if (!string.IsNullOrEmpty(errorMessage))
+                    {
+                        <div class="alert alert-warning">@errorMessage</div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">No results found.</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Shopping Cart -->
+        <div class="col-12 col-md-6 mb-3">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span class="p-3">Parts List</span>
+                    <button class="btn btn-sm btn-danger" @onclick="ClearCart">Clear All</button>
+                </div>
+                <div class="card-body" style="max-height: 300px; overflow-y: auto;">
+                    @if (ShoppingCart.Any())
+                    {
+                        @foreach (var part in ShoppingCart)
+                        {
+                            <div class="d-flex justify-content-between align-items-start border-bottom py-2">
+                                <div>
+                                    <strong>@part.Key</strong>
+                                    <br />
+                                    <small class="text-muted">@part.Value</small>
+                                </div>
+                                <button class="btn btn-sm btn-danger" @onclick="() => RemoveFromCart(part)">Remove</button>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-muted">Your cart is empty.</p>
+                    }
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-warning w-100" @onclick="SaveCartToDrawingRequest">Save to Drawing Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+@code {
+    private string universalSearch = string.Empty;
+    private List<KeyValuePair<string, string>> FilteredPartNumbers { get; set; } = new List<KeyValuePair<string, string>>();
+    private List<KeyValuePair<string, string>> ShoppingCart { get; set; } = new List<KeyValuePair<string, string>>();
+    private string errorMessage = string.Empty;
+    private bool isSortedAsc = true;
+    private bool isFreeSearchMode = true;
+    private bool isSearchMode = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetPartNumbersGoogleDrive();
+        // Initially apply filters but do not perform search
+        UpdateSearchWithFilters();
+    }
+
+    private async Task GetPartNumbersGoogleDrive()
+    {
+        try
+        {
+            var csvFilePath = "https://raw.githubusercontent.com/cadguardian/Habasit-CADMedia/refs/heads/main/partNumbers.csv";
+            await PartNumberService.InitializeAsync(csvFilePath);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
+    }
+
+    private void ApplyFilters()
+    {
+        UpdateSearchWithFilters();
+        // Do not perform search here; wait for the user to click "Search Parts"
+    }
+
+    private void OnSearch()
+    {
+        if (string.IsNullOrWhiteSpace(universalSearch))
+        {
+            isSearchMode = false;
+            FilteredPartNumbers.Clear();
+            return;
+        }
+
+        var partNumbers = PartNumberService.FilterPartNumbers(drawingRequest, universalSearch, isFreeSearchMode);
+        var sortedPartNumbers = isSortedAsc
+            ? partNumbers.OrderBy(p => p.Key)
+            : partNumbers.OrderByDescending(p => p.Key);
+
+        // Exclude parts already in the cart
+        FilteredPartNumbers = sortedPartNumbers
+            .Where(p => !ShoppingCart.Contains(p))
+            .ToList();
+
+        isSearchMode = true;
+    }
+
+    private void UpdateSearchWithFilters()
+    {
+        var filters = new List<string>();
+
+        if (!string.IsNullOrWhiteSpace(drawingRequest.BeltType))
+        {
+            filters.Add($"{drawingRequest.BeltSeries}");
+        }
+        if (!string.IsNullOrWhiteSpace(drawingRequest.Color))
+        {
+            filters.Add($"{drawingRequest.Color}");
+        }
+        if (!string.IsNullOrWhiteSpace(drawingRequest.Material))
+        {
+            var materialSearchTerm = drawingRequest.Material;
+
+            if (materialSearchTerm == "POM (Acetal)")
+            {
+                materialSearchTerm = "Acetal";
+            }
+
+            if (materialSearchTerm == "PA (Nylon)")
+            {
+                materialSearchTerm = "Nylons";
+            }
+
+            filters.Add($"{materialSearchTerm}");
+        }
+
+        // Append filters to universalSearch, separating with spaces
+        universalSearch = string.Join(" ", filters);
+    }
+
+    private void ToggleSort()
+    {
+        isSortedAsc = !isSortedAsc;
+        if (isSearchMode)
+        {
+            OnSearch();
+        }
+    }
+
+    private void AddToCart(KeyValuePair<string, string> part)
+    {
+        if (!ShoppingCart.Contains(part))
+        {
+            ShoppingCart.Add(part);
+            // Remove from search results
+            FilteredPartNumbers.Remove(part);
+        }
+    }
+
+    private void RemoveFromCart(KeyValuePair<string, string> part)
+    {
+        ShoppingCart.Remove(part);
+        // Re-add to search results if it matches the current search query
+        if (MatchesSearchQuery(part))
+        {
+            FilteredPartNumbers.Add(part);
+            // Optionally, re-sort the list
+            FilteredPartNumbers = isSortedAsc
+                ? FilteredPartNumbers.OrderBy(p => p.Key).ToList()
+                : FilteredPartNumbers.OrderByDescending(p => p.Key).ToList();
+        }
+    }
+
+    private bool MatchesSearchQuery(KeyValuePair<string, string> part)
+    {
+        if (string.IsNullOrWhiteSpace(universalSearch))
+            return true;
+
+        var query = universalSearch.ToLower();
+        return part.Key.ToLower().Contains(query) || part.Value.ToLower().Contains(query);
+    }
+
+    private void ClearCart()
+    {
+        // Re-add all cart items to search results if they match the current search query
+        foreach (var part in ShoppingCart.ToList())
+        {
+            if (MatchesSearchQuery(part))
+            {
+                FilteredPartNumbers.Add(part);
+            }
+        }
+
+        // Re-sort the list
+        FilteredPartNumbers = isSortedAsc
+            ? FilteredPartNumbers.OrderBy(p => p.Key).ToList()
+            : FilteredPartNumbers.OrderByDescending(p => p.Key).ToList();
+
+        ShoppingCart.Clear();
+    }
+
+    private void SaveCartToDrawingRequest()
+    {
+        drawingRequest.PartsList = ShoppingCart.ToList();
+        // Optionally, keep the cart intact or clear it
+        // ClearCart();
+    }
+
+    private string TruncateDisplayName(string displayName)
+    {
+        // Removed truncation to display full descriptions
+        return displayName;
+    }
+}
+
+<style>
+    /* Adjust list group items for better spacing */
+    .list-group-item {
+        padding: 0.75rem 1rem;
+    }
+
+    /* Optional: Add hover effect to list items */
+    .list-group-item:hover {
+        background-color: #f8f9fa;
+    }
+
+    /* Ensure buttons align properly */
+    .btn-link {
+        padding: 0;
+    }
+
+    /* Additional styling for better appearance */
+    .d-flex {
+        display: flex !important;
+    }
+
+    .me-2 {
+        margin-right: 0.5rem !important;
+    }
+
+    .me-3 {
+        margin-right: 1rem !important;
+    }
+
+    .flex-grow-1 {
+        flex-grow: 1 !important;
+    }
+
+    /* Ensure the search results are scrollable */
+    .card-body {
+        overflow-y: auto;
+    }
+
+
+    /* Styling for part description */
+    .part-description {
+        font-size: 0.875em; /* Small text */
+        color: #6c757d; /* Muted color */
+    }
+</style>

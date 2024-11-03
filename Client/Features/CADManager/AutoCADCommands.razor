@@ -1,0 +1,90 @@
+﻿@* Minimal CAD Drafter Component *@
+<div class="container-fluid my-3 no-print">
+    <div class="card p-3 shadow-sm">
+        <div class="d-flex align-items-center text-secondary mb-3" style="font-size: 1em;">
+            <i class="fa-solid fa-drafting-compass me-2" aria-hidden="true"></i>
+            <span class="fw-bold">CAD Drafter</span>
+        </div>
+
+        <InputGroupTitle Title="Key Commands in AutoCAD"
+                         Subtitle="Essential Tools for Plastic Modular Belting Assembly"
+                         Description="Streamline your workflow for plastic modular belting to ensure precise alignment of components." />
+
+        <!-- Collapsible Command Sections -->
+        <div class="accordion" id="commandsAccordion">
+            @* Array and Block Management *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+                        Array and Block Management
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#commandsAccordion">
+                    <div class="accordion-body" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>ARRAY:</strong> Use <kbd>ARRAY</kbd> to create repetitive patterns for modules such as left, mid, and right edges along belts.</li>
+                            <li><strong>BLOCK and INSERT:</strong> Leverage <kbd>BLOCK</kbd> to create reusable components for different belt parts, like rollers and griptops. Insert with <kbd>INSERT</kbd> to add and align them.</li>
+                            <li><strong>Associative Arrays:</strong> Use associative arrays for belts that require periodic updates. Adjusts automatically when patterns or module placements change.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @* Alignment and Constraints *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" >
+                        Alignment and Constraints
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#commandsAccordion">
+                    <div class="accordion-body" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>ALIGN and ATTACH:</strong> Use <kbd>ALIGN</kbd> and <kbd>ATTACH</kbd> to precisely position and align belt sections, ensuring seamless transitions between components.</li>
+                            <li><strong>CONSTRAINTS:</strong> Use <kbd>GEOMCONSTRAINT</kbd> and <kbd>DIMCONSTRAINT</kbd> to apply collinear, parallel, and tangent constraints, critical for maintaining proper alignment in complex modular patterns.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @* Snapping and Extensions *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" >
+                        Snapping and Extensions
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#commandsAccordion">
+                    <div class="accordion-body" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>SNAP and OSNAP:</strong> Enable snapping features with <kbd>SNAP</kbd> and <kbd>OSNAP</kbd> for precise placement of components along edges or reference points.</li>
+                            <li><strong>OFFSET and EXTEND:</strong> Apply <kbd>OFFSET</kbd> and <kbd>EXTEND</kbd> to define boundaries and extend edges, ensuring all modules fit cohesively.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @* Advanced Modifications *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" >
+                        Advanced Modifications
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#commandsAccordion">
+                    <div class="accordion-body" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Dynamic Blocks:</strong> Implement <kbd>Dynamic Blocks</kbd> with stretch and rotate actions for flexible modifications on modular components.</li>
+                            <li><strong>Parametric Design:</strong> Employ AutoCAD’s parametric capabilities for belt interlocking, allowing precise alignment for left, mid, right edges, and accessories.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    // If you need to customize the InputGroupTitle component further, you can do so here.
+    // Ensure that the InputGroupTitle component accepts a FontSize parameter and applies it accordingly.
+}

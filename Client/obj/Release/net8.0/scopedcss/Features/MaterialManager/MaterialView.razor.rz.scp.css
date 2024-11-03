@@ -1,0 +1,68 @@
+/* General Table Styling */
+.table-responsive[b-bmuoxh7ujc] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.table[b-bmuoxh7ujc] {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+    .table th[b-bmuoxh7ujc], .table td[b-bmuoxh7ujc] {
+        padding: 12px;
+        vertical-align: middle;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+/* Responsive Font and Padding Adjustments */
+@media (max-width: 768px) {
+    .table[b-bmuoxh7ujc] {
+        font-size: 0.9rem;
+    }
+
+        .table th[b-bmuoxh7ujc], .table td[b-bmuoxh7ujc] {
+            padding: 8px;
+        }
+}
+
+@media (max-width: 576px) {
+    .table[b-bmuoxh7ujc] {
+        font-size: 0.8rem;
+    }
+
+        .table th[b-bmuoxh7ujc], .table td[b-bmuoxh7ujc] {
+            padding: 6px;
+        }
+}
+
+/* Stacked View for Very Small Screens */
+@media (max-width: 400px) {
+    .table th[b-bmuoxh7ujc], .table td[b-bmuoxh7ujc] {
+        display: block;
+        width: 100%;
+        padding: 6px;
+        text-align: left;
+    }
+
+        .table th[b-bmuoxh7ujc]::before {
+            content: attr(data-label);
+            font-weight: bold;
+            float: left;
+            margin-right: 8px;
+        }
+
+    .table tr[b-bmuoxh7ujc] {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table th[b-bmuoxh7ujc], .table td[b-bmuoxh7ujc] {
+        text-align: left;
+    }
+}

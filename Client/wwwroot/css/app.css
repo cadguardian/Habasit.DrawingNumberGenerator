@@ -1,8 +1,5 @@
 /* Global Reset and Typography */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px; /* Base font size for better readability */
     overflow-x: hidden;
@@ -171,5 +168,47 @@ code {
 
     100% {
         transform: translateX(-50%);
+    }
+}
+
+/* Ensures that on smaller screens, images and content stack properly */
+@media (max-width: 767.98px) {
+    .library-thumbnail {
+        max-height: 120px;
+    }
+}
+/* Ensure images do not overflow on smaller screens */
+/*@media (max-width: 767.98px) {
+        .library-thumbnail {
+            width: 40px;
+            height: 40px;
+        }
+    }*/
+
+/* Ensure images do not overflow on smaller screens */
+/*@media (max-width: 767.98px) {
+        .library-thumbnail {
+            width: 40px;
+            height: 40px;
+        }
+    }*/
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 767.98px) {
+    .card-header, .card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+        .card-header button.btn-link {
+            margin-top: 0.5rem;
+        }
+}
+
+@media (min-width: 768px) {
+    /* Ensure proper layout on larger screens */
+    .card-header, .card-footer {
+        flex-direction: row;
+        align-items: center;
     }
 }

@@ -1,0 +1,53 @@
+﻿@page "/accessories"
+@using Microsoft.AspNetCore.Components
+
+<div class="container-fluid my-4 no-print">
+    <div class="card p-4 shadow">
+        <span class="me-2"><i class="fa-solid fa-toolbox"></i></span> <!-- Accessories Icon -->
+
+        <InputGroupTitle Title="Accessories"
+                         Subtitle="Customizable Options"
+                         Description="These options provide added functionality and flexibility." />
+
+        <!-- Button to open modal -->
+        <div class="text-center mb-4">
+            <button class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#accessoriesModal">Open Accessories</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Accessories Form -->
+<div class="modal fade" id="accessoriesModal" tabindex="-1" aria-labelledby="accessoriesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="accessoriesModalLabel">Accessories</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-secondary">Choose from a range of accessories to customize the belt for specific requirements. </div>
+
+                <!-- Accessories Form -->
+                <form class="row g-3">
+                    <!-- Select Belt Accessories -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <SelectBeltAccessories />
+                    </div>
+
+                    <!-- Select Friction/Anti-Friction -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <SelectFrictionAntiFriction />
+                    </div>
+
+                    <!-- Select PL Lane DV -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <SelectPLLaneDV />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

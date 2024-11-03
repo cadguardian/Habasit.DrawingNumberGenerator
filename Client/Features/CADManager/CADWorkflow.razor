@@ -1,0 +1,174 @@
+﻿@* Minimal Step-by-Step Assembly Workflow Component *@
+<div class="container-fluid my-3 no-print">
+    <div class="card p-3 shadow-sm">
+        <div class="d-flex align-items-center text-secondary mb-3" style="font-size: 1em;">
+            <i class="fa-solid fa-drafting-compass me-2" aria-hidden="true"></i>
+            <span class="fw-bold">CAD Drafter</span>
+        </div>
+
+        <InputGroupTitle 
+            Title="Step-by-Step Assembly Workflow"
+            Subtitle="Guided Process for Efficient Belt Assembly"
+            Description="Follow these steps to navigate the assembly process seamlessly. Each step is designed to ensure accurate configurations, proper material selections, and alignment techniques for optimal results in creating modular belt systems." 
+             />
+
+        <!-- Collapsible Assembly Workflow Sections -->
+        <div class="accordion" id="assemblyWorkflowAccordion">
+            @* Workflow Badges *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingBadges">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBadges" aria-expanded="false" aria-controls="collapseBadges" >
+                        Supported Tools
+                    </button>
+                </h2>
+                <div id="collapseBadges" class="accordion-collapse collapse" aria-labelledby="headingBadges" data-bs-parent="#assemblyWorkflowAccordion">
+                    <div class="accordion-body text-center" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <span class="badge text-bg-secondary me-1">AutoCAD LT</span>
+                        <span class="badge text-bg-warning me-1">SolidWorks</span>
+                        <span class="badge text-bg-danger me-1">PTC Creo</span>
+                        <span class="badge text-bg-secondary me-1">Windchill</span>
+                        <span class="badge text-bg-success">DraftSite</span>
+                    </div>
+                </div>
+            </div>
+
+            @* Step 1: Getting Started *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+                        1. Getting Started
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#assemblyWorkflowAccordion">
+                    <div class="accordion-body" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Understand Material Requirements:</strong> Review materials list and drawing parameters to get specifications like module types (edge, mid, roller, griptop), link counts, and dimensions.</li>
+                            <li><strong>Identify Needed Blocks:</strong> Create a list of standard AutoCAD blocks for each belt type, including edge modules, mid modules, and accessories.</li>
+                            <li>
+                                <strong>Block Categories:</strong> Define blocks for:
+                                <ul>
+                                    <li><strong>Edge Modules:</strong> Separate blocks for left and right edges.</li>
+                                    <li><strong>Mid Modules:</strong> Blocks with various link counts.</li>
+                                    <li><strong>Accessories:</strong> Blocks for rollers, grip tops, and flights.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @* Step 2: Setting Up Blocks and Origins *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" >
+                        2. Setting Up Blocks and Origins
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#assemblyWorkflowAccordion">
+                    <div class="accordion-body" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Define Strategic Origins:</strong> Set insertion points for each block to simplify alignment.</li>
+                            <li><strong>Add Constraints:</strong> Use constraints to ensure proper alignment and interlocking.</li>
+                            <li><strong>Universal Naming Convention:</strong> Use systematic block names (e.g., <code>M1220_Edge_L</code>, <code>M1220_Mid_6Links</code>) for easy searching and organization.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @* Step 3: AutoCAD Command Workflow *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" >
+                        3. AutoCAD Command Workflow
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#assemblyWorkflowAccordion">
+                    <div class="accordion-body" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Insert and Align Modules:</strong> Use <code>INSERT</code> to place blocks and <code>ALIGN</code> to adjust position.</li>
+                            <li><strong>Pattern and Array:</strong> Use <code>ARRAY</code> to repeat mid modules along the belt’s length.</li>
+                            <li><strong>Interlocking Modules:</strong> Snap and apply constraints to ensure interlocking of modules.</li>
+                            <li><strong>Adjust for Cuts:</strong> Use <code>TRIM</code> to adjust modules that need trimming.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @* Step 4: Configuring Belt Dimensions and Part Counts *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" >
+                        4. Belt Assembly
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#assemblyWorkflowAccordion">
+                    <div class="accordion-body" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Equation-Based Configuration:</strong> Use formulas to automatically adjust belt dimensions.</li>
+                            <li><strong>Custom Properties:</strong> Apply properties for modifications like part numbers, material, etc.</li>
+                            <li><strong>Cut List Generation:</strong> Develop a table in AutoCAD for noting module counts and specific cuts.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @* Step 5: Finalizing the Model and 2D Drawing *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" >
+                        5. Finalizing the Model and 2D Drawing
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#assemblyWorkflowAccordion">
+                    <div class="accordion-body" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Create Standard Views:</strong> Set up top and side views with dimensions and callouts.</li>
+                            <li><strong>Add Annotations:</strong> Label critical points, including interlocking and cut areas.</li>
+                            <li><strong>Export:</strong> Use standard templates for consistent layout and fields like project name and dimensions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @* Step 6: Quality Control and Review *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" >
+                        6. Quality Control and Review
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#assemblyWorkflowAccordion">
+                    <div class="accordion-body" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Check Interlocks:</strong> Ensure each module interlocks with its neighboring module.</li>
+                            <li><strong>Verify Dimensions:</strong> Confirm all dimensions match specifications.</li>
+                            <li><strong>Save as Template:</strong> Save as a template for future use to streamline workflow.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @* Step 7: Universal Methodology for Other Belts *@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven" >
+                        7. Universal Methodology for Other Belts
+                    </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#assemblyWorkflowAccordion">
+                    <div class="accordion-body" style="padding: 0.5em 1em; font-size: 0.85em;">
+                        <ul class="list-unstyled mb-0">
+                            <li><strong>Adjust for Different Belt Series:</strong> Apply the same methodology with adjustments for other series (e.g., M1230, M1280).</li>
+                            <li><strong>Framework Consistency:</strong> Use standardized naming and alignment across belt types.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    // If you need to customize the InputGroupTitle component further, you can do so here.
+    // Ensure that the InputGroupTitle component accepts a FontSize parameter and applies it accordingly.
+}

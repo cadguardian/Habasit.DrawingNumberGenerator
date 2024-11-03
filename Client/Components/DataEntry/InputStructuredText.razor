@@ -1,0 +1,14 @@
+﻿@inherits BaseInputComponent
+
+<div class="input-group mb-3">
+    <div class="form-floating">
+        <InputTextArea id="structuredText" aria-required="true"
+                       aria-describedby="structuredTextHelp"
+                       @bind-Value="DrawingRequest!.StructuredText"
+                       class="form-control form-control-sm"
+                       style="height: 150px;"
+                       onfocus="selectAllText(this)"
+                       @onblur="HandleInputAsync" />
+        <label for="structuredText">Task from CSR</label>
+    </div>
+</div>

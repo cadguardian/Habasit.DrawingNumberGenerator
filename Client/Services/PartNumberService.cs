@@ -1,19 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Client.Data;
+using Client.Services.Interfaces;
 using DNG.Library.Data;
-using System.Net.Http;
-using System.Text.Json;
-using System.Net.Http.Json;
-using DNG.Library.Models;
-using static Client.Services.PartNumberService;
+using System.Text;
 
 namespace Client.Services
 {
@@ -52,6 +39,7 @@ namespace Client.Services
 
                 // Read the CSV header
                 var header = await reader.ReadLineAsync();
+                _logger.LogInformation("CSV Header: {Header}", header);
 
                 while (!reader.EndOfStream)
                 {
@@ -61,7 +49,7 @@ namespace Client.Services
                     // Skip rows containing '}'
                     if (line.Contains("}"))
                     {
-                        _logger.LogWarning($"Skipped a row containing '}}': {line}");
+                        _logger.LogWarning("Skipped a row containing '}': {Line}", line);
                         continue;
                     }
 
@@ -70,7 +58,7 @@ namespace Client.Services
                     // Validate column count to avoid IndexOutOfRangeException
                     if (values.Length < 2)
                     {
-                        _logger.LogWarning($"Skipped a row due to insufficient columns: {line}");
+                        _logger.LogWarning("Skipped a row due to insufficient columns: {Line}", line);
                         continue;
                     }
 
@@ -83,6 +71,8 @@ namespace Client.Services
 
                     _partNumbers.Add(partNumber);
                 }
+
+                _logger.LogInformation("Successfully loaded {_Count} part numbers from CSV.", _partNumbers.Count);
             }
             catch (Exception ex)
             {
@@ -124,49 +114,57 @@ namespace Client.Services
         }
 
         /// <summary>
-        /// Filters part numbers based on user input without relying on wildcards or commas.
-        /// Users can input multiple search terms separated by spaces, and only parts containing all terms
-        /// in any order within the Part or Description fields are returned.
+        /// Filters part numbers based on user input using standard LINQ queries.
+        /// Supports two modes:
+        /// - Free Search Mode: Searches for parts containing the universal search string in either the Part or Description.
+        /// - Drawing Request Filter Mode: Applies specific filters based on BeltSeries, Color, and Material.
         /// </summary>
-        /// <param name="drawingRequest">The drawing request containing additional filters.</param>
-        /// <param name="universalSearch">The universal search string with multiple search terms separated by spaces.</param>
+        /// <param name="drawingRequest">The drawing request containing specific filter criteria.</param>
+        /// <param name="universalSearch">The universal search string for free text searching.</param>
+        /// <param name="isFreeSearchMode">Determines whether to apply free search filtering or drawing request filters.</param>
         /// <returns>An enumerable of filtered part numbers and their descriptions.</returns>
         public IEnumerable<KeyValuePair<string, string>> FilterPartNumbers(IDrawingRequest drawingRequest, string universalSearch = "", bool isFreeSearchMode = false)
         {
             IEnumerable<PartNumber> query = _partNumbers;
 
-            if (!string.IsNullOrWhiteSpace(universalSearch))
+            if (isFreeSearchMode && !string.IsNullOrWhiteSpace(universalSearch))
             {
-                var terms = universalSearch.Split(' ', StringSplitOptions.RemoveEmptyEntries)
-                                           .Select(term => term.Trim())
-                                           .Where(term => !string.IsNullOrEmpty(term))
-                                           .ToList();
+                string searchUpper = universalSearch.ToUpperInvariant();
 
-                if (terms.Any())
+                // Split the universal search into terms separated by spaces
+                var searchTerms = searchUpper.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+                // Apply each search term as a filter (all terms must be present)
+                foreach (var term in searchTerms)
                 {
-                    foreach (var term in terms)
-                    {
-                        query = query.Where(p => p.Part.Contains(term, StringComparison.OrdinalIgnoreCase) ||
-                                                 p.Description.Contains(term, StringComparison.OrdinalIgnoreCase));
-                    }
+                    query = query.Where(p => p.Part.ToUpperInvariant().Contains(term) ||
+                                             p.Description.ToUpperInvariant().Contains(term));
                 }
             }
 
-            if (!isFreeSearchMode) // Skip these filters if Free Search Mode is enabled
+            if (!isFreeSearchMode && drawingRequest != null)
             {
+                // Apply Drawing Request Filters
+
+                // Filter by Belt Series if specified
                 if (!string.IsNullOrWhiteSpace(drawingRequest.BeltSeries))
                 {
-                    query = query.Where(p => p.Description.Contains(drawingRequest.BeltSeries, StringComparison.OrdinalIgnoreCase));
+                    string beltSeriesUpper = drawingRequest.BeltSeries.ToUpperInvariant();
+                    query = query.Where(p => p.Description.ToUpperInvariant().Contains(beltSeriesUpper));
                 }
 
+                // Filter by Color if specified
                 if (!string.IsNullOrWhiteSpace(drawingRequest.Color))
                 {
-                    query = query.Where(p => p.Description.Contains(drawingRequest.Color, StringComparison.OrdinalIgnoreCase));
+                    string colorUpper = drawingRequest.Color.ToUpperInvariant();
+                    query = query.Where(p => p.Description.ToUpperInvariant().Contains(colorUpper));
                 }
 
+                // Filter by Material if specified
                 if (!string.IsNullOrWhiteSpace(drawingRequest.Material))
                 {
-                    query = query.Where(p => p.Description.Contains(drawingRequest.Material, StringComparison.OrdinalIgnoreCase));
+                    string materialUpper = drawingRequest.Material.ToUpperInvariant();
+                    query = query.Where(p => p.Description.ToUpperInvariant().Contains(materialUpper));
                 }
             }
 

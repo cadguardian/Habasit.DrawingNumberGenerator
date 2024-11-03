@@ -1,0 +1,17 @@
+﻿@inherits BaseInputComponent
+
+<div class="input-group mb-3">
+    <div class="form-floating">
+
+        <InputText id="purchaseOrderNumber" aria-required="true"
+               aria-describedby="purchaseOrderNumberHelp"
+                   @bind-Value="DrawingRequest!.PurchaseOrderNumber" autofocus
+               class="form-control form-control-sm"
+               onfocus="selectAllText(this)" />
+
+        <label for="purchaseOrderNumber">Purchase Order #</label>
+    </div>
+    <span class="input-group-text bg-dark text-light" data-bs-toggle="tooltip3">
+        @(string.IsNullOrEmpty(DrawingRequest.PurchaseOrderNumber) ? "❌" : "✅")
+    </span>
+</div>

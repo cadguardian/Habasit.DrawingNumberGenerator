@@ -18,11 +18,10 @@
 
 // Client-Specific Components
 @using Client
+@using Client.Services.Interfaces
 @using Client.Layout
 @using Client.Components
-@using Client.Components.Search
-@using Client.Components.BeltConfigurator
-@using Client.Components.BeltConfigurator.UserInputs
+@using Client.Components.DataEntry
 
 // Data and Models
 @using DNG.Library.Data
@@ -30,3 +29,11 @@
 
 // Services
 @using Client.Services
+
+// Features
+@using Client.Features.CADManager
+@using Client.Features.DWGNumber
+@using Client.Features.DWGRequest
+@using Client.Features.FeatureManager
+@using Client.Features.MaterialManager
+@using Client.Features.OrderManager

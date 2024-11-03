@@ -28,6 +28,15 @@
         <div class="loading-progress-text"></div>
     </div>
 
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
+        <div id="clipboardToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div id="toastBody" class="toast-body"></div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
     <!--<div id="blazor-error-ui">
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
@@ -64,5 +73,14 @@
             link.download = fileName;
             link.click();
         };</script>
+
+    <script>
+        function showToast(drawingNumber) {
+            document.getElementById("toastBody").innerText = `${drawingNumber} copied successfully!`;
+            var toastElement = document.getElementById("clipboardToast");
+            var toast = new bootstrap.Toast(toastElement);
+            toast.show();
+        }
+    </script>
 </body>
 </html>

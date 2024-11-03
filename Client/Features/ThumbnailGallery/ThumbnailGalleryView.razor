@@ -1,0 +1,124 @@
+@page "/image-gallery"
+@inject HttpClient Http
+
+<div class="container-fluid my-4 no-print">
+    <div class="card p-4 shadow">
+        <span class="me-2"><i class="fa-solid fa-image"></i></span>
+        <InputGroupTitle Title="Belt Image Gallery"
+                         Subtitle="Visual Reference for CAD Drafters"
+                         Description="Select a belt image to help understand the product for CAD drawing." />
+
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col">
+                    <input class="form-control" @bind="searchTerm" placeholder="Search images..." />
+                </div>
+            </div>
+
+            <!-- Conditionally render either the gallery view or the full image view -->
+            @if (selectedImage == null)
+            {
+                <!-- Gallery Grid View -->
+                <div class="gallery-container">
+                    <div class="row">
+                        @foreach (var image in FilteredImages)
+                        {
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+                                <div class="card h-100 image-card" @onclick="() => ShowImage(image)">
+                                    <img src="images/belts/@image" class="card-img-top" alt="@DisplayImageName(image)" />
+                                    <div class="card-body p-1">
+                                        <p class="card-text text-center small">@DisplayImageName(image)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <!-- Full Image View -->
+                <div class="text-center">
+                    <img src="images/belts/@selectedImage" class="img-fluid" alt="@DisplayImageName(selectedImage)" style="max-height: 70vh;" />
+                    <p class="text-muted mt-2">@DisplayImageName(selectedImage)</p>
+                    <button class="btn btn-outline-secondary mt-3" @onclick="ClearSelectedImage">Back to Gallery</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<string> imageFiles = new();
+    private string searchTerm = "";
+    private string? selectedImage = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        imageFiles = await Http.GetFromJsonAsync<List<string>>("images/belts/images.json");
+        Console.WriteLine($"{imageFiles.Count} belt images found.");
+    }
+
+    private IEnumerable<string> FilteredImages => imageFiles
+        .Where(img => img.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
+
+    private void ShowImage(string image)
+    {
+        selectedImage = image;
+    }
+
+    private void ClearSelectedImage()
+    {
+        selectedImage = null;
+    }
+
+    private string DisplayImageName(string imageName)
+    {
+        string name = imageName;
+
+        if (name.StartsWith("ModularBelt_"))
+        {
+            name = name.Substring("ModularBelt_".Length);
+        }
+
+        name = System.IO.Path.GetFileNameWithoutExtension(name);
+        name = name.Replace("_", " ");
+
+        return name;
+    }
+}
+
+<style>
+    /* Set maximum height for the gallery container and make it scrollable */
+    .gallery-container {
+        max-height: 40vh;
+        overflow-y: auto;
+        padding-right: 15px;
+    }
+
+    /* Ensure images fit within their containers */
+    .card-img-top {
+        object-fit: contain;
+        max-height: 150px;
+        width: 100%;
+    }
+
+    /* Set pointer cursor for clickable image cards */
+    .image-card {
+        cursor: pointer;
+    }
+
+    /* Customize the appearance of the scrollbar */
+    .gallery-container::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .gallery-container::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 4px;
+    }
+
+    .gallery-container::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+    }
+</style>

@@ -3,6 +3,25 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DNG.Library.Models
 {
+    public static class DrawingNumberViewModel
+    {
+        public static bool IncludeBeltSeries { get; set; } = true;
+        public static bool IncludeBeltType { get; set; } = true;
+        public static bool IncludeColor { get; set; } = true;
+        public static bool IncludeMaterial { get; set; } = true;
+        public static bool IncludeAdderMaterial { get; set; } = true;
+        public static bool IncludeRodMaterial { get; set; } = true;
+        public static bool IncludeBeltWidth { get; set; } = true;
+        public static bool IncludeQtyRollersAcrossWidth { get; set; } = true;
+        public static bool IncludeFRGCenters { get; set; } = true;
+        public static bool IncludeBeltAccessories { get; set; } = true;
+        public static bool IncludeFrictionAntiStatic { get; set; } = true;
+        public static bool IncludeFlightsRollersGrips { get; set; } = true;
+        public static bool IncludeSidePLLaneDV { get; set; } = true;
+        public static bool IncludeUniqueIdentification { get; set; } = true;
+        public static bool IncludeIndentCode { get; set; } = true;
+    }
+
     public class DrawingNumber : IDrawingNumber
     {
         [Key]
@@ -62,21 +81,6 @@ namespace DNG.Library.Models
         // Toggle switches for each field in the query string
         public bool IncludeBeltType { get; set; } = true;
 
-        public bool IncludeBeltSeries { get; set; } = true;
-        public bool IncludeColor { get; set; } = true;
-        public bool IncludeMaterial { get; set; } = true;
-        public bool IncludeAdderMaterial { get; set; } = true;
-        public bool IncludeRodMaterial { get; set; } = true;
-        public bool IncludeBeltWidth { get; set; } = true;
-        public bool IncludeQtyRollersAcrossWidth { get; set; } = true;
-        public bool IncludeFRGCenters { get; set; } = true;
-        public bool IncludeBeltAccessories { get; set; } = true;
-        public bool IncludeFrictionAntiStatic { get; set; } = true;
-        public bool IncludeFlightsRollersGrips { get; set; } = true;
-        public bool IncludeSidePLLaneDV { get; set; } = true;
-        public bool IncludeUniqueIdentification { get; set; } = true;
-        public bool IncludeIndentCode { get; set; } = true;
-
         public static DrawingNumber Create()
         {
             return new DrawingNumber();
@@ -89,20 +93,20 @@ namespace DNG.Library.Models
             var values = new List<string>();
 
             if (IncludeBeltType) values.Add(BeltTypeCode);
-            if (IncludeBeltSeries) values.Add(BeltSeriesCode);
-            if (IncludeColor) values.Add(ColorCode);
-            if (IncludeMaterial) values.Add(MaterialCode);
-            if (IncludeAdderMaterial) values.Add(AdderMaterialCode);
-            if (IncludeRodMaterial) values.Add(RodMaterialCode);
-            if (IncludeBeltWidth) values.Add(BeltWidthCode);
-            if (IncludeQtyRollersAcrossWidth) values.Add(QtyRollersAcrossWidth);
-            if (IncludeFRGCenters) values.Add(FRGCenters);
-            if (IncludeBeltAccessories) values.Add(BeltAccessoriesCode);
-            if (IncludeFrictionAntiStatic) values.Add(FrictionAntiStaticCode);
-            if (IncludeFlightsRollersGrips) values.Add(FlightsRollersGripsCode);
-            if (IncludeSidePLLaneDV) values.Add(SidePLLaneDVCode);
-            if (IncludeUniqueIdentification) values.Add(UniqueIdentification);
-            if (IncludeIndentCode) values.Add(IndentCode);
+            if (DrawingNumberViewModel.IncludeBeltSeries) values.Add(BeltSeriesCode);
+            if (DrawingNumberViewModel.IncludeColor) values.Add(ColorCode);
+            if (DrawingNumberViewModel.IncludeMaterial) values.Add(MaterialCode);
+            if (DrawingNumberViewModel.IncludeAdderMaterial) values.Add(AdderMaterialCode);
+            if (DrawingNumberViewModel.IncludeRodMaterial) values.Add(RodMaterialCode);
+            if (DrawingNumberViewModel.IncludeBeltWidth) values.Add(BeltWidthCode);
+            if (DrawingNumberViewModel.IncludeQtyRollersAcrossWidth) values.Add(QtyRollersAcrossWidth);
+            if (DrawingNumberViewModel.IncludeFRGCenters) values.Add(FRGCenters);
+            if (DrawingNumberViewModel.IncludeBeltAccessories) values.Add(BeltAccessoriesCode);
+            if (DrawingNumberViewModel.IncludeFrictionAntiStatic) values.Add(FrictionAntiStaticCode);
+            if (DrawingNumberViewModel.IncludeFlightsRollersGrips) values.Add(FlightsRollersGripsCode);
+            if (DrawingNumberViewModel.IncludeSidePLLaneDV) values.Add(SidePLLaneDVCode);
+            if (DrawingNumberViewModel.IncludeUniqueIdentification) values.Add(UniqueIdentification);
+            if (DrawingNumberViewModel.IncludeIndentCode) values.Add(IndentCode);
 
             QueryString = string.Join("*", values.Select(value => value.Replace("-", "")));
             return QueryString;
@@ -114,27 +118,6 @@ namespace DNG.Library.Models
             DrawingCode = string.Join(string.Empty, GetPropertyValues());
 
             return DrawingCode;
-        }
-
-        public string GetDrawingNumberLog()
-        {
-            _drawingCode =
-                $"Belt Type: {BeltTypeCode}\n" +
-                $"Belt Series: {BeltSeriesCode}\n" +
-                $"Color: {ColorCode}\n" +
-                $"Material: {MaterialCode}\n" +
-                $"Adder Material: {AdderMaterialCode}\n" +
-                $"Rod Material: {RodMaterialCode}\n" +
-                $"Belt Width: {BeltWidthCode}\n" +
-                $"Flights/Rollers/Grip: {FlightsRollersGripsCode}\n" +
-                $"Qty. Rollers Across Width: {QtyRollersAcrossWidth}\n" +
-                $"F/R/G Centers (inches): {FRGCenters}\n" +
-                $"Belt Accessories: {BeltAccessoriesCode}\n" +
-                $"Friction/Anti-Static: {FrictionAntiStaticCode}\n" +
-                $"Side-PL/Lane-DV: {SidePLLaneDVCode}\n" +
-                $"Unique Identification: {UniqueIdentification}\n" +
-                $"Indent Code: {IndentCode}";
-            return _drawingCode;
         }
 
         // New method to return property values in specified order
@@ -158,6 +141,27 @@ namespace DNG.Library.Models
                 UniqueIdentification,
                 IndentCode
             };
+        }
+
+        public string GetDrawingNumberLog()
+        {
+            _drawingCode =
+                $"Belt Type: {BeltTypeCode}\n" +
+                $"Belt Series: {BeltSeriesCode}\n" +
+                $"Color: {ColorCode}\n" +
+                $"Material: {MaterialCode}\n" +
+                $"Adder Material: {AdderMaterialCode}\n" +
+                $"Rod Material: {RodMaterialCode}\n" +
+                $"Belt Width: {BeltWidthCode}\n" +
+                $"Flights/Rollers/Grip: {FlightsRollersGripsCode}\n" +
+                $"Qty. Rollers Across Width: {QtyRollersAcrossWidth}\n" +
+                $"F/R/G Centers (inches): {FRGCenters}\n" +
+                $"Belt Accessories: {BeltAccessoriesCode}\n" +
+                $"Friction/Anti-Static: {FrictionAntiStaticCode}\n" +
+                $"Side-PL/Lane-DV: {SidePLLaneDVCode}\n" +
+                $"Unique Identification: {UniqueIdentification}\n" +
+                $"Indent Code: {IndentCode}";
+            return _drawingCode;
         }
     }
 }
