@@ -77,82 +77,83 @@
                     <tbody>
                         <tr>
                             <td><strong>Type</strong></td>
-                            <td>@DrawingRequest.BeltType</td>
-                            <td>@DrawingNumber.BeltTypeCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.BeltType) ? "❌" : DrawingRequest.BeltType)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.BeltTypeCode) ? "❌" : DrawingNumber.BeltTypeCode)</td>
                         </tr>
                         <tr>
                             <td><strong>Series</strong></td>
-                            <td>@DrawingRequest.BeltSeries</td>
-                            <td>@DrawingNumber.BeltSeriesCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.BeltSeries) ? "❌" : DrawingRequest.BeltSeries)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.BeltSeriesCode) ? "❌" : DrawingNumber.BeltSeriesCode)</td>
                         </tr>
                         <tr>
                             <td><strong>Color</strong></td>
-                            <td>@DrawingRequest.Color</td>
-                            <td>@DrawingNumber.ColorCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.Color) ? "❌" : DrawingRequest.Color)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.ColorCode) ? "❌" : DrawingNumber.ColorCode)</td>
                         </tr>
                         <tr>
                             <td><strong>Material</strong></td>
-                            <td>@DrawingRequest.Material</td>
-                            <td>@DrawingNumber.MaterialCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.Material) ? "❌" : DrawingRequest.Material)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.MaterialCode) ? "❌" : DrawingNumber.MaterialCode)</td>
                         </tr>
                         <tr>
                             <td><strong>Adder Material</strong></td>
-                            <td>@DrawingRequest.AdderMaterial</td>
-                            <td>@DrawingNumber.AdderMaterialCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.AdderMaterial) ? "❌" : DrawingRequest.AdderMaterial)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.AdderMaterialCode) ? "❌" : DrawingNumber.AdderMaterialCode)</td>
                         </tr>
                         <tr>
                             <td><strong>Rod</strong></td>
-                            <td>@DrawingRequest.RodMaterial</td>
-                            <td>@DrawingNumber.RodMaterialCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.RodMaterial) ? "❌" : DrawingRequest.RodMaterial)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.RodMaterialCode) ? "❌" : DrawingNumber.RodMaterialCode)</td>
                         </tr>
                         <tr>
                             <td><strong>Belt Width</strong></td>
                             <td>@DrawingRequest.BeltWidth</td>
-                            <td>@DrawingNumber.BeltWidthCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.BeltWidthCode) ? "❌" : DrawingNumber.BeltWidthCode)</td>
                         </tr>
                         <tr>
                             <td><strong>Flights Rollers Grip</strong></td>
-                            <td>@DrawingRequest.FlightsRollersGrip</td>
-                            <td>@DrawingNumber.FlightsRollersGripsCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.FlightsRollersGrip) ? "❌" : DrawingRequest.FlightsRollersGrip)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.FlightsRollersGripsCode) ? "❌" : DrawingNumber.FlightsRollersGripsCode)</td>
                         </tr>
                         <tr>
                             <td><strong>Qty Rollers Across Width</strong></td>
                             <td>@DrawingRequest.QtyRollersAcrossWidth</td>
-                            <td>@DrawingNumber.QtyRollersAcrossWidth</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.QtyRollersAcrossWidth) ? "❌" : DrawingNumber.QtyRollersAcrossWidth)</td>
                         </tr>
                         <tr>
                             <td><strong>FRG Centers</strong></td>
                             <td>@DrawingRequest.FRGCenters</td>
-                            <td>@DrawingNumber.FRGCenters</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.FRGCenters) ? "❌" : DrawingNumber.FRGCenters)</td>
                         </tr>
                         <tr>
                             <td><strong>Belt Accessories</strong></td>
-                            <td>@DrawingRequest.BeltAccessories</td>
-                            <td>@DrawingNumber.BeltAccessoriesCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.BeltAccessories) ? "❌" : DrawingRequest.BeltAccessories)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.BeltAccessoriesCode) ? "❌" : DrawingNumber.BeltAccessoriesCode)</td>
                         </tr>
                         <tr>
                             <td><strong>Friction/Anti Static</strong></td>
-                            <td>@DrawingRequest.FrictionAntiStatic</td>
-                            <td>@DrawingNumber.FrictionAntiStaticCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.FrictionAntiStatic) ? "❌" : DrawingRequest.FrictionAntiStatic)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.FrictionAntiStaticCode) ? "❌" : DrawingNumber.FrictionAntiStaticCode)</td>
                         </tr>
                         <tr>
                             <td><strong>Side-PL/Lane-DV</strong></td>
-                            <td>@DrawingRequest.SidePLLaneDV</td>
-                            <td>@DrawingNumber.SidePLLaneDVCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.SidePLLaneDV) ? "❌" : DrawingRequest.SidePLLaneDV)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.SidePLLaneDVCode) ? "❌" : DrawingNumber.SidePLLaneDVCode)</td>
                         </tr>
                         <tr>
                             <td><strong>Unique Identification</strong></td>
-                            <td>@DrawingRequest.UniqueIdentification</td>
-                            <td>@DrawingNumber.UniqueIdentification</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.UniqueIdentification) ? "❌" : DrawingRequest.UniqueIdentification)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.UniqueIdentification) ? "❌" : DrawingNumber.UniqueIdentification)</td>
                         </tr>
                         <tr>
                             <td><strong>Indent Code</strong></td>
-                            <td>@DrawingRequest.IndentCode</td>
-                            <td>@DrawingNumber.IndentCode</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingRequest.IndentCode) ? "❌" : DrawingRequest.IndentCode)</td>
+                            <td>@(string.IsNullOrWhiteSpace(DrawingNumber.IndentCode) ? "❌" : DrawingNumber.IndentCode)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
 
             <div class="d-flex justify-content-center mt-4">
                 <div class="text-center no-print">
