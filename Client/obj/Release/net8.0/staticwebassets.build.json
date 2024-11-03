@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+VmjzhJzpMy+aqfvlLSUn0B2jX7+MSeT5IQHpWSL4wA=",
+  "Hash": "rOLpgrDQ3yj52OVwmaqj/YxiTJv5ofN2TNnZc5DE+t0=",
   "Source": "Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "ba30tvnzpq",
-      "Integrity": "o1lfyQyiEH9tOdeV6SeP+tmzTfbwhkGHTcjB8Y8sFsE=",
+      "Fingerprint": "21xtinxlbh",
+      "Integrity": "dqqSIayvaDlx4mmeB1AzoibMwRoY2CdudOfudiatnKg=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Release\\net8.0\\blazor.boot.json"
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "6l2fmkogas",
-      "Integrity": "2uCKB4PxqLMFpCFQrSLG7dby2QFNbUWRLKaaQrcZ31c=",
+      "Fingerprint": "bpa6cjo43e",
+      "Integrity": "r7MPQg64TxtV4kQ7hGTWso1yKehbPzPfkxvrpipvgKg=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Release\\net8.0\\Client.pdb"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "fbbxeyjpfg",
-      "Integrity": "i705sOIWQR5ihhcAxodqry1uA8CcfLOrvpm9MOLcnf8=",
+      "Fingerprint": "2riwehwyin",
+      "Integrity": "Eqf48BViGtbRWVexSkv1seuDYIrsZJJFkboFRQs2T7I=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\Client.wasm"
@@ -157,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "4p3n457qzn",
-      "Integrity": "eBoXJoLFrkJJdMv84Bfxt32vupZ8As4GMDOCwi47Lx8=",
+      "Fingerprint": "eica9orwsn",
+      "Integrity": "Kuk7VsHUEOT38kTLl1y8ZkUbEwN3etnrzcHQ+8jg5Ns=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\DNG.Library\\bin\\Release\\net8.0\\DNG.Library.pdb"
@@ -178,8 +178,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "0do8nyc0v9",
-      "Integrity": "rNOKTz7riN/IgZ+tjzCNyVaZI8o5PPlesEVZDzGD63U=",
+      "Fingerprint": "d0vhwgoi93",
+      "Integrity": "w+i1NFxsEb64Mgj8Kqg375Ld3xVRGI+Vk2p7xQftgLQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\DNG.Library.wasm"
@@ -4616,7 +4616,7 @@
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\ZstdSharp.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\0kih5qk3hm-ba30tvnzpq.gz",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\0kih5qk3hm-21xtinxlbh.gz",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\",
@@ -4630,8 +4630,8 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "3qjrqs451n",
-      "Integrity": "m2ZYIIjF9xlcGAecqeryTssPJ7cDrKDek5UzQRqLLoM=",
+      "Fingerprint": "5enif1srp0",
+      "Integrity": "EyZIEMSJgM39WQPk0pfBU7jaABPPJtGOLsn0T3jRCl4=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -5204,7 +5204,7 @@
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Collections.Specialized.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\4puv5mx2uv-0do8nyc0v9.gz",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\4puv5mx2uv-d0vhwgoi93.gz",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\",
@@ -5218,8 +5218,8 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\DNG.Library.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "paehg1txid",
-      "Integrity": "oSYSHlS36xEV7LtGyYx4l26xxk2TMWaCmHBSXDvR47k=",
+      "Fingerprint": "w2aghonhje",
+      "Integrity": "+KcZkCLPd5Oxa0vQbqfrMI/bv+ErJpN4EdigXPwvE2I=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\DNG.Library.wasm"
@@ -7178,7 +7178,7 @@
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Linq.Expressions.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\kb90l4x90i-fbbxeyjpfg.gz",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\kb90l4x90i-2riwehwyin.gz",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\",
@@ -7192,8 +7192,8 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\Client.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "3cppsmcagy",
-      "Integrity": "g0CVuXn+859WOVFPrdaatNXiIMxnJQX+dIgVuLYYEec=",
+      "Fingerprint": "6aamwvs2ng",
+      "Integrity": "jhmXliqCUYMqOQYgzEW8vOkqPOIAKKdwJ1kah9ZFfgg=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\Client.wasm"
@@ -7220,7 +7220,7 @@
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Net.NetworkInformation.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\l5358yt2sc-4p3n457qzn.gz",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\l5358yt2sc-eica9orwsn.gz",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\",
@@ -7234,8 +7234,8 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\DNG.Library.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "4vm39hazjl",
-      "Integrity": "gHyRNh+NTKK63gvHIxevJbLEWeDL2NPpFWn89yJY5u0=",
+      "Fingerprint": "m3jomvc22o",
+      "Integrity": "TpcNKwLHOk/9dLtBKa2XEkXPZS05Ovcyo4p0MnZqLiQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\DNG.Library.pdb"
@@ -7535,7 +7535,7 @@
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Private.CoreLib.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\nrce2f7bjz-6l2fmkogas.gz",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\nrce2f7bjz-bpa6cjo43e.gz",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\",
@@ -7549,8 +7549,8 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\Client.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "r6kniv152c",
-      "Integrity": "DbyvJb77Ws2LTGNztIUB7ZfGCkiBecOclU2+MIAaGE0=",
+      "Fingerprint": "8b5n91ah20",
+      "Integrity": "XFgjpJl6H6qAbkHZV5BDWgDSO+qXwkeDIJNWXgsdxYU=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\bin\\Release\\net8.0\\wwwroot\\_framework\\Client.pdb"
@@ -13947,7 +13947,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21019"
+          "Value": "21008"
         },
         {
           "Name": "Content-Type",
@@ -13955,7 +13955,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"o1lfyQyiEH9tOdeV6SeP+tmzTfbwhkGHTcjB8Y8sFsE=\""
+          "Value": "\"dqqSIayvaDlx4mmeB1AzoibMwRoY2CdudOfudiatnKg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 03 Nov 2024 23:02:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-dqqSIayvaDlx4mmeB1AzoibMwRoY2CdudOfudiatnKg="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/blazor.boot.json",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\0kih5qk3hm-21xtinxlbh.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000107434465"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9307"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EyZIEMSJgM39WQPk0pfBU7jaABPPJtGOLsn0T3jRCl4=\""
         },
         {
           "Name": "Last-Modified",
@@ -13964,45 +14003,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-o1lfyQyiEH9tOdeV6SeP+tmzTfbwhkGHTcjB8Y8sFsE="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/blazor.boot.json",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\0kih5qk3hm-ba30tvnzpq.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000107422924"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "9308"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"m2ZYIIjF9xlcGAecqeryTssPJ7cDrKDek5UzQRqLLoM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 01 Nov 2024 20:48:13 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -14018,19 +14018,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"o1lfyQyiEH9tOdeV6SeP+tmzTfbwhkGHTcjB8Y8sFsE=\""
+          "Value": "W/\"dqqSIayvaDlx4mmeB1AzoibMwRoY2CdudOfudiatnKg=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-o1lfyQyiEH9tOdeV6SeP+tmzTfbwhkGHTcjB8Y8sFsE="
+          "Value": "sha256-dqqSIayvaDlx4mmeB1AzoibMwRoY2CdudOfudiatnKg="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\0kih5qk3hm-ba30tvnzpq.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\0kih5qk3hm-21xtinxlbh.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14039,7 +14039,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9308"
+          "Value": "9307"
         },
         {
           "Name": "Content-Type",
@@ -14047,11 +14047,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"m2ZYIIjF9xlcGAecqeryTssPJ7cDrKDek5UzQRqLLoM=\""
+          "Value": "\"EyZIEMSJgM39WQPk0pfBU7jaABPPJtGOLsn0T3jRCl4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 01 Nov 2024 20:48:13 GMT"
+          "Value": "Sun, 03 Nov 2024 22:18:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14069,7 +14069,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-m2ZYIIjF9xlcGAecqeryTssPJ7cDrKDek5UzQRqLLoM="
+          "Value": "sha256-EyZIEMSJgM39WQPk0pfBU7jaABPPJtGOLsn0T3jRCl4="
         }
       ]
     },
@@ -14221,7 +14221,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "143032"
+          "Value": "152232"
         },
         {
           "Name": "Content-Type",
@@ -14229,7 +14229,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2uCKB4PxqLMFpCFQrSLG7dby2QFNbUWRLKaaQrcZ31c=\""
+          "Value": "\"r7MPQg64TxtV4kQ7hGTWso1yKehbPzPfkxvrpipvgKg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 03 Nov 2024 23:02:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-r7MPQg64TxtV4kQ7hGTWso1yKehbPzPfkxvrpipvgKg="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Client.pdb",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\nrce2f7bjz-bpa6cjo43e.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000007802442"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "128164"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XFgjpJl6H6qAbkHZV5BDWgDSO+qXwkeDIJNWXgsdxYU=\""
         },
         {
           "Name": "Last-Modified",
@@ -14238,45 +14277,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-2uCKB4PxqLMFpCFQrSLG7dby2QFNbUWRLKaaQrcZ31c="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/Client.pdb",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\nrce2f7bjz-6l2fmkogas.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000007846768"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "127440"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"DbyvJb77Ws2LTGNztIUB7ZfGCkiBecOclU2+MIAaGE0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 01 Nov 2024 20:48:13 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -14292,19 +14292,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"2uCKB4PxqLMFpCFQrSLG7dby2QFNbUWRLKaaQrcZ31c=\""
+          "Value": "W/\"r7MPQg64TxtV4kQ7hGTWso1yKehbPzPfkxvrpipvgKg=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-2uCKB4PxqLMFpCFQrSLG7dby2QFNbUWRLKaaQrcZ31c="
+          "Value": "sha256-r7MPQg64TxtV4kQ7hGTWso1yKehbPzPfkxvrpipvgKg="
         }
       ]
     },
     {
       "Route": "_framework/Client.pdb.gz",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\nrce2f7bjz-6l2fmkogas.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\nrce2f7bjz-bpa6cjo43e.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14313,7 +14313,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "127440"
+          "Value": "128164"
         },
         {
           "Name": "Content-Type",
@@ -14321,11 +14321,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"DbyvJb77Ws2LTGNztIUB7ZfGCkiBecOclU2+MIAaGE0=\""
+          "Value": "\"XFgjpJl6H6qAbkHZV5BDWgDSO+qXwkeDIJNWXgsdxYU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 01 Nov 2024 20:48:13 GMT"
+          "Value": "Sun, 03 Nov 2024 22:18:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14343,7 +14343,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-DbyvJb77Ws2LTGNztIUB7ZfGCkiBecOclU2+MIAaGE0="
+          "Value": "sha256-XFgjpJl6H6qAbkHZV5BDWgDSO+qXwkeDIJNWXgsdxYU="
         }
       ]
     },
@@ -14358,7 +14358,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "263957"
+          "Value": "277781"
         },
         {
           "Name": "Content-Type",
@@ -14366,7 +14366,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"i705sOIWQR5ihhcAxodqry1uA8CcfLOrvpm9MOLcnf8=\""
+          "Value": "\"Eqf48BViGtbRWVexSkv1seuDYIrsZJJFkboFRQs2T7I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 03 Nov 2024 23:02:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Eqf48BViGtbRWVexSkv1seuDYIrsZJJFkboFRQs2T7I="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/Client.wasm",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\kb90l4x90i-2riwehwyin.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000015055026"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "66422"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jhmXliqCUYMqOQYgzEW8vOkqPOIAKKdwJ1kah9ZFfgg=\""
         },
         {
           "Name": "Last-Modified",
@@ -14375,45 +14414,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-i705sOIWQR5ihhcAxodqry1uA8CcfLOrvpm9MOLcnf8="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/Client.wasm",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\kb90l4x90i-fbbxeyjpfg.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000015163922"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "65945"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"g0CVuXn+859WOVFPrdaatNXiIMxnJQX+dIgVuLYYEec=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 01 Nov 2024 20:48:13 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -14429,19 +14429,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"i705sOIWQR5ihhcAxodqry1uA8CcfLOrvpm9MOLcnf8=\""
+          "Value": "W/\"Eqf48BViGtbRWVexSkv1seuDYIrsZJJFkboFRQs2T7I=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-i705sOIWQR5ihhcAxodqry1uA8CcfLOrvpm9MOLcnf8="
+          "Value": "sha256-Eqf48BViGtbRWVexSkv1seuDYIrsZJJFkboFRQs2T7I="
         }
       ]
     },
     {
       "Route": "_framework/Client.wasm.gz",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\kb90l4x90i-fbbxeyjpfg.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\kb90l4x90i-2riwehwyin.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14450,7 +14450,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "65945"
+          "Value": "66422"
         },
         {
           "Name": "Content-Type",
@@ -14458,11 +14458,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"g0CVuXn+859WOVFPrdaatNXiIMxnJQX+dIgVuLYYEec=\""
+          "Value": "\"jhmXliqCUYMqOQYgzEW8vOkqPOIAKKdwJ1kah9ZFfgg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 01 Nov 2024 20:48:13 GMT"
+          "Value": "Sun, 03 Nov 2024 22:18:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14480,7 +14480,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-g0CVuXn+859WOVFPrdaatNXiIMxnJQX+dIgVuLYYEec="
+          "Value": "sha256-jhmXliqCUYMqOQYgzEW8vOkqPOIAKKdwJ1kah9ZFfgg="
         }
       ]
     },
@@ -14769,7 +14769,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "19836"
+          "Value": "19952"
         },
         {
           "Name": "Content-Type",
@@ -14777,7 +14777,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"eBoXJoLFrkJJdMv84Bfxt32vupZ8As4GMDOCwi47Lx8=\""
+          "Value": "\"Kuk7VsHUEOT38kTLl1y8ZkUbEwN3etnrzcHQ+8jg5Ns=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 03 Nov 2024 23:02:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Kuk7VsHUEOT38kTLl1y8ZkUbEwN3etnrzcHQ+8jg5Ns="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/DNG.Library.pdb",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\l5358yt2sc-eica9orwsn.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000092850511"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "10769"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"TpcNKwLHOk/9dLtBKa2XEkXPZS05Ovcyo4p0MnZqLiQ=\""
         },
         {
           "Name": "Last-Modified",
@@ -14786,45 +14825,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-eBoXJoLFrkJJdMv84Bfxt32vupZ8As4GMDOCwi47Lx8="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/DNG.Library.pdb",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\l5358yt2sc-4p3n457qzn.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000092859133"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "10768"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gHyRNh+NTKK63gvHIxevJbLEWeDL2NPpFWn89yJY5u0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 01 Nov 2024 20:48:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -14840,19 +14840,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"eBoXJoLFrkJJdMv84Bfxt32vupZ8As4GMDOCwi47Lx8=\""
+          "Value": "W/\"Kuk7VsHUEOT38kTLl1y8ZkUbEwN3etnrzcHQ+8jg5Ns=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-eBoXJoLFrkJJdMv84Bfxt32vupZ8As4GMDOCwi47Lx8="
+          "Value": "sha256-Kuk7VsHUEOT38kTLl1y8ZkUbEwN3etnrzcHQ+8jg5Ns="
         }
       ]
     },
     {
       "Route": "_framework/DNG.Library.pdb.gz",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\l5358yt2sc-4p3n457qzn.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\l5358yt2sc-eica9orwsn.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14861,7 +14861,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10768"
+          "Value": "10769"
         },
         {
           "Name": "Content-Type",
@@ -14869,11 +14869,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gHyRNh+NTKK63gvHIxevJbLEWeDL2NPpFWn89yJY5u0=\""
+          "Value": "\"TpcNKwLHOk/9dLtBKa2XEkXPZS05Ovcyo4p0MnZqLiQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 01 Nov 2024 20:48:11 GMT"
+          "Value": "Sun, 03 Nov 2024 22:18:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14891,7 +14891,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-gHyRNh+NTKK63gvHIxevJbLEWeDL2NPpFWn89yJY5u0="
+          "Value": "sha256-TpcNKwLHOk/9dLtBKa2XEkXPZS05Ovcyo4p0MnZqLiQ="
         }
       ]
     },
@@ -14906,7 +14906,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "41237"
+          "Value": "42261"
         },
         {
           "Name": "Content-Type",
@@ -14914,7 +14914,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"rNOKTz7riN/IgZ+tjzCNyVaZI8o5PPlesEVZDzGD63U=\""
+          "Value": "\"w+i1NFxsEb64Mgj8Kqg375Ld3xVRGI+Vk2p7xQftgLQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 03 Nov 2024 23:02:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-w+i1NFxsEb64Mgj8Kqg375Ld3xVRGI+Vk2p7xQftgLQ="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/DNG.Library.wasm",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\4puv5mx2uv-d0vhwgoi93.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000062948508"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15885"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+KcZkCLPd5Oxa0vQbqfrMI/bv+ErJpN4EdigXPwvE2I=\""
         },
         {
           "Name": "Last-Modified",
@@ -14923,45 +14962,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-rNOKTz7riN/IgZ+tjzCNyVaZI8o5PPlesEVZDzGD63U="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/DNG.Library.wasm",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\4puv5mx2uv-0do8nyc0v9.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000062940584"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "15887"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"oSYSHlS36xEV7LtGyYx4l26xxk2TMWaCmHBSXDvR47k=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 01 Nov 2024 20:48:13 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -14977,19 +14977,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"rNOKTz7riN/IgZ+tjzCNyVaZI8o5PPlesEVZDzGD63U=\""
+          "Value": "W/\"w+i1NFxsEb64Mgj8Kqg375Ld3xVRGI+Vk2p7xQftgLQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-rNOKTz7riN/IgZ+tjzCNyVaZI8o5PPlesEVZDzGD63U="
+          "Value": "sha256-w+i1NFxsEb64Mgj8Kqg375Ld3xVRGI+Vk2p7xQftgLQ="
         }
       ]
     },
     {
       "Route": "_framework/DNG.Library.wasm.gz",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\4puv5mx2uv-0do8nyc0v9.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\4puv5mx2uv-d0vhwgoi93.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14998,7 +14998,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "15887"
+          "Value": "15885"
         },
         {
           "Name": "Content-Type",
@@ -15006,11 +15006,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oSYSHlS36xEV7LtGyYx4l26xxk2TMWaCmHBSXDvR47k=\""
+          "Value": "\"+KcZkCLPd5Oxa0vQbqfrMI/bv+ErJpN4EdigXPwvE2I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 01 Nov 2024 20:48:13 GMT"
+          "Value": "Sun, 03 Nov 2024 22:18:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15028,7 +15028,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-oSYSHlS36xEV7LtGyYx4l26xxk2TMWaCmHBSXDvR47k="
+          "Value": "sha256-+KcZkCLPd5Oxa0vQbqfrMI/bv+ErJpN4EdigXPwvE2I="
         }
       ]
     },
@@ -15505,7 +15505,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:29 GMT"
+          "Value": "Mon, 16 Sep 2024 23:13:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15558,7 +15558,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:29 GMT"
+          "Value": "Mon, 16 Sep 2024 23:13:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15779,7 +15779,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:29 GMT"
+          "Value": "Mon, 16 Sep 2024 23:13:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15832,7 +15832,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:29 GMT"
+          "Value": "Mon, 16 Sep 2024 23:13:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16053,7 +16053,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:29 GMT"
+          "Value": "Mon, 16 Sep 2024 23:12:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16106,7 +16106,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:29 GMT"
+          "Value": "Mon, 16 Sep 2024 23:12:44 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -45684,7 +45684,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:05:00 GMT"
+          "Value": "Sun, 03 Nov 2024 22:51:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -45721,7 +45721,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:05:00 GMT"
+          "Value": "Sun, 03 Nov 2024 22:51:02 GMT"
         },
         {
           "Name": "Cache-Control",

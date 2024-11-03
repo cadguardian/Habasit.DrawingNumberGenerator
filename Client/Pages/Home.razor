@@ -3,6 +3,7 @@
 
 @using Client.Features.DWGManager
 @using Client.Features.Serialization
+@using Client.Features.ThumbnailGallery
 @using Client.Services
 @using DNG.Library.Data
 @using DNG.Library.Models
@@ -36,15 +37,15 @@
     </FormContent>
 </OrderView>
 
-<label class="small alert alert-info my-4">
-    Locate CAD blocks and templates for your parts list.
+<label class="small alert alert-warning my-4">
+    Locate parts for your parts list.
 </label>
 
 
 <MaterialView />
 
-<label class="small alert alert-info my-4">
-    Use the CAD library to quickly locate modular belt CAD templates.
+<label class="small alert alert-warning my-4">
+    Use the CAD library to quickly find CAD templates.
 </label>
 
 
@@ -52,8 +53,8 @@
 
 <CADLibraryView/>
 
-<label class="small alert alert-info my-4">
-    Use the Drawing Manager to quickly locate modular belt drawings.
+<label class="small alert alert-warning my-4">
+    Use the Drawing Manager to quickly find drawings.
 </label>
 
 <DWGManagerView/>
