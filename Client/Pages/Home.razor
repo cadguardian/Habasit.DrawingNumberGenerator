@@ -59,13 +59,78 @@
 
 <DWGManagerView/>
 
- <JSONExportView />
 
 @* <CADWorkflow /> *@
 
  @* <AutoCADCommands /> *@
 
 @* <FeatureManagerView /> *@
+
+
+
+<div class="page-break"></div>
+
+  <ThumbnailGalleryView /> 
+
+  @page "/welcome"
+
+@page "/welcome"
+
+<div class="container-fluid p-2">
+    <div class="card p-3 shadow-sm">
+        <h5 class="text-primary mb-2">Welcome to the Belt Tool</h5>
+        <p class="mb-3">This tool helps you efficiently manage special build plastic modular belt drawing requests.</p>
+
+        <div class="alert alert-info small">
+            <strong>Get Started:</strong> Use the form to specify order details, then apply filters and search options to manage belt specs, parts, templates, and drawings.
+        </div>
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <strong>DWG Request</strong>
+                <ul class="list-unstyled small mb-0">
+                    <li>Order Information: Enter <strong>Quote #</strong>, <strong>Purchase Order #</strong>, and <strong>Sales Order #</strong> if available.</li>
+                    <li>Check for ❌ symbols to ensure all fields are filled out.</li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <strong>Parts & Materials</strong>
+                <ul class="list-unstyled small mb-0">
+                    <li>Locate parts and materials for your parts list. If your search yields no results, try adjusting filters.</li>
+                    <li>Add selected parts to your list for easy management.</li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <strong>CAD Library</strong>
+                <ul class="list-unstyled small mb-0">
+                    <li>Find CAD templates to expedite your drawing process.</li>
+                    <li>Use <strong>Apply Filters</strong> to narrow down CAD blocks, then <strong>Search</strong> to locate specific items.</li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <strong>Drawing Manager</strong>
+                <ul class="list-unstyled small mb-0">
+                    <li>Locate modular belt drawings. Apply filters and wildcard searches (e.g., <strong>*term</strong> or <strong>term*</strong>) for specific matches.</li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <strong>Image Gallery</strong>
+                <ul class="list-unstyled small mb-0">
+                    <li>Visual reference for CAD drafters. Apply filters to refine results, then search for specific images.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="alert alert-secondary small mt-3">
+            <strong>Tip:</strong> Always review <strong>Order Information</strong> and <strong>Belt Properties</strong> for ❌ symbols to ensure completeness.
+        </div>
+        <p class="text-muted small mt-3 mb-0">Happy drafting!</p>
+    </div>
+</div>
+
+
+<JSONExportView />
+
 
 
 @code {
@@ -85,9 +150,3 @@
         DrawingRequestProcessor.GenerateDrawingNumber();
     }
 }
-
-<div class="page-break"></div>
-
-  <ThumbnailGalleryView /> 
-
-
