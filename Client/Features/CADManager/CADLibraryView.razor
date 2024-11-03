@@ -24,7 +24,9 @@
             }
         </div>
 
-        <label class="small alert alert-secondary">Use search and filters to quickly find drawing templates.</label>
+        <div class="alert alert-info p-2" style="font-size: 0.8rem;">
+            Use <strong>Apply Filters</strong> to narrow down CAD blocks by specific criteria before starting your search.
+        </div>
 
         <!-- Filter and Search Section -->
         <div class="d-flex mb-3">
@@ -37,15 +39,14 @@
             </div>
         </div>
 
-        <div class="alert alert-info p-2" style="font-size: 0.8rem;">
-            Use <strong>Apply Filters</strong> to narrow down CAD blocks by specific criteria before starting your search.
-        </div>
+        
 
 
-        <div class="btn-group me-2 mb-2 mb-md-0" role="group">
+        <div class="text-center mb-4">
+            <div class="btn-group" role="group">
             <button class="btn btn-sm btn-dark" @onclick="ApplyFilters">Apply Filters</button>
-            <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search Blocks</button>
-        </div>
+                <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search Blocks</button>
+            </div>
 
         <!-- Search Results List -->
         @if (isSearchMode)

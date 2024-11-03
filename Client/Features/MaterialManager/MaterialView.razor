@@ -22,10 +22,12 @@
                 @bind="universalSearch"
                 @bind:event="oninput" />
         </div>
-        <div class="btn-group me-2 mb-2 mb-md-0" role="group">
+            <div class="text-center mb-4">
+                <div class="btn-group" role="group">
             <button class="btn btn-sm btn-dark " @onclick="ApplyFilters">Apply Filters</button>
             <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search Parts</button>
-        </div>
+                </div>
+            </div>
     </div>
 
     <!-- Parts Found Header -->
@@ -112,8 +114,12 @@
                     }
                 </div>
                 <div class="card-footer">
+                        <div class="text-center mb-2">
+                            <div class="btn-group" role="group">
                     <button class="btn btn-sm btn-warning w-100" @onclick="SaveCartToDrawingRequest">Save to Drawing Request</button>
-                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
