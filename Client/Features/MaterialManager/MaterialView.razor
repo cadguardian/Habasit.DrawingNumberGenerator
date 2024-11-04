@@ -7,9 +7,13 @@
     <div class="card shadow-sm">
 
     <!-- Search Bar and Buttons -->
-            <div class="d-flex justify-content-between align-items-center card-header mb-3">
-                <span class="fw-bold">Materials</span>
+            <div class="d-flex justify-content-between align-items-center card-header">
+                <span class="fw-bold">Materials Finder</span>
                 </div>
+
+        <div class="alert alert-info p-2" style="font-size: 0.8rem;">
+            Click <strong>Apply Filters</strong> to set specific criteria before searching. Use this to refine results based on selected attributes.
+        </div>
 
         <div class="input-group me-md-2 flex-grow-1 mb-2 mb-md-0 p-3">
 
@@ -30,11 +34,9 @@
     <!-- Parts Found Header -->
     @if (isSearchMode)
     {
-            <div class="alert alert-info p-2" style="font-size: 0.8rem;">
-                Click <strong>Apply Filters</strong> to set specific criteria before searching. Use this to refine results based on selected attributes.
-            </div>
+            
 
-        <div class="mb-3">
+        <div class="mb-3 text-center">
             <h5>Parts Found: @FilteredPartNumbers.Count()</h5>
         </div>
     }

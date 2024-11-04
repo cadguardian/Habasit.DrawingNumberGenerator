@@ -9,11 +9,11 @@
 
 <!-- CAD Library Component -->
 <div class="container-fluid no-print">
-    <div class="card p-3 shadow-sm">
+    <div class="card shadow-sm">
         <!-- Header Section with Summary Information -->
-        <div class="d-flex justify-content-between align-items-center card-header mb-3">
-            <span class="fw-bold">CAD Library</span>
-            @if (reportHeader != null)
+        <div class="d-flex justify-content-between align-items-center card-header">
+            <span class="fw-bold">CAD Template Finder</span>
+           @*  @if (reportHeader != null)
             {
                 <small class="text-muted">
                     <span>Total Blocks: @reportHeader.TotalBlocks</span> |
@@ -21,7 +21,7 @@
                     <span>Total Size: @reportHeader.TotalSizeMb MB</span> |
                     <span>Generated: @reportHeader.GeneratedDate.ToString("yyyy-MM-dd")</span>
                 </small>
-            }
+            } *@
         </div>
 
         <div class="alert alert-info p-2" style="font-size: 0.8rem;">
@@ -29,7 +29,7 @@
         </div>
 
         <!-- Filter and Search Section -->
-        <div class="d-flex mb-3">
+        <div class="d-flex mb-3 p-3">
             <div class="input-group me-2 flex-grow-1">
                 <input type="text" class="form-control" placeholder="Search for AutoCAD blocks..." @bind="searchQuery" @bind:event="oninput" @onkeypress="HandleKeyPress" />
                 @if (isSearchMode)

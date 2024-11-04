@@ -1,0 +1,150 @@
+﻿@page "/title-block-generator"
+@inject IDrawingRequest drawingRequest
+@inject IDrawingNumber drawingNumber
+@inject IJSRuntime JS
+
+<div class="container-fluid no-print my-4">
+    <div class="card">
+
+        <div class="d-flex justify-content-between align-items-center card-header">
+            <div class="fw-bold mb-2">Title Block Generator</div>
+            <div class="text-center">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-sm btn-primary" @onclick="RefreshValues">Refresh</button>
+
+                </div>
+            </div>
+            @*  @if (reportHeader != null)
+            {
+            <small class="text-muted">
+            <span>Files: @reportHeader.TotalFiles</span> |
+            <span>Categories: @reportHeader.TotalCategories</span> |
+            <span>Total Size: @reportHeader.TotalSizeMb MB</span> |
+            <span>Date: @reportHeader.GeneratedDate.ToString("yyyy-MM-dd")</span>
+            </small>
+            } *@
+        </div>
+
+        <!-- Instructions and Refresh Button -->
+            <div class="alert alert-info p-1 mb-2" style="font-size: 0.8rem;">
+                Click on any value to copy it to the clipboard.
+            </div>
+
+       
+
+
+
+        <!-- Title Block Fields Table -->
+        <table class="table table-sm">
+            <tbody>
+                <tr>
+                    <th>Rev Number</th>
+                    <td><span @onclick="() => CopyToClipboard(revNumber)" style="cursor: pointer;">@revNumber</span></td>
+                </tr>
+                <tr>
+                    <th>Drawn Date</th>
+                    <td><span @onclick="() => CopyToClipboard(drawnDate)" style="cursor: pointer;">@drawnDate</span></td>
+                </tr>
+                <tr>
+                    <th>Scale</th>
+                    <td><span @onclick="() => CopyToClipboard(scale)" style="cursor: pointer;">@scale</span></td>
+                </tr>
+                <tr>
+                    <th>Drawn By</th>
+                    <td><span @onclick="() => CopyToClipboard(drawnBy)" style="cursor: pointer;">@drawnBy</span></td>
+                </tr>
+                <tr>
+                    <th>Job Number</th>
+                    <td><span @onclick="() => CopyToClipboard(jobNumber)" style="cursor: pointer;">@jobNumber</span></td>
+                </tr>
+                <tr>
+                    <th>Drawing Number</th>
+                    <td><span @onclick="() => CopyToClipboard(drawingNumber.DrawingCode)" style="cursor: pointer;">@drawingNumber.DrawingCode</span></td>
+                </tr>
+                <tr>
+                    <th>Title Line 1</th>
+                    <td><span @onclick="() => CopyToClipboard(titleLine1)" style="cursor: pointer;">@titleLine1</span></td>
+                </tr>
+                <tr>
+                    <th>Title Line 2</th>
+                    <td><span @onclick="() => CopyToClipboard(titleLine2)" style="cursor: pointer;">@titleLine2</span></td>
+                </tr>
+                <tr>
+                    <th>Title Line 3</th>
+                    <td><span @onclick="() => CopyToClipboard(titleLine3)" style="cursor: pointer;">@titleLine3</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private string revNumber = "A";
+    private string drawnDate;
+    private string scale = "N/A";
+    private string drawnBy = "T Smith";
+    private string jobNumber;
+
+    private string titleLine1;
+    private string titleLine2;
+    private string titleLine3;
+
+    protected override void OnInitialized()
+    {
+        LoadValues();
+    }
+
+    private void LoadValues()
+    {
+        // Update drawn date to current date
+        drawnDate = DateTime.Now.ToString("MM/dd/yyyy");
+
+        // Initialize jobNumber
+        if (!string.IsNullOrWhiteSpace(drawingRequest.SalesOrderNumber))
+        {
+            jobNumber = $"SO{drawingRequest.SalesOrderNumber}";
+        }
+        else if (!string.IsNullOrWhiteSpace(drawingRequest.PurchaseOrderNumber))
+        {
+            jobNumber = $"PO{drawingRequest.PurchaseOrderNumber}";
+        }
+        else if (!string.IsNullOrWhiteSpace(drawingRequest.QuoteNumber))
+        {
+            jobNumber = $"Q{drawingRequest.QuoteNumber}";
+        }
+        else
+        {
+            jobNumber = "N/A";
+        }
+
+        // Initialize title lines
+        titleLine1 = string.Join(" ",
+            drawingNumber.BeltTypeCode + drawingRequest.BeltSeries,
+            drawingRequest.BeltType,
+            drawingRequest.Material,
+            drawingRequest.BeltWidth > 0 ? $"{drawingRequest.BeltWidth}in" : "",
+            drawingRequest.NumberOfLinks > 0 ? $"{drawingRequest.NumberOfLinks} Links" : "",
+            drawingRequest.RodMaterial,
+            "rod").ToUpper();
+
+        titleLine2 = string.Join(" ",
+            drawingRequest.FlightsRollersGrip,
+            drawingRequest.FRGCenters > 0 ? $"{drawingRequest.FRGCenters}in SPACING" : "").ToUpper();
+
+        titleLine3 = !string.IsNullOrWhiteSpace(drawingRequest.IndentCode)
+            ? $"{drawingRequest.IndentCode} IN. INDENT"
+            : "";
+    }
+
+    private void RefreshValues()
+    {
+        LoadValues();
+        StateHasChanged();
+    }
+
+    private void CopyToClipboard(string text)
+    {
+        // Use JS interop to call your existing JavaScript function
+        JS.InvokeVoidAsync("CopyDrawingNumber", text);
+    }
+}

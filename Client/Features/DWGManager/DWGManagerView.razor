@@ -7,14 +7,11 @@
 @inject IDrawingNumber drawingNumber
 
 <div class="container-fluid no-print">
-    <div class="card p-3 shadow-sm">
+    <div class="card">
         <!-- Header Section with Summary Information -->
-        <div class="d-flex justify-content-between align-items-center card-header mb-3">
-            <div class="fw-bold">Drawing Manager</div>
-        </div>
-
-        <div class="card-body">
-            @if (reportHeader != null)
+        <div class="d-flex justify-content-between align-items-center card-header">
+            <div class="fw-bold">Drawing Finder</div>
+           @*  @if (reportHeader != null)
             {
                 <small class="text-muted">
                     <span>Files: @reportHeader.TotalFiles</span> |
@@ -22,11 +19,16 @@
                     <span>Total Size: @reportHeader.TotalSizeMb MB</span> |
                     <span>Date: @reportHeader.GeneratedDate.ToString("yyyy-MM-dd")</span>
                 </small>
-            }
+            } *@
         </div>
 
+        <div class="alert alert-info p-2" style="font-size: 0.8rem;">
+            Use <strong>*</strong> as a wildcard: <strong>*term</strong> to find items ending with "term", <strong>term*</strong> for items starting with "term", or <strong>term*term</strong> for partial matches.
+        </div>
+
+
         <!-- Filter and Search Section -->
-        <div class="d-flex mb-3">
+        <div class="d-flex mb-3 p-3">
             <div class="input-group me-2 flex-grow-1">
                 <input type="text" class="form-control" placeholder="Search for CAD files..." @bind="searchQuery" @bind:event="oninput" @onkeypress="HandleKeyPress" />
                 @if (isSearchMode)
@@ -44,10 +46,7 @@
     </div>
 
 
-        <div class="alert alert-info p-2" style="font-size: 0.8rem;">
-            Use <strong>*</strong> as a wildcard: <strong>*term</strong> to find items ending with "term", <strong>term*</strong> for items starting with "term", or <strong>term*term</strong> for partial matches.
-        </div>
-
+     
 
         <!-- Search Results List -->
         @if (isSearchMode)

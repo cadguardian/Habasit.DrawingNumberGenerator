@@ -41,10 +41,8 @@
             </div>
 
 
-            @if (!string.IsNullOrEmpty(DrawingRequest.QuoteNumber) || !string.IsNullOrEmpty(DrawingRequest.SalesOrderNumber))
+            @if (!string.IsNullOrEmpty(DrawingRequest.QuoteNumber) || !string.IsNullOrEmpty(DrawingRequest.SalesOrderNumber) || !string.IsNullOrEmpty(DrawingRequest.PurchaseOrderNumber))
                         {
-                            <span class="d-block mb-1" style="font-size: 1.1em;"><strong>Quote #:</strong> @DrawingRequest.QuoteNumber</span>
-
 
             <div class="card bg-light text-dark shadow-sm p-0 mb-3">
                 <div class="card-body text-center">
@@ -57,6 +55,10 @@
                         @if (!string.IsNullOrEmpty(DrawingRequest.SalesOrderNumber))
                         {
                             <span class="d-block" style="font-size: 1.1em;"><strong>Sales Order #:</strong> @DrawingRequest.SalesOrderNumber</span>
+                        }
+                        @if (!string.IsNullOrEmpty(DrawingRequest.PurchaseOrderNumber))
+                        {
+                            <span class="d-block" style="font-size: 1.1em;"><strong>Sales Order #:</strong> @DrawingRequest.PurchaseOrderNumber</span>
                         }
                     </p>
                 </div>
