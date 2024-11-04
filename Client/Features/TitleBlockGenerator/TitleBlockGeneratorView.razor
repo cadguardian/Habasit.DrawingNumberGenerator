@@ -8,35 +8,21 @@
 
         <div class="d-flex justify-content-between align-items-center card-header">
             <div class="fw-bold mb-2">Title Block Generator</div>
-            <div class="text-center">
-                <div class="btn-group" role="group">
-                    <button class="btn btn-sm btn-primary" @onclick="RefreshValues">Refresh</button>
-
-                </div>
-            </div>
-            @*  @if (reportHeader != null)
-            {
-            <small class="text-muted">
-            <span>Files: @reportHeader.TotalFiles</span> |
-            <span>Categories: @reportHeader.TotalCategories</span> |
-            <span>Total Size: @reportHeader.TotalSizeMb MB</span> |
-            <span>Date: @reportHeader.GeneratedDate.ToString("yyyy-MM-dd")</span>
-            </small>
-            } *@
+            <button class="btn btn-sm btn-primary" @onclick="RefreshValues">Refresh</button>
         </div>
 
-        <!-- Instructions and Refresh Button -->
-            <div class="alert alert-info p-1 mb-2" style="font-size: 0.8rem;">
-                Click on any value to copy it to the clipboard.
-            </div>
-
-       
-
-
+        <!-- Instructions -->
+        <div class="alert alert-info p-1 mb-2" style="font-size: 0.8rem;">
+            Click on any value to copy it to the clipboard.
+        </div>
 
         <!-- Title Block Fields Table -->
         <table class="table table-sm">
             <tbody>
+                <tr>
+                    <th>Folder Name</th>
+                    <td><span @onclick="() => CopyToClipboard(projectFolderName)" style="cursor: pointer;">@(projectFolderName)</span></td>
+                </tr>
                 <tr>
                     <th>Rev Number</th>
                     <td><span @onclick="() => CopyToClipboard(revNumber)" style="cursor: pointer;">@revNumber</span></td>
@@ -84,6 +70,7 @@
     private string scale = "N/A";
     private string drawnBy = "T Smith";
     private string jobNumber;
+    private string projectFolderName;
 
     private string titleLine1;
     private string titleLine2;
@@ -117,6 +104,8 @@
             jobNumber = "N/A";
         }
 
+        projectFolderName = $"{jobNumber} - {drawingNumber.BeltTypeCode}{drawingNumber.BeltSeriesCode}";
+
         // Initialize title lines
         titleLine1 = string.Join(" ",
             drawingNumber.BeltTypeCode + drawingRequest.BeltSeries,
@@ -144,7 +133,7 @@
 
     private void CopyToClipboard(string text)
     {
-        // Use JS interop to call your existing JavaScript function
+        // Call your existing JavaScript function
         JS.InvokeVoidAsync("CopyDrawingNumber", text);
     }
 }
