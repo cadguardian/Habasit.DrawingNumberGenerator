@@ -33,11 +33,11 @@
                     <div class="accordion-body" style=" 1em; font-size: 0.85em;">
 
                         <form class="row g-1">
-                            <div class="col-12 col-md-6">
+                            <div class="col-6">
                                 <InputQuoteNumber />
                             </div>
 
-                            <div class="col-12 col-md-6">
+                            <div class="col-6">
                                 <InputPurchaseOrderNumber/>
                             </div>
 
@@ -65,32 +65,16 @@
                         <form class="row g-1">
                             <div class="small alert alert-secondary">Filling out belt properties defines drawing title block and required materials, as well as searches for required cad templates and autocad blocks for starting a new CAD drawing.</div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <BeltSeriesSelector />
                             </div>
                             
-
-                            <div class="col-12 col-md-6">
+                            <div class="col-6">
                                 <SelectMaterialColor />
-                            </div>
-
-                            <div class="col-12 col-md-6">
                                 <SelectBeltMaterial />
-                            </div>
-
-                            <div class="col-12 col-md-6">
                                 <SelectAdderMaterial />
-                            </div>
-
-                            <div class="col-12 col-md-6">
                                 <SelectRodMaterial />
-                            </div>
-
-                            <div class="col-12 col-md-6">
                                 <InputBeltWidth />
-                            </div>
-
-                            <div class="col-12 col-md-6">
                                 <InputNumberOfLinks />
                             </div>
                         </form>
@@ -112,12 +96,13 @@
                                 <SelectFlightsRollerGrip />
                             </div>
 
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-6">
                                 <InputQuantityRollersWidth />
                             </div>
 
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-6">
                                 <InputFlightRollersGripTopCenters />
+
                             </div>
                         </form>
                     </div>
@@ -134,11 +119,11 @@
                 <div id="collapseAccessories" class="accordion-collapse collapse" aria-labelledby="headingAccessories" data-bs-parent="#drawingRequestAccordion">
                     <div class="accordion-body" style=" 1em; font-size: 0.85em;">
                         <form class="row g-1">
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-6">
                                 <SelectBeltAccessories />
                             </div>
 
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-6">
                                 <SelectFrictionAntiFriction />
                             </div>
 
@@ -160,12 +145,12 @@
                 <div id="collapseIdentification" class="accordion-collapse collapse" aria-labelledby="headingIdentification" data-bs-parent="#drawingRequestAccordion">
                     <div class="accordion-body" style=" 1em; font-size: 0.85em;">
                         <form class="row g-1">
-                            <div class="col-12 col-md-6">
+                            <div class="col-6">
                                 <label for="inputUniqueIdentification" class="form-label">Unique Identification</label>
                                 <InputUniqueIdentification />
                             </div>
 
-                            <div class="col-12 col-md-6">
+                            <div class="col-6">
                                 <label for="selectIndentCode" class="form-label">Indent Code</label>
                                 <SelectIndentCode />
                             </div>
@@ -229,5 +214,11 @@
     /* Optional: Add subtle borders between accordion items */
     .accordion-item:not(:last-child) {
         border-bottom: 1px solid #dee2e6;
+    }
+</style>
+
+<style>
+    .accordion-collapse {
+        overflow-anchor: none;
     }
 </style>

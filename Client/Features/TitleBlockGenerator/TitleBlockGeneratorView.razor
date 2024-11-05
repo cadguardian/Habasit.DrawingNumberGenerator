@@ -110,19 +110,18 @@
         titleLine1 = string.Join(" ",
             drawingNumber.BeltTypeCode + drawingRequest.BeltSeries,
             drawingRequest.BeltType,
+            drawingRequest.Color,
             drawingRequest.Material,
-            drawingRequest.BeltWidth > 0 ? $"{drawingRequest.BeltWidth}in" : "",
-            drawingRequest.NumberOfLinks > 0 ? $"{drawingRequest.NumberOfLinks} Links" : "",
-            drawingRequest.RodMaterial,
-            "rod").ToUpper();
+            drawingRequest.BeltWidth > 0 ? $"{drawingRequest.BeltWidth}in WIDE" : "",
+            drawingRequest.NumberOfLinks > 0 ? $"({drawingRequest.NumberOfLinks}L)" : "").ToUpper();
 
         titleLine2 = string.Join(" ",
             drawingRequest.FlightsRollersGrip,
-            drawingRequest.FRGCenters > 0 ? $"{drawingRequest.FRGCenters}in SPACING" : "").ToUpper();
+            drawingRequest.FRGCenters > 0 ? $"{drawingRequest.FRGCenters}IN SPACING" : "").ToUpper();
 
-        titleLine3 = !string.IsNullOrWhiteSpace(drawingRequest.IndentCode)
-            ? $"{drawingRequest.IndentCode} IN. INDENT"
-            : "";
+        titleLine3 = string.Join(" ",
+        $"{drawingRequest.IndentCode} IN INDENT",
+    drawingRequest.RodMaterial).ToUpper();
     }
 
     private void RefreshValues()

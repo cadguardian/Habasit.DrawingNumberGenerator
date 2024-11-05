@@ -82,5 +82,17 @@
             toast.show();
         }
     </script>
+    <script>
+        function toggleSummarySheet(show) {
+            const summarySheet = document.getElementById('summarySheet');
+            if (show) {
+                summarySheet.style.display = 'block';
+                document.body.classList.add('print-mode');
+            } else {
+                summarySheet.style.display = 'none';
+                document.body.classList.remove('print-mode');
+            }
+        }
+    </script>
 </body>
 </html>

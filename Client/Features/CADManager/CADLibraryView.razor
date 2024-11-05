@@ -223,6 +223,11 @@
                 })
             .ToList();
 
+        if (searchResults.Any())
+        {
+            drawingRequest.CadTemplatePath = searchResults.FirstOrDefault()!.RelativePath;
+        }
+
         isSearchMode = true;
     }
 

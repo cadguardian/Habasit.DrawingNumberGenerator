@@ -6,6 +6,16 @@ html, body {
     color: #333; /* Consistent default text color */
 }
 
+@media print {
+    body:not(.print-mode) * {
+        display: none !important;
+    }
+
+    .summary-sheet {
+        display: block !important;
+    }
+}
+
 h1, h2, h3, h4 {
     font-weight: 600; /* Slightly lighter for a modern look */
     line-height: 1.4; /* Improved readability */
@@ -211,4 +221,54 @@ code {
         flex-direction: row;
         align-items: center;
     }
+}
+
+/* Custom Styles for Minimalistic Form */
+/* Reduce the size of icons within accordion buttons */
+.accordion-button i {
+    font-size: 1em;
+}
+
+/* Ensure that labels and inputs have consistent spacing */
+.form-label {
+    font-size: 0.85em;
+}
+
+/* Adjust input font sizes */
+.form-control,
+.form-select {
+    font-size: 0.85em;
+}
+
+/* Reduce padding within form groups */
+.g-1 > .col-12,
+.g-1 > .col-md-6,
+.g-1 > .col-lg-4 {
+    padding: 0.25em;
+}
+
+/* Adjust the submit button size and font */
+.btn-success.btn-lg {
+    font-size: 0.9em;
+    padding: 0.75em 1.5em;
+}
+
+/* Ensure the card takes full height for uniformity */
+.card {
+    height: 100%;
+}
+
+/* Make accordion items expand fully */
+.accordion-item {
+    border: none;
+}
+
+    /* Optional: Add subtle borders between accordion items */
+    .accordion-item:not(:last-child) {
+        border-bottom: 1px solid #dee2e6;
+    }
+
+/* Prevent the page from jumping when the accordion expands/collapses */
+.accordion-collapse {
+    overflow-anchor: none;
 }

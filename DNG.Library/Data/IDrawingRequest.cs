@@ -5,6 +5,8 @@ namespace DNG.Library.Data
     public interface IDrawingRequest
     {
         string AdderMaterial { get; set; }
+        string CadTemplatePath { get; set; }
+        string ReferenceDrawingPath { get; set; }
         string PurchaseOrderNumber { get; set; }
         string AssignedTo { get; set; }
         string BeltAccessories { get; set; }

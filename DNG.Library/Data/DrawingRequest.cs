@@ -56,6 +56,9 @@ namespace DNG.Library.Data
         [Required(ErrorMessage = "Structured Text is required.")]
         public string StructuredText { get; set; } = string.Empty;
 
+        public string CadTemplatePath { get; set; } = string.Empty;
+        public string ReferenceDrawingPath { get; set; } = string.Empty;
+
         public string[] GetPropertyValues()
         {
             return new string[]
