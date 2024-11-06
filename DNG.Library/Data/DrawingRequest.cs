@@ -49,6 +49,8 @@ namespace DNG.Library.Data
 
         public Dictionary<string, string> SpecialCaseInfo { get; set; } = new Dictionary<string, string>();
         public string QuoteNumber { get; set; } = string.Empty;
+        public string SugarCRMTaskLink { get; set; } = string.Empty;
+        public string FinalDrawingFilePath { get; set; } = string.Empty;
         public int NumberOfLinks { get; set; }
         public int BeltLengthLinearFeet { get; set; }
         public int BeltLengthSquareFeet { get; set; }

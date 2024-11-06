@@ -4,6 +4,8 @@ namespace DNG.Library.Data
 {
     public interface IDrawingRequest
     {
+        string SugarCRMTaskLink { get; set; }
+        string FinalDrawingFilePath { get; set; }
         string AdderMaterial { get; set; }
         string CadTemplatePath { get; set; }
         string ReferenceDrawingPath { get; set; }
