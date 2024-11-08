@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DNG.Library.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace DNG.Library.Data
@@ -60,6 +61,12 @@ namespace DNG.Library.Data
 
         public string CadTemplatePath { get; set; } = string.Empty;
         public string ReferenceDrawingPath { get; set; } = string.Empty;
+
+        public string GetJobNumber() => !string.IsNullOrWhiteSpace(SalesOrderNumber) ? $"SO{SalesOrderNumber}" :
+                                      !string.IsNullOrWhiteSpace(PurchaseOrderNumber) ? $"PO{PurchaseOrderNumber}" :
+                                      !string.IsNullOrWhiteSpace(QuoteNumber) ? $"Q{QuoteNumber}" : "N/A";
+
+        public string GetProjectFolderName() => $"{GetJobNumber()} - {BeltSeries}";
 
         public string[] GetPropertyValues()
         {

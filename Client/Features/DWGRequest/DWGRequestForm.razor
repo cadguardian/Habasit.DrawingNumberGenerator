@@ -65,17 +65,31 @@
                         <form class="row g-1">
                             <div class="small alert alert-secondary">Filling out belt properties defines drawing title block and required materials, as well as searches for required cad templates and autocad blocks for starting a new CAD drawing.</div>
 
-                            <div class="col-6">
+                            <div class="col-12">
+                                <SelectBeltType />
                                 <BeltSeriesSelector />
                             </div>
-                            
-                            <div class="col-6">
-                                <SelectMaterialColor />
-                                <SelectBeltMaterial />
-                                <SelectAdderMaterial />
+
+                            <div class="row p-0 m-0">
+                                <div class="col-6 p-0">
+                                    <SelectBeltMaterial />
+                                </div>
+                                <div class="col-6">
+                                    <SelectMaterialColor />
+                                </div>
+                            </div>
+
+                            <div class="col-12">
                                 <SelectRodMaterial />
-                                <InputBeltWidth />
-                                <InputNumberOfLinks />
+                            </div>
+
+                            <div class="row p-0 m-0">
+                                <div class="col-6">
+                                    <InputBeltWidth />
+                                </div>
+                                <div class="col-6">
+                                    <InputNumberOfLinks />
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -104,6 +118,9 @@
                                 <InputFlightRollersGripTopCenters />
 
                             </div>
+
+                            <SelectAdderMaterial />
+
                         </form>
                     </div>
                 </div>
@@ -168,57 +185,3 @@
 </div>
 
 
-<style>
-    /* Custom Styles for Minimalistic Form */
-
-    /* Reduce the size of icons within accordion buttons */
-    .accordion-button i {
-        font-size: 1em;
-    }
-
-    /* Ensure that labels and inputs have consistent spacing */
-    .form-label {
-        font-size: 0.85em;
-    }
-
-    /* Adjust input font sizes */
-    .form-control,
-    .form-select {
-        font-size: 0.85em;
-        ;
-    }
-
-    /* Reduce padding within form groups */
-    .g-1 > .col-12,
-    .g-1 > .col-md-6,
-    .g-1 > .col-lg-4 {
-        padding: 0.25em;
-    }
-
-    /* Adjust the submit button size and font */
-    .btn-success.btn-lg {
-        font-size: 0.9em;
-        padding: 0.75em 1.5em;
-    }
-
-    /* Ensure the card takes full height for uniformity */
-    .card {
-        height: 100%;
-    }
-
-    /* Make accordion items expand fully */
-    .accordion-item {
-        border: none;
-    }
-
-    /* Optional: Add subtle borders between accordion items */
-    .accordion-item:not(:last-child) {
-        border-bottom: 1px solid #dee2e6;
-    }
-</style>
-
-<style>
-    .accordion-collapse {
-        overflow-anchor: none;
-    }
-</style>

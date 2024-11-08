@@ -1,4 +1,5 @@
-﻿@inherits BaseInputComponent
+﻿@using DNG.Library.Models.BeltSpecs
+@inherits BaseInputComponent
 
 <div class="input-group mb-3">
     <div class="form-floating">
@@ -13,12 +14,12 @@
     </select>
         <label for="beltType">Type</label>
     </div>
-
+    <span class="input-group-text">
+        @BeltType.GetCodeByName(DrawingRequest!.BeltType, BeltType.Options)
+</span>
     
 </div>
-<span class="input-group-text">
-    @BeltType.GetCodeByName(DrawingRequest!.BeltType, BeltType.Options)
-</span>
+
 
 @code {
     protected override void OnInitialized()

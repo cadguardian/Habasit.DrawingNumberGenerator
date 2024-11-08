@@ -1,11 +1,10 @@
 ﻿@using System.Text.RegularExpressions
-@using System.IO
-@using System.Text.Json
-@using Microsoft.AspNetCore.Components.Web
-@using System.Text.Json.Serialization
 @inject HttpClient Http
 @inject IJSRuntime JS
 @inject IDrawingRequest drawingRequest
+@inject ICADLibraryService ReportService
+@inject INotificationService NotificationService
+@inject IClipboardService ClipboardService
 
 <!-- CAD Library Component -->
 <div class="container-fluid no-print">
@@ -13,14 +12,15 @@
         <!-- Header Section with Summary Information -->
         <div class="d-flex justify-content-between align-items-center card-header">
             <span class="fw-bold">CAD Template Finder</span>
-           @*  @if (reportHeader != null)
+            @* If using report header data, uncomment below *@
+            @* @if (reportHeader != null)
             {
-                <small class="text-muted">
-                    <span>Total Blocks: @reportHeader.TotalBlocks</span> |
-                    <span>Total Categories: @reportHeader.TotalCategories</span> |
-                    <span>Total Size: @reportHeader.TotalSizeMb MB</span> |
-                    <span>Generated: @reportHeader.GeneratedDate.ToString("yyyy-MM-dd")</span>
-                </small>
+            <small class="text-muted">
+            <span>Total Blocks: @reportHeader.TotalBlocks</span> |
+            <span>Total Categories: @reportHeader.TotalCategories</span> |
+            <span>Total Size: @reportHeader.TotalSizeMb MB</span> |
+            <span>Generated: @reportHeader.GeneratedDate.ToString("yyyy-MM-dd")</span>
+            </small>
             } *@
         </div>
 
@@ -31,7 +31,8 @@
         <!-- Filter and Search Section -->
         <div class="d-flex mb-3 p-3">
             <div class="input-group me-2 flex-grow-1">
-                <input type="text" class="form-control" placeholder="Search for AutoCAD blocks..." @bind="searchQuery" @bind:event="oninput" @onkeypress="HandleKeyPress" />
+                <input type="text" class="form-control" placeholder="Search for AutoCAD blocks..."
+                       @bind="searchQuery" @bind:event="oninput" @onkeypress="HandleKeyPress" />
                 @if (isSearchMode)
                 {
                     <button class="btn btn-outline-secondary" @onclick="ClearSearch">Clear</button>
@@ -39,12 +40,9 @@
             </div>
         </div>
 
-        
-
-
         <div class="text-center mb-4">
             <div class="btn-group" role="group">
-            <button class="btn btn-sm btn-dark" @onclick="ApplyFilters">Apply Filters</button>
+                <button class="btn btn-sm btn-dark" @onclick="ApplyFilters">Apply Filters</button>
                 <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search Blocks</button>
             </div>
         </div>
@@ -62,7 +60,9 @@
                                 <h6 class="mb-1">@file.DisplayName</h6>
                                 <small class="text-muted">File Path: @file.RelativePath</small>
                             </div>
-                            <button class="btn btn-outline-primary btn-sm" @onclick="() => CopyFilePathToClipboard(file.RelativePath)" title="Copy full file path">
+                            <button class="btn btn-outline-primary btn-sm"
+                                    @onclick="() => CopyFilePathToClipboard(file.RelativePath)"
+                                    title="Copy full file path">
                                 <i class="bi bi-clipboard"></i> Copy
                             </button>
                         </li>
@@ -88,12 +88,7 @@
 </div>
 
 @code {
-    // Report Header Information
     private ReportHeader? reportHeader;
-
-    // Flags and Data
-    private bool dataLoaded = false;
-    private JsonDocument? jsonDoc;
     private string searchQuery = string.Empty;
     private bool isSearchMode = false;
     private List<FileItemDisplay> searchResults = new();
@@ -101,108 +96,42 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadReportHeader();
-        await LoadData();
+        await LoadReportData();
     }
 
-    // Load Report Header from JSON
-    private async Task LoadReportHeader()
+    private async Task LoadReportData()
     {
         try
         {
-            var stream = await Http.GetStreamAsync("data/output.json");
-            reportHeader = await JsonSerializer.DeserializeAsync<ReportHeader>(stream);
-        }
-        catch (Exception ex)
-        {
-            Console.Error.WriteLine($"Error loading report header: {ex.Message}");
-        }
-    }
+            reportHeader = await ReportService.LoadLibraryMetadataAsync(Http);
+            allFiles = await ReportService.LoadLibraryFilesAsync(Http);
 
-    // Load JSON data and images
-    private async Task LoadData()
-    {
-        try
-        {
-            var stream = await Http.GetStreamAsync("data/output.json");
-            jsonDoc = await JsonDocument.ParseAsync(stream);
-            if (jsonDoc.RootElement.TryGetProperty("directory_structure", out JsonElement dirStruct))
+            if (reportHeader == null)
             {
-                ExtractFiles(dirStruct, allFiles);
-            }
-            else
-            {
-                Console.Error.WriteLine("Failed to find 'directory_structure' in JSON data.");
+                Console.Error.WriteLine("Failed to load report header.");
             }
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine($"Error parsing JSON: {ex.Message}");
+            Console.Error.WriteLine($"Error loading report data: {ex.Message}");
         }
-
-        dataLoaded = true;
     }
 
     private async Task CopyFilePathToClipboard(string filePath)
     {
-        await JS.InvokeVoidAsync("navigator.clipboard.writeText", filePath);
-        await ShowToast($"{filePath} copied successfully!");
+        await ClipboardService.CopyTextToClipboardAsync(JS, filePath);
+        await NotificationService.ShowToastAsync(JS, $"{filePath} copied successfully!");
     }
 
-    private async Task ShowToast(string message)
-    {
-        await JS.InvokeVoidAsync("eval", $@"
-            document.getElementById('toastBody').innerText = '{message}';
-            var toastElement = document.getElementById('copyToast');
-            var toast = new bootstrap.Toast(toastElement);
-            toast.show();
-        ");
-    }
-
-    // Recursive function to extract files from JSON structure
-    void ExtractFiles(JsonElement directory, List<FileItem> files)
-    {
-        foreach (var property in directory.EnumerateObject())
-        {
-            if (property.Name.Equals("files", StringComparison.OrdinalIgnoreCase))
-            {
-                foreach (var file in property.Value.EnumerateArray())
-                {
-                    var fullpath = @"K:\Operations\Modular\Special Builds\Belts\" + file.GetProperty("relative_path").GetString();
-
-
-                    files.Add(new FileItem
-                        {
-                            Filename = file.GetProperty("filename").GetString() ?? string.Empty,
-                            RelativePath = fullpath ?? string.Empty,
-                            SizeMb = file.GetProperty("size_mb").GetDouble(),
-                            CreatedDate = file.GetProperty("created_date").GetDateTime()
-                        });
-                }
-            }
-            else
-            {
-                ExtractFiles(property.Value, files);
-            }
-        }
-    }
-
-    // Handle Enter Key Press for Search
     private async Task HandleKeyPress(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")
         {
-            OnSearch();
+            await OnSearch();
         }
     }
 
-    private void ApplyFilters()
-    {
-        // Example filter application logic
-        searchQuery = !string.IsNullOrWhiteSpace(drawingRequest.BeltType) ? drawingRequest.BeltSeries : string.Empty;
-    }
-
-    private void OnSearch()
+    private async Task OnSearch()
     {
         if (string.IsNullOrWhiteSpace(searchQuery))
         {
@@ -211,25 +140,22 @@
             return;
         }
 
-        var query = searchQuery.ToLower();
-        searchResults = allFiles
-            .Where(f => f.Filename.ToLower().Contains(query) || GetHumanReadableName(f.Filename).ToLower().Contains(query))
-            .Select(f => new FileItemDisplay
-                {
-                    Filename = f.Filename,
-                    DisplayName = GetHumanReadableName(f.Filename),
-                    RelativePath = f.RelativePath,
-                    BeltCode = GetBeltCodeFromFilename(f.Filename)
-                })
-            .ToList();
+        searchResults = ReportService.SearchLibraryFiles(searchQuery, allFiles);
 
         if (searchResults.Any())
         {
-            drawingRequest.CadTemplatePath = searchResults.FirstOrDefault()!.RelativePath;
+            drawingRequest.CadTemplatePath = searchResults.First().RelativePath;
         }
 
         isSearchMode = true;
     }
+
+    private void ApplyFilters()
+    {
+        // Example filter application logic
+        searchQuery = !string.IsNullOrWhiteSpace(drawingRequest.BeltType) ? drawingRequest.BeltSeries : string.Empty;
+    }
+
 
     private void ClearSearch()
     {
@@ -237,68 +163,4 @@
         isSearchMode = false;
         searchResults.Clear();
     }
-
-    // Utility methods for file names
-    string GetHumanReadableName(string filename)
-    {
-        var nameWithoutExtension = Path.GetFileNameWithoutExtension(filename);
-        return Regex.Replace(nameWithoutExtension, @"[_\-]+", " ");
-    }
-
-    string GetBeltCodeFromFilename(string filename)
-    {
-        var match = Regex.Match(filename, @"(?<code>M\d+|0\w+)");
-        return match.Success ? match.Groups["code"].Value.ToUpper() : string.Empty;
-    }
-
-    // Report Header and File Data Classes
-    public class ReportHeader
-    {
-        [JsonPropertyName("total_blocks")]
-        public int TotalBlocks { get; set; }
-
-        [JsonPropertyName("total_categories")]
-        public int TotalCategories { get; set; }
-
-        [JsonPropertyName("total_size_mb")]
-        public double TotalSizeMb { get; set; }
-
-        [JsonPropertyName("generated_date")]
-        public DateTime GeneratedDate { get; set; }
-    }
-
-    public class FileItem
-    {
-        public string Filename { get; set; } = string.Empty;
-        public string RelativePath { get; set; } = string.Empty;
-        public double SizeMb { get; set; }
-        public DateTime CreatedDate { get; set; }
-    }
-
-    private class FileItemDisplay
-    {
-        public string Filename { get; set; } = string.Empty;
-        public string DisplayName { get; set; } = string.Empty;
-        public string RelativePath { get; set; } = string.Empty;
-        public string BeltCode { get; set; } = string.Empty;
-    }
 }
-
-<style>
-    /* Styling for consistent image sizing and better spacing */
-    .library-thumbnail {
-        width: 50px;
-        height: 50px;
-        object-fit: contain;
-        border: 1px solid #dee2e6;
-        border-radius: 4px;
-    }
-
-    .list-group-item {
-        padding: 0.75rem 1rem;
-    }
-
-        .list-group-item:hover {
-            background-color: #f8f9fa;
-        }
-</style>

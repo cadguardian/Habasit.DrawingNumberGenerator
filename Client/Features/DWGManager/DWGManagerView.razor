@@ -257,33 +257,4 @@
             _ => (MarkupString)"<i class='fas fa-file text-muted'></i>"
         };
     }
-
-    public class ReportHeader
-    {
-        [JsonPropertyName("pdf_drawings")]
-        public int TotalFiles { get; set; }
-        [JsonPropertyName("total_categories")]
-        public int TotalCategories { get; set; }
-        [JsonPropertyName("total_size_mb")]
-        public double TotalSizeMb { get; set; }
-        [JsonPropertyName("generated_date")]
-        public DateTime GeneratedDate { get; set; }
-    }
-
-    public class FileItem
-    {
-        public string Filename { get; set; } = string.Empty;
-        public string RelativePath { get; set; } = string.Empty;
-        public double SizeMb { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public string FileType { get; set; } = string.Empty;
-    }
-
-    private class FileItemDisplay
-    {
-        public string Filename { get; set; } = string.Empty;
-        public string DisplayName { get; set; } = string.Empty;
-        public string RelativePath { get; set; } = string.Empty;
-        public string FileType { get; set; } = string.Empty;
-    }
 }

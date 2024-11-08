@@ -2,63 +2,37 @@
 @inject IDrawingRequest drawingRequest
 @inject IDrawingNumber drawingNumber
 @inject IJSRuntime JS
+@inject ITitleBlockService TitleBlockService
 
 <div class="container-fluid no-print my-4">
     <div class="card">
-
         <div class="d-flex justify-content-between align-items-center card-header">
             <div class="fw-bold mb-2">Title Block Generator</div>
-            <button class="btn btn-sm btn-primary" @onclick="RefreshValues">Refresh</button>
+            <button class="btn btn-sm btn-primary" @onclick="ConfirmRefresh">Refresh</button>
         </div>
 
         <!-- Instructions -->
         <div class="alert alert-info p-1 mb-2" style="font-size: 0.8rem;">
-            Click on any value to copy it to the clipboard.
+            Click the copy button to copy any value to the clipboard.
         </div>
 
         <!-- Title Block Fields Table -->
         <table class="table table-sm">
             <tbody>
-                <tr>
-                    <th>Folder Name</th>
-                    <td><span @onclick="() => CopyToClipboard(projectFolderName)" style="cursor: pointer;">@(projectFolderName)</span></td>
-                </tr>
-                <tr>
-                    <th>Rev Number</th>
-                    <td><span @onclick="() => CopyToClipboard(revNumber)" style="cursor: pointer;">@revNumber</span></td>
-                </tr>
-                <tr>
-                    <th>Drawn Date</th>
-                    <td><span @onclick="() => CopyToClipboard(drawnDate)" style="cursor: pointer;">@drawnDate</span></td>
-                </tr>
-                <tr>
-                    <th>Scale</th>
-                    <td><span @onclick="() => CopyToClipboard(scale)" style="cursor: pointer;">@scale</span></td>
-                </tr>
-                <tr>
-                    <th>Drawn By</th>
-                    <td><span @onclick="() => CopyToClipboard(drawnBy)" style="cursor: pointer;">@drawnBy</span></td>
-                </tr>
-                <tr>
-                    <th>Job Number</th>
-                    <td><span @onclick="() => CopyToClipboard(jobNumber)" style="cursor: pointer;">@jobNumber</span></td>
-                </tr>
-                <tr>
-                    <th>Drawing Number</th>
-                    <td><span @onclick="() => CopyToClipboard(drawingNumber.DrawingCode)" style="cursor: pointer;">@drawingNumber.DrawingCode</span></td>
-                </tr>
-                <tr>
-                    <th>Title Line 1</th>
-                    <td><span @onclick="() => CopyToClipboard(titleLine1)" style="cursor: pointer;">@titleLine1</span></td>
-                </tr>
-                <tr>
-                    <th>Title Line 2</th>
-                    <td><span @onclick="() => CopyToClipboard(titleLine2)" style="cursor: pointer;">@titleLine2</span></td>
-                </tr>
-                <tr>
-                    <th>Title Line 3</th>
-                    <td><span @onclick="() => CopyToClipboard(titleLine3)" style="cursor: pointer;">@titleLine3</span></td>
-                </tr>
+                @foreach (var field in titleBlockFields)
+                {
+                    <tr>
+                        <th>@field.Label</th>
+                        <td>
+                            <input type="text" class="form-control form-control-sm" @bind="field.Value" />
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-secondary btn-sm" @onclick="() => CopyToClipboard(field.Value)">
+                                <i class="bi bi-clipboard"></i> Copy
+                            </button>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
@@ -71,10 +45,12 @@
     private string drawnBy = "T Smith";
     private string jobNumber;
     private string projectFolderName;
-
     private string titleLine1;
     private string titleLine2;
     private string titleLine3;
+
+    // List of fields for dynamic rendering
+    private List<TitleBlockField> titleBlockFields;
 
     protected override void OnInitialized()
     {
@@ -83,56 +59,53 @@
 
     private void LoadValues()
     {
-        // Update drawn date to current date
-        drawnDate = DateTime.Now.ToString("MM/dd/yyyy");
+        drawnDate = TitleBlockService.GetDrawnDate();
+        jobNumber = TitleBlockService.GetJobNumber(drawingRequest);
+        projectFolderName = TitleBlockService.GetProjectFolderName(jobNumber, drawingNumber);
+        titleLine1 = TitleBlockService.GetTitleLine1(drawingRequest, drawingNumber);
+        titleLine2 = TitleBlockService.GetTitleLine2(drawingRequest);
+        titleLine3 = TitleBlockService.GetTitleLine3(drawingRequest);
 
-        // Initialize jobNumber
-        if (!string.IsNullOrWhiteSpace(drawingRequest.SalesOrderNumber))
+        // Populate the fields
+        titleBlockFields = new List<TitleBlockField>
         {
-            jobNumber = $"SO{drawingRequest.SalesOrderNumber}";
-        }
-        else if (!string.IsNullOrWhiteSpace(drawingRequest.PurchaseOrderNumber))
-        {
-            jobNumber = $"PO{drawingRequest.PurchaseOrderNumber}";
-        }
-        else if (!string.IsNullOrWhiteSpace(drawingRequest.QuoteNumber))
-        {
-            jobNumber = $"Q{drawingRequest.QuoteNumber}";
-        }
-        else
-        {
-            jobNumber = "N/A";
-        }
-
-        projectFolderName = $"{jobNumber} - {drawingNumber.BeltTypeCode}{drawingNumber.BeltSeriesCode}";
-
-        // Initialize title lines
-        titleLine1 = string.Join(" ",
-            drawingNumber.BeltTypeCode + drawingRequest.BeltSeries,
-            drawingRequest.BeltType,
-            drawingRequest.Color,
-            drawingRequest.Material,
-            drawingRequest.BeltWidth > 0 ? $"{drawingRequest.BeltWidth}in WIDE" : "",
-            drawingRequest.NumberOfLinks > 0 ? $"({drawingRequest.NumberOfLinks}L)" : "").ToUpper();
-
-        titleLine2 = string.Join(" ",
-            drawingRequest.FlightsRollersGrip,
-            drawingRequest.FRGCenters > 0 ? $"{drawingRequest.FRGCenters}IN SPACING" : "").ToUpper();
-
-        titleLine3 = string.Join(" ",
-        $"{drawingRequest.IndentCode} IN INDENT",
-    drawingRequest.RodMaterial).ToUpper();
+            new("Folder Name", projectFolderName),
+            new("Rev Number", revNumber),
+            new("Drawn Date", drawnDate),
+            new("Scale", scale),
+            new("Drawn By", drawnBy),
+            new("Job Number", jobNumber),
+            new("Drawing Number", drawingNumber.DrawingCode),
+            new("Title Line 1", titleLine1),
+            new("Title Line 2", titleLine2),
+            new("Title Line 3", titleLine3)
+        };
     }
 
-    private void RefreshValues()
+    private async Task ConfirmRefresh()
     {
-        LoadValues();
-        StateHasChanged();
+        bool confirm = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to refresh? Any custom changes will be removed.");
+        if (confirm)
+        {
+            LoadValues();
+            StateHasChanged();
+        }
     }
 
     private void CopyToClipboard(string text)
     {
-        // Call your existing JavaScript function
-        JS.InvokeVoidAsync("CopyDrawingNumber", text);
+        JS.InvokeVoidAsync("navigator.clipboard.writeText", text);
+    }
+
+    private class TitleBlockField
+    {
+        public TitleBlockField(string label, string value)
+        {
+            Label = label;
+            Value = value;
+        }
+
+        public string Label { get; set; }
+        public string Value { get; set; }
     }
 }

@@ -1,12 +1,12 @@
-﻿@using System.Text.RegularExpressions
-@using System.Net.Http.Json
+﻿@page "/belt-series"
+@using DNG.Library.Models.BeltSpecs
 @inject HttpClient Http
+@inject IBeltSeriesService BeltSeriesService
 @inject IDrawingRequest DrawingRequest
 
 <div class="input-group mb-3">
-
     <div class="container px-4">
-        <span class="input-group-text display-4">@BeltSeries.GetBeltSeriesType(DrawingRequest?.BeltSeries ?? "")</span>
+       
 
         <div class="col gx-5">
             <div class="col d-flex justify-content-center align-items-center">
@@ -20,8 +20,8 @@
                 }
             </div>
 
-            <div class="col">
-                <div class="form-floating mt-4">
+            <div class="input-group mb-3">
+                <div class="form-floating">
                     <select id="beltSeries" class="form-select form-select-sm"
                             @bind="beltSeries"
                             required>
@@ -33,9 +33,7 @@
                     </select>
                     <label for="beltSeries">Series</label>
                 </div>
-                <div class="col-12 mt-4">
-                    <SelectBeltType />
-                </div>
+                <span class="input-group-text">@BeltSeriesService.GetBeltSeriesType(DrawingRequest?.BeltSeries ?? "")</span>
             </div>
         </div>
     </div>
@@ -50,7 +48,7 @@
             if (DrawingRequest != null)
             {
                 DrawingRequest.BeltSeries = value;
-                selectedImage = GetImageFileNameForBeltSeries(DrawingRequest.BeltSeries, imageFiles);
+                selectedImage = BeltSeriesService.GetImageFileNameForBeltSeries(DrawingRequest.BeltSeries, imageFiles);
             }
         }
     }
@@ -60,48 +58,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        // Load the list of image file names
-        imageFiles = await Http.GetFromJsonAsync<List<string>>("images/belts/images.json");
-    }
-
-    private string? GetImageFileNameForBeltSeries(string beltSeriesCode, List<string> imageFileNames)
-    {
-        var beltTokens = Tokenize(beltSeriesCode);
-
-        int maxMatches = 0;
-        string? bestMatch = null;
-
-        foreach (var imageFile in imageFileNames)
-        {
-            var imageName = NormalizeImageName(imageFile);
-            var imageTokens = Tokenize(imageName);
-
-            // Count matching tokens
-            int matches = beltTokens.Intersect(imageTokens).Count();
-
-            if (matches > maxMatches)
-            {
-                maxMatches = matches;
-                bestMatch = imageFile;
-            }
-        }
-
-        return bestMatch;
-    }
-
-    private static List<string> Tokenize(string input)
-    {
-        var matches = Regex.Matches(input ?? string.Empty, @"[A-Za-z]+|\d+");
-        return matches.Select(m => m.Value.ToUpper()).ToList();
-    }
-
-    private static string NormalizeImageName(string imageName)
-    {
-        string name = Path.GetFileNameWithoutExtension(imageName ?? string.Empty);
-        if (name.StartsWith("ModularBelt_", StringComparison.OrdinalIgnoreCase))
-        {
-            name = name.Substring("ModularBelt_".Length);
-        }
-        return name.ToUpper();
+        // Load image files with service
+        imageFiles = await BeltSeriesService.LoadImageFilesAsync(Http);
     }
 }

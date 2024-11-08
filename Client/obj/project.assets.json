@@ -757,6 +757,10 @@
       "DNG.Library/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "8.0.10",
+          "Microsoft.JSInterop": "8.0.10"
+        },
         "compile": {
           "bin/placeholder/DNG.Library.dll": {}
         },
@@ -1499,6 +1503,10 @@
       "DNG.Library/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "8.0.10",
+          "Microsoft.JSInterop": "8.0.10"
+        },
         "compile": {
           "bin/placeholder/DNG.Library.dll": {}
         },

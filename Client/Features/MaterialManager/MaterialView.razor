@@ -1,4 +1,5 @@
 ﻿@page "/part-numbers"
+@using DNG.Library.Services.Base
 @inject IPartNumberService PartNumberService
 @inject IDrawingRequest drawingRequest
 
@@ -145,8 +146,7 @@
     {
         try
         {
-            var csvFilePath = "https://raw.githubusercontent.com/cadguardian/Habasit-CADMedia/refs/heads/main/partNumbers.csv";
-            await PartNumberService.InitializeAsync(csvFilePath);
+            await PartNumberService.InitializeAsync();
         }
         catch (Exception ex)
         {

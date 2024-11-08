@@ -1,6 +1,5 @@
 @page "/image-gallery"
-@inject HttpClient Http
-@inject IJSRuntime JS
+@inject IImageGalleryService ImageService
 @inject IDrawingRequest drawingRequest
 
 <div class="container-fluid no-print my-4">
@@ -48,9 +47,9 @@
                     {
                         <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
                             <div class="card h-100 image-card" @onclick="() => ShowImage(image)">
-                                <img src="images/belts/@image" class="card-img-top" alt="@DisplayImageName(image)" />
+                                <img src="images/belts/@image" class="card-img-top" alt="@ImageService.FormatImageName(image)" />
                                 <div class="card-body p-1">
-                                    <p class="card-text text-center small">@DisplayImageName(image)</p>
+                                    <p class="card-text text-center small">@ImageService.FormatImageName(image)</p>
                                 </div>
                             </div>
                         </div>
@@ -62,8 +61,8 @@
         {
             <!-- Full Image View -->
             <div class="text-center">
-                <img src="images/belts/@selectedImage" class="img-fluid" alt="@DisplayImageName(selectedImage)" style="max-height: 70vh;" />
-                <p class="text-muted mt-2">@DisplayImageName(selectedImage)</p>
+                <img src="images/belts/@selectedImage" class="img-fluid" alt="@ImageService.FormatImageName(selectedImage)" style="max-height: 70vh;" />
+                <p class="text-muted mt-2">@ImageService.FormatImageName(selectedImage)</p>
                 <button class="btn btn-outline-secondary mt-3" @onclick="ClearSelectedImage">Back to Gallery</button>
             </div>
         }
@@ -78,12 +77,10 @@
 
     protected override async Task OnInitializedAsync()
     {
-        imageFiles = await Http.GetFromJsonAsync<List<string>>("images/belts/images.json");
-        Console.WriteLine($"{imageFiles.Count} belt images found.");
+        imageFiles = await ImageService.LoadImageFilesAsync();
     }
 
-    private IEnumerable<string> FilteredImages => imageFiles
-        .Where(img => img.Contains(searchQuery, StringComparison.OrdinalIgnoreCase));
+    private IEnumerable<string> FilteredImages => ImageService.FilterImages(imageFiles, searchQuery);
 
     private void ShowImage(string image)
     {
@@ -97,7 +94,7 @@
 
     private void ApplyFilters()
     {
-        // Update searchQuery based on filter criteria, for example:
+        // Update searchQuery based on filter criteria
         searchQuery = !string.IsNullOrWhiteSpace(drawingRequest.BeltType) ? drawingRequest.BeltSeries : string.Empty;
     }
 
@@ -119,13 +116,8 @@
         searchQuery = string.Empty;
         isSearchMode = false;
     }
-
-    private string DisplayImageName(string imageName)
-    {
-        string name = Path.GetFileNameWithoutExtension(imageName).Replace("_", " ");
-        return name.StartsWith("ModularBelt_") ? name.Substring("ModularBelt_".Length) : name;
-    }
 }
+
 
 <style>
     .gallery-container {

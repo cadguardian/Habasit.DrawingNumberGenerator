@@ -120,16 +120,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEYXRhRW50cnlcU2VsZWN0Um9kTWF0ZXJpYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/Features/CADManager/AutoCADCommands.razor]
-build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQ0FETWFuYWdlclxBdXRvQ0FEQ29tbWFuZHMucmF6b3I=
+[C:/localrepos/DrawingNumberGenerator/Client/Components/QuickGuide.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xRdWlja0d1aWRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/localrepos/DrawingNumberGenerator/Client/Features/CADManager/Archive/AutoCADCommands.razor]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQ0FETWFuYWdlclxBcmNoaXZlXEF1dG9DQURDb21tYW5kcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/localrepos/DrawingNumberGenerator/Client/Features/CADManager/Archive/CADWorkflow.razor]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQ0FETWFuYWdlclxBcmNoaXZlXENBRFdvcmtmbG93LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/localrepos/DrawingNumberGenerator/Client/Features/CADManager/CADLibraryView.razor]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQ0FETWFuYWdlclxDQURMaWJyYXJ5Vmlldy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/localrepos/DrawingNumberGenerator/Client/Features/CADManager/CADWorkflow.razor]
-build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcQ0FETWFuYWdlclxDQURXb3JrZmxvdy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/localrepos/DrawingNumberGenerator/Client/Features/DWGManager/DWGManagerView.razor]
@@ -160,6 +164,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcRFdHUmVxdWVzdFxVbmlxdWVJZGVudGlmaWNhdGlvbkFuZEluZGVudENvZGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/localrepos/DrawingNumberGenerator/Client/Features/EngineeringManager/ProjectPrintSummary.razor]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcRW5naW5lZXJpbmdNYW5hZ2VyXFByb2plY3RQcmludFN1bW1hcnkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/localrepos/DrawingNumberGenerator/Client/Features/Serialization/JSONExportView.razor]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcU2VyaWFsaXphdGlvblxKU09ORXhwb3J0Vmlldy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -174,10 +182,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/localrepos/DrawingNumberGenerator/Client/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/localrepos/DrawingNumberGenerator/Client/Pages/ProjectSummarySheet.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvamVjdFN1bW1hcnlTaGVldC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/localrepos/DrawingNumberGenerator/Client/Services/DrawingRequestExtractor/DrawingRequestComponent.razor]
@@ -196,10 +200,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcRFdHTnVtYmVyXERyYXdpbmdOdW1iZXJHZW5lcmF0b3JJbnN0cnVjdGlvbnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-iriz8n72r8
 
-[C:/localrepos/DrawingNumberGenerator/Client/Features/DWGNumber/DWGNumberView.razor]
-build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcRFdHTnVtYmVyXERXR051bWJlclZpZXcucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-3ibieg1zn7
-
 [C:/localrepos/DrawingNumberGenerator/Client/Features/FeatureManager/FeatureManagerView.razor]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcRmVhdHVyZU1hbmFnZXJcRmVhdHVyZU1hbmFnZXJWaWV3LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-vi81fyi840
@@ -207,10 +207,6 @@ build_metadata.AdditionalFiles.CssScope = b-vi81fyi840
 [C:/localrepos/DrawingNumberGenerator/Client/Features/MaterialManager/MaterialView.razor]
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcTWF0ZXJpYWxNYW5hZ2VyXE1hdGVyaWFsVmlldy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-bmuoxh7ujc
-
-[C:/localrepos/DrawingNumberGenerator/Client/Features/OrderManager/OrderView.razor]
-build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcT3JkZXJNYW5hZ2VyXE9yZGVyVmlldy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-g78qzyweqk
 
 [C:/localrepos/DrawingNumberGenerator/Client/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=

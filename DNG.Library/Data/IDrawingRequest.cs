@@ -4,6 +4,10 @@ namespace DNG.Library.Data
 {
     public interface IDrawingRequest
     {
+        string GetProjectFolderName();
+
+        string GetJobNumber();
+
         string SugarCRMTaskLink { get; set; }
         string FinalDrawingFilePath { get; set; }
         string AdderMaterial { get; set; }

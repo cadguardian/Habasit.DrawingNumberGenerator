@@ -2,6 +2,9 @@
 
 namespace Client.Data
 {
+    /// <summary>
+    /// Represents a part number with its description.
+    /// </summary>
     public class PartNumber
     {
         [Key]

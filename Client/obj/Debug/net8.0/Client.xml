@@ -4,47 +4,5 @@
         <name>Client</name>
     </assembly>
     <members>
-        <member name="T:Client.Services.PartNumberService">
-            <summary>
-            Service responsible for loading and filtering part numbers.
-            </summary>
-        </member>
-        <member name="M:Client.Services.PartNumberService.#ctor(Microsoft.Extensions.Logging.ILogger{Client.Services.PartNumberService},System.Net.Http.HttpClient)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Client.Services.PartNumberService"/> class.
-            </summary>
-            <param name="logger">The logger instance.</param>
-            <param name="httpClient">The HTTP client for fetching CSV data.</param>
-        </member>
-        <member name="M:Client.Services.PartNumberService.InitializeAsync(System.String)">
-            <summary>
-            Initializes the service and loads part numbers from the CSV file asynchronously.
-            </summary>
-            <param name="csvFilePath">The path to the CSV file containing part numbers.</param>
-        </member>
-        <member name="M:Client.Services.PartNumberService.SplitCsvLine(System.String)">
-            <summary>
-            Splits a CSV line into an array of values, handling quoted commas.
-            </summary>
-            <param name="line">The CSV line to split.</param>
-            <returns>An array of values.</returns>
-        </member>
-        <member name="M:Client.Services.PartNumberService.FilterPartNumbers(DNG.Library.Data.IDrawingRequest,System.String,System.Boolean)">
-            <summary>
-            Filters part numbers based on user input using standard LINQ queries.
-            Supports two modes:
-            - Free Search Mode: Searches for parts containing the universal search string in either the Part or Description.
-            - Drawing Request Filter Mode: Applies specific filters based on BeltSeries, Color, and Material.
-            </summary>
-            <param name="drawingRequest">The drawing request containing specific filter criteria.</param>
-            <param name="universalSearch">The universal search string for free text searching.</param>
-            <param name="isFreeSearchMode">Determines whether to apply free search filtering or drawing request filters.</param>
-            <returns>An enumerable of filtered part numbers and their descriptions.</returns>
-        </member>
-        <member name="T:Client.Services.PartNumberService.PartNumber">
-            <summary>
-            Represents a part number with its description.
-            </summary>
-        </member>
     </members>
 </doc>

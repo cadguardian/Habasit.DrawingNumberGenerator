@@ -1,6 +1,6 @@
-using Client.Services.Interfaces;
 using DNG.Library.Data;
 using DNG.Library.Models;
+using DNG.Library.Services.Base;
 using Microsoft.AspNetCore.Components;
 
 public class BaseInputComponent : ComponentBase
