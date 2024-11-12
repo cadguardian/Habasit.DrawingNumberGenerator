@@ -16,6 +16,12 @@
         <!-- Header Section with Summary Information -->
         <div class="d-flex justify-content-between align-items-center card-header">
             <span class="fw-bold">CAD Template Finder</span>
+            @if (allFiles != null)
+            {
+                <small class="text-muted">
+                    <span>Total CAD Templates: @allFiles.Count</span>
+                </small>
+            }
             @* If using report header data, uncomment below *@
             @* @if (reportHeader != null)
             {

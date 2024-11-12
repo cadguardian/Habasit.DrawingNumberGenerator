@@ -13,7 +13,14 @@
 
     <!-- Search Bar and Buttons -->
             <div class="d-flex justify-content-between align-items-center card-header">
-                <span class="fw-bold">Parts Finder</span>
+                <span class="fw-bold">Part Finder</span>
+
+            @if (PartNumberService.GetParts() != null)
+            {
+                <small class="text-muted">
+                    <span>Total Parts: @PartNumberService.GetParts().Count</span>
+                </small>
+            }
                 </div>
 
         <div class="alert alert-info p-2" style="font-size: 0.8rem;">

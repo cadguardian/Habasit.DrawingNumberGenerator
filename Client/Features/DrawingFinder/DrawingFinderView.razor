@@ -14,6 +14,13 @@
     <div class="card">
         <div class="d-flex justify-content-between align-items-center card-header">
             <div class="fw-bold">Drawing Finder</div>
+
+            @if (allFiles != null)
+            {
+                <small class="text-muted">
+                    <span>Total Drawings: @allFiles.Count</span>
+                </small>
+            }
         </div>
 
         <div class="alert alert-info p-2" style="font-size: 0.8rem;">

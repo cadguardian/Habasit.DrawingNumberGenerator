@@ -7,17 +7,10 @@
 @inject IJSRuntime JS
 
 <div class="container-fluid">
-     <div class="text-center">
-        <div class="btn-group" role="group">
-    <!-- Print Button (to show the summary sheet) -->
-    <button class="btn btn-dark mb-3 my-4" @onclick="ShowSummarySheet">Print View</button>
-        </div>
-    </div>
-
     <!-- Summary Sheet Section (Hidden initially) -->
-    <div class="summary-sheet" style="display: none;" id="summarySheet">
+    <div class="summary-sheet print-mode" style="display: block;" id="summarySheet">
         <div class="text-center">
-            <h1>Engineering Project Summary Sheet</h1>
+            <h2 class="fw-bold mb-4">Engineering Project Summary Sheet</h2>
         </div>
         
         <div class="alert alert-warning p-2 mb-4">
@@ -187,9 +180,6 @@
                 </tbody>
             </table>
         </div>
-
-        <!-- Back Button -->
-        <button class="btn btn-secondary mt-4" @onclick="HideSummarySheet">Hide Print View</button>
     </div>
 </div>
 
@@ -205,17 +195,7 @@
 
     private IEnumerable<string> FilteredImages => ImageService.FilterImages(imageFiles, searchQuery);
 
-    private void ShowSummarySheet()
-    {
-        ApplyFilters();
-        JS.InvokeVoidAsync("toggleSummarySheet", true);
-    }
 
-    private void HideSummarySheet()
-    {
-        ApplyFilters();
-        JS.InvokeVoidAsync("toggleSummarySheet", false);
-    }
 
     private void ApplyFilters()
     {

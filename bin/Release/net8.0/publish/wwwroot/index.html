@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/app.css" />
 </head>
 
-<body>
+<body class="print-mode">
     <div id="app">
         <svg class="loading-progress">
             <circle r="40%" cx="50%" cy="50%" />
@@ -80,18 +80,6 @@
             var toastElement = document.getElementById("clipboardToast");
             var toast = new bootstrap.Toast(toastElement);
             toast.show();
-        }
-    </script>
-    <script>
-        function toggleSummarySheet(show) {
-            const summarySheet = document.getElementById('summarySheet');
-            if (show) {
-                summarySheet.style.display = 'block';
-                document.body.classList.add('print-mode');
-            } else {
-                summarySheet.style.display = 'none';
-                document.body.classList.remove('print-mode');
-            }
         }
     </script>
 </body>
