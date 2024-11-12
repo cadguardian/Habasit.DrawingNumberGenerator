@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace DNG.Library.Data
+﻿namespace DNG.Library.Data
 {
     public interface IDrawingRequest
     {

@@ -1,34 +1,25 @@
 ﻿@using System.Text.RegularExpressions
 @using System.IO
-@using System.Text.Json
-@using System.Text.Json.Serialization
 @inject HttpClient Http
 @inject IJSRuntime JS
 @inject IDrawingNumber drawingNumber
 @inject IDrawingRequest drawingRequest
+@inject IDrawingFileService DrawingFileService
+
+<label class="small alert alert-warning my-4 no-print">
+    Use Query String to find drawings instantly.
+</label>
 
 <div class="container-fluid no-print">
     <div class="card">
-        <!-- Header Section with Summary Information -->
         <div class="d-flex justify-content-between align-items-center card-header">
             <div class="fw-bold">Drawing Finder</div>
-           @*  @if (reportHeader != null)
-            {
-                <small class="text-muted">
-                    <span>Files: @reportHeader.TotalFiles</span> |
-                    <span>Categories: @reportHeader.TotalCategories</span> |
-                    <span>Total Size: @reportHeader.TotalSizeMb MB</span> |
-                    <span>Date: @reportHeader.GeneratedDate.ToString("yyyy-MM-dd")</span>
-                </small>
-            } *@
         </div>
 
         <div class="alert alert-info p-2" style="font-size: 0.8rem;">
             Use <strong>*</strong> as a wildcard: <strong>*term</strong> to find items ending with "term", <strong>term*</strong> for items starting with "term", or <strong>term*term</strong> for partial matches.
         </div>
 
-
-        <!-- Filter and Search Section -->
         <div class="d-flex mb-3 p-3">
             <div class="input-group me-2 flex-grow-1">
                 <input type="text" class="form-control" placeholder="Search for CAD files..." @bind="searchQuery" @bind:event="oninput" @onkeypress="HandleKeyPress" />
@@ -37,19 +28,14 @@
                     <button class="btn btn-outline-secondary" @onclick="ClearSearch">Clear</button>
                 }
             </div>
-            
         </div>
         <div class="text-center mb-4">
-        <div class="btn-group" role="group">
-            <button class="btn btn-sm btn-dark" @onclick="ApplyFilters">Apply Filters</button>
-            <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search Drawings</button>
+            <div class="btn-group" role="group">
+                <button class="btn btn-sm btn-dark" @onclick="ApplyFilters">Apply Filters</button>
+                <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search Drawings</button>
+            </div>
         </div>
-    </div>
 
-
-     
-
-        <!-- Search Results List -->
         @if (isSearchMode)
         {
             @if (searchResults.Any())
@@ -64,7 +50,7 @@
                                 <small class="text-muted">File Path: @file.RelativePath</small>
                             </div>
                             <button class="btn btn-outline-primary btn-sm"
-                                    @onclick="() => CopyDrawingFilePathToClipboard(file.RelativePath)"
+                                    @onclick="() => CopyFilePathToClipboard(file.RelativePath)"
                                     data-bs-toggle="tooltip"
                                     title="Copy to clipboard">
                                 <i class="bi bi-clipboard"></i> Copy
@@ -80,30 +66,39 @@
             }
             else
             {
-                <!-- No Search Results -->
                 <div class="alert alert-info text-center">No results found for "<strong>@searchQuery</strong>". try ending with an <strong>*. For example: *@searchQuery*</strong></div>
             }
         }
     </div>
-
 </div>
 
 @code {
     private ReportHeader? reportHeader;
     private bool dataLoaded = false;
-    private JsonDocument? jsonDoc;
     private string searchQuery = string.Empty;
-    private string universalSearch = string.Empty;
     private bool isSearchMode = false;
     private List<FileItemDisplay> searchResults = new();
     private List<FileItem> allFiles = new();
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadData();
+        reportHeader = await DrawingFileService.LoadReportHeaderAsync(Http, "data/pdf_drawings.json");
+        allFiles = await DrawingFileService.LoadAllFilesAsync(Http, "data/pdf_drawings.json");
+        dataLoaded = true;
     }
 
-    private void HandleKeyPress(KeyboardEventArgs e)
+    private void ApplyFilters()
+    {
+        searchQuery = DrawingFileService.GenerateUniversalSearch(drawingNumber.QueryString);
+    }
+
+    private void OnSearch()
+    {
+        searchResults = DrawingFileService.SearchFiles(searchQuery, allFiles, drawingNumber.QueryString);
+        isSearchMode = searchResults.Any();
+    }
+
+     private void HandleKeyPress(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")
         {
@@ -111,141 +106,18 @@
         }
     }
 
-    // Load JSON data
-    private async Task LoadData()
-    {
-        try
-        {
-            var stream = await Http.GetStreamAsync("data/pdf_drawings.json");
-            jsonDoc = await JsonDocument.ParseAsync(stream);
 
-            if (jsonDoc.RootElement.TryGetProperty("header", out JsonElement headerElement))
-            {
-                reportHeader = JsonSerializer.Deserialize<ReportHeader>(headerElement.GetRawText());
-            }
-
-            if (jsonDoc.RootElement.TryGetProperty("directory_structure", out JsonElement directoryStructure))
-            {
-                ExtractFiles(directoryStructure, "", allFiles);
-            }
-
-            dataLoaded = true;
-        }
-        catch (Exception ex)
-        {
-            Console.Error.WriteLine($"Error parsing JSON: {ex.Message}");
-        }
-    }
-
-    void ExtractFiles(JsonElement directory, string currentCategory, List<FileItem> files)
-    {
-        foreach (var property in directory.EnumerateObject())
-        {
-            if (property.Name.Equals("files", StringComparison.OrdinalIgnoreCase))
-            {
-                foreach (var file in property.Value.EnumerateArray())
-                {
-                    var fullpath = @"K:\Operations\Modular\Special Builds\Belts\" + file.GetProperty("relative_path").GetString();
-
-                    files.Add(new FileItem
-                        {
-                            Filename = file.GetProperty("filename").GetString() ?? string.Empty,
-                            RelativePath = fullpath ?? string.Empty,
-                            SizeMb = file.GetProperty("size_mb").GetDouble(),
-                            CreatedDate = file.GetProperty("created_date").GetDateTime(),
-                            FileType = file.GetProperty("filename").GetString()?.EndsWith(".pdf") == true ? "PDF" : "DWG"
-                        });
-                }
-            }
-            else
-            {
-                ExtractFiles(property.Value, property.Name, files);
-            }
-        }
-    }
-
-    private void ApplyFilters()
-    {
-        UpdateSearchWithFilters();
-        searchQuery = universalSearch;
-    }
-
-    private void OnSearch()
-    {
-        if (string.IsNullOrWhiteSpace(searchQuery))
-        {
-            isSearchMode = false;
-            searchResults.Clear();
-            return;
-        }
-
-        List<FileItemDisplay> matchedResults;
-
-        if (searchQuery.Contains("*"))
-        {
-            var regexPattern = "^" + Regex.Escape(searchQuery).Replace("\\*", ".*") + "$";
-            var regex = new Regex(regexPattern, RegexOptions.IgnoreCase);
-
-            matchedResults = allFiles
-                .Where(f => regex.IsMatch(f.Filename))
-                .Select(f => new FileItemDisplay
-                    {
-                        Filename = f.Filename,
-                        DisplayName = GetHumanReadableName(f.Filename),
-                        RelativePath = f.RelativePath,
-                        FileType = f.FileType
-                    })
-                .ToList();
-        }
-        else
-        {
-            var query = searchQuery.ToLower();
-            matchedResults = allFiles
-                .Where(f => f.Filename.ToLower().Contains(query))
-                .Select(f => new FileItemDisplay
-                    {
-                        Filename = f.Filename,
-                        DisplayName = GetHumanReadableName(f.Filename),
-                        RelativePath = f.RelativePath,
-                        FileType = f.FileType
-                    })
-                .ToList();
-        }
-
-        searchResults = matchedResults;
-        isSearchMode = true;
-    }
-
-    private void UpdateSearchWithFilters()
-    {
-        var filters = new List<string>();
-
-        if (!string.IsNullOrWhiteSpace(drawingNumber.QueryString))
-        {
-            filters.Add(drawingNumber.QueryString);
-        }
-
-        universalSearch = string.Join("", filters);
-    }
 
     private void ClearSearch()
     {
         searchQuery = string.Empty;
-        universalSearch = string.Empty;
         isSearchMode = false;
         searchResults.Clear();
     }
 
-    private async Task CopyDrawingFilePathToClipboard(string drawingNumber)
+    private async Task CopyFilePathToClipboard(string filePath)
     {
-        await JS.InvokeVoidAsync("navigator.clipboard.writeText", drawingNumber);
-        await JS.InvokeVoidAsync("showToast", drawingNumber);
-    }
-
-    string GetHumanReadableName(string filename)
-    {
-        var nameWithoutExtension = Path.GetFileNameWithoutExtension(filename);
-        return nameWithoutExtension;
+        await DrawingFileService.CopyFilePathToClipboard(JS, filePath);
     }
 
     private MarkupString GetFileIcon(string fileType)

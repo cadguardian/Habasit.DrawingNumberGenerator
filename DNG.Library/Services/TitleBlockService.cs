@@ -34,7 +34,6 @@ public class TitleBlockService : ITitleBlockService
     {
         return string.Join(" ",
             drawingNumber.BeltTypeCode + drawingRequest.BeltSeries,
-            drawingRequest.BeltType,
             drawingRequest.Color,
             drawingRequest.Material,
             drawingRequest.BeltWidth > 0 ? $"{drawingRequest.BeltWidth}\" WIDE" : "",

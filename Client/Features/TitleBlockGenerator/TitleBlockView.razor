@@ -1,0 +1,115 @@
+﻿@page "/title-block-generator"
+@inject IDrawingRequest drawingRequest
+@inject IDrawingNumber drawingNumber
+@inject IJSRuntime JS
+@inject ITitleBlockService TitleBlockService
+
+<label class="small alert alert-warning my-4 no-print">
+    Copy values and paste in your drawing title block.
+</label>
+
+<div class="container-fluid no-print my-4">
+    <div class="card">
+        <div class="d-flex justify-content-between align-items-center card-header">
+            <div class="fw-bold mb-2">Title Block Generator</div>
+            <button class="btn btn-sm btn-primary" @onclick="ConfirmRefresh">Refresh</button>
+        </div>
+
+        <!-- Instructions -->
+        <div class="alert alert-info p-1 mb-2" style="font-size: 0.8rem;">
+            Click the copy button to copy any value to the clipboard.
+        </div>
+
+        <!-- Title Block Fields Table -->
+        <table class="table table-sm">
+            <tbody>
+                @foreach (var field in titleBlockFields)
+                {
+                    <tr>
+                        <th>@field.Label</th>
+                        <td>
+                            <input type="text" class="form-control form-control-sm" @bind="field.Value" />
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-secondary btn-sm" @onclick="() => CopyToClipboard(field.Value)">
+                                <i class="bi bi-clipboard"></i> Copy
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private string revNumber = "A";
+    private string drawnDate = string.Empty;
+    private string scale = "N/A";
+    private string drawnBy = "T Smith";
+    private string jobNumber = string.Empty;
+    private string projectFolderName = string.Empty;
+    private string titleLine1 = string.Empty;
+    private string titleLine2 = string.Empty;
+    private string titleLine3 = string.Empty;
+
+    // List of fields for dynamic rendering
+    private List<TitleBlockField>? titleBlockFields;
+
+    protected override void OnInitialized()
+    {
+        LoadValues();
+    }
+
+    private void LoadValues()
+    {
+        drawnDate = TitleBlockService.GetDrawnDate();
+        jobNumber = TitleBlockService.GetJobNumber(drawingRequest);
+        projectFolderName = TitleBlockService.GetProjectFolderName(jobNumber, drawingNumber);
+        titleLine1 = TitleBlockService.GetTitleLine1(drawingRequest, drawingNumber);
+        titleLine2 = TitleBlockService.GetTitleLine2(drawingRequest);
+        titleLine3 = TitleBlockService.GetTitleLine3(drawingRequest);
+
+        // Populate the fields
+        titleBlockFields = new List<TitleBlockField>
+        {
+            new("Folder Name", projectFolderName),
+            new("Rev Number", revNumber),
+            new("Drawn Date", drawnDate),
+            new("Scale", scale),
+            new("Drawn By", drawnBy),
+            new("Job Number", jobNumber),
+            new("Drawing Number", drawingNumber.DrawingCode),
+            new("Title Line 1", titleLine1),
+            new("Title Line 2", titleLine2),
+            new("Title Line 3", titleLine3)
+        };
+    }
+
+    private async Task ConfirmRefresh()
+    {
+        bool confirm = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to refresh? Any custom changes will be removed.");
+        if (confirm)
+        {
+            LoadValues();
+            StateHasChanged();
+        }
+    }
+
+    private void CopyToClipboard(string text)
+    {
+        JS.InvokeVoidAsync("navigator.clipboard.writeText", text);
+    }
+
+    private class TitleBlockField
+    {
+        public TitleBlockField(string label, string value)
+        {
+            Label = label;
+            Value = value;
+        }
+
+        public string Label { get; set; }
+        public string Value { get; set; }
+    }
+}

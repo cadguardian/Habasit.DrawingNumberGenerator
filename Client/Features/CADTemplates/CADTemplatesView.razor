@@ -1,0 +1,170 @@
+﻿@using System.Text.RegularExpressions
+@inject HttpClient Http
+@inject IJSRuntime JS
+@inject IDrawingRequest drawingRequest
+@inject ICADLibraryService CADLibraryService
+@inject INotificationService NotificationService
+@inject IClipboardService ClipboardService
+
+<label class="small alert alert-warning my-4 no-print">
+    Quickly find CAD templates.
+</label>
+
+<!-- CAD Library Component -->
+<div class="container-fluid no-print">
+    <div class="card shadow-sm">
+        <!-- Header Section with Summary Information -->
+        <div class="d-flex justify-content-between align-items-center card-header">
+            <span class="fw-bold">CAD Template Finder</span>
+            @* If using report header data, uncomment below *@
+            @* @if (reportHeader != null)
+            {
+            <small class="text-muted">
+            <span>Total Blocks: @reportHeader.TotalBlocks</span> |
+            <span>Total Categories: @reportHeader.TotalCategories</span> |
+            <span>Total Size: @reportHeader.TotalSizeMb MB</span> |
+            <span>Generated: @reportHeader.GeneratedDate.ToString("yyyy-MM-dd")</span>
+            </small>
+            } *@
+        </div>
+
+        <div class="alert alert-info p-2" style="font-size: 0.8rem;">
+            Use <strong>Apply Filters</strong> to narrow down CAD blocks by specific criteria before starting your search.
+        </div>
+
+        <!-- Filter and Search Section -->
+        <div class="d-flex mb-3 p-3">
+            <div class="input-group me-2 flex-grow-1">
+                <input type="text" class="form-control" placeholder="Search for AutoCAD blocks..."
+                       @bind="searchQuery" @bind:event="oninput" @onkeypress="HandleKeyPress" />
+                @if (isSearchMode)
+                {
+                    <button class="btn btn-outline-secondary" @onclick="ClearSearch">Clear</button>
+                }
+            </div>
+        </div>
+
+        <div class="text-center mb-4">
+            <div class="btn-group" role="group">
+                <button class="btn btn-sm btn-dark" @onclick="ApplyFilters">Apply Filters</button>
+                <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search Blocks</button>
+            </div>
+        </div>
+
+        <!-- Search Results List -->
+        @if (isSearchMode)
+        {
+            @if (searchResults.Any())
+            {
+                <ul class="list-group list-group-flush">
+                    @foreach (var file in searchResults)
+                    {
+                        <li class="list-group-item d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">@file.DisplayName</h6>
+                                <small class="text-muted">File Path: @file.RelativePath</small>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm"
+                                    @onclick="() => CopyFilePathToClipboard(file.RelativePath)"
+                                    title="Copy full file path">
+                                <i class="bi bi-clipboard"></i> Copy
+                            </button>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <div class="alert alert-info text-center">No results found for "<strong>@searchQuery</strong>".</div>
+            }
+        }
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
+    <div id="copyToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div id="toastBody" class="toast-body"></div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private ReportHeader? reportHeader;
+    private string searchQuery = string.Empty;
+    private bool isSearchMode = false;
+    private List<FileItemDisplay> searchResults = new();
+    private List<FileItem> allFiles = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadReportData();
+    }
+
+    private async Task LoadReportData()
+    {
+        try
+        {
+            reportHeader = await CADLibraryService.LoadLibraryMetadataAsync(Http);
+            allFiles = await CADLibraryService.LoadLibraryFilesAsync(Http);
+
+            if (reportHeader == null)
+            {
+                Console.Error.WriteLine("Failed to load report header.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"Error loading report data: {ex.Message}");
+        }
+    }
+
+    private async Task CopyFilePathToClipboard(string filePath)
+    {
+        await ClipboardService.CopyTextToClipboardAsync(JS, filePath);
+        await NotificationService.ShowToastAsync(JS, $"{filePath} copied successfully!");
+    }
+
+    private async Task HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await OnSearch();
+        }
+    }
+
+    private async Task OnSearch()
+    {
+        if (string.IsNullOrWhiteSpace(searchQuery))
+        {
+            isSearchMode = false;
+            searchResults.Clear();
+            return;
+        }
+
+        searchResults = CADLibraryService.SearchLibraryFiles(searchQuery, allFiles);
+
+        if (searchResults.Any())
+        {
+            drawingRequest.CadTemplatePath = searchResults.First().RelativePath;
+        }
+
+        isSearchMode = true;
+    }
+
+    private void ApplyFilters()
+    {
+        // Example filter application logic
+        searchQuery = !string.IsNullOrWhiteSpace(drawingRequest.BeltType) ? drawingRequest.BeltSeries : string.Empty;
+    }
+
+
+    private void ClearSearch()
+    {
+        searchQuery = string.Empty;
+        isSearchMode = false;
+        searchResults.Clear();
+    }
+}

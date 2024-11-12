@@ -1,4 +1,5 @@
 ﻿@inherits BaseInputComponent
+@inject IRequiredBeltWidthService requiredBeltWidthService
 
 <div class="input-group">
     <div class="form-floating">
@@ -12,3 +13,20 @@
 
     <span class="input-group-text">@DrawingNumber!.BeltWidthCode</span>
 </div>
+
+
+@code{
+    // get required belt width standards  
+
+    // error handling, minimum, maximum, alert-warning updates in ui
+
+    // get belt series
+
+    // look up  in standards
+
+    // on user input lookup pitch by belt series and return closest width
+
+    // alert warning user using NLP and data
+
+    // This feature alerts the user to use standard belt width to deliver customer requirements
+}

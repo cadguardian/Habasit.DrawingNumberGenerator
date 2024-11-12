@@ -67,9 +67,9 @@ public class DrawingRequestProcessor : IDrawingRequestProcessor
     }
 }
 
-// Wrapper class to facilitate deserialization of both DrawingRequest and DrawingNumber together
+// Wrapper class to facilitate deserialization of both DrawingRequest and DrawingNumberService together
 public class DrawingDataWrapper
 {
     public DrawingRequest? DrawingRequest { get; set; }
-    public DrawingNumber? DrawingNumber { get; set; }
+    public DrawingNumberService? DrawingNumber { get; set; }
 }

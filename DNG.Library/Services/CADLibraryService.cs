@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.Extensions.Logging;
 using System.Diagnostics;
-using System.IO;
 using System.Text.Json;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using System.Linq;
 
 public class CADLibraryService : ICADLibraryService
 {
@@ -74,10 +69,13 @@ public class CADLibraryService : ICADLibraryService
             {
                 foreach (var file in property.Value.EnumerateArray())
                 {
+                    var fullfilepath = @"K:\Operations\Modular\Special Builds\Belts\";
+                    fullfilepath += file.GetProperty("relative_path")!.GetString()!;
+
                     files.Add(new FileItem
                     {
                         Filename = file.GetProperty("filename").GetString() ?? string.Empty,
-                        RelativePath = file.GetProperty("relative_path").GetString() ?? string.Empty,
+                        RelativePath = fullfilepath,
                         SizeMb = file.GetProperty("size_mb").GetDouble(),
                         CreatedDate = file.GetProperty("created_date").GetDateTime()
                     });

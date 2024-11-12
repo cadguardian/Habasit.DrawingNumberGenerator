@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace DNG.Library.Models.BeltSpecs;
+﻿namespace DNG.Library.Models.BeltSpecs;
 
 public class BeltSeries : RuleWithOptions, IOptions
 {

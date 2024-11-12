@@ -1,7 +1,4 @@
-﻿using System.Threading.Tasks;
-using System.Collections.Generic;
-
-public interface ICADLibraryService
+﻿public interface ICADLibraryService
 {
     /// <summary>
     /// Loads metadata for the CAD library from a specified JSON file.
