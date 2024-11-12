@@ -49,8 +49,10 @@ public class TitleBlockService : ITitleBlockService
 
     public string GetTitleLine3(IDrawingRequest drawingRequest)
     {
-        return string.Join(" ",
-            $"{drawingRequest.IndentCode} \" INDENT",
-            drawingRequest.RodMaterial).ToUpper();
+        var result = !string.IsNullOrEmpty(drawingRequest.IndentCode) ? string.Join(" ",
+            $"{drawingRequest.IndentCode}\" INDENT",
+            drawingRequest.RodMaterial).ToUpper() : "";
+
+        return result;
     }
 }
