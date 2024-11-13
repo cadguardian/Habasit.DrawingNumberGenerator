@@ -19,10 +19,6 @@
         </div>
     </nav>
 
-    
-
-    
-
     <!-- Background animation for modular belt effect -->
     <main class="flex-grow-1 position-relative overflow-hidden">
         <div class="belt-background"></div>
@@ -34,13 +30,13 @@
     </main>
 
     <footer class="footer-container @(!isFooterVisible ? "hidden" : "")">
-    <div class="container-fluid bg-dark py-3 fixed-bottom" style="color: white;">
+    <div class="container-fluid bg-dark fixed-bottom" style="color: white;">
         <div class="row justify-content-center">
             <div >
                 
                 
                 <!-- Row 1: Radio Inputs for Selecting Drawing Number or Query String -->
-                <div class="d-flex justify-content-center gap-4" style="padding: 0.5rem;">
+                <div class="d-flex justify-content-center gap-4" >
                     <div class="form-check" style="padding: 0.5rem;">
                         <input type="radio" id="drawingNumber" name="numberType" value="drawing" class="form-check-input" @onchange="(e) => showQueryString = false" checked>
                         <label class="form-check-label text-light" for="drawingNumber">Drawing Number</label>
@@ -53,7 +49,7 @@
                 </div>
 
                 <!-- Row 2: Displaying the Drawing Number / Query String -->
-                <h3 class="@(showQueryString ? "text-info" : "text-warning") text-center mb-0"
+                <h3 class="@(showQueryString ? "text-info" : "text-warning") text-center m-0"
                     @onclick="CopyDrawingNumberToClipboard"
                     style="cursor: pointer; padding: 0.5rem; text-align: center; white-space: nowrap;"
                     data-bs-toggle="tooltip" data-bs-placement="top"
