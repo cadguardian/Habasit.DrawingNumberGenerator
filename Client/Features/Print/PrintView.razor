@@ -10,11 +10,11 @@
     <!-- Summary Sheet Section (Hidden initially) -->
     <div class="summary-sheet print-mode" style="display: block;" id="summarySheet">
         <div class="text-center">
-            <h3 class="mb-4 display-6">Drawing Request Sheet</h3>
+            <h3 class="mb-4 small display-6">Drawing Request Sheet - @DrawingRequest.GetProjectFolderName()</h3>
 
             <h5 class="mb-3">Special Build - Plastic Modular Belts</h5>
 
-            <p>Printing this page will print the information below to track drawing.</p>
+            <p class="no-print">Printing this page will print the information below to track drawing.</p>
 
             <button class="btn btn-sm btn-primary mb-3 no-print" @onclick="ConfirmAndRefresh">Refresh Data</button>
         </div>
@@ -46,7 +46,7 @@
                     <div class="card-header">Title Block Information</div>
                     <div class="card-body">
                         <div>
-                            <strong>Folder Name:</strong>
+                            <strong>Folder Name: </strong>
                             @if (!string.IsNullOrWhiteSpace(DrawingRequest.GetProjectFolderName()))
                             {
                                 @DrawingRequest.GetProjectFolderName()
@@ -68,7 +68,7 @@
                         </div>
 
                         <div>
-                            <strong>Job Number:</strong>
+                            <strong>Job Number: </strong>
                             @if (!string.IsNullOrWhiteSpace(DrawingRequest.GetJobNumber()))
                             {
                                 @DrawingRequest.GetJobNumber()
@@ -80,7 +80,7 @@
                         </div>
 
                         <div>
-                            <strong>Drawing Number:</strong>
+                            <strong>Drawing Number: </strong>
                             @if (!string.IsNullOrWhiteSpace(DrawingNumber.GetDrawingNumber()))
                             {
                                 @DrawingNumber.GetDrawingNumber()

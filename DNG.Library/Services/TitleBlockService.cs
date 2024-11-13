@@ -43,7 +43,7 @@ public class TitleBlockService : ITitleBlockService
     public string GetTitleLine2(IDrawingRequest drawingRequest)
     {
         return string.Join(" ",
-            drawingRequest.FlightsRollersGrip,
+            drawingRequest.FlightsRollersGrip == "No Flights" ? "" : drawingRequest.FlightsRollersGrip,
             drawingRequest.FRGCenters > 0 ? $"{drawingRequest.FRGCenters}\" CENTERS" : "").ToUpper();
     }
 

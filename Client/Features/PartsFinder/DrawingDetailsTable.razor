@@ -6,6 +6,7 @@
 
 <div class="card mb-3 mt-4">
     <div class="card-header">Drawing Details</div>
+    <button class="btn btn-sm btn-primary no-print" @onclick="RefreshData">Refresh</button>
     <div class="card-body d-flex align-items-center justify-content-center p-0">
         <table class="table table-sm table-hover table-bordered table-striped" style="font-size: 0.9em;">
             <thead class="table-light">
@@ -95,3 +96,11 @@
         </table>
     </div>
 </div>
+
+@code {
+    private async Task RefreshData()
+    {
+        // Call methods to reload DrawingRequest and DrawingNumber data as needed
+        StateHasChanged(); // Forces UI refresh
+    }
+}
