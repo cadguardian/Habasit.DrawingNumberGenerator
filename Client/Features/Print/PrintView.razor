@@ -10,9 +10,10 @@
     <!-- Summary Sheet Section (Hidden initially) -->
     <div class="summary-sheet print-mode" style="display: block;" id="summarySheet">
         <div class="text-center">
-            <h3 class="mb-4 small display-6">Drawing Request Sheet - @DrawingRequest.GetProjectFolderName()</h3>
 
-            <h5 class="mb-3">Special Build - Plastic Modular Belts</h5>
+            <h3 class="display-6">Special Build - Plastic Modular Belts</h3>
+
+            <div class="text-muted">Drawing Request - @DrawingRequest.GetProjectFolderName()</div>
 
             <p class="no-print">Printing this page will print the information below to track drawing.</p>
 
@@ -24,7 +25,7 @@
             <!-- LEFT COLUMN: Thumbnail Image and Basic Info -->
             <div class="col-md-6 col-sm-6">
                 <div class="card mb-3">
-                    <div class="card-header">CSR Drawing Request</div>
+                    <div class="card-header"><i class="fa-solid fa-user"></i> CSR Drawing Request</div>
                     <div class="card-body p-0">
                         @if (!string.IsNullOrWhiteSpace(DrawingRequest.StructuredText))
                         {
@@ -43,7 +44,7 @@
                   
                 </div>
                 <div class="card mb-3">
-                    <div class="card-header">Title Block Information</div>
+                    <div class="card-header"><i class="fa-solid fa-copy"></i> Title Block Information</div>
                     <div class="card-body">
                         <div>
                             <strong>Folder Name: </strong>
@@ -127,7 +128,7 @@
                     </div>
 
                     <div class="card">
-                        <div class="card-header">Notes</div>
+                        <div class="card-header"><i class="fa-regular fa-note-sticky"></i> Notes</div>
                         <div class="card-body">
                             <textarea class="form-control" rows="5" placeholder="Enter notes here..."></textarea>
                         </div>
@@ -143,7 +144,7 @@
 
             <div class="col-md-6 col-sm-6">
                 <div class="card mb-3">
-                    <div class="card-header">Thumbnail</div>
+                    <div class="card-header"><i class="fa-regular fa-image"></i> Thumbnail</div>
                     <div class="card-body d-flex align-items-center justify-content-center p-0">
                         <img src="images/belts/@GetThumbnailImage()" alt="Belt Thumbnail" class="img-fluid p-0 m-0" />
                     </div>
@@ -162,7 +163,7 @@
     </div>
     <!-- PARTS LIST SECTION -->
     <div class="card mb-3 mt-4">
-        <div class="card-header">Available Parts</div>
+        <div class="card-header"><i class="fa-solid fa-list"></i> Available Parts</div>
         <div class="card-body d-flex align-items-center  p-0">
             <div class="table-responsive">
                 <table class="table table-sm table-bordered">
