@@ -78,12 +78,6 @@ footer {
     }
 }
 
-@media print {
-    .page, .content-wrapper {
-        display: block !important;
-    }
-}
-
 /* Footer Container Styling and Transition */
 .footer-container {
     position: fixed;

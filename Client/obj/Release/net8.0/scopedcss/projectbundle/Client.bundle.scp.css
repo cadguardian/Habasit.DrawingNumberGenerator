@@ -214,12 +214,6 @@ footer[b-tmopy668it] {
     }
 }
 
-@media print {
-    .page[b-tmopy668it], .content-wrapper[b-tmopy668it] {
-        display: block !important;
-    }
-}
-
 /* Footer Container Styling and Transition */
 .footer-container[b-tmopy668it] {
     position: fixed;

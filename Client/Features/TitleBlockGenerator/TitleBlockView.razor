@@ -4,11 +4,11 @@
 @inject IJSRuntime JS
 @inject ITitleBlockService TitleBlockService
 
-<label class="small alert alert-warning my-4 no-print">
+<label class="small alert alert-warning my-2 no-print">
     Copy values and paste in your drawing title block.
 </label>
 
-<div class="container-fluid no-print my-4">
+<div class="container-fluid no-print my-2">
     <div class="card">
         <div class="d-flex justify-content-between align-items-center card-header">
             <div class="fw-bold mb-2">Title Block Generator</div>
@@ -45,7 +45,7 @@
 @code {
     private string revNumber = "A";
     private string drawnDate = string.Empty;
-    private string scale = "N/A";
+    private string scale = "";
     private string drawnBy = "T Smith";
     private string jobNumber = string.Empty;
     private string projectFolderName = string.Empty;

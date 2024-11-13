@@ -10,183 +10,202 @@
     <!-- Summary Sheet Section (Hidden initially) -->
     <div class="summary-sheet print-mode" style="display: block;" id="summarySheet">
         <div class="text-center">
-            <h2 class="fw-bold mb-4">Engineering Project Summary Sheet</h2>
+            <h3 class="mb-4 display-6">Drawing Request Sheet</h3>
+
+            <h5 class="mb-3">Special Build - Plastic Modular Belts</h5>
+
+            <p>Printing this page will print the information below to track drawing.</p>
+
+            <button class="btn btn-sm btn-primary mb-3 no-print" @onclick="ConfirmAndRefresh">Refresh Data</button>
         </div>
         
-        <div class="alert alert-warning p-2 mb-4">
-            <strong>CSR Structured Request:</strong>
-            <p>@DrawingRequest.StructuredText</p>
-        </div>
-
         <!-- MAIN SECTION: Two Columns -->
         <div class="row">
             <!-- LEFT COLUMN: Thumbnail Image and Basic Info -->
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-6">
                 <div class="card mb-3">
-                    <div class="card-header">Thumbnail</div>
-                    <div class="card-body d-flex align-items-center justify-content-center">
-                        <img src="images/belts/@GetThumbnailImage()" alt="Belt Thumbnail" class="img-fluid p-0 m-0" />
+                    <div class="card-header">CSR Drawing Request</div>
+                    <div class="card-body p-0">
+                        @if (!string.IsNullOrWhiteSpace(DrawingRequest.StructuredText))
+                        {
+                            <div class="alert alert-success">
+                                <p>@DrawingRequest.StructuredText</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger">
+                                <p>Structured text is currently empty. Please complete the drawing request form to display CSR request (structured text).</p>
+                            </div>
+                        }
                     </div>
+
+                  
+                </div>
+                <div class="card mb-3">
+                    <div class="card-header">Title Block Information</div>
+                    <div class="card-body">
+                        <div>
+                            <strong>Folder Name:</strong>
+                            @if (!string.IsNullOrWhiteSpace(DrawingRequest.GetProjectFolderName()))
+                            {
+                                @DrawingRequest.GetProjectFolderName()
+                            }
+                            else
+                            {
+                                <span class="text-danger">❌</span>
+                            }
+                        </div>
+
+                        <div><strong>Rev Number:</strong> A</div>
+
+                        <div><strong>Drawn Date:</strong> @DateTime.Now.ToString("MM/dd/yyyy")</div>
+
+                        <div><strong>Scale:</strong> N/A</div>
+
+                        <div>
+                            <strong>Drawn By:</strong> T SMITH
+                        </div>
+
+                        <div>
+                            <strong>Job Number:</strong>
+                            @if (!string.IsNullOrWhiteSpace(DrawingRequest.GetJobNumber()))
+                            {
+                                @DrawingRequest.GetJobNumber()
+                            }
+                            else
+                            {
+                                <span class="text-danger">❌</span>
+                            }
+                        </div>
+
+                        <div>
+                            <strong>Drawing Number:</strong>
+                            @if (!string.IsNullOrWhiteSpace(DrawingNumber.GetDrawingNumber()))
+                            {
+                                @DrawingNumber.GetDrawingNumber()
+                            }
+                            else
+                            {
+                                <span class="text-danger">❌</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div>
+                    <div class="card mb-3">
+                        <div class="card-header">CAD Template</div>
+                        <div class="card-body">
+                            @if (!string.IsNullOrWhiteSpace(DrawingRequest.CadTemplatePath))
+                            {
+                                <a href="@DrawingRequest.CadTemplatePath" target="_blank">@DrawingRequest.CadTemplatePath</a>
+                            }
+                            else
+                            {
+                                <p class="text-danger">No CAD Template available. Please complete the drawing request.</p>
+                            }
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="card-header">Reference Drawing</div>
+                        <div class="card-body">
+                            @if (!string.IsNullOrWhiteSpace(DrawingRequest.ReferenceDrawingPath))
+                            {
+                                <a href="@DrawingRequest.ReferenceDrawingPath" target="_blank">@DrawingRequest.ReferenceDrawingPath</a>
+                            }
+                            else
+                            {
+                                <p class="text-danger">No Reference Drawing available. Please complete the drawing request and configure the query string for wider results.</p>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">Notes</div>
+                        <div class="card-body">
+                            <textarea class="form-control" rows="5" placeholder="Enter notes here..."></textarea>
+                        </div>
+                    </div>
+
 
                 </div>
             </div>
 
             <!-- RIGHT COLUMN: Title Block Information -->
-            <div class="col-md-6">
+           
+
+
+            <div class="col-md-6 col-sm-6">
                 <div class="card mb-3">
-                    <div class="card-header">Title Block Information</div>
-                    <div class="card-body">
-                        <div><strong>Folder Name:</strong> @DrawingRequest.GetProjectFolderName()</div>
-                        <div><strong>Rev Number:</strong> A</div>
-                        <div><strong>Drawn Date:</strong> @DateTime.Now.ToString("MM/dd/yyyy")</div>
-                        <div><strong>Scale:</strong> N/A</div>
-                        <div><strong>Drawn By:</strong> T Smith</div>
-                        <div><strong>Job Number:</strong> @DrawingRequest.GetJobNumber()</div>
-                        <div><strong>Drawing Number:</strong> @DrawingNumber.GetDrawingNumber()</div>
+                    <div class="card-header">Thumbnail</div>
+                    <div class="card-body d-flex align-items-center justify-content-center p-0">
+                        <img src="images/belts/@GetThumbnailImage()" alt="Belt Thumbnail" class="img-fluid p-0 m-0" />
                     </div>
+
+
                 </div>
+
+                <DrawingDetailsTable />
             </div>
+
+        
         </div>
 
-        <!-- DRAWING REQUEST SUMMARY TABLE -->
-        <div class="table-responsive mb-4">
-            <table class="table table-sm table-hover table-bordered table-striped" style="font-size: 0.9em;">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col" aria-label="Attribute" data-label="Attribute">Attribute</th>
-                        <th scope="col" aria-label="Drawing Request" data-label="Drawing Request">Drawing Request</th>
-                        <th scope="col" aria-label="Drawing Code" data-label="Drawing Code">Drawing Code</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Type</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.BeltType) ? "❌" : DrawingRequest.BeltType)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.BeltTypeCode) ? "❌" : DrawingNumber.BeltTypeCode)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Series</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.BeltSeries) ? "❌" : DrawingRequest.BeltSeries)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.BeltSeriesCode) ? "❌" : DrawingNumber.BeltSeriesCode)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Color</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.Color) ? "❌" : DrawingRequest.Color)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.ColorCode) ? "❌" : DrawingNumber.ColorCode)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Material</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.Material) ? "❌" : DrawingRequest.Material)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.MaterialCode) ? "❌" : DrawingNumber.MaterialCode)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Adder Material</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.AdderMaterial) ? "❌" : DrawingRequest.AdderMaterial)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.AdderMaterialCode) ? "❌" : DrawingNumber.AdderMaterialCode)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Rod</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.RodMaterial) ? "❌" : DrawingRequest.RodMaterial)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.RodMaterialCode) ? "❌" : DrawingNumber.RodMaterialCode)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Belt Width</strong></td>
-                        <td>@DrawingRequest.BeltWidth</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.BeltWidthCode) ? "❌" : DrawingNumber.BeltWidthCode)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Flights Rollers Grip</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.FlightsRollersGrip) ? "❌" : DrawingRequest.FlightsRollersGrip)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.FlightsRollersGripsCode) ? "❌" : DrawingNumber.FlightsRollersGripsCode)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Qty Rollers Across Width</strong></td>
-                        <td>@DrawingRequest.QtyRollersAcrossWidth</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.QtyRollersAcrossWidth) ? "❌" : DrawingNumber.QtyRollersAcrossWidth)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>FRG Centers</strong></td>
-                        <td>@DrawingRequest.FRGCenters</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.FRGCenters) ? "❌" : DrawingNumber.FRGCenters)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Belt Accessories</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.BeltAccessories) ? "❌" : DrawingRequest.BeltAccessories)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.BeltAccessoriesCode) ? "❌" : DrawingNumber.BeltAccessoriesCode)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Friction/Anti Static</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.FrictionAntiStatic) ? "❌" : DrawingRequest.FrictionAntiStatic)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.FrictionAntiStaticCode) ? "❌" : DrawingNumber.FrictionAntiStaticCode)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Side-PL/Lane-DV</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.SidePLLaneDV) ? "❌" : DrawingRequest.SidePLLaneDV)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.SidePLLaneDVCode) ? "❌" : DrawingNumber.SidePLLaneDVCode)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Unique Identification</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.UniqueIdentification) ? "❌" : DrawingRequest.UniqueIdentification)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.UniqueIdentification) ? "❌" : DrawingNumber.UniqueIdentification)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Indent Code</strong></td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingRequest.IndentCode) ? "❌" : DrawingRequest.IndentCode)</td>
-                        <td>@(string.IsNullOrWhiteSpace(DrawingNumber.IndentCode) ? "❌" : DrawingNumber.IndentCode)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- RECOMMENDED FILES SECTION -->
-        <div class="row mb-4">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">Recommended CAD Template</div>
-                    <div class="card-body">
-                        <a href="@DrawingRequest.CadTemplatePath" target="_blank">@DrawingRequest.CadTemplatePath</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">Recommended Reference Drawing</div>
-                    <div class="card-body">
-                        <a href="@DrawingRequest.ReferenceDrawingPath" target="_blank">@DrawingRequest.ReferenceDrawingPath</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PARTS LIST SECTION -->
-        <div class="table-responsive">
-            <table class="table table-sm table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Part Name</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var part in DrawingRequest.PartsList)
-                    {
+        
+        
+    </div>
+    <!-- PARTS LIST SECTION -->
+    <div class="card mb-3 mt-4">
+        <div class="card-header">Available Parts</div>
+        <div class="card-body d-flex align-items-center  p-0">
+            <div class="table-responsive">
+                <table class="table table-sm table-bordered">
+                    <thead class="table-light">
                         <tr>
-                            <td>@part.Key</td>
-                            <td>@part.Value</td>
-                            <td><input type="number" class="form-control form-control-sm" placeholder="Qty" /></td>
+                            <th>Part Name</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @if (DrawingRequest.PartsList != null && DrawingRequest.PartsList.Any())
+                        {
+                            @foreach (var part in DrawingRequest.PartsList)
+                            {
+                                <tr>
+                                    <td>@part.Key</td>
+                                    <td>@part.Value</td>
+                                    <td><input type="number" class="form-control form-control-sm" placeholder="Qty" /></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="3" class="text-center text-danger">
+                                    No parts available. Please complete the drawing request.
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
+
 </div>
 
 @code {
     private List<string> imageFiles = new();
 
-    private string searchQuery = string.Empty; 
+    private string searchQuery = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
@@ -195,6 +214,14 @@
 
     private IEnumerable<string> FilteredImages => ImageService.FilterImages(imageFiles, searchQuery);
 
+    private async Task ConfirmAndRefresh()
+    {
+        bool confirmed = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to refresh? Any unsaved changes will be lost.");
+        if (confirmed)
+        {
+            StateHasChanged();
+        }
+    }
 
 
     private void ApplyFilters()

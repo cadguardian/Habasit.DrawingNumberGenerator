@@ -62,9 +62,23 @@ namespace DNG.Library.Data
 
         public string GetJobNumber() => !string.IsNullOrWhiteSpace(SalesOrderNumber) ? $"SO{SalesOrderNumber}" :
                                       !string.IsNullOrWhiteSpace(PurchaseOrderNumber) ? $"PO{PurchaseOrderNumber}" :
-                                      !string.IsNullOrWhiteSpace(QuoteNumber) ? $"Q{QuoteNumber}" : "N/A";
+                                      !string.IsNullOrWhiteSpace(QuoteNumber) ? $"Q{QuoteNumber}" : "";
 
-        public string GetProjectFolderName() => $"{GetJobNumber()} - {BeltSeries}";
+        public string GetProjectFolderName()
+        {
+            var jobNumber = GetJobNumber();
+            var beltSeries = BeltSeries;
+
+            if (string.IsNullOrWhiteSpace(jobNumber) && string.IsNullOrWhiteSpace(beltSeries))
+            {
+                return string.Empty; // Return nothing if both are empty
+            }
+
+            // Show " - " only if both are non-empty
+            return !string.IsNullOrWhiteSpace(jobNumber) && !string.IsNullOrWhiteSpace(beltSeries)
+                ? $"{jobNumber} - {beltSeries}"
+                : $"{jobNumber}{beltSeries}";
+        }
 
         public string[] GetPropertyValues()
         {

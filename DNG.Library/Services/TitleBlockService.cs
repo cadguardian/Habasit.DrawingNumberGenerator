@@ -22,7 +22,7 @@ public class TitleBlockService : ITitleBlockService
         {
             return $"Q{drawingRequest.QuoteNumber}";
         }
-        return "N/A";
+        return "";
     }
 
     public string GetProjectFolderName(string jobNumber, IDrawingNumber drawingNumber)

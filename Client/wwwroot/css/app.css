@@ -14,6 +14,33 @@ html, body {
     .summary-sheet {
         display: block !important;
     }
+
+    .fixed-top, .fixed-bottom, .navbar, footer, .no-print {
+        display: none !important;
+    }
+
+    .main-content, .content-wrapper {
+        max-width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .content-wrapper, .page, .modal-body, .summary-dashboard, .card {
+        page-break-inside: auto;
+    }
+
+    .page-break {
+        page-break-before: always;
+    }
+
+    .print-half-width {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+
+    .page, .content-wrapper {
+        display: block !important;
+    }
 }
 
 h1, h2, h3, h4 {
@@ -98,27 +125,6 @@ code {
 
 .main-content::-webkit-scrollbar-track {
     background-color: #f7f7f7;
-}
-
-/* Print Styles */
-@media print {
-    .fixed-top, .fixed-bottom, .navbar, footer, .no-print {
-        display: none !important;
-    }
-
-    .main-content, .content-wrapper {
-        max-width: 100% !important;
-        height: auto !important;
-        overflow: visible !important;
-    }
-
-    .content-wrapper, .page, .modal-body, .summary-dashboard, .card {
-        page-break-inside: auto;
-    }
-
-    .page-break {
-        page-break-before: always;
-    }
 }
 
 /* Responsive Adjustments */
