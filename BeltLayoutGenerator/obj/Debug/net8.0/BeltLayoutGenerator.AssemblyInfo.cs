@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BeltLayoutGenerator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aec5414c9837fc74dc58f8db23da8c7189a96b98")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de5563fbfae60b289503f1522b6aee3705888e3a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BeltLayoutGenerator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BeltLayoutGenerator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

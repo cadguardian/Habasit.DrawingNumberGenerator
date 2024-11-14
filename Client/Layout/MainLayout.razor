@@ -12,7 +12,6 @@
                 Belt Tools 
             </a>
 
-
             <div class="d-flex ms-auto">
                 <small class="text-warning">HabasitLink and KVP</small>
             </div>
@@ -33,8 +32,6 @@
     <div class="container-fluid bg-dark fixed-bottom" style="color: white;">
         <div class="row justify-content-center">
             <div >
-                
-                
                 <!-- Row 1: Radio Inputs for Selecting Drawing Number or Query String -->
                 <div class="d-flex justify-content-center gap-4" >
                     <div class="form-check" style="padding: 0.5rem;">
@@ -49,14 +46,13 @@
                 </div>
 
                 <!-- Row 2: Displaying the Drawing Number / Query String -->
-                <h3 class="@(showQueryString ? "text-info" : "text-warning") text-center m-0"
+                <p class="@(showQueryString ? "text-info" : "text-warning") text-center m-0"
                     @onclick="CopyDrawingNumberToClipboard"
                     style="cursor: pointer; padding: 0.5rem; text-align: center; white-space: nowrap;"
                     data-bs-toggle="tooltip" data-bs-placement="top"
                     title="Click to copy to clipboard">
                     @(string.IsNullOrEmpty(GetDisplayValue()) ? "Create Drawing Number" : GetDisplayValue())
-                </h3>
-
+                </p>
 
                 <!-- Bootstrap Toast Notification -->
                 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
@@ -71,7 +67,6 @@
                 @if (showQueryString)
                 {
                     <div class="alert alert-info p-xl-0 p-0 px-2 m-0 small">Click drawing number to update. <br /></div>
-
                 
 
                 <!-- Row 3: Toggle Switches for Query String Fields with Horizontal Scroll -->

@@ -24,7 +24,7 @@
         </div>
 
         <div class="alert alert-info p-2" style="font-size: 0.8rem;">
-            Use <strong>*</strong> as a wildcard: <strong>*term</strong> to find items ending with "term", <strong>term*</strong> for items starting with "term", or <strong>term*term</strong> for partial matches. Always use * at the very end of query string i.e: GSM605GP-N0120GF00010XXXX5g*
+            Use <strong>*</strong> as a wildcard: <strong>*term</strong> to find items ending with "term", <strong>term*</strong> for items starting with "term", or <strong>term*term</strong> for partial matches.
         </div>
 
         <div class="d-flex mb-3 p-3">
@@ -96,7 +96,7 @@
 
     private void ApplyFilters()
     {
-        searchQuery = DrawingFileService.GenerateUniversalSearch(drawingNumber.QueryString);
+        searchQuery = DrawingFileService.GenerateUniversalSearch(drawingNumber!.QueryString! + "*");
     }
 
     private void OnSearch()
