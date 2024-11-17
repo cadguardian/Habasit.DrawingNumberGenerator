@@ -5,12 +5,11 @@
 @inject IJSRuntime JS
 @inject IStateContainer State
 
-<div class="container-fluid">
     <div class="summary-sheet print-mode" style="display: block;" id="summarySheet">
         <div class="text-center">
             <h3 class="display-6">Special Build - Plastic Modular Belt</h3>
             <h4 class="text-muted mb-3">Drawing Request - @State.DrawingRequest.GetProjectFolderName()</h4>
-            <div class="no-print alert alert-warning">Print this page to track drawing specific details.</div>
+            <div class="no-print alert alert-warning">Print this page to track drawing details.</div>
         </div>
         
         <div class="row">
@@ -126,11 +125,13 @@
             <div class="col-md-6 col-sm-6">
                 <div class="card mb-3">
                     <h4 class="card-header d-flex small justify-content-between align-items-center"><i class="fa-regular fa-image"></i> Thumbnail</h4>
-                    <div class="card-body d-flex align-items-center justify-content-center">
+                    <div class="card-body pt-0">
 
                         @if (!string.IsNullOrWhiteSpace(State.DrawingRequest.ThumbnailImageFilePath))
                         {
                             <img src="@("images/belts/" + State.DrawingRequest.ThumbnailImageFilePath)" alt="Select belt series to see image." class="img-fluid p-0 m-0" />
+                             <div class="p-0 alert alert-success small text-center mb-0">@(ImageService.FormatImageName(State.DrawingRequest.ThumbnailImageFilePath))</div>
+                
                         }
                         else
                         {
@@ -138,11 +139,8 @@
                             <p class="text-danger">No thumbnail is available. Please select a belt series.</p>
                             </div>
                         }
-
-
                     </div>
-                    <div class="alert alert-warning small text-center mb-0">@(ImageService.FormatImageName(State.DrawingRequest.ThumbnailImageFilePath))</div>
-                </div>
+                   
                 <DrawingDetailsTable />
             </div>
         </div>

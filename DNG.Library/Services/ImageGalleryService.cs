@@ -34,6 +34,6 @@ public class ImageGalleryService : IImageGalleryService
 
         name = RemoveTrailing01(name);
 
-        return name.StartsWith("ModularBelt_") ? name.Substring("ModularBelt_".Length) : name;
+        return name.StartsWith("ModularBelt ") ? name.Substring("ModularBelt ".Length) : name;
     }
 }

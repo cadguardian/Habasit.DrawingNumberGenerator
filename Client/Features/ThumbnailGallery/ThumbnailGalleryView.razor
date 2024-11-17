@@ -6,7 +6,7 @@
 
 <div class="container-fluid no-print my-3">
     <div class="small text-center alert alert-warning no-print">
-        Confirm the belt by selecting applicable image.
+        Select the image that best represents the belt.
     </div>
 
     <div class="card">
@@ -15,7 +15,7 @@
             @if (imageFiles != null)
             {
                 <small class="text-muted">
-                    <span> @State.DrawingNumber.BeltTypeCode@State.DrawingNumber.BeltSeriesCode: @FilteredImages.ToList().Count Available</span>
+                    <span> @State.DrawingNumber.BeltTypeCode@State.DrawingNumber.BeltSeriesCode: @FilteredImages.ToList().Count Versions</span>
                 </small>
             }
         </div>
@@ -57,8 +57,8 @@
             <!-- Full Image View -->
             <div class="text-center">
                 <img src="images/belts/@State.DrawingRequest.ThumbnailImageFilePath" class="img-fluid" alt="@ImageService.FormatImageName(State.DrawingRequest.ThumbnailImageFilePath)" style="max-height: 70vh;" />
-                <p class="text-muted mt-2">@ImageService.FormatImageName(State.DrawingRequest.ThumbnailImageFilePath)</p>
-                <button class="btn btn-sm btn-outline-secondary mt-3 mb-3" @onclick="ClearSelectedImage">Change Image</button>
+                <div class="p-0 alert alert-secondary mt-3">@ImageService.FormatImageName(State.DrawingRequest.ThumbnailImageFilePath)</div>
+                <button class="btn btn-sm btn-outline-secondary mb-3" @onclick="ClearSelectedImage">Change Image</button>
             </div>
         }
     </div>

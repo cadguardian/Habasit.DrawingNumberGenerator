@@ -201,6 +201,14 @@
 </button>
 
 @code {
+    protected override async Task OnInitializedAsync()
+    {
+        HandleInputAsync();
+    }
+
+
+
+
     // Shared input handling logic to generate drawing number and update query string
     protected async Task HandleInputAsync()
     {
@@ -211,6 +219,11 @@
         Console.WriteLine("Input Handled!");
     }
 
+    protected override async Task OnParametersSetAsync()
+    {
+        HandleInputAsync();
+    }
+
     private void UpdateQueryString()
     {
         State.UpdateProperty(State.DrawingRequest, dr => dr.QueryString = State.DrawingNumber!.GetDrawingQueryString(State.DrawingNumberViewModel));
@@ -219,6 +232,9 @@
 
     private string GetDisplayValue()
     {
+
+        State.DrawingNumber.GetDrawingQueryString(State.DrawingNumberViewModel);
+
         return State.DrawingNumberViewModel.ShowQueryString ? State.DrawingNumber.GetDrawingQueryString(State.DrawingNumberViewModel) : State.DrawingNumber.GetDrawingNumber();
     }
 
