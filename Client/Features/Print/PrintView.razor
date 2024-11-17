@@ -158,7 +158,6 @@
                         <tr>
                             <th>Part Name</th>
                             <th>Description</th>
-                            <th>Quantity</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -167,9 +166,8 @@
                             @foreach (var part in State.DrawingRequest.PartsList)
                             {
                                 <tr>
-                                    <td>@part.Key</td>
-                                    <td>@part.Value</td>
-                                    <td><input type="number" class="form-control form-control-sm" placeholder="Qty" /></td>
+                                    <td class="small">@part.Key</td>
+                                    <td class="small">@part.Value</td>
                                 </tr>
                             }
                         }
