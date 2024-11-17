@@ -1,5 +1,5 @@
-﻿using DNG.Library.Data;
-using DNG.Library.Models;
+﻿using DNG.Library.Models;
+using DNG.Library.Models.Base;
 
 public interface ITitleBlockService
 {

@@ -2,16 +2,37 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-
-    <InputText id="uniqueIdentification" aria-required="true"
-               aria-describedby="uniqueIdentificationHelp"
-               @bind-Value="DrawingRequest!.UniqueIdentification"
-               class="form-control form-control-sm"
-               onfocus="selectAllText(this)" />
-
+        <InputText @bind-Value="uniqueIdentification" id="uniqueIdentification" aria-required="true"
+                   aria-describedby="uniqueIdentificationHelp"
+                   class="form-control form-control-sm" onfocus="selectAllText(this)" />
         <label for="uniqueIdentification">Unique ID</label>
     </div>
     <span class="input-group-text bg-dark text-light" data-bs-toggle="tooltip3">
-        @DrawingRequest.UniqueIdentification
+        @uniqueIdentification
     </span>
 </div>
+
+@code {
+    // default value is not updating state
+    protected override void OnInitialized()
+    {
+        uniqueIdentification = "5"; // Set a default value if needed
+    }
+
+    private string uniqueIdentification
+    {
+        get => State!.DrawingRequest?.UniqueIdentification ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.UniqueIdentification != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.UniqueIdentification = value);
+            }
+
+            if (State.DrawingNumber != null && State.DrawingNumber.UniqueIdentification != value)
+            {
+                State.UpdateProperty(State.DrawingNumber, dr => dr.UniqueIdentification = value);
+            }
+        }
+    }
+}

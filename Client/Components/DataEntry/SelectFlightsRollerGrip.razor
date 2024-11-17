@@ -3,26 +3,45 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-
-    <select id="flightsRollersGrip" class="form-select form-select-sm"
-            @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.FlightsRollersGrip" required>
-            @foreach (var flight in Flights_Rollers_Grips.Options.Values.OrderBy(f=>f))
+        <select @bind="flightsRollersGrip" id="flightsRollersGrip" class="form-select form-select-sm" required>
+            <option value="" disabled>Select Flights/Rollers/Grip</option>
+            @foreach (var flight in Flights_Rollers_Grips.Options.Values.OrderBy(f => f))
             {
-            <option value="@flight">@flight</option>
+                <option value="@flight">@flight</option>
             }
-    </select>
+        </select>
         <label for="flightsRollersGrip">Flights/Rollers/Grip</label>
-        </div>
+    </div>
 
+    <span class="input-group-text">@(State!.DrawingNumber?.FlightsRollersGripsCode ?? "❌")</span>
 
-    <span class="input-group-text">@Flights_Rollers_Grips.GetFlightsRollersGripsCode(DrawingRequest.FlightsRollersGrip)</span>
 </div>
 
-@code{
+@code {
+    private string flightsRollersGrip
+    {
+        get => State.DrawingRequest?.FlightsRollersGrip ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.FlightsRollersGrip != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.FlightsRollersGrip = value);
+                UpdateFlightsRollersGripCode(value);
+            }
+        }
+    }
+
+    private string? flightsRollersGripCode;
+
+    private void UpdateFlightsRollersGripCode(string value)
+    {
+        flightsRollersGripCode = Flights_Rollers_Grips.GetFlightsRollersGripsCode(value);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.FlightsRollersGripsCode = flightsRollersGripCode ?? string.Empty);
+    }
+
     protected override void OnInitialized()
     {
-        // Set the default value here, based on some logic
-        DrawingRequest!.FlightsRollersGrip = "No Flights"; 
+        flightsRollersGrip = "No Flights"; // Set a default value if needed
+        UpdateFlightsRollersGripCode(flightsRollersGrip);
     }
 }

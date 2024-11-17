@@ -3,27 +3,45 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-    <select id="sidePLLaneDV" class="form-select form-select-sm" @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.SidePLLaneDV" required>
-        <option value="" disabled selected>Select Side-PL/Lane-DV</option>
+        <select @bind="sidePLLaneDV" id="sidePLLaneDV" class="form-select form-select-sm" required>
+            <option value="" disabled>Select Side-PL/Lane-DV</option>
             @foreach (var type in SidePLLaneDV.Options.Values)
             {
                 <option value="@type">@type</option>
             }
-    </select>
+        </select>
         <label for="sidePLLaneDV">Side-PL/Lane-DV</label>
+    </div>
 
-        </div>
+    <span class="input-group-text">@(State!.DrawingNumber?.SidePLLaneDVCode ?? "❌")</span>
 
-    <span class="input-group-text">
-        @SidePLLaneDV.GetCodeByName(DrawingRequest!.SidePLLaneDV, SidePLLaneDV.Options)
-    </span>
 </div>
 
-@code{
+@code {
+    private string sidePLLaneDV
+    {
+        get => State.DrawingRequest?.SidePLLaneDV ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.SidePLLaneDV != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.SidePLLaneDV = value);
+                UpdateSidePLLaneDVCode(value);
+            }
+        }
+    }
+
+    private string? sidePLLaneDVCode;
+
+    private void UpdateSidePLLaneDVCode(string value)
+    {
+        sidePLLaneDVCode = SidePLLaneDV.GetCodeByName(value, SidePLLaneDV.Options);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.SidePLLaneDVCode = sidePLLaneDVCode ?? string.Empty);
+    }
+
     protected override void OnInitialized()
     {
-        // Set the default value here, based on some logic
-        DrawingRequest!.SidePLLaneDV = "No options";
+        sidePLLaneDV = "No options"; // Set a default value if needed
+        UpdateSidePLLaneDVCode(sidePLLaneDV);
     }
 }

@@ -3,19 +3,39 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-    <select id="indentCode" class="form-select form-select-sm"
-        @onblur="HandleInputAsync"
-        @bind="DrawingRequest!.IndentCode" required>
-    <option value="" disabled selected>Select Indent Code</option>
-    @foreach (var indent in IndentCode.Options.Values)
-    {
-        <option value="@indent">@indent</option>
-    }
-</select>
-        <label  for="indentCode">Indent Code</label>
+        <select @bind="indentCode" id="indentCode" class="form-select form-select-sm" required>
+            <option value="" disabled>Select Indent Code</option>
+            @foreach (var indent in IndentCode.Options.Values)
+            {
+                <option value="@indent">@indent</option>
+            }
+        </select>
+        <label for="indentCode">Indent Code</label>
+    </div>
 
-        </div>
+    <span class="input-group-text">@(State!.DrawingNumber?.IndentCode ?? "❌")</span>
 
-    <span class="input-group-text">@IndentCode.GetCodeByName(DrawingRequest!.IndentCode, IndentCode.Options)</span>
-    
 </div>
+
+@code {
+    private string indentCode
+    {
+        get => State.DrawingRequest?.IndentCode ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.IndentCode != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.IndentCode = value);
+                UpdateIndentCode(value);
+            }
+        }
+    }
+
+    private string? indentCodeValue;
+
+    private void UpdateIndentCode(string value)
+    {
+        indentCodeValue = IndentCode.GetCodeByName(value, IndentCode.Options);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.IndentCode = indentCodeValue ?? string.Empty);
+    }
+}

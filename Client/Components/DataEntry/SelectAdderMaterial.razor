@@ -3,30 +3,46 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-    <select id="adderMaterial" class="form-select form-select-sm"
-            @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.AdderMaterial" required >
-        <option value="" disabled selected>Select Adder Material</option>
-
-            @foreach (var adder in AdderMaterial.Options.Values.OrderBy(a=>a))
+        <select @bind="adderMaterial" id="adderMaterial" class="form-select form-select-sm" required>
+            <option value="" disabled>Select Adder Material</option>
+            @foreach (var adder in AdderMaterial.Options.Values.OrderBy(a => a))
             {
                 <option value="@adder">@adder</option>
             }
-    </select>
-
-    <label for="adderMaterial">Adder Material</label>
+        </select>
+        <label for="adderMaterial">Adder Material</label>
     </div>
 
     <span class="input-group-text bg-dark text-light" data-bs-toggle="tooltip3">
-            @AdderMaterial.GetCodeByName(DrawingRequest!.AdderMaterial,
-                 AdderMaterial.Options)
+        @adderMaterialCode
     </span>
 </div>
 
-@code{
+@code {
+    private string adderMaterial
+    {
+        get => State.DrawingRequest?.AdderMaterial ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.AdderMaterial != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.AdderMaterial = value);
+                UpdateAdderMaterialCode(value);
+            }
+        }
+    }
+
+    private string? adderMaterialCode;
+
+    private void UpdateAdderMaterialCode(string value)
+    {
+        adderMaterialCode = AdderMaterial.GetCodeByName(value, AdderMaterial.Options);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.AdderMaterialCode = adderMaterialCode ?? string.Empty);
+    }
+
     protected override void OnInitialized()
     {
-        // Set the default value here, based on some logic
-        DrawingRequest!.AdderMaterial = "No Adder"; // Default value set during initialization
+        adderMaterial = "No Adder"; // Set a default value if needed
+        UpdateAdderMaterialCode(adderMaterial);
     }
 }

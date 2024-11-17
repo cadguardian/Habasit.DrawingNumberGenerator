@@ -2,7 +2,7 @@
 @using DNG.Library.Models.BeltSpecs
 @inject HttpClient Http
 @inject IBeltSeriesService BeltSeriesService
-@inject IDrawingRequest DrawingRequest
+@inject IStateContainer State
 
 <div class="input-group mb-3">
     <div class="container px-4">
@@ -10,11 +10,11 @@
 
         <div class="col gx-5">
             <div class="col d-flex justify-content-center align-items-center">
-                @if (selectedImage != null)
+                @if (State.DrawingRequest.ThumbnailImageFilePath != null)
                 {
-                    <img src="images/belts/@selectedImage" alt="Belt Image" class="img-thumbnail m-4" style="max-width: 100%;" />
+                    <img src="images/belts/@State.DrawingRequest.ThumbnailImageFilePath" alt="Belt Image" class="img-thumbnail m-4" style="max-width: 100%;" />
                 }
-                else if (!string.IsNullOrEmpty(DrawingRequest?.BeltSeries))
+                else if (!string.IsNullOrEmpty(State.DrawingRequest?.BeltSeries))
                 {
                     <p class="text-danger">No image available for the selected belt series.</p>
                 }
@@ -33,28 +33,57 @@
                     </select>
                     <label for="beltSeries">Series</label>
                 </div>
-                <span class="input-group-text">@BeltSeriesService.GetBeltSeriesType(DrawingRequest?.BeltSeries ?? "")</span>
+                <span class="input-group-text">@BeltSeriesService.GetBeltSeriesType(State.DrawingRequest?.BeltSeries ?? "")</span>
             </div>
         </div>
     </div>
 </div>
 
 @code {
-    private string beltSeries
-    {
-        get => DrawingRequest?.BeltSeries ?? string.Empty;
-        set
+    @code {
+        protected override void OnInitialized()
         {
-            if (DrawingRequest != null)
-            {
-                DrawingRequest.BeltSeries = value;
-                selectedImage = BeltSeriesService.GetImageFileNameForBeltSeries(DrawingRequest.BeltSeries, imageFiles);
-            }
+            State.OnStateChange += StateHasChanged;
+        }
+
+        public void Dispose()
+        {
+            State.OnStateChange -= StateHasChanged;
         }
     }
 
+    private void UpdateBeltSeriesCode(string series)
+        {
+    State.UpdateProperty(State.DrawingNumber, dn => dn.BeltSeriesCode = series);
+        }
+
+    private string beltSeries
+    {
+    get => State.DrawingRequest?.BeltSeries ?? string.Empty;
+    set
+    {
+        if (State.DrawingRequest != null)
+        {
+            UpdateBeltSeries(value);
+        }
+    }
+    }
+
+    public void UpdateBeltSeries(string beltSeries)
+        {
+    State.UpdateProperty(State.DrawingRequest, dr => dr.BeltSeries = beltSeries);
+
+    UpdateThumnailImageFilePath(beltSeries);
+
+    UpdateBeltSeriesCode(beltSeries);
+        }
+
+    public void UpdateThumnailImageFilePath(string path)
+        {
+    State.UpdateProperty(State.DrawingRequest, dr => dr.ThumbnailImageFilePath = BeltSeriesService!.GetImageFileNameForBeltSeries(State.DrawingRequest.BeltSeries, imageFiles)!);
+        }
+
     private List<string> imageFiles = new();
-    private string? selectedImage;
 
     protected override async Task OnInitializedAsync()
     {

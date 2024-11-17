@@ -1,6 +1,4 @@
 using Client;
-using DNG.Library.Data;
-using DNG.Library.Models;
 using DNG.Library.Services.Base;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -11,8 +9,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.AddScoped<IDrawingNumber, DrawingNumberService>();
-builder.Services.AddScoped<IDrawingRequest, DrawingRequest>();
+// Custom Developed Services
 builder.Services.AddScoped<IDrawingRequestProcessor, DrawingRequestProcessor>();
 builder.Services.AddScoped<IPartNumberService, PartNumberService>();
 builder.Services.AddSingleton<IBeltSeriesService, BeltSeriesThumnbnailService>();
@@ -23,6 +20,7 @@ builder.Services.AddScoped<ITitleBlockService, TitleBlockService>();
 builder.Services.AddScoped<IImageGalleryService, ImageGalleryService>();
 builder.Services.AddScoped<IRequiredBeltWidthService, RequiredBeltWidthService>();
 builder.Services.AddScoped<IDrawingFileService, DrawingFileService>();
+builder.Services.AddScoped<IStateContainer, StateContainer>();
 
 // reference drawing service and script needed in c#
 

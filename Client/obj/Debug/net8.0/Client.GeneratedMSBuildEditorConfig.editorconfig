@@ -44,10 +44,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEYXRhRW50cnlcSW5wdXRGbGlnaHRSb2xsZXJzR3JpcFRvcENlbnRlcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/Components/DataEntry/InputGroupTitle.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEYXRhRW50cnlcSW5wdXRHcm91cFRpdGxlLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/localrepos/DrawingNumberGenerator/Client/Components/DataEntry/InputNumberOfLinks.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEYXRhRW50cnlcSW5wdXROdW1iZXJPZkxpbmtzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -120,6 +116,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xEYXRhRW50cnlcU2VsZWN0Um9kTWF0ZXJpYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/localrepos/DrawingNumberGenerator/Client/Components/InputGroupTitle.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbnB1dEdyb3VwVGl0bGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/localrepos/DrawingNumberGenerator/Client/Components/QuickGuide.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xRdWlja0d1aWRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -168,8 +168,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcRXhwb3J0RGF0YVxKU09OVmlldy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/localrepos/DrawingNumberGenerator/Client/Features/PartsFinder/DrawingDetailsTable.razor]
-build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUGFydHNGaW5kZXJcRHJhd2luZ0RldGFpbHNUYWJsZS5yYXpvcg==
+[C:/localrepos/DrawingNumberGenerator/Client/Features/Print/DrawingDetailsTable.razor]
+build_metadata.AdditionalFiles.TargetPath = RmVhdHVyZXNcUHJpbnRcRHJhd2luZ0RldGFpbHNUYWJsZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/localrepos/DrawingNumberGenerator/Client/Features/Print/PrintView.razor]

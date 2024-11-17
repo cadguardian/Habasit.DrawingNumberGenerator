@@ -1,5 +1,5 @@
-﻿using Client.Data;
-using DNG.Library.Data;
+﻿using DNG.Library.Models;
+using DNG.Library.Models.Base;
 
 namespace DNG.Library.Services.Base
 {

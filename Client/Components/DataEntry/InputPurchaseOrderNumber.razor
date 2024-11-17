@@ -2,12 +2,23 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-
-        <InputText id="purchaseOrderNumber" aria-required="true"
-               aria-describedby="purchaseOrderNumberHelp"
-                   @bind-Value="DrawingRequest!.PurchaseOrderNumber" autofocus
-               class="form-control form-control-sm" />
-
+        <InputText @bind-Value="purchaseOrderNumber" id="purchaseOrderNumber" aria-required="true"
+                   aria-describedby="purchaseOrderNumberHelp" autofocus
+                   class="form-control form-control-sm" />
         <label for="purchaseOrderNumber">Purchase Order #</label>
     </div>
 </div>
+
+@code {
+    private string purchaseOrderNumber
+    {
+        get => State.DrawingRequest?.PurchaseOrderNumber ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.PurchaseOrderNumber != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.PurchaseOrderNumber = value);
+            }
+        }
+    }
+}

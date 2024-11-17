@@ -1,16 +1,34 @@
 ﻿@using DNG.Library.Models.BeltSpecs
 @inherits BaseInputComponent
 
-<div class="input-group mb-3">
+<div class="input-group">
     <div class="form-floating">
+        <InputNumber @bind-Value="frgCenters" id="frgCenters" aria-required="true"
+                     aria-describedby="frgCentersHelp" Min="1" Max="100"
+                     class="form-control text-center" onfocus="selectAllText(this)" />
+        <label for="frgCenters">F/R/G Centers (Spacing)</label>
+    </div>
 
-    <InputNumber id="frgCenters"aria-required="true" aria-describedby="frgCentersHelp"
-                 @onblur="HandleInputAsync" @bind-Value="DrawingRequest!.FRGCenters"
-                 Min="1" Max="100" class="form-control text-center"
-                 onfocus="selectAllText(this)" />
-        <label for="frgCenters">F/R/G Centers</label>
-                 </div>
-
-       <span class="input-group-text">@Flights_Rollers_Grips.GetFRGCentersCode(DrawingRequest.FRGCenters)</span>
-
+    <span class="input-group-text">@(State!.DrawingNumber?.FRGCenters ?? "❌")</span>
 </div>
+
+@code {
+    private decimal frgCenters
+    {
+        get => State.DrawingRequest?.FRGCenters ?? 0;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.FRGCenters != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.FRGCenters = value);
+                UpdateFRGCentersCode(value);
+            }
+        }
+    }
+
+
+    private void UpdateFRGCentersCode(decimal value)
+    {
+        State.UpdateProperty(State.DrawingNumber, dn => dn.FRGCenters = Flights_Rollers_Grips.GetFRGCentersCode(value));
+    }
+}

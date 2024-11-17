@@ -3,19 +3,40 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-    <select id="material" class="form-select form-select-sm"
-            @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.Material" required>
-        <option value="" disabled selected>Select Material</option>
-            @foreach (var material in BeltMaterial.Options.Values.OrderBy(m=>m))
+        <select @bind="material" id="material" class="form-select form-select-sm" required>
+            <option value="" disabled>Select Material</option>
+            @foreach (var material in BeltMaterial.Options.Values.OrderBy(m => m))
             {
                 <option value="@material">@material</option>
             }
-    </select>
-    <label for="material">Material</label>
+        </select>
+        <label for="material">Material</label>
     </div>
 
     <span class="input-group-text bg-dark text-light" data-bs-toggle="tooltip2">
-        @BeltMaterial.GetCodeByName(DrawingRequest.Material, BeltMaterial.Options)
+        @materialCode
     </span>
 </div>
+
+@code {
+    private string material
+    {
+        get => State.DrawingRequest?.Material ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.Material != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.Material = value);
+                UpdateMaterialCode(value);
+            }
+        }
+    }
+
+    private string? materialCode;
+
+    private void UpdateMaterialCode(string value)
+    {
+        materialCode = BeltMaterial.GetCodeByName(value, BeltMaterial.Options);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.MaterialCode = materialCode ?? string.Empty);
+    }
+}

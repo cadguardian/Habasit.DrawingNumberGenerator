@@ -1,5 +1,5 @@
-using Client.Data;
-using DNG.Library.Data;
+using DNG.Library.Models;
+using DNG.Library.Models.Base;
 using DNG.Library.Services.Base;
 using Microsoft.Extensions.Logging;
 using System.Text;
@@ -55,7 +55,7 @@ public class PartNumberService : IPartNumberService
                 // Skip rows containing '}'
                 if (line.Contains("}"))
                 {
-                    _logger.LogWarning("Skipped a row containing '}': {Line}", line);
+                    _logger.LogDebug("Skipped a row containing '}': {Line}", line);
                     continue;
                 }
 
@@ -64,7 +64,7 @@ public class PartNumberService : IPartNumberService
                 // Validate column count to avoid IndexOutOfRangeException
                 if (values.Length < 2)
                 {
-                    _logger.LogWarning("Skipped a row due to insufficient columns: {Line}", line);
+                    _logger.LogDebug("Skipped a row due to insufficient columns: {Line}", line);
                     continue;
                 }
 

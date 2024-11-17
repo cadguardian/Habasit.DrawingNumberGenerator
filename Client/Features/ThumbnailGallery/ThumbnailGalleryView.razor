@@ -1,6 +1,6 @@
 @page "/image-gallery"
 @inject IImageGalleryService ImageService
-@inject IDrawingRequest drawingRequest
+@inject IStateContainer State
 
 <label class="small alert alert-warning my-2 no-print">
     Observe features of a Plastic Modular Belt.
@@ -10,7 +10,7 @@
     <div class="card">
         <!-- Header Section -->
         <div class="d-flex justify-content-between align-items-center card-header">
-            <span class="fw-bold"><i class="fa-regular fa-image"></i> Plastic Modular Gallery</span>
+            <h4><i class="fa-regular fa-image"></i> Plastic Modular Gallery</h4>
             @if (imageFiles != null)
             {
                 <small class="text-muted">
@@ -20,7 +20,7 @@
         </div>
 
         <!-- Filter and Search Information -->
-        <div class="alert alert-info p-2" style="font-size: 0.8rem;">
+        <div class="alert alert-secondary p-3 p-2" style="font-size: 0.8rem;">
             Use <strong>Apply Filters</strong> to refine results, then <strong>Search Images</strong> to locate specific images.
         </div>
 
@@ -81,7 +81,13 @@
 
     protected override async Task OnInitializedAsync()
     {
+        State.OnStateChange += StateHasChanged;
         imageFiles = await ImageService.LoadImageFilesAsync();
+    }
+
+    public void Dispose()
+    {
+        State.OnStateChange -= StateHasChanged;
     }
 
     private IEnumerable<string> FilteredImages => ImageService.FilterImages(imageFiles, searchQuery);
@@ -99,7 +105,7 @@
     private void ApplyFilters()
     {
         // Update searchQuery based on filter criteria
-        searchQuery = !string.IsNullOrWhiteSpace(drawingRequest.BeltType) ? drawingRequest.BeltSeries : string.Empty;
+        searchQuery = !string.IsNullOrWhiteSpace(State.DrawingRequest.BeltType) ? State.DrawingRequest.BeltSeries : string.Empty;
     }
 
     private void OnSearch()

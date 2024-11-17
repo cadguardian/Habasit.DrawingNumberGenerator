@@ -2,12 +2,24 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-        <InputTextArea id="structuredText" aria-required="true"
+        <InputTextArea @bind-Value="structuredText" id="structuredText" aria-required="true"
                        aria-describedby="structuredTextHelp"
-                       @bind-Value="DrawingRequest!.StructuredText"
                        class="form-control form-control-sm"
-                       style="height: 150px;"
-                       @onblur="HandleInputAsync" />
+                       style="height: 150px;" />
         <label for="structuredText">Task from CSR</label>
     </div>
 </div>
+
+@code {
+    private string structuredText
+    {
+        get => State.DrawingRequest?.StructuredText ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.StructuredText != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.StructuredText = value);
+            }
+        }
+    }
+}

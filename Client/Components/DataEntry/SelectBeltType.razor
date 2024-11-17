@@ -3,30 +3,43 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-    <select id="beltType" class="form-select"
-            @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.BeltType" required>
-        <option value="" disabled selected>Select Belt Type</option>
-            @foreach (var type in BeltType.Options.Values.OrderBy(t=>t))
+        <select @bind="beltType" id="beltType" class="form-select" required>
+            <option value="" disabled>Select Belt Type</option>
+            @foreach (var type in BeltType.Options.Values.OrderBy(t => t))
             {
                 <option value="@type">@type</option>
             }
-    </select>
+        </select>
         <label for="beltType">Type</label>
     </div>
-    <span class="input-group-text">
-        @BeltType.GetCodeByName(DrawingRequest!.BeltType, BeltType.Options)
-</span>
-    
+    <span class="input-group-text">@beltTypeCode</span>
 </div>
 
-
 @code {
+    private string beltType
+    {
+        get => State.DrawingRequest?.BeltType ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.BeltType != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.BeltType = value);
+                UpdateBeltTypeCode(value);
+            }
+        }
+    }
+
+    private string? beltTypeCode;
+
+    private void UpdateBeltTypeCode(string value)
+    {
+        beltTypeCode = BeltType.GetCodeByName(value, BeltType.Options);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.BeltTypeCode = beltTypeCode ?? string.Empty);
+    }
+
     protected override void OnInitialized()
     {
-        // Set the default value here, based on some logic
-        DrawingRequest!.BeltType = "Standard Belt"; 
+        beltType = "Standard Belt"; // Set a default value if needed
+        UpdateBeltTypeCode(beltType);
     }
 }
-
-

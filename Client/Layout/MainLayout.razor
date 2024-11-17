@@ -1,6 +1,5 @@
 ﻿@inherits LayoutComponentBase
-@inject IDrawingNumber DrawingNumber
-@inject IDrawingRequest DrawingRequest
+@inject IStateContainer State
 @inject IDrawingRequestProcessor DrawingRequestProcessor
 @inject IJSRuntime JSRuntime
 
@@ -8,12 +7,12 @@
     <!-- Navbar with centered items and brand -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom fixed-top shadow-lg">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold fs-4 small" href="#">
-                Belt Tools 
+            <a class="navbar-brand fs-4 small" href="#">
+                Special Build 
             </a>
 
             <div class="d-flex ms-auto">
-                <small class="text-warning">HabasitLink and KVP</small>
+                <small class="text-warning">Plastic Modular Belts</small>
             </div>
         </div>
     </nav>
@@ -35,23 +34,23 @@
                 <!-- Row 1: Radio Inputs for Selecting Drawing Number or Query String -->
                 <div class="d-flex justify-content-center gap-4" >
                     <div class="form-check" style="padding: 0.5rem;">
-                        <input type="radio" id="drawingNumber" name="numberType" value="drawing" class="form-check-input" @onchange="(e) => showQueryString = false" checked>
+                            <input type="radio" id="drawingNumber" name="numberType" value="drawing" class="form-check-input" @onchange="(e) => State.UpdateProperty(State.DrawingNumberViewModel, dnvm => dnvm.ShowQueryString = false)" checked>
                         <label class="form-check-label text-light" for="drawingNumber">Drawing Number</label>
                     </div>
                     <div class="form-check" style="padding: 0.5rem;">
-                        <input type="radio" id="queryString" name="numberType" value="query" class="form-check-input" @onchange="(e) => showQueryString = true">
+                            <input type="radio" id="queryString" name="numberType" value="query" class="form-check-input" @onchange="(e) => State.UpdateProperty(State.DrawingNumberViewModel, dnvm => dnvm.ShowQueryString = true)">
                         <label class="form-check-label text-light" for="queryString">Query String</label>
                     </div>
 
                 </div>
 
                 <!-- Row 2: Displaying the Drawing Number / Query String -->
-                <p class="@(showQueryString ? "text-info" : "text-warning") text-center m-0"
+                <p class="@(State.DrawingNumberViewModel.ShowQueryString ? "text-info" : "text-warning") text-center m-0"
                     @onclick="CopyDrawingNumberToClipboard"
                     style="cursor: pointer; padding: 0.5rem; text-align: center; white-space: nowrap;"
                     data-bs-toggle="tooltip" data-bs-placement="top"
                     title="Click to copy to clipboard">
-                    @(string.IsNullOrEmpty(GetDisplayValue()) ? "Create Drawing Number" : GetDisplayValue())
+                        @(string.IsNullOrEmpty(GetDisplayValue()) ? "Create Drawing Number" : GetDisplayValue())
                 </p>
 
                 <!-- Bootstrap Toast Notification -->
@@ -64,101 +63,98 @@
                     </div>
                 </div>
 
-                @if (showQueryString)
+                    @if (State.DrawingNumberViewModel.ShowQueryString)
                 {
-                    <div class="alert alert-info p-xl-0 p-0 px-2 m-0 small">Click drawing number to update. <br /></div>
-                
-
                 <!-- Row 3: Toggle Switches for Query String Fields with Horizontal Scroll -->
                     <div class="px-5 mx-4 d-flex overflow-auto gap-5 small p-2"
                          style="white-space: nowrap; padding: 0 1rem; overflow-x: auto; display: flex; -webkit-overflow-scrolling: touch;">
                     <!-- Toggle Switch for Belt Type -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleType" @bind="DrawingNumberViewModel.IncludeBeltType">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleType" @bind="State.DrawingNumberViewModel.IncludeBeltType">
                         <label class="form-check-label text-light" for="toggleType">Type</label>
                     </div>
 
                     <!-- Toggle Switch for Belt Series -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync"  class="form-check-input" id="toggleSeries" @bind="DrawingNumberViewModel.IncludeBeltSeries">
+                        <input type="checkbox"  @onblur="HandleInputAsync"  class="form-check-input" id="toggleSeries" @bind="State.DrawingNumberViewModel.IncludeBeltSeries">
                         <label class="form-check-label text-light" for="toggleSeries">Series</label>
                     </div>
 
                     <!-- Toggle Switch for Color -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" class="form-check-input" id="toggleColor" @onblur="HandleInputAsync" @bind="DrawingNumberViewModel.IncludeColor">
+                        <input type="checkbox" class="form-check-input" id="toggleColor" @onblur="HandleInputAsync" @bind="State.DrawingNumberViewModel.IncludeColor">
                         <label class="form-check-label text-light" for="toggleColor">Color</label>
                     </div>
 
                     <!-- Toggle Switch for Material -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" class="form-check-input" id="toggleMaterial" @onblur="HandleInputAsync" @bind="DrawingNumberViewModel.IncludeMaterial">
+                        <input type="checkbox" class="form-check-input" id="toggleMaterial" @onblur="HandleInputAsync" @bind="State.DrawingNumberViewModel.IncludeMaterial">
                         <label class="form-check-label text-light" for="toggleMaterial">Material</label>
                     </div>
 
                     <!-- Toggle Switch for Adder Material -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleAdderMaterial" @bind="DrawingNumberViewModel.IncludeAdderMaterial">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleAdderMaterial" @bind="State.DrawingNumberViewModel.IncludeAdderMaterial">
                         <label class="form-check-label text-light" for="toggleAdderMaterial">Adder Material</label>
                     </div>
 
                     <!-- Toggle Switch for Rod Material -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleRodMaterial" @bind="DrawingNumberViewModel.IncludeRodMaterial">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleRodMaterial" @bind="State.DrawingNumberViewModel.IncludeRodMaterial">
                         <label class="form-check-label text-light" for="toggleRodMaterial">Rod Material</label>
                     </div>
 
                     <!-- Toggle Switch for Belt Width -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleWidth" @bind="DrawingNumberViewModel.IncludeBeltWidth">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleWidth" @bind="State.DrawingNumberViewModel.IncludeBeltWidth">
                         <label class="form-check-label text-light" for="toggleWidth">Width</label>
                     </div>
 
                     <!-- Toggle Switch for Quantity of Rollers Across Width -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleQtyRollers" @bind="DrawingNumberViewModel.IncludeQtyRollersAcrossWidth">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleQtyRollers" @bind="State.DrawingNumberViewModel.IncludeQtyRollersAcrossWidth">
                         <label class="form-check-label text-light" for="toggleQtyRollers">Rollers Qty</label>
                     </div>
 
                     <!-- Toggle Switch for F/R/G Centers -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFRGCenters" @bind="DrawingNumberViewModel.IncludeFRGCenters">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFRGCenters" @bind="State.DrawingNumberViewModel.IncludeFRGCenters">
                         <label class="form-check-label text-light" for="toggleFRGCenters">F/R/G Centers</label>
                     </div>
 
                     <!-- Toggle Switch for Belt Accessories -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleBeltAccessories" @bind="DrawingNumberViewModel.IncludeBeltAccessories">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleBeltAccessories" @bind="State.DrawingNumberViewModel.IncludeBeltAccessories">
                         <label class="form-check-label text-light" for="toggleBeltAccessories">Accessories</label>
                     </div>
 
                     <!-- Toggle Switch for Friction/Anti Static -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFrictionAntiStatic" @bind="DrawingNumberViewModel.IncludeFrictionAntiStatic">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFrictionAntiStatic" @bind="State.DrawingNumberViewModel.IncludeFrictionAntiStatic">
                         <label class="form-check-label text-light" for="toggleFrictionAntiStatic">Friction/Anti Static</label>
                     </div>
 
                     <!-- Toggle Switch for Flights/Rollers/Grips -->
                     <div class="mx-5 form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFlightsRollersGrips" @bind="DrawingNumberViewModel.IncludeFlightsRollersGrips">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleFlightsRollersGrips" @bind="State.DrawingNumberViewModel.IncludeFlightsRollersGrips">
                         <label class="form-check-label text-light" for="toggleFlightsRollersGrips">Flights/Rollers/Grips</label>
                     </div>
 
                     <!-- Toggle Switch for Side-PL/Lane-DV -->
                     <div class="mx-4 form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleSidePLLaneDV" @bind="DrawingNumberViewModel.IncludeSidePLLaneDV">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleSidePLLaneDV" @bind="State.DrawingNumberViewModel.IncludeSidePLLaneDV">
                         <label class="form-check-label text-light" for="toggleSidePLLaneDV">Side-PL/Lane-DV</label>
                     </div>
 
                     <!-- Toggle Switch for Unique Identification -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync"  class="form-check-input" id="toggleUniqueIdentification" @bind="DrawingNumberViewModel.IncludeUniqueIdentification">
+                        <input type="checkbox" @onblur="HandleInputAsync"  class="form-check-input" id="toggleUniqueIdentification" @bind="State.DrawingNumberViewModel.IncludeUniqueIdentification">
                         <label class="form-check-label text-light" for="toggleUniqueIdentification">Unique ID</label>
                     </div>
 
                     <!-- Toggle Switch for Indent Code -->
                     <div class="form-check form-switch" style="min-width: 100px; padding: 0.5rem;">
-                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleIndentCode" @bind="DrawingNumberViewModel.IncludeIndentCode">
+                        <input type="checkbox" @onblur="HandleInputAsync" class="form-check-input" id="toggleIndentCode" @bind="State.DrawingNumberViewModel.IncludeIndentCode">
                         <label class="form-check-label text-light" for="toggleIndentCode">Indent Code</label>
                     </div>
                 </div>
@@ -171,6 +167,26 @@
 </div>
 
 @code {
+    protected override void OnInitialized()
+    {
+        if (State != null)
+        {
+            State.OnStateChange += StateHasChanged;
+        }
+        else
+        {
+            Console.WriteLine("State is null in OnInitialized!");
+        }
+    }
+
+    public void Dispose()
+    {
+        if (State != null)
+        {
+            State.OnStateChange -= StateHasChanged;
+        }
+    }
+
     private bool isFooterVisible = true; // Initial state of the footer (visible by default)
 
     private void ToggleFooter()
@@ -185,22 +201,25 @@
 </button>
 
 @code {
-    private bool showQueryString = false;
-
     // Shared input handling logic to generate drawing number and update query string
     protected async Task HandleInputAsync()
     {
         DrawingRequestProcessor!.GenerateDrawingNumber();
-        DrawingRequest!.QueryString = DrawingNumber!.GetDrawingQueryString();
+
+        UpdateQueryString();
 
         Console.WriteLine("Input Handled!");
     }
 
-
+    private void UpdateQueryString()
+    {
+        State.UpdateProperty(State.DrawingRequest, dr => dr.QueryString = State.DrawingNumber!.GetDrawingQueryString(State.DrawingNumberViewModel));
+        State.UpdateProperty(State.DrawingNumber, dn => dn.QueryString = State.DrawingNumber!.GetDrawingQueryString(State.DrawingNumberViewModel));
+    }
 
     private string GetDisplayValue()
     {
-        return showQueryString ? DrawingRequest.QueryString : DrawingNumber.GetDrawingNumber();
+        return State.DrawingNumberViewModel.ShowQueryString ? State.DrawingNumber.GetDrawingQueryString(State.DrawingNumberViewModel) : State.DrawingNumber.GetDrawingNumber();
     }
 
     public void UpdateFooter()

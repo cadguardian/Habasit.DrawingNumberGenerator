@@ -1,10 +1,9 @@
-﻿using DNG.Library.Data;
-using DNG.Library.Models;
+﻿using DNG.Library.Services.Base;
 
 public interface IDrawingRequestProcessor
 {
-    IDrawingNumber DrawingNumber { get; set; }
-    IDrawingRequest DrawingRequest { get; set; }
+    IStateContainer? State { get; set; }
+    IPartNumberService? PartNumberService { get; }
 
     void GenerateDrawingNumber();
 

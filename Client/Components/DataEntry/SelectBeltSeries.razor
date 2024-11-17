@@ -3,19 +3,37 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-
-
-    <select id="beltSeries" class="form-select form-select-sm"
-            @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.BeltSeries" required>
-        <option value="" disabled selected>Select Belt Series</option>
-            @foreach (var series in BeltSeries.Options.Keys.OrderBy(_=>_))
+        <select @bind="beltSeries" id="beltSeries" class="form-select form-select-sm" required>
+            <option value="" disabled>Select Belt Series</option>
+            @foreach (var series in BeltSeries.Options.Keys.OrderBy(_ => _))
             {
                 <option value="@series">@series</option>
             }
-    </select>
+        </select>
         <label for="beltSeries">Series</label>
     </div>
 
-    <span class="input-group-text">@BeltSeries.GetBeltSeriesType(DrawingRequest.BeltSeries)</span>
+    <span class="input-group-text">@beltSeriesType</span>
 </div>
+
+@code {
+    private string beltSeries
+    {
+        get => State.DrawingRequest?.BeltSeries ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.BeltSeries != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.BeltSeries = value);
+                UpdateBeltSeriesType(value);
+            }
+        }
+    }
+
+    private string? beltSeriesType;
+
+    private void UpdateBeltSeriesType(string value)
+    {
+        beltSeriesType = BeltSeries.GetBeltSeriesType(value);
+    }
+}

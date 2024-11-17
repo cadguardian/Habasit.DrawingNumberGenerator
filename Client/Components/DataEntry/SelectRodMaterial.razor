@@ -3,18 +3,39 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-    <select id="rodMaterial" class="form-select form-select-sm" @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.RodMaterial" required >
-        <option value="" disabled selected>Select Rod Material</option>
-            @foreach (var rod in RodMaterial.Options.Values.OrderBy(r=>r))
+        <select @bind="rodMaterial" id="rodMaterial" class="form-select form-select-sm" required>
+            <option value="" disabled>Select Rod Material</option>
+            @foreach (var rod in RodMaterial.Options.Values.OrderBy(r => r))
             {
                 <option value="@rod">@rod</option>
             }
-    </select>
-    <label  for="rodMaterial">Rod</label>
+        </select>
+        <label for="rodMaterial">Rod</label>
     </div>
 
-    <span class="input-group-text bg-dark text-light" data-bs-toggle="tooltip4">
-        @RodMaterial.GetCodeByName(DrawingRequest!.RodMaterial, RodMaterial.Options)
-    </span>
+    <span class="input-group-text">@(State!.DrawingNumber?.RodMaterialCode ?? "❌")</span>
+
 </div>
+
+@code {
+    private string rodMaterial
+    {
+        get => State.DrawingRequest?.RodMaterial ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.RodMaterial != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.RodMaterial = value);
+                UpdateRodMaterialCode(value);
+            }
+        }
+    }
+
+    private string? rodMaterialCode;
+
+    private void UpdateRodMaterialCode(string value)
+    {
+        rodMaterialCode = RodMaterial.GetCodeByName(value, RodMaterial.Options);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.RodMaterialCode = rodMaterialCode ?? string.Empty);
+    }
+}

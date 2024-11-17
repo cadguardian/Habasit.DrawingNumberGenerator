@@ -1,13 +1,13 @@
 ﻿@using System.Text.RegularExpressions
 @inject HttpClient Http
 @inject IJSRuntime JS
-@inject IDrawingRequest drawingRequest
+@inject IStateContainer State
 @inject ICADLibraryService CADLibraryService
 @inject INotificationService NotificationService
 @inject IClipboardService ClipboardService
 
-<label class="small alert alert-warning my-2 no-print">
-    Quickly find CAD templates.
+<label class="small alert alert-warning no-print">
+    Quickly find CAD templates to start drawing.
 </label>
 
 <!-- CAD Library Component -->
@@ -15,7 +15,7 @@
     <div class="card shadow-sm">
         <!-- Header Section with Summary Information -->
         <div class="d-flex justify-content-between align-items-center card-header">
-            <span class="fw-bold"><i class="fa-solid fa-fingerprint"></i> CAD Template Finder</span>
+            <h4 class="small"><i class="fa-solid fa-fingerprint"></i> CAD Template Finder</h4>
             @if (allFiles != null)
             {
                 <small class="text-muted">
@@ -34,7 +34,7 @@
             } *@
         </div>
 
-        <div class="alert alert-info p-2" style="font-size: 0.8rem;">
+        <div class="alert alert-secondary p-3 p-3 p-2" style="font-size: 0.8rem;">
             Use <strong>Apply Filters</strong> to narrow down CAD blocks by specific criteria before starting your search.
         </div>
 
@@ -42,18 +42,14 @@
         <div class="d-flex mb-3 p-3">
             <div class="input-group me-2 flex-grow-1">
                 <input type="text" class="form-control" placeholder="Search for AutoCAD blocks..."
-                       @bind="searchQuery" @bind:event="oninput" @onkeypress="HandleKeyPress" />
+                       @bind="searchQuery" @bind:event="oninput" @onkeypress="HandleKeyPress" /><div class="btn-group" role="group">
+                    <button class="btn btn-sm btn-dark" @onclick="ApplyFilters">Filter</button>
+                    <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search</button>
+                </div>
                 @if (isSearchMode)
                 {
                     <button class="btn btn-outline-secondary" @onclick="ClearSearch">Clear</button>
                 }
-            </div>
-        </div>
-
-        <div class="text-center mb-4">
-            <div class="btn-group" role="group">
-                <button class="btn btn-sm btn-dark" @onclick="ApplyFilters">Apply Filters</button>
-                <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search Blocks</button>
             </div>
         </div>
 
@@ -81,7 +77,7 @@
             }
             else
             {
-                <div class="alert alert-info text-center">No results found for "<strong>@searchQuery</strong>".</div>
+                <div class="alert alert-secondary p-3 text-center">No results found for "<strong>@searchQuery</strong>".</div>
             }
         }
     </div>
@@ -104,8 +100,17 @@
     private List<FileItemDisplay> searchResults = new();
     private List<FileItem> allFiles = new();
 
+    public void Dispose()
+    {
+        State.OnStateChange -= StateHasChanged;
+    }
+    
+
+
     protected override async Task OnInitializedAsync()
     {
+        State.OnStateChange += StateHasChanged;
+
         await LoadReportData();
     }
 
@@ -154,7 +159,7 @@
 
         if (searchResults.Any())
         {
-            drawingRequest.CadTemplatePath = searchResults.First().RelativePath;
+            State.UpdateProperty(State.DrawingRequest, dr => dr.CadTemplatePath = searchResults.First().RelativePath);
         }
 
         isSearchMode = true;
@@ -163,7 +168,7 @@
     private void ApplyFilters()
     {
         // Example filter application logic
-        searchQuery = !string.IsNullOrWhiteSpace(drawingRequest.BeltType) ? drawingRequest.BeltSeries : string.Empty;
+        searchQuery = !string.IsNullOrWhiteSpace(State.DrawingRequest.BeltType) ? State.DrawingRequest.BeltSeries : string.Empty;
     }
 
 

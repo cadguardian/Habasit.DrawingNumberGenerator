@@ -3,27 +3,45 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-
-    <select id="frictionAntiStatic" class="form-select form-select-sm"
-            @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.FrictionAntiStatic" required>
-        <option value="" disabled selected>Select Friction/Anti Static</option>
-            @foreach (var friction in FrictionAntiStatic.Options.Values.OrderBy(f=>f))
+        <select @bind="frictionAntiStatic" id="frictionAntiStatic" class="form-select form-select-sm" required>
+            <option value="" disabled>Select Friction/Anti Static</option>
+            @foreach (var friction in FrictionAntiStatic.Options.Values.OrderBy(f => f))
             {
                 <option value="@friction">@friction</option>
             }
-    </select>
+        </select>
         <label for="frictionAntiStatic">Friction/Anti Static</label>
-        </div>
+    </div>
 
+    <span class="input-group-text">@(State!.DrawingNumber?.FrictionAntiStaticCode ?? "❌")</span>
 
-    <span class="input-group-text">@FrictionAntiStatic.GetCodeByName(DrawingRequest!.FrictionAntiStatic, FrictionAntiStatic.Options)</span>
 </div>
 
-@code{
+@code {
+    private string frictionAntiStatic
+    {
+        get => State.DrawingRequest?.FrictionAntiStatic ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.FrictionAntiStatic != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.FrictionAntiStatic = value);
+                UpdateFrictionAntiStaticCode(value);
+            }
+        }
+    }
+
+    private string? frictionAntiStaticCode;
+
+    private void UpdateFrictionAntiStaticCode(string value)
+    {
+        frictionAntiStaticCode = FrictionAntiStatic.GetCodeByName(value, FrictionAntiStatic.Options);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.FrictionAntiStaticCode = frictionAntiStaticCode ?? string.Empty);
+    }
+
     protected override void OnInitialized()
     {
-        // Set the default value here, based on some logic
-        DrawingRequest!.FrictionAntiStatic = "No options"; // Default value set during initialization
+        frictionAntiStatic = "No options"; // Set a default value if needed
+        UpdateFrictionAntiStaticCode(frictionAntiStatic);
     }
 }

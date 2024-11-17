@@ -3,27 +3,44 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-    <select id="beltAccessories" class="form-select form-select-sm"
-            @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.BeltAccessories" required>
-        <option value="" disabled selected>Select Belt Accessories</option>
-
-            @foreach (var accessory in BeltAccessories.Options.Values.OrderBy(a=>a))
+        <select @bind="beltAccessories" id="beltAccessories" class="form-select form-select-sm" required>
+            <option value="" disabled>Select Belt Accessories</option>
+            @foreach (var accessory in BeltAccessories.Options.Values.OrderBy(a => a))
             {
                 <option value="@accessory">@accessory</option>
             }
-    </select>
-    <label for="beltAccessories">Accessories</label>
+        </select>
+        <label for="beltAccessories">Accessories</label>
     </div>
 
-
-        <span class="input-group-text">@BeltAccessories.GetCodeByName(DrawingRequest!.BeltAccessories, BeltAccessories.Options)</span>
+    <span class="input-group-text">@beltAccessoriesCode</span>
 </div>
 
-@code{
+@code {
+    private string beltAccessories
+    {
+        get => State.DrawingRequest?.BeltAccessories ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.BeltAccessories != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.BeltAccessories = value);
+                UpdateBeltAccessoriesCode(value);
+            }
+        }
+    }
+
+    private string? beltAccessoriesCode;
+
+    private void UpdateBeltAccessoriesCode(string value)
+    {
+        beltAccessoriesCode = BeltAccessories.GetCodeByName(value, BeltAccessories.Options);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.BeltAccessoriesCode = beltAccessoriesCode ?? string.Empty);
+    }
+
     protected override void OnInitialized()
     {
-        // Set the default value here, based on some logic
-        DrawingRequest!.BeltAccessories = "No options"; 
+        beltAccessories = "No options"; // Set a default value if needed
+        UpdateBeltAccessoriesCode(beltAccessories);
     }
 }

@@ -1,5 +1,5 @@
-﻿using DNG.Library.Data;
-using DNG.Library.Models;
+﻿using DNG.Library.Models;
+using DNG.Library.Models.Base;
 
 public class TitleBlockService : ITitleBlockService
 {
@@ -44,7 +44,7 @@ public class TitleBlockService : ITitleBlockService
     {
         return string.Join(" ",
             drawingRequest.FlightsRollersGrip == "No Flights" ? "" : drawingRequest.FlightsRollersGrip,
-            drawingRequest.FRGCenters > 0 ? $"{drawingRequest.FRGCenters}\" CENTERS" : "").ToUpper();
+            drawingRequest.FRGCenters > 0 ? $"ON {drawingRequest.FRGCenters}\" CENTERS" : "").ToUpper();
     }
 
     public string GetTitleLine3(IDrawingRequest drawingRequest)

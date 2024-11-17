@@ -1,0 +1,91 @@
+﻿@using DNG.Library.Models
+@inject IStateContainer StateContainer
+
+<div class="card mb-3 mt-4">
+    <h4 class="card-header d-flex small justify-content-between align-items-center"><i class="fa-solid fa-barcode"></i> Drawing Details</h4>
+    <div class="card-body d-flex align-items-center justify-content-center p-0">
+        <table class="table table-sm table-hover table-bordered table-striped" style="font-size: 0.9em;">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Attribute</th>
+                    <th scope="col">Drawing Request</th>
+                    <th scope="col">Drawing Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                @RenderRow("Type", StateContainer.DrawingRequest.BeltType, StateContainer.DrawingNumber.BeltTypeCode)
+                @RenderRow("Series", StateContainer.DrawingRequest.BeltSeries, StateContainer.DrawingNumber.BeltSeriesCode)
+                @RenderRow("Color", StateContainer.DrawingRequest.Color, StateContainer.DrawingNumber.ColorCode)
+                @RenderRow("Material", StateContainer.DrawingRequest.Material, StateContainer.DrawingNumber.MaterialCode)
+                @RenderRow("Adder Material", StateContainer.DrawingRequest.AdderMaterial, StateContainer.DrawingNumber.AdderMaterialCode)
+                @RenderRow("Rod", StateContainer.DrawingRequest.RodMaterial, StateContainer.DrawingNumber.RodMaterialCode)
+                @RenderRow("Belt Width", StateContainer.DrawingRequest.BeltWidth.ToString(), StateContainer.DrawingNumber.BeltWidthCode)
+                @RenderRow("Flights Rollers Grip", StateContainer.DrawingRequest.FlightsRollersGrip, StateContainer.DrawingNumber.FlightsRollersGripsCode)
+                @RenderRow("Qty Rollers Across Width", StateContainer.DrawingRequest.QtyRollersAcrossWidth.ToString(), StateContainer.DrawingNumber.QtyRollersAcrossWidth)
+                @RenderRow("FRG Centers", StateContainer.DrawingRequest.FRGCenters.ToString(), StateContainer.DrawingNumber.FRGCenters)
+                @RenderRow("Belt Accessories", StateContainer.DrawingRequest.BeltAccessories, StateContainer.DrawingNumber.BeltAccessoriesCode)
+                @RenderRow("Friction/Anti Static", StateContainer.DrawingRequest.FrictionAntiStatic, StateContainer.DrawingNumber.FrictionAntiStaticCode)
+                @RenderRow("Side-PL/Lane-DV", StateContainer.DrawingRequest.SidePLLaneDV, StateContainer.DrawingNumber.SidePLLaneDVCode)
+                @RenderRow("Unique Identification", StateContainer.DrawingRequest.UniqueIdentification, StateContainer.DrawingNumber.UniqueIdentification)
+                @RenderRow("Indent Code", StateContainer.DrawingRequest.IndentCode, StateContainer.DrawingNumber.IndentCode )
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+@code {
+    /// <summary>
+    /// Renders a row in the table for the given label, request value, and code value.
+    /// </summary>
+    private RenderFragment RenderRow<T>(string label, T requestValue, T codeValue) => builder =>
+    {
+        builder.OpenElement(0, "tr");
+
+        // Label column
+        builder.OpenElement(1, "td");
+        builder.AddContent(2, label);
+        builder.CloseElement();
+
+        // Request value column
+        builder.OpenElement(3, "td");
+        builder.AddContent(4, FormatValue(requestValue));
+        builder.CloseElement();
+
+        // Code value column
+        builder.OpenElement(5, "td");
+        builder.AddContent(6, FormatValue(codeValue));
+        builder.CloseElement();
+
+        builder.CloseElement(); // Closing the <tr>
+    };
+
+    /// <summary>
+    /// Formats a value for display in the table. Handles both strings and numbers.
+    /// Displays ❌ for null, empty strings, or numeric 0.
+    /// </summary>
+    private string FormatValue<T>(T value)
+    {
+        if (value == null)
+            return "❌";
+
+        return value switch
+        {
+            string str when string.IsNullOrWhiteSpace(str) => "❌",
+            _ => value.ToString()
+        };
+    }
+
+    protected override void OnInitialized()
+    {
+        // Subscribe to the StateContainer's state change event
+        StateContainer.OnStateChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        // Unsubscribe from the event to prevent memory leaks
+        StateContainer.OnStateChange -= StateHasChanged;
+    }
+}

@@ -1,17 +1,17 @@
 ﻿@page "/"
 
 
+@using Client.Features.CADTemplates.Archive
 @using Client.Services
-@using DNG.Library.Data
 @using DNG.Library.Models
 @using Microsoft.AspNetCore.Components.Forms
 
 @inject IJSRuntime JSRuntime
-@inject IDrawingNumber DrawingNumber
-@inject IDrawingRequest DrawingRequest
+@inject IStateContainer State
 @inject IDrawingRequestProcessor DrawingRequestProcessor
 
-<PageTitle>Drawings | Plastic Modular Belt</PageTitle>
+<PageTitle>www.belt-tools.vercel.app</PageTitle>
+
 
 
 <div class="container-fluid no-print" id="navbarNav">
@@ -48,11 +48,14 @@
 
 <CADTemplatesView />
 
-<ThumbnailGalleryView /> 
-
 <JSONView />
 
 <PrintView />
+
+@* <ThumbnailGalleryView /> *@
+
+@* <CADWorkflow/> *@
+
 
  @* <QuickGuide/> *@
 
@@ -62,7 +65,7 @@
 
     protected override void OnInitialized()
     {
-        editContext = new EditContext(DrawingRequest);
+        editContext = new EditContext(State.DrawingRequest);
         editContext.OnFieldChanged += (sender, e) => editContext.Validate(); // Triggers validation on field change
 
         // Immediately trigger validation when form loads

@@ -2,12 +2,23 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-
-        <InputText id="quoteNumber" aria-required="true"
-               aria-describedby="quoteNumberHelp"
-                   @bind-Value="DrawingRequest!.QuoteNumber" autofocus
-               class="form-control form-control-sm" />
-
+        <InputText @bind-Value="quoteNumber" id="quoteNumber" aria-required="true"
+                   aria-describedby="quoteNumberHelp" autofocus
+                   class="form-control form-control-sm" />
         <label for="quoteNumber">Quote #</label>
     </div>
 </div>
+
+@code {
+    private string quoteNumber
+    {
+        get => State.DrawingRequest?.QuoteNumber ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.QuoteNumber != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.QuoteNumber = value);
+            }
+        }
+    }
+}

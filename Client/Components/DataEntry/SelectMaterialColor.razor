@@ -3,19 +3,39 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-    <select id="color" class="form-select form-select-sm" @onblur="HandleInputAsync"
-            @bind="DrawingRequest!.Color" required >
-        <option value="" disabled selected>Select Color</option>
+        <select @bind="color" id="color" class="form-select form-select-sm" required>
+            <option value="" disabled>Select Color</option>
             @foreach (var color in MaterialColor.Options.Values.OrderBy(c => c))
             {
                 <option value="@color">@color</option>
             }
-    </select>
-    <label for="color">Color</label>
+        </select>
+        <label for="color">Color</label>
     </div>
 
+    <span class="input-group-text bg-dark text-light" data-bs-toggle="tooltip1" title="You can remove from query string to widen search!">@(State!.DrawingNumber?.ColorCode ?? "❌")</span>
 
-    <span class="input-group-text bg-dark text-light" data-bs-toggle="tooltip1" title="You can remove from query string to widen search!">
-        @MaterialColor.GetCodeByName(DrawingRequest!.Color, MaterialColor.Options)
-    </span>
 </div>
+
+@code {
+    private string color
+    {
+        get => State.DrawingRequest?.Color ?? string.Empty;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.Color != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.Color = value);
+                UpdateColorCode(value);
+            }
+        }
+    }
+
+    private string? colorCode;
+
+    private void UpdateColorCode(string value)
+    {
+        colorCode = MaterialColor.GetCodeByName(value, MaterialColor.Options);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.ColorCode = colorCode ?? string.Empty);
+    }
+}

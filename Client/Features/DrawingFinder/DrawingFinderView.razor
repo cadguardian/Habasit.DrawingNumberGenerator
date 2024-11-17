@@ -2,18 +2,17 @@
 @using System.IO
 @inject HttpClient Http
 @inject IJSRuntime JS
-@inject IDrawingNumber drawingNumber
-@inject IDrawingRequest drawingRequest
+@inject IStateContainer State
 @inject IDrawingFileService DrawingFileService
 
-<label class="small alert alert-warning my-2 no-print">
+<label class="small alert alert-warning no-print my-2">
     Use Query String to find drawings instantly.
 </label>
 
 <div class="container-fluid no-print">
     <div class="card">
         <div class="d-flex justify-content-between align-items-center card-header">
-            <div class="fw-bold"><i class="fa-solid fa-folder-tree"></i> Drawing Finder</div>
+            <h4 class="small"><i class="fa-solid fa-folder-tree"></i> Drawing Finder</h4>
 
             @if (allFiles != null)
             {
@@ -23,25 +22,24 @@
             }
         </div>
 
-        <div class="alert alert-info p-2" style="font-size: 0.8rem;">
+        <div class="alert alert-secondary p-3 p-2" style="font-size: 0.8rem;">
             Use <strong>*</strong> as a wildcard: <strong>*term</strong> to find items ending with "term", <strong>term*</strong> for items starting with "term", or <strong>term*term</strong> for partial matches.
         </div>
 
         <div class="d-flex mb-3 p-3">
             <div class="input-group me-2 flex-grow-1">
-                <input type="text" class="form-control" placeholder="Search for CAD files..." @bind="searchQuery" @bind:event="oninput" @onkeypress="HandleKeyPress" />
+                <input id="cad-files-search" type="text" class="form-control" placeholder="Search for CAD files..." @bind="searchQuery" @bind:event="oninput" @onkeypress="HandleKeyPress" />
+                <div class="btn-group" role="group">
+                    <button class="btn btn-sm btn-dark" @onclick="ApplyFilters">Filter</button>
+                    <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search</button>
+                </div>
                 @if (isSearchMode)
                 {
                     <button class="btn btn-outline-secondary" @onclick="ClearSearch">Clear</button>
                 }
             </div>
         </div>
-        <div class="text-center mb-4">
-            <div class="btn-group" role="group">
-                <button class="btn btn-sm btn-dark" @onclick="ApplyFilters">Apply Filters</button>
-                <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search Drawings</button>
-            </div>
-        </div>
+    
 
         @if (isSearchMode)
         {
@@ -68,12 +66,12 @@
 
                 if (searchResults.Any())
                 {
-                    drawingRequest.ReferenceDrawingPath = searchResults.FirstOrDefault()!.RelativePath;
+                    State.DrawingRequest.ReferenceDrawingPath = searchResults.FirstOrDefault()!.RelativePath;
                 }
             }
             else
             {
-                <div class="alert alert-info text-center">No results found for "<strong>@searchQuery</strong>". try ending with an <strong>*. For example: *@searchQuery*</strong></div>
+                <div class="alert alert-secondary p-3 text-center">No results found for "<strong>@searchQuery</strong>". try ending with an <strong>*. For example: *@searchQuery*</strong></div>
             }
         }
     </div>
@@ -81,7 +79,6 @@
 
 @code {
     private ReportHeader? reportHeader;
-    private bool dataLoaded = false;
     private string searchQuery = string.Empty;
     private bool isSearchMode = false;
     private List<FileItemDisplay> searchResults = new();
@@ -89,19 +86,25 @@
 
     protected override async Task OnInitializedAsync()
     {
+        State.OnStateChange += StateHasChanged;
         reportHeader = await DrawingFileService.LoadReportHeaderAsync(Http, "data/pdf_drawings.json");
         allFiles = await DrawingFileService.LoadAllFilesAsync(Http, "data/pdf_drawings.json");
-        dataLoaded = true;
+    }
+
+    public void Dispose()
+    {
+        State.OnStateChange -= StateHasChanged;
     }
 
     private void ApplyFilters()
     {
-        searchQuery = DrawingFileService.GenerateUniversalSearch(drawingNumber!.QueryString! + "*");
+        searchQuery = DrawingFileService.GenerateUniversalSearch(State.DrawingNumber!.QueryString! + "*");
     }
 
     private void OnSearch()
     {
-        searchResults = DrawingFileService.SearchFiles(searchQuery, allFiles, drawingNumber.QueryString);
+        searchQuery += "*";
+        searchResults = DrawingFileService.SearchFiles(searchQuery, allFiles, State.DrawingNumber.QueryString);
         isSearchMode = searchResults.Any();
     }
 

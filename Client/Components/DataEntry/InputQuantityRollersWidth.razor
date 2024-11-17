@@ -3,14 +3,39 @@
 
 <div class="input-group mb-3">
     <div class="form-floating">
-
-    <InputNumber id="qtyRollersAcrossWidth" aria-required="true"
-                 aria-describedby="qtyRollersAcrossWidthHelp" @onblur="HandleInputAsync"
-                 @bind-Value="DrawingRequest!.QtyRollersAcrossWidth" Min="1" Max="20"
-                 class="form-control text-center"
-                 onfocus="selectAllText(this)" />
+        <InputNumber @bind-Value="qtyRollersAcrossWidth" id="qtyRollersAcrossWidth" aria-required="true"
+                     aria-describedby="qtyRollersAcrossWidthHelp" Min="1" Max="20"
+                     class="form-control text-center" onfocus="selectAllText(this)" />
         <label for="qtyRollersAcrossWidth">Qty. Rollers Width</label>
-                 </div>
+    </div>
 
-    <span class="input-group-text">@Flights_Rollers_Grips.GetFRGQuantityAcrossWidthCode(DrawingRequest.QtyRollersAcrossWidth)</span>
+    <span class="input-group-text">@(rollerWidthCode ?? "❌")</span>
 </div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        qtyRollersAcrossWidth = 0; // Set a default value if needed
+    }
+
+    private int qtyRollersAcrossWidth
+    {
+        get => State.DrawingRequest?.QtyRollersAcrossWidth ?? 0;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.QtyRollersAcrossWidth != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.QtyRollersAcrossWidth = value);
+                UpdateRollerWidthCode(value);
+            }
+        }
+    }
+
+    private string? rollerWidthCode;
+
+    private void UpdateRollerWidthCode(int value)
+    {
+        rollerWidthCode = Flights_Rollers_Grips.GetFRGQuantityAcrossWidthCode(value);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.QtyRollersAcrossWidth = rollerWidthCode ?? string.Empty);
+    }
+}

@@ -1,36 +1,27 @@
 ﻿@page "/project-summary"
 @using DNG.Library.Models;
-@inject IDrawingRequest DrawingRequest
-@inject IDrawingNumber DrawingNumber
 @inject IImageGalleryService ImageService
 @inject HttpClient Http
 @inject IJSRuntime JS
+@inject IStateContainer State
 
 <div class="container-fluid">
-    <!-- Summary Sheet Section (Hidden initially) -->
     <div class="summary-sheet print-mode" style="display: block;" id="summarySheet">
         <div class="text-center">
-
             <h3 class="display-6">Special Build - Plastic Modular Belt</h3>
-
-            <div class="text-muted">Drawing Request - @DrawingRequest.GetProjectFolderName()</div>
-
+            <div class="text-muted">Drawing Request - @State.DrawingRequest.GetProjectFolderName()</div>
             <p class="no-print">Printing this page will print the information below to track drawing.</p>
-
-            <button class="btn btn-sm btn-primary mb-3 no-print" @onclick="ConfirmAndRefresh">Refresh Data</button>
         </div>
         
-        <!-- MAIN SECTION: Two Columns -->
         <div class="row">
-            <!-- LEFT COLUMN: Thumbnail Image and Basic Info -->
             <div class="col-md-6 col-sm-6">
                 <div class="card mb-3">
-                    <div class="card-header"><i class="fa-solid fa-user"></i> CSR Drawing Request</div>
+                    <h4 class="card-header small d-flex justify-content-between align-items-center"><i class="fa-solid fa-user"></i> CSR Drawing Request</h4>
                     <div class="card-body p-0">
-                        @if (!string.IsNullOrWhiteSpace(DrawingRequest.StructuredText))
+                        @if (!string.IsNullOrWhiteSpace(State.DrawingRequest.StructuredText))
                         {
                             <div class="alert alert-success">
-                                <p>@DrawingRequest.StructuredText</p>
+                                <p>@State.DrawingRequest.StructuredText</p>
                             </div>
                         }
                         else
@@ -40,17 +31,16 @@
                             </div>
                         }
                     </div>
-
                   
                 </div>
                 <div class="card mb-3">
-                    <div class="card-header"><i class="fa-solid fa-copy"></i> Title Block Information</div>
+                    <h4 class="card-header d-flex small justify-content-between align-items-center"><i class="fa-solid fa-copy"></i> Title Block Information</h4>
                     <div class="card-body">
                         <div>
                             <strong>Folder Name: </strong>
-                            @if (!string.IsNullOrWhiteSpace(DrawingRequest.GetProjectFolderName()))
+                            @if (!string.IsNullOrWhiteSpace(State.DrawingRequest.GetProjectFolderName()))
                             {
-                                @DrawingRequest.GetProjectFolderName()
+                                @State.DrawingRequest.GetProjectFolderName()
                             }
                             else
                             {
@@ -70,9 +60,9 @@
 
                         <div>
                             <strong>Job Number: </strong>
-                            @if (!string.IsNullOrWhiteSpace(DrawingRequest.GetJobNumber()))
+                            @if (!string.IsNullOrWhiteSpace(State.DrawingRequest.GetJobNumber()))
                             {
-                                @DrawingRequest.GetJobNumber()
+                                @State.DrawingRequest.GetJobNumber()
                             }
                             else
                             {
@@ -82,9 +72,9 @@
 
                         <div>
                             <strong>Drawing Number: </strong>
-                            @if (!string.IsNullOrWhiteSpace(DrawingNumber.GetDrawingNumber()))
+                            @if (!string.IsNullOrWhiteSpace(State.DrawingNumber.GetDrawingNumber()))
                             {
-                                @DrawingNumber.GetDrawingNumber()
+                                @State.DrawingNumber.GetDrawingNumber()
                             }
                             else
                             {
@@ -94,76 +84,73 @@
                     </div>
                 </div>
 
-
-
-
                 <div>
                     <div class="card mb-3">
-                        <div class="card-header">CAD Template</div>
+                        <h4 class="card-header d-flex small justify-content-between align-items-center"><i class="fa-solid fa-compass-drafting"></i> CAD Template</h4>
                         <div class="card-body">
-                            @if (!string.IsNullOrWhiteSpace(DrawingRequest.CadTemplatePath))
+                            @if (!string.IsNullOrWhiteSpace(State.DrawingRequest.CadTemplatePath))
                             {
-                                <a href="@DrawingRequest.CadTemplatePath" target="_blank">@DrawingRequest.CadTemplatePath</a>
+                                <a href="@State.DrawingRequest.CadTemplatePath" target="_blank">@State.DrawingRequest.CadTemplatePath</a>
                             }
                             else
                             {
-                                <p class="text-danger">No CAD Template available. Please complete the drawing request.</p>
+                                <div class="alert alert-danger">
+                                <p class="text-danger">No CAD Template available. Please complete the drawing request.</p></div>
                             }
                         </div>
                     </div>
-
-
                     <div class="card mb-3">
-                        <div class="card-header">Reference Drawing</div>
+                        <h4 class="card-header d-flex small justify-content-between align-items-center"><i class="fa-solid fa-retweet"></i> Reference Drawing</h4>
                         <div class="card-body">
-                            @if (!string.IsNullOrWhiteSpace(DrawingRequest.ReferenceDrawingPath))
+                            @if (!string.IsNullOrWhiteSpace(State.DrawingRequest.ReferenceDrawingPath))
                             {
-                                <a href="@DrawingRequest.ReferenceDrawingPath" target="_blank">@DrawingRequest.ReferenceDrawingPath</a>
+                                <a href="@State.DrawingRequest.ReferenceDrawingPath" target="_blank">@State.DrawingRequest.ReferenceDrawingPath</a>
                             }
                             else
                             {
+                                <div class="alert alert-danger">
                                 <p class="text-danger">No Reference Drawing available. Please complete the drawing request and configure the query string for wider results.</p>
+                                </div>
                             }
                         </div>
                     </div>
-
                     <div class="card">
-                        <div class="card-header"><i class="fa-regular fa-note-sticky"></i> Notes</div>
+                        <h4 class="card-header d-flex small justify-content-between align-items-center"><i class="fa-regular fa-note-sticky"></i> Notes</h4>
                         <div class="card-body">
                             <textarea class="form-control" rows="5" placeholder="Enter notes here..."></textarea>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-
-            <!-- RIGHT COLUMN: Title Block Information -->
-           
-
 
             <div class="col-md-6 col-sm-6">
                 <div class="card mb-3">
-                    <div class="card-header"><i class="fa-regular fa-image"></i> Thumbnail</div>
+                    <h4 class="card-header d-flex small justify-content-between align-items-center"><i class="fa-regular fa-image"></i> Thumbnail</h4>
                     <div class="card-body d-flex align-items-center justify-content-center p-0">
-                        <img src="images/belts/@GetThumbnailImage()" alt="Belt Thumbnail" class="img-fluid p-0 m-0" />
+                        @* <img src="images/belts/@GetThumbnailImage()" alt="Belt Thumbnail" class="img-fluid p-0 m-0" /> *@
+
+                        @if (!string.IsNullOrWhiteSpace(State.DrawingRequest.ThumbnailImageFilePath))
+                        {
+                            <img src="@("images/belts/" + State.DrawingRequest.ThumbnailImageFilePath)" alt="Select belt series to see image." class="img-fluid p-0 m-0" />
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger">
+                            <p class="text-danger">No thumbnail is available. Please select a belt series.</p>
+                            </div>
+                        }
+
+
                     </div>
-
-
+                    <span class="small text-center">@State.DrawingRequest.ThumbnailImageFilePath</span>
                 </div>
-
                 <DrawingDetailsTable />
             </div>
-
-        
         </div>
-
-        
-        
     </div>
-    <!-- PARTS LIST SECTION -->
+
     <div class="card mb-3 mt-4">
-        <div class="card-header"><i class="fa-solid fa-list"></i> Available Parts</div>
+        <h4 class="card-header d-flex small justify-content-between align-items-center"><i class="fa-solid fa-list"></i> Available Parts</h4>
         <div class="card-body d-flex align-items-center  p-0">
             <div class="table-responsive">
                 <table class="table table-sm table-bordered">
@@ -175,9 +162,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (DrawingRequest.PartsList != null && DrawingRequest.PartsList.Any())
+                        @if (State.DrawingRequest.PartsList != null && State.DrawingRequest.PartsList.Any())
                         {
-                            @foreach (var part in DrawingRequest.PartsList)
+                            @foreach (var part in State.DrawingRequest.PartsList)
                             {
                                 <tr>
                                     <td>@part.Key</td>
@@ -190,17 +177,17 @@
                         {
                             <tr>
                                 <td colspan="3" class="text-center text-danger">
+                                    <div class="alert alert-danger">
                                     No parts available. Please complete the drawing request.
+                                    </div>
                                 </td>
                             </tr>
                         }
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
-
 </div>
 
 @code {
@@ -215,22 +202,21 @@
 
     private IEnumerable<string> FilteredImages => ImageService.FilterImages(imageFiles, searchQuery);
 
-    private async Task ConfirmAndRefresh()
-    {
-        bool confirmed = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to refresh? Any unsaved changes will be lost.");
-        if (confirmed)
-        {
-            StateHasChanged();
-        }
-    }
-
-
     private void ApplyFilters()
     {
         // Update searchQuery based on filter criteria, for example:
-        searchQuery = !string.IsNullOrWhiteSpace(DrawingRequest.BeltType) ? DrawingRequest.BeltSeries : string.Empty;
+        searchQuery = !string.IsNullOrWhiteSpace(State.DrawingRequest.BeltType) ? State.DrawingRequest.BeltSeries : string.Empty;
     }
 
     private string GetThumbnailImage() => FilteredImages.FirstOrDefault()!;
     
+    protected override void OnInitialized()
+    {
+        State.OnStateChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        State.OnStateChange -= StateHasChanged;
+    }
 }

@@ -1,6 +1,5 @@
 ﻿@page "/title-block-generator"
-@inject IDrawingRequest drawingRequest
-@inject IDrawingNumber drawingNumber
+@inject IStateContainer State
 @inject IJSRuntime JS
 @inject ITitleBlockService TitleBlockService
 
@@ -11,12 +10,11 @@
 <div class="container-fluid no-print my-2">
     <div class="card">
         <div class="d-flex justify-content-between align-items-center card-header">
-            <div class="fw-bold mb-2"><i class="fa-solid fa-copy"></i> Title Block Generator</div>
-            <button class="btn btn-sm btn-primary" @onclick="ConfirmRefresh">Refresh</button>
+            <h4 class="small"><i class="fa-solid fa-copy"></i> Title Block Generator</h4>
         </div>
 
         <!-- Instructions -->
-        <div class="alert alert-info p-1 mb-2" style="font-size: 0.8rem;">
+        <div class="alert alert-secondary p-3 p-1 mb-2" style="font-size: 0.8rem;">
             Click the copy button to copy any value to the clipboard.
         </div>
 
@@ -43,57 +41,44 @@
 </div>
 
 @code {
-    private string revNumber = "A";
-    private string drawnDate = string.Empty;
-    private string scale = "";
-    private string drawnBy = "T Smith";
-    private string jobNumber = string.Empty;
-    private string projectFolderName = string.Empty;
-    private string titleLine1 = string.Empty;
-    private string titleLine2 = string.Empty;
-    private string titleLine3 = string.Empty;
-
-    // List of fields for dynamic rendering
     private List<TitleBlockField>? titleBlockFields;
 
     protected override void OnInitialized()
     {
-        LoadValues();
+        State.OnStateChange += StateChangedHandler;
+        LoadValues(); // Initial load
+    }
+
+    private void StateChangedHandler()
+    {
+        LoadValues(); // Reload values on state change
+        StateHasChanged(); // Trigger UI re-render
+    }
+
+    public void Dispose()
+    {
+        State.OnStateChange -= StateChangedHandler;
     }
 
     private void LoadValues()
     {
-        drawnDate = TitleBlockService.GetDrawnDate();
-        jobNumber = TitleBlockService.GetJobNumber(drawingRequest);
-        projectFolderName = TitleBlockService.GetProjectFolderName(jobNumber, drawingNumber);
-        titleLine1 = TitleBlockService.GetTitleLine1(drawingRequest, drawingNumber);
-        titleLine2 = TitleBlockService.GetTitleLine2(drawingRequest);
-        titleLine3 = TitleBlockService.GetTitleLine3(drawingRequest);
-
-        // Populate the fields
+        // Retrieve updated values from the TitleBlockService
         titleBlockFields = new List<TitleBlockField>
         {
-            new("Folder Name", projectFolderName),
-            new("Rev Number", revNumber),
-            new("Drawn Date", drawnDate),
-            new("Scale", scale),
-            new("Drawn By", drawnBy),
-            new("Job Number", jobNumber),
-            new("Drawing Number", drawingNumber.DrawingCode),
-            new("Title Line 1", titleLine1),
-            new("Title Line 2", titleLine2),
-            new("Title Line 3", titleLine3)
+            new("Folder Name", TitleBlockService.GetProjectFolderName(
+                TitleBlockService.GetJobNumber(State.DrawingRequest),
+                State.DrawingNumber
+            )),
+            new("Rev Number", "A"),
+            new("Drawn Date", TitleBlockService.GetDrawnDate()),
+            new("Scale", ""),
+            new("Drawn By", "T Smith"),
+            new("Job Number", TitleBlockService.GetJobNumber(State.DrawingRequest)),
+            new("Drawing Number", State.DrawingNumber.DrawingCode),
+            new("Title Line 1", TitleBlockService.GetTitleLine1(State.DrawingRequest, State.DrawingNumber)),
+            new("Title Line 2", TitleBlockService.GetTitleLine2(State.DrawingRequest)),
+            new("Title Line 3", TitleBlockService.GetTitleLine3(State.DrawingRequest))
         };
-    }
-
-    private async Task ConfirmRefresh()
-    {
-        bool confirm = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to refresh? Any custom changes will be removed.");
-        if (confirm)
-        {
-            LoadValues();
-            StateHasChanged();
-        }
     }
 
     private void CopyToClipboard(string text)

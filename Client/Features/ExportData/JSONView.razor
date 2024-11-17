@@ -1,7 +1,6 @@
 ﻿@using System.Text
-@inject IDrawingRequest DrawingRequest
+@inject IStateContainer State
 @inject IDrawingRequestProcessor DrawingRequestProcessor
-@inject IDrawingNumber DrawingNumber
 
 <label class="small alert alert-warning my-2 no-print">
     Export JSON for geek level details.
@@ -12,7 +11,7 @@
     <div class="text-center mb-4">
         <div class="btn-group" role="group">
             <button class="btn btn-sm btn-dark btn-lg" @onclick="ShowPreview" data-bs-toggle="modal" data-bs-target="#jsonPreviewModal">Preview JSON</button>
-            <a href="@DownloadJsonUrl" download="@($"drawing_request_{DrawingNumber.DrawingCode}")" class="btn btn-primary btn-sm" @onclick="GenerateDownloadUrl">Download JSON</a>
+            <a href="@DownloadJsonUrl" download="@($"drawing_request_{State.DrawingNumber.DrawingCode}")" class="btn btn-primary btn-sm" @onclick="GenerateDownloadUrl">Download JSON</a>
         </div>
     </div>
 </div>

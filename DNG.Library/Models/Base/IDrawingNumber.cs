@@ -25,7 +25,7 @@
 
         string GetDrawingNumberLog();
 
-        string GetDrawingQueryString();
+        string GetDrawingQueryString(DrawingNumberViewModel viewModel);
 
         string[] GetPropertyValues();
     }

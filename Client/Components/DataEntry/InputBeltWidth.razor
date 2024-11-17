@@ -1,32 +1,33 @@
 ﻿@inherits BaseInputComponent
-@inject IRequiredBeltWidthService requiredBeltWidthService
+@inject IRequiredBeltWidthService RequiredBeltWidthService
 
 <div class="input-group">
     <div class="form-floating">
-
-    <InputNumber @onblur="HandleInputAsync" id="beltWidth" aria-required="true"
-                 aria-describedby="beltWidthHelp" @bind-Value="DrawingRequest!.BeltWidth"
-                 Min="1" Max="999" class="form-control text-center"
-                 onfocus="selectAllText(this)" />
+        <InputNumber @bind-Value="beltWidth" id="beltWidth" aria-required="true"
+                     aria-describedby="beltWidthHelp" Min="1" Max="999"
+                     class="form-control text-center" onfocus="selectAllText(this)" />
         <label for="beltWidth">Width (inches)</label>
-        </div>
+    </div>
 
-    <span class="input-group-text">@DrawingNumber!.BeltWidthCode</span>
+    <span class="input-group-text">@(State!.DrawingNumber?.BeltWidthCode ?? "❌")</span>
 </div>
 
+@code {
+    private decimal beltWidth
+    {
+        get => State.DrawingRequest?.BeltWidth ?? 0;
+        set
+        {
+            if (State.DrawingRequest != null && State.DrawingRequest.BeltWidth != value)
+            {
+                State.UpdateProperty(State.DrawingRequest, dr => dr.BeltWidth = value);
+                UpdateBeltWidthCode(value);
+            }
+        }
+    }
 
-@code{
-    // get required belt width standards  
-
-    // error handling, minimum, maximum, alert-warning updates in ui
-
-    // get belt series
-
-    // look up  in standards
-
-    // on user input lookup pitch by belt series and return closest width
-
-    // alert warning user using NLP and data
-
-    // This feature alerts the user to use standard belt width to deliver customer requirements
+    private void UpdateBeltWidthCode(decimal width)
+    {
+        State.UpdateProperty(State.DrawingNumber, dn => dn.BeltWidthCode = BeltWidth.Create(width).Code);
+    }
 }
