@@ -9,6 +9,11 @@ public class ImageGalleryService : IImageGalleryService
         _httpClient = httpClient;
     }
 
+    public string RemoveTrailing01(string input)
+    {
+        return input.EndsWith("01") ? input.Substring(0, input.Length - 2) : input;
+    }
+
     public async Task<List<string>> LoadImageFilesAsync()
     {
         var imageFiles = await _httpClient.GetFromJsonAsync<List<string>>("images/belts/images.json") ?? new List<string>();
@@ -26,6 +31,9 @@ public class ImageGalleryService : IImageGalleryService
     public string FormatImageName(string imageName)
     {
         string name = Path.GetFileNameWithoutExtension(imageName).Replace("_", " ");
+
+        name = RemoveTrailing01(name);
+
         return name.StartsWith("ModularBelt_") ? name.Substring("ModularBelt_".Length) : name;
     }
 }

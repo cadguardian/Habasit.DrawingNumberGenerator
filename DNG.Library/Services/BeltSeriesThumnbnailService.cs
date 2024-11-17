@@ -81,4 +81,9 @@ public class BeltSeriesThumnbnailService : IBeltSeriesService
         }
         return name.ToUpper();
     }
+
+    public string RemoveTrailing01(string input)
+    {
+        return input.EndsWith("01") ? input.Substring(0, input.Length - 2) : input;
+    }
 }

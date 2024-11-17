@@ -5,4 +5,6 @@
     string FormatImageName(string imageName);
 
     Task<List<string>> LoadImageFilesAsync();
+
+    string RemoveTrailing01(string input);
 }

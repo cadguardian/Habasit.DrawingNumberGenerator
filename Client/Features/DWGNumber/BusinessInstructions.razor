@@ -1,4 +1,5 @@
 ﻿@page "/drawing-number-generator"
+@using Client.Features.CADTemplates.Archive
 
 <div class="container-fluid px-3 py-4">
     <!-- Header Section -->
@@ -213,6 +214,16 @@
                 </dl>
             </div>
         </div>
+
+        <CADWorkflow />
+
+         <AutoCADCommands />
+
+         <ThumbnailGalleryView /> 
+
+         <QuickGuide/>
+
+         
     </section>
 </div>
 

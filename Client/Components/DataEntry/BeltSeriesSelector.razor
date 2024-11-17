@@ -3,23 +3,13 @@
 @inject HttpClient Http
 @inject IBeltSeriesService BeltSeriesService
 @inject IStateContainer State
+@inject IImageGalleryService ImageGalleryService
 
 <div class="input-group mb-3">
     <div class="container px-4">
        
 
         <div class="col gx-5">
-            <div class="col d-flex justify-content-center align-items-center">
-                @if (State.DrawingRequest.ThumbnailImageFilePath != null)
-                {
-                    <img src="images/belts/@State.DrawingRequest.ThumbnailImageFilePath" alt="Belt Image" class="img-thumbnail m-4" style="max-width: 100%;" />
-                }
-                else if (!string.IsNullOrEmpty(State.DrawingRequest?.BeltSeries))
-                {
-                    <p class="text-danger">No image available for the selected belt series.</p>
-                }
-            </div>
-
             <div class="input-group mb-3">
                 <div class="form-floating">
                     <select id="beltSeries" class="form-select form-select-sm"
@@ -35,6 +25,8 @@
                 </div>
                 <span class="input-group-text">@BeltSeriesService.GetBeltSeriesType(State.DrawingRequest?.BeltSeries ?? "")</span>
             </div>
+
+            <ThumbnailGalleryView />
         </div>
     </div>
 </div>
@@ -73,14 +65,7 @@
         {
     State.UpdateProperty(State.DrawingRequest, dr => dr.BeltSeries = beltSeries);
 
-    UpdateThumnailImageFilePath(beltSeries);
-
     UpdateBeltSeriesCode(beltSeries);
-        }
-
-    public void UpdateThumnailImageFilePath(string path)
-        {
-    State.UpdateProperty(State.DrawingRequest, dr => dr.ThumbnailImageFilePath = BeltSeriesService!.GetImageFileNameForBeltSeries(State.DrawingRequest.BeltSeries, imageFiles)!);
         }
 
     private List<string> imageFiles = new();

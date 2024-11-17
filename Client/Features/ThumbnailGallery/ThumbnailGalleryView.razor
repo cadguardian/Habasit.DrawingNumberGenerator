@@ -2,72 +2,63 @@
 @inject IImageGalleryService ImageService
 @inject IStateContainer State
 
-<label class="small alert alert-warning my-2 no-print">
-    Observe features of a Plastic Modular Belt.
-</label>
 
-<div class="container-fluid no-print my-2">
+
+<div class="container-fluid no-print my-3">
+    <div class="small text-center alert alert-warning no-print">
+        Confirm the belt by selecting applicable image.
+    </div>
+
     <div class="card">
         <!-- Header Section -->
         <div class="d-flex justify-content-between align-items-center card-header">
-            <h4><i class="fa-regular fa-image"></i> Plastic Modular Gallery</h4>
             @if (imageFiles != null)
             {
                 <small class="text-muted">
-                    <span>Total Images: @imageFiles.Count</span>
+                    <span> @State.DrawingNumber.BeltTypeCode@State.DrawingNumber.BeltSeriesCode: @FilteredImages.ToList().Count Available</span>
                 </small>
             }
         </div>
 
-        <!-- Filter and Search Information -->
-        <div class="alert alert-secondary p-3 p-2" style="font-size: 0.8rem;">
-            Use <strong>Apply Filters</strong> to refine results, then <strong>Search Images</strong> to locate specific images.
-        </div>
-
-        <!-- Filter and Search Section -->
-        <div class="d-flex mb-1 p-3">
-            <div class="input-group me-2 flex-grow-1">
-                <input type="text" class="form-control" placeholder="Search images..." @bind="searchQuery" @bind:event="oninput" @onkeypress="HandleKeyPress" />
-                @if (isSearchMode)
-                {
-                    <button class="btn btn-outline-secondary" @onclick="ClearSearch">Clear</button>
-                }
-            </div>
-        </div>
-
-        <div class="text-center mb-4">
-            <div class="btn-group" role="group">
-                <button class="btn btn-sm btn-dark" @onclick="ApplyFilters">Apply Filters</button>
-                <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search Images</button>
-            </div>
-        </div>
-
         <!-- Gallery Display -->
-        @if (selectedImage == null)
+        @if (string.IsNullOrEmpty(State.DrawingRequest.ThumbnailImageFilePath) || string.IsNullOrEmpty(State.DrawingRequest.BeltSeries))
         {
-            <div class="gallery-container">
-                <div class="row">
-                    @foreach (var image in FilteredImages)
-                    {
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                            <div class="card h-100 image-card" @onclick="() => ShowImage(image)">
-                                <img src="images/belts/@image" class="card-img-top" alt="@ImageService.FormatImageName(image)" />
-                                <div class="card-body p-1">
-                                    <p class="card-text text-center small">@ImageService.FormatImageName(image)</p>
+
+            @if (string.IsNullOrEmpty(State.DrawingRequest.BeltSeries))
+            {
+                <div class="card-body">
+                    <div class="alert alert-danger">
+                        <p class="text-danger">Select your belt series to identify belt by selecting an image.</p>
+                    </div>
+                    </div>
+            }
+            else
+            {
+                <div class="gallery-container">
+                    <div class="row card-body">
+                        @foreach (var image in FilteredImages)
+                        {
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+                                <div class="h-100" @onclick="() => ShowImage(image)">
+                                    <img src="images/belts/@image" class="card-img-top" alt="@ImageService.FormatImageName(image)" />
+                                    <div class="card-body p-1">
+                                        <p class="card-text text-center small">@ImageService.FormatImageName(image)</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
                 </div>
-            </div>
+            }
         }
+            
         else
         {
             <!-- Full Image View -->
             <div class="text-center">
-                <img src="images/belts/@selectedImage" class="img-fluid" alt="@ImageService.FormatImageName(selectedImage)" style="max-height: 70vh;" />
-                <p class="text-muted mt-2">@ImageService.FormatImageName(selectedImage)</p>
-                <button class="btn btn-outline-secondary mt-3" @onclick="ClearSelectedImage">Back to Gallery</button>
+                <img src="images/belts/@State.DrawingRequest.ThumbnailImageFilePath" class="img-fluid" alt="@ImageService.FormatImageName(State.DrawingRequest.ThumbnailImageFilePath)" style="max-height: 70vh;" />
+                <p class="text-muted mt-2">@ImageService.FormatImageName(State.DrawingRequest.ThumbnailImageFilePath)</p>
+                <button class="btn btn-sm btn-outline-secondary mt-3 mb-3" @onclick="ClearSelectedImage">Change Image</button>
             </div>
         }
     </div>
@@ -75,8 +66,6 @@
 
 @code {
     private List<string> imageFiles = new();
-    private string searchQuery = string.Empty;
-    private string? selectedImage = null;
     private bool isSearchMode = false;
 
     protected override async Task OnInitializedAsync()
@@ -90,27 +79,26 @@
         State.OnStateChange -= StateHasChanged;
     }
 
-    private IEnumerable<string> FilteredImages => ImageService.FilterImages(imageFiles, searchQuery);
+    private IEnumerable<string> FilteredImages => ImageService.FilterImages(imageFiles, State.DrawingRequest.BeltSeries);
 
     private void ShowImage(string image)
     {
-        selectedImage = image;
+        UpdateThumbnailImage(image);
     }
 
     private void ClearSelectedImage()
     {
-        selectedImage = null;
+        UpdateThumbnailImage(null);
     }
 
-    private void ApplyFilters()
+    private void UpdateThumbnailImage(string? image)
     {
-        // Update searchQuery based on filter criteria
-        searchQuery = !string.IsNullOrWhiteSpace(State.DrawingRequest.BeltType) ? State.DrawingRequest.BeltSeries : string.Empty;
+        State.UpdateProperty(State.DrawingRequest, dr => dr.ThumbnailImageFilePath = image);
     }
 
     private void OnSearch()
     {
-        isSearchMode = !string.IsNullOrWhiteSpace(searchQuery);
+        isSearchMode = !string.IsNullOrWhiteSpace(State.DrawingRequest.BeltSeries);
     }
 
     private async Task HandleKeyPress(KeyboardEventArgs e)
@@ -123,7 +111,6 @@
 
     private void ClearSearch()
     {
-        searchQuery = string.Empty;
         isSearchMode = false;
     }
 }
