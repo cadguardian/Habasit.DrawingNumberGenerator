@@ -2,6 +2,7 @@
 
 
 @using Client.Features.CADTemplates.Archive
+@using Client.Features.DWGNumberDecipher
 @using Client.Services
 @using DNG.Library.Models
 @using Microsoft.AspNetCore.Components.Forms
@@ -27,6 +28,7 @@
     </ul>
 </div>
 
+
 <EditForm EditContext="editContext" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
     <DWGRequestForm />
@@ -36,7 +38,7 @@
 
 <DrawingFinderView/>
 
-
+<DWGNumberDecipherView />
 
 
 <TitleBlockView/>

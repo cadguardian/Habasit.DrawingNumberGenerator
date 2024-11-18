@@ -1,15 +1,17 @@
 ﻿@using System.Text.RegularExpressions
 @using System.IO
+@using Client.Features.DWGNumberDecipher
 @inject HttpClient Http
 @inject IJSRuntime JS
 @inject IStateContainer State
 @inject IDrawingFileService DrawingFileService
 
-<label class="small alert alert-warning no-print my-2">
-    Use Query String to find drawings instantly.
-</label>
+<div class="text-center alert alert-warning no-print my-2">
+    Instantly locate and reference drawings using smart query filters and wildcards.
+</div>
 
-<div class="container-fluid no-print">
+<div class="container-fluid no-prin mb-3">
+
     <div class="card">
         <div class="d-flex justify-content-between align-items-center card-header">
             <h4 class="small"><i class="fa-solid fa-folder-tree"></i> Drawing Finder</h4>

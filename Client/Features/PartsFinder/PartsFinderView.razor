@@ -4,8 +4,8 @@
 @inject IStateContainer State
 
 
-<label class="small alert alert-warning no-print">
-    Locate parts for your parts list.
+<label class="alert alert-warning text-center no-print">
+    Easily find and manage parts for your project with advanced search and filter options.
 </label>
 
 <div class="container-fluid no-print">
@@ -39,9 +39,6 @@
                 <button class="btn btn-sm btn-primary" @onclick="OnSearch">Search</button>
             </div>
         </div>
-
-         @* <FeatureManagerView /> *@
-       
 
     <!-- Parts Found Header -->
     @if (isSearchMode)

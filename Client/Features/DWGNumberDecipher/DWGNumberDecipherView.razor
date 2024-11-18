@@ -1,0 +1,115 @@
+﻿@page "/decipher"
+@using DNG.Library.Models.Base
+@inject IDrawingNumberDecipherService DecipherService
+
+<!-- Header Section -->
+<div class="container-fluid no-print">
+    <div class="text-center alert alert-warning no-print">
+        Quickly decode drawing numbers into attribute mappings.
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="d-flex justify-content-between align-items-center card-header">
+            <h4 class="small"><i class="fa-solid fa-magnifying-glass"></i> Drawing Number Decipher</h4>
+        </div>
+
+        <!-- Instructions -->
+        <div class="alert alert-secondary p-3" style="font-size: 0.8rem;">
+            Enter a drawing number below and click <strong>Decipher</strong>. The results will display each attribute along with its corresponding value and code.
+        </div>
+
+        <!-- Input and Action Section -->
+        <div class="d-flex p-3">
+            <div class="input-group me-2 flex-grow-1">
+                <input type="text" class="form-control" placeholder="Enter Drawing Number..."
+                       @bind="drawingNumberInput" @bind:event="oninput" @onkeypress="HandleKeyPress" />
+                <button class="btn btn-sm btn-primary" @onclick="HandleDecipher">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> Decipher
+                </button>
+                @if (!string.IsNullOrWhiteSpace(drawingNumberInput))
+                {
+                    <button class="btn btn-outline-secondary btn-sm" @onclick="ClearInput">
+                        <i class="fa-solid fa-eraser"></i> Clear
+                    </button>
+                }
+            </div>
+        </div>
+
+        <!-- Deciphered Results Section -->
+        <!-- Deciphered Results Section -->
+        @if (decipheredResult != null && decipheredResult.Any())
+        {
+            <div class="p-3">
+                <h5 class="text-primary">Deciphered Results</h5>
+                <!-- Compact Table -->
+                <table class="table table-sm table-bordered table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Code</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var kvp in decipheredResult)
+                        {
+                            <tr>
+                                <td>@kvp.Key</td>
+                                <td>@kvp.Value.DrawingCode</td>
+                                <td>@kvp.Value.DrawingRequestValue</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else if (isDeciphered && (decipheredResult == null || !decipheredResult.Any()))
+        {
+            <div class="alert alert-warning p-3 text-center">
+                No results found for "<strong>@drawingNumberInput</strong>". Please check the drawing number and try again.
+            </div>
+        }
+
+
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
+    <div id="toastMessage" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div id="toastBody" class="toast-body"></div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string drawingNumberInput = string.Empty;
+    private Dictionary<string, (string DrawingCode, string DrawingRequestValue)> decipheredResult;
+    private bool isDeciphered = false;
+
+    private void HandleDecipher()
+    {
+        if (!string.IsNullOrWhiteSpace(drawingNumberInput))
+        {
+            decipheredResult = DecipherService.DecipherDrawingNumber(drawingNumberInput);
+            isDeciphered = true;
+        }
+    }
+
+    private void ClearInput()
+    {
+        drawingNumberInput = string.Empty;
+        decipheredResult = null;
+        isDeciphered = false;
+    }
+
+    private async Task HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            HandleDecipher();
+        }
+    }
+}
