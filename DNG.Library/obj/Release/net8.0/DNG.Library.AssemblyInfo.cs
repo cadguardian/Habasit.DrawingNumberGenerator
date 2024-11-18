@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DNG.Library")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74c865879acbc94800f77829c54dbb3d651cf8b4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5677ff02188e4121793f170e2b9e4b078a0423a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("DNG.Library")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DNG.Library")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
