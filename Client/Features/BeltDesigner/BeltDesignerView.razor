@@ -1,0 +1,254 @@
+﻿@page "/belt-designer"
+@inject IBeltDesignerService BeltDesignerService
+@inject IStateContainer State
+@using System.Collections.Immutable
+
+<div style="page-break-after: always"></div>
+
+<div class="belt-designer-output print-mode" id="beltDesignerOutput">
+    <div class="text-center">
+        <h4 class="text-muted mb-3">Belt Design Layout for Custom Builds</h4>
+        <div class="text-center no-print alert alert-warning">
+            Generate and review detailed belt designs for seamless production.
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <div class="card mb-3">
+                <h4 class="card-header small d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-info"></i> Drawing Request Details
+                </h4>
+                <div class="card-body">
+                    <div><strong>Belt Width:</strong> @_beltLayout.BeltWidth Links</div>
+                    <div><strong>Number of Rows:</strong> @_beltLayout.NumberOfRows</div>
+                    <div><strong>Flight Requirement:</strong> @(_beltLayout.FlightRequired ? "Yes" : "No")</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4">
+            <div class="card mb-3">
+                <h4 class="card-header small d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-list"></i> Available Parts
+                </h4>
+                <div class="card-body">
+                    <ul>
+                        @foreach (var part in _beltLayout.AvailableParts)
+                        {
+                            <li>@part.Name: @part.Length-link @part.Type</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4">
+            <div class="card mb-3">
+                <h4 class="card-header small d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-chart-line"></i> Seam Placement Report
+                </h4>
+                <div class="card-body">
+                    @foreach (var row in _beltLayout.Rows)
+                    {
+                        <div>Row @(row.Index + 1): Seam positions at @string.Join(", ", row.SeamPositions)</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <h4 class="card-header small d-flex justify-content-between align-items-center">
+            <i class="fa-solid fa-layer-group"></i> Visual Bricklay Rows
+        </h4>
+        <div class="card-body">
+            <p>🟥 - CUT PART, ⚫ - LAST LINK, 🟩 - FLIGHT, 🟦 - STANDARD MODULE</p>
+            <div class="bricklay-container">
+                @foreach (var row in _beltLayout.Rows)
+                {
+                    <div class="bricklay-row">@GetVisualRow(row, _beltLayout.BeltWidth)</div>
+                }
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            @if (_beltLayout.Warnings.Any())
+            {
+                <div class="card mb-3">
+                    <h4 class="card-header small d-flex justify-content-between align-items-center">
+                        <i class="fa-solid fa-exclamation-triangle"></i> Warnings
+                    </h4>
+                    <div class="card-body">
+                        @foreach (var warning in _beltLayout.Warnings)
+                        {
+                            <p class="text-danger">@warning</p>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <div class="card mb-3">
+        <h4 class="card-header small d-flex justify-content-between align-items-center">
+            <i class="fa-solid fa-list"></i> Belt Layout Report
+        </h4>
+        <div class="card-body">
+            <table class="table table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Row Number</th>
+                        <th scope="col">Layout</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (_beltLayout?.Rows?.Any() == true)
+                    {
+                        @foreach (var row in _beltLayout.Rows)
+                        {
+                            <tr @onclick="() => ToggleRow(row.Index)" style="cursor: pointer;">
+                                <td>ROW @(row.Index + 1)</td>
+                                <td>@FormatRowParts(row.Parts)</td>
+                            </tr>
+                            @if (expandedRowIndex == row.Index)
+                            {
+                                <tr>
+                                    <td colspan="2">
+                                        <table class="table table-hover table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>Link Count</th>
+                                                    <th>Cut Indicator</th>
+                                                    <th>Part Type</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var part in row.Parts)
+                                                {
+                                                    <tr>
+                                                        <td>@part.Length</td>
+                                                        <td>@(part.IsCut ? "C" : "")</td>
+                                                        <td>@part.Part.Type</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="2" class="text-center">No data available</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+</div>
+
+
+@code {
+    private BeltLayout _beltLayout;
+    private int? expandedRowIndex = null;
+
+    protected override void OnInitialized()
+    {
+        State.OnStateChange += StateHasChanged;
+
+        State.OnStateChange += HandleStateChange;
+        InitializeBeltLayout();
+    }
+
+    private void ToggleRow(int rowIndex)
+    {
+        if (expandedRowIndex == rowIndex)
+        {
+            expandedRowIndex = null;
+        }
+        else
+        {
+            expandedRowIndex = rowIndex;
+        }
+    }
+
+    private void HandleStateChange()
+    {
+        InitializeBeltLayout();
+        StateHasChanged();
+    }
+
+    private string FormatRowParts(IEnumerable<PartInstance> parts)
+    {
+        var formattedParts = parts.Select(part =>
+        {
+            var cutIndicator = part.IsCut ? "Cut" : string.Empty;
+            return $"{part.Length}{cutIndicator} {part.Part.Type}";
+        });
+
+        return string.Join(" + ", formattedParts);
+    }
+
+    private void InitializeBeltLayout()
+    {
+        var availableParts = ImmutableList.Create(
+            new Part("M5010F0711", 8, PartType.Flight),
+            new Part("M5010U0411", 2, PartType.Module),
+            new Part("M5010U0611", 3, PartType.Module),
+            new Part("M5010U0711", 4, PartType.Module),
+            new Part("M5010U1511", 8, PartType.Module),
+            new Part("M5010U2211", 12, PartType.Module)
+        );
+
+        _beltLayout = BeltDesignerService.GenerateBeltLayout(
+            beltWidth: State.DrawingRequest.NumberOfLinks,
+            numberOfRows: 6,
+            flightRequired: true,
+            availableParts: availableParts);
+    }
+
+    public void Dispose()
+    {
+        State.OnStateChange -= HandleStateChange;
+    }
+
+    private string GetVisualRow(Row row, int totalWidth)
+    {
+        var representation = new System.Text.StringBuilder();
+        foreach (var partInstance in row.Parts)
+        {
+            var symbol = GetSymbol(partInstance);
+
+            for (int i = 0; i < partInstance.Length; i++)
+            {
+                if (i == partInstance.Length - 1)
+                {
+                    // Last link of the part
+                    representation.Append("⚫");
+                }
+                else
+                {
+                    representation.Append(symbol);
+                }
+            }
+        }
+
+        return $"ROW {row.Index + 1}: {representation.ToString()}";
+    }
+
+    private string GetSymbol(PartInstance partInstance)
+    {
+        return partInstance switch
+        {
+            { IsCut: true } => "🟥",
+            { Part.Type: PartType.Flight } => "🟩",
+            _ => "🟦",
+        };
+    }
+}

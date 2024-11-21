@@ -1,0 +1,17 @@
+﻿.bricklay-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-x: auto;
+}
+
+.bricklay-row {
+    white-space: nowrap;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .bricklay-row {
+        font-size: 0.5rem;
+    }
+}

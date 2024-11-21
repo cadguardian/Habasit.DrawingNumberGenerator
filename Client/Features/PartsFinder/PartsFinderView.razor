@@ -1,5 +1,5 @@
 ﻿@page "/part-numbers"
-@using DNG.Library.Services.Base
+@using DNG.Library.Models.Base
 @inject IPartNumberService PartNumberService
 @inject IStateContainer State
 
@@ -8,7 +8,7 @@
     Easily find and manage parts for your project with advanced search and filter options.
 </label>
 
-<div class="container-fluid no-print">
+<div class="container-fluid no-print" style="max-width: 800px;">
     <div class="card shadow-sm">
 
     <!-- Search Bar and Buttons -->

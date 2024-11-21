@@ -13,6 +13,13 @@
 </div>
 
 @code {
+    protected override void OnInitialized()
+    {
+        frgCenters = 0; // Set a default value if needed
+        UpdateFRGCentersCode(0);
+
+    }
+
     private decimal frgCenters
     {
         get => State.DrawingRequest?.FRGCenters ?? 0;

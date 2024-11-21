@@ -4,6 +4,8 @@ using DNG.Library.Services.Base;
 using Microsoft.Extensions.Logging;
 using System.Text;
 
+namespace DNG.Library.Services;
+
 /// <summary>
 /// Service responsible for loading and filtering part numbers.
 /// </summary>

@@ -1,4 +1,7 @@
-﻿using Microsoft.JSInterop;
+﻿using DNG.Library.Services.Base;
+using Microsoft.JSInterop;
+
+namespace DNG.Library.Services;
 
 public class ClipboardService : IClipboardService
 {

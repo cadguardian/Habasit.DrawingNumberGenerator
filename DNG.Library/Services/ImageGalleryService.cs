@@ -1,4 +1,7 @@
-﻿using System.Net.Http.Json;
+﻿using DNG.Library.Services.Base;
+using System.Net.Http.Json;
+
+namespace DNG.Library.Services;
 
 public class ImageGalleryService : IImageGalleryService
 {

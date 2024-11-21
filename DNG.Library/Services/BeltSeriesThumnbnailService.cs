@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DNG.Library.Services.Base;
+using Microsoft.Extensions.Logging;
 using System.Net.Http.Json;
 using System.Text.RegularExpressions;
+
+namespace DNG.Library.Services;
 
 public class BeltSeriesThumnbnailService : IBeltSeriesService
 {

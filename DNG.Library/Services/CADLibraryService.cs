@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DNG.Library.Services.Base;
+using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Text.Json;
+
+namespace DNG.Library.Services;
 
 public class CADLibraryService : ICADLibraryService
 {

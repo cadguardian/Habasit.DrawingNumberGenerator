@@ -1,5 +1,8 @@
 ﻿using DNG.Library.Models;
 using DNG.Library.Models.Base;
+using DNG.Library.Services.Base;
+
+namespace DNG.Library.Services;
 
 public class TitleBlockService : ITitleBlockService
 {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/OmpwQvdkqHgxwqrM1Zw9mDPAP8E1+JlpXfmwrXuQrw=",
+  "Hash": "Wi2uLTFe5hXR7eSb43eAD6fJJlscet1U2nB+XZ4irMQ=",
   "Source": "Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -199,8 +199,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "y7ybmt5jy1",
-      "Integrity": "AgRPjXjylCOEAl1uIj/yTX5SLPW6WUXI5U6tSbjMKlE=",
+      "Fingerprint": "widszywpnx",
+      "Integrity": "eD7gUMEFQiEgVv1eTNghGUCIfTxjUJWp2mk18+unc2w=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "obj\\Release\\net8.0\\blazor.publish.boot.json"
@@ -332,7 +332,7 @@
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\netstandard.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-y7ybmt5jy1.br",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-widszywpnx.br",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\",
@@ -346,14 +346,14 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\blazor.publish.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "br",
-      "Fingerprint": "8g8ebyh6pn",
-      "Integrity": "uJpnu9tT62fVcHYOCbExJREz2NhXrtAVgGVuexRnJFE=",
+      "Fingerprint": "xoc57r6tkn",
+      "Integrity": "f92BIo2wbp+2XmJMuzDdgcSCVYMhVhFvURN+V9l6JBI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\blazor.publish.boot.json"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-y7ybmt5jy1.gz",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-widszywpnx.gz",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\",
@@ -367,8 +367,8 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\blazor.publish.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "a9nr2bqtin",
-      "Integrity": "ftzOU1QXLe1vj7V13xH38vVSTmmxklfxpnskboVukhM=",
+      "Fingerprint": "gnusydrf6p",
+      "Integrity": "1E8jVnvOJEbmouGLZpdxda0qoU8o1AHMF+wWrNiI1Bk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\blazor.publish.boot.json"
@@ -542,7 +542,7 @@
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\System.ComponentModel.Primitives.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-pv6syorhny.br",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-x3ibb67vh4.br",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\",
@@ -556,14 +556,14 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\Client.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "br",
-      "Fingerprint": "8r8ztw47kv",
-      "Integrity": "FNQU1fYrJhNtvclo5ASKuS/ilyt+Mz9RwKsfk5HKock=",
+      "Fingerprint": "6nm3eg7so4",
+      "Integrity": "nuwrXAG5ckqyRquaE9aOnGOprQlu7czaLBMy/pZVEro=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\Client.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-pv6syorhny.gz",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-x3ibb67vh4.gz",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\",
@@ -577,8 +577,8 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\Client.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "4uk72w09un",
-      "Integrity": "xJhY3Ysub/S9Lud7Nq9WlCrkxB9OQmS7lSFx7N6/WE4=",
+      "Fingerprint": "v0ado3ua5c",
+      "Integrity": "/9eXx3AKUDJmsDuVNHf/4oCKlVKIjJq0al2h1U8jwBw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\Client.wasm"
@@ -815,7 +815,7 @@
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\System.Net.Http.Json.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-3yq7chxela.br",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-ber0y40c87.br",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\",
@@ -829,14 +829,14 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\System.Collections.Immutable.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "br",
-      "Fingerprint": "lqg2ywb237",
-      "Integrity": "wywhvaP6zQfuzjTrDyrDMaSbbIl/9JzGF03OOVvdmhA=",
+      "Fingerprint": "p83x7ro6zj",
+      "Integrity": "V77nrKCZdjCV88SVZprckHP3A5jFnXLmpR4g+QWo1ow=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\System.Collections.Immutable.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-3yq7chxela.gz",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-ber0y40c87.gz",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\",
@@ -850,8 +850,8 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\System.Collections.Immutable.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "4hd4chms41",
-      "Integrity": "yBLysZOiiAP0CjHCOPiEa5kek127I+Db6rN2zFyHquo=",
+      "Fingerprint": "3lem860r2e",
+      "Integrity": "V5MnFk4ALzB4mXgHLsuvyqzS+YEL6ymJ46NNvYcXQvo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\System.Collections.Immutable.wasm"
@@ -2873,7 +2873,7 @@
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\System.Drawing.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-zsfzsk0zqm.br",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-djeeoqsfj5.br",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\",
@@ -2887,14 +2887,14 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\DNG.Library.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "br",
-      "Fingerprint": "xb8e8ghrir",
-      "Integrity": "rTngSRI/R8p5W1psrt569rqumc0+Ef/LTqMIyCcoKnA=",
+      "Fingerprint": "k9lzp42cpr",
+      "Integrity": "aL8SmWWwcDQipoQC0LRvdVOS0xXBqKI30d5z/NZqwWU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\DNG.Library.wasm"
     },
     {
-      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-zsfzsk0zqm.gz",
+      "Identity": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-djeeoqsfj5.gz",
       "SourceId": "Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\",
@@ -2908,8 +2908,8 @@
       "RelatedAsset": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\DNG.Library.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "uo8l7fpth9",
-      "Integrity": "wg1DGqjCVyr+Jstyn2rZDketrOulGpiIM39MlNUQnvE=",
+      "Fingerprint": "8noy6rdbly",
+      "Integrity": "vKwwJdxMWOHrtreHmrmMAG/w0Ubf6eeibXLYpfoNHZw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\DNG.Library.wasm"
@@ -3034,8 +3034,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "61jceystp7",
-      "Integrity": "pn6OEZVPZRn5P1hX0W/11ZU3CxNXwZWYQavGIHHbukg=",
+      "Fingerprint": "f4bnocioye",
+      "Integrity": "D4AWaJwggSlydsS3eQo5NmPfJwoWM7YNwMRWQbD98QY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\scopedcss\\bundle\\Client.styles.css"
@@ -3055,8 +3055,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "61jceystp7",
-      "Integrity": "pn6OEZVPZRn5P1hX0W/11ZU3CxNXwZWYQavGIHHbukg=",
+      "Fingerprint": "f4bnocioye",
+      "Integrity": "D4AWaJwggSlydsS3eQo5NmPfJwoWM7YNwMRWQbD98QY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\Client.bundle.scp.css"
@@ -3076,8 +3076,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "pv6syorhny",
-      "Integrity": "KzxtUOGr2zS+vBUE3OFhiHqM+cw96RcteQj3zEJx5n4=",
+      "Fingerprint": "x3ibb67vh4",
+      "Integrity": "k9xZ8TsfdG6z58jVIB4gYRNuuCdv82u70IacgjJQi1Q=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\Client.wasm"
@@ -3139,8 +3139,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "zsfzsk0zqm",
-      "Integrity": "w2bQ3ix3D5BgkG5ftfUO7nhlPB1J3bONXwZK34pcLJE=",
+      "Fingerprint": "djeeoqsfj5",
+      "Integrity": "GYGIaNbxEbxRPdecE2oJ2M4G1O2vWN34Cg9uq7urQNQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\DNG.Library.wasm"
@@ -3538,8 +3538,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "3yq7chxela",
-      "Integrity": "1Xt8yy4ve7iHqqVCN6BiXniFqOSRbrs0OKYuihceSHI=",
+      "Fingerprint": "ber0y40c87",
+      "Integrity": "TYP+I4F8mmbWOYc4t7jPbY7h3j05reDrdySMK7FOH24=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\webcil\\publish\\System.Collections.Immutable.wasm"
@@ -8999,11 +8999,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AgRPjXjylCOEAl1uIj/yTX5SLPW6WUXI5U6tSbjMKlE=\""
+          "Value": "\"eD7gUMEFQiEgVv1eTNghGUCIfTxjUJWp2mk18+unc2w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:38 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9013,13 +9013,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AgRPjXjylCOEAl1uIj/yTX5SLPW6WUXI5U6tSbjMKlE="
+          "Value": "sha256-eD7gUMEFQiEgVv1eTNghGUCIfTxjUJWp2mk18+unc2w="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-y7ybmt5jy1.br",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-widszywpnx.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -9038,11 +9038,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uJpnu9tT62fVcHYOCbExJREz2NhXrtAVgGVuexRnJFE=\""
+          "Value": "\"f92BIo2wbp+2XmJMuzDdgcSCVYMhVhFvURN+V9l6JBI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:38 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9062,24 +9062,24 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AgRPjXjylCOEAl1uIj/yTX5SLPW6WUXI5U6tSbjMKlE=\""
+          "Value": "W/\"eD7gUMEFQiEgVv1eTNghGUCIfTxjUJWp2mk18+unc2w=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AgRPjXjylCOEAl1uIj/yTX5SLPW6WUXI5U6tSbjMKlE="
+          "Value": "sha256-eD7gUMEFQiEgVv1eTNghGUCIfTxjUJWp2mk18+unc2w="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-y7ybmt5jy1.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-widszywpnx.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000318674315"
+          "Quality": "0.000318572794"
         }
       ],
       "ResponseHeaders": [
@@ -9089,15 +9089,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3137"
+          "Value": "3138"
         },
         {
           "Name": "ETag",
-          "Value": "\"ftzOU1QXLe1vj7V13xH38vVSTmmxklfxpnskboVukhM=\""
+          "Value": "\"1E8jVnvOJEbmouGLZpdxda0qoU8o1AHMF+wWrNiI1Bk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:38 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9117,19 +9117,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AgRPjXjylCOEAl1uIj/yTX5SLPW6WUXI5U6tSbjMKlE=\""
+          "Value": "W/\"eD7gUMEFQiEgVv1eTNghGUCIfTxjUJWp2mk18+unc2w=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AgRPjXjylCOEAl1uIj/yTX5SLPW6WUXI5U6tSbjMKlE="
+          "Value": "sha256-eD7gUMEFQiEgVv1eTNghGUCIfTxjUJWp2mk18+unc2w="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.br",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-y7ybmt5jy1.br",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-widszywpnx.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -9146,11 +9146,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"uJpnu9tT62fVcHYOCbExJREz2NhXrtAVgGVuexRnJFE=\""
+          "Value": "\"f92BIo2wbp+2XmJMuzDdgcSCVYMhVhFvURN+V9l6JBI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:38 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9168,13 +9168,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-uJpnu9tT62fVcHYOCbExJREz2NhXrtAVgGVuexRnJFE="
+          "Value": "sha256-f92BIo2wbp+2XmJMuzDdgcSCVYMhVhFvURN+V9l6JBI="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-y7ybmt5jy1.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\1cgzbokl68-widszywpnx.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -9183,7 +9183,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3137"
+          "Value": "3138"
         },
         {
           "Name": "Content-Type",
@@ -9191,11 +9191,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ftzOU1QXLe1vj7V13xH38vVSTmmxklfxpnskboVukhM=\""
+          "Value": "\"1E8jVnvOJEbmouGLZpdxda0qoU8o1AHMF+wWrNiI1Bk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:38 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9213,7 +9213,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ftzOU1QXLe1vj7V13xH38vVSTmmxklfxpnskboVukhM="
+          "Value": "sha256-1E8jVnvOJEbmouGLZpdxda0qoU8o1AHMF+wWrNiI1Bk="
         }
       ]
     },
@@ -9279,7 +9279,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 18 Sep 2024 18:37:24 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9432,7 +9432,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 18 Sep 2024 18:37:24 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9456,12 +9456,12 @@
     },
     {
       "Route": "_framework/Client.wasm",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-pv6syorhny.br",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-x3ibb67vh4.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.000018781106"
+          "Quality": "0.000017660356"
         }
       ],
       "ResponseHeaders": [
@@ -9471,15 +9471,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "53244"
+          "Value": "56623"
         },
         {
           "Name": "ETag",
-          "Value": "\"FNQU1fYrJhNtvclo5ASKuS/ilyt+Mz9RwKsfk5HKock=\""
+          "Value": "\"nuwrXAG5ckqyRquaE9aOnGOprQlu7czaLBMy/pZVEro=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:27 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9499,24 +9499,24 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"KzxtUOGr2zS+vBUE3OFhiHqM+cw96RcteQj3zEJx5n4=\""
+          "Value": "W/\"k9xZ8TsfdG6z58jVIB4gYRNuuCdv82u70IacgjJQi1Q=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KzxtUOGr2zS+vBUE3OFhiHqM+cw96RcteQj3zEJx5n4="
+          "Value": "sha256-k9xZ8TsfdG6z58jVIB4gYRNuuCdv82u70IacgjJQi1Q="
         }
       ]
     },
     {
       "Route": "_framework/Client.wasm",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-pv6syorhny.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-x3ibb67vh4.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000014968491"
+          "Quality": "0.000014238929"
         }
       ],
       "ResponseHeaders": [
@@ -9526,15 +9526,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "66806"
+          "Value": "70229"
         },
         {
           "Name": "ETag",
-          "Value": "\"xJhY3Ysub/S9Lud7Nq9WlCrkxB9OQmS7lSFx7N6/WE4=\""
+          "Value": "\"/9eXx3AKUDJmsDuVNHf/4oCKlVKIjJq0al2h1U8jwBw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:27 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9554,13 +9554,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"KzxtUOGr2zS+vBUE3OFhiHqM+cw96RcteQj3zEJx5n4=\""
+          "Value": "W/\"k9xZ8TsfdG6z58jVIB4gYRNuuCdv82u70IacgjJQi1Q=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KzxtUOGr2zS+vBUE3OFhiHqM+cw96RcteQj3zEJx5n4="
+          "Value": "sha256-k9xZ8TsfdG6z58jVIB4gYRNuuCdv82u70IacgjJQi1Q="
         }
       ]
     },
@@ -9575,7 +9575,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "286997"
+          "Value": "299285"
         },
         {
           "Name": "Content-Type",
@@ -9583,11 +9583,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KzxtUOGr2zS+vBUE3OFhiHqM+cw96RcteQj3zEJx5n4=\""
+          "Value": "\"k9xZ8TsfdG6z58jVIB4gYRNuuCdv82u70IacgjJQi1Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:27 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9597,13 +9597,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KzxtUOGr2zS+vBUE3OFhiHqM+cw96RcteQj3zEJx5n4="
+          "Value": "sha256-k9xZ8TsfdG6z58jVIB4gYRNuuCdv82u70IacgjJQi1Q="
         }
       ]
     },
     {
       "Route": "_framework/Client.wasm.br",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-pv6syorhny.br",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-x3ibb67vh4.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -9612,7 +9612,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "53244"
+          "Value": "56623"
         },
         {
           "Name": "Content-Type",
@@ -9620,11 +9620,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"FNQU1fYrJhNtvclo5ASKuS/ilyt+Mz9RwKsfk5HKock=\""
+          "Value": "\"nuwrXAG5ckqyRquaE9aOnGOprQlu7czaLBMy/pZVEro=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:27 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9642,13 +9642,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-FNQU1fYrJhNtvclo5ASKuS/ilyt+Mz9RwKsfk5HKock="
+          "Value": "sha256-nuwrXAG5ckqyRquaE9aOnGOprQlu7czaLBMy/pZVEro="
         }
       ]
     },
     {
       "Route": "_framework/Client.wasm.gz",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-pv6syorhny.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\4cjz165eu4-x3ibb67vh4.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -9657,7 +9657,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "66806"
+          "Value": "70229"
         },
         {
           "Name": "Content-Type",
@@ -9665,11 +9665,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xJhY3Ysub/S9Lud7Nq9WlCrkxB9OQmS7lSFx7N6/WE4=\""
+          "Value": "\"/9eXx3AKUDJmsDuVNHf/4oCKlVKIjJq0al2h1U8jwBw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:27 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9687,7 +9687,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xJhY3Ysub/S9Lud7Nq9WlCrkxB9OQmS7lSFx7N6/WE4="
+          "Value": "sha256-/9eXx3AKUDJmsDuVNHf/4oCKlVKIjJq0al2h1U8jwBw="
         }
       ]
     },
@@ -9716,7 +9716,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Oct 2024 03:06:35 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9771,7 +9771,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Oct 2024 03:06:35 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9824,7 +9824,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Oct 2024 03:06:35 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9861,7 +9861,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Oct 2024 03:06:35 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9906,7 +9906,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Oct 2024 03:06:35 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9953,7 +9953,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Oct 2024 14:59:48 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10008,7 +10008,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Oct 2024 14:59:48 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10061,7 +10061,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Oct 2024 14:59:48 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10098,7 +10098,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Oct 2024 14:59:48 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10143,7 +10143,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Oct 2024 14:59:48 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10167,12 +10167,12 @@
     },
     {
       "Route": "_framework/DNG.Library.wasm",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-zsfzsk0zqm.br",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-djeeoqsfj5.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.000029211579"
+          "Quality": "0.000026277756"
         }
       ],
       "ResponseHeaders": [
@@ -10182,15 +10182,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "34232"
+          "Value": "38054"
         },
         {
           "Name": "ETag",
-          "Value": "\"rTngSRI/R8p5W1psrt569rqumc0+Ef/LTqMIyCcoKnA=\""
+          "Value": "\"aL8SmWWwcDQipoQC0LRvdVOS0xXBqKI30d5z/NZqwWU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:27 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10210,24 +10210,24 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"w2bQ3ix3D5BgkG5ftfUO7nhlPB1J3bONXwZK34pcLJE=\""
+          "Value": "W/\"GYGIaNbxEbxRPdecE2oJ2M4G1O2vWN34Cg9uq7urQNQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-w2bQ3ix3D5BgkG5ftfUO7nhlPB1J3bONXwZK34pcLJE="
+          "Value": "sha256-GYGIaNbxEbxRPdecE2oJ2M4G1O2vWN34Cg9uq7urQNQ="
         }
       ]
     },
     {
       "Route": "_framework/DNG.Library.wasm",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-zsfzsk0zqm.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-djeeoqsfj5.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000023675924"
+          "Quality": "0.000021084591"
         }
       ],
       "ResponseHeaders": [
@@ -10237,15 +10237,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "42236"
+          "Value": "47427"
         },
         {
           "Name": "ETag",
-          "Value": "\"wg1DGqjCVyr+Jstyn2rZDketrOulGpiIM39MlNUQnvE=\""
+          "Value": "\"vKwwJdxMWOHrtreHmrmMAG/w0Ubf6eeibXLYpfoNHZw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:27 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10265,13 +10265,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"w2bQ3ix3D5BgkG5ftfUO7nhlPB1J3bONXwZK34pcLJE=\""
+          "Value": "W/\"GYGIaNbxEbxRPdecE2oJ2M4G1O2vWN34Cg9uq7urQNQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-w2bQ3ix3D5BgkG5ftfUO7nhlPB1J3bONXwZK34pcLJE="
+          "Value": "sha256-GYGIaNbxEbxRPdecE2oJ2M4G1O2vWN34Cg9uq7urQNQ="
         }
       ]
     },
@@ -10286,7 +10286,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "105237"
+          "Value": "117525"
         },
         {
           "Name": "Content-Type",
@@ -10294,11 +10294,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"w2bQ3ix3D5BgkG5ftfUO7nhlPB1J3bONXwZK34pcLJE=\""
+          "Value": "\"GYGIaNbxEbxRPdecE2oJ2M4G1O2vWN34Cg9uq7urQNQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:27 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10308,13 +10308,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-w2bQ3ix3D5BgkG5ftfUO7nhlPB1J3bONXwZK34pcLJE="
+          "Value": "sha256-GYGIaNbxEbxRPdecE2oJ2M4G1O2vWN34Cg9uq7urQNQ="
         }
       ]
     },
     {
       "Route": "_framework/DNG.Library.wasm.br",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-zsfzsk0zqm.br",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-djeeoqsfj5.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -10323,7 +10323,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "34232"
+          "Value": "38054"
         },
         {
           "Name": "Content-Type",
@@ -10331,11 +10331,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"rTngSRI/R8p5W1psrt569rqumc0+Ef/LTqMIyCcoKnA=\""
+          "Value": "\"aL8SmWWwcDQipoQC0LRvdVOS0xXBqKI30d5z/NZqwWU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:27 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10353,13 +10353,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-rTngSRI/R8p5W1psrt569rqumc0+Ef/LTqMIyCcoKnA="
+          "Value": "sha256-aL8SmWWwcDQipoQC0LRvdVOS0xXBqKI30d5z/NZqwWU="
         }
       ]
     },
     {
       "Route": "_framework/DNG.Library.wasm.gz",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-zsfzsk0zqm.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\yj4rhzuphh-djeeoqsfj5.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -10368,7 +10368,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "42236"
+          "Value": "47427"
         },
         {
           "Name": "Content-Type",
@@ -10376,11 +10376,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wg1DGqjCVyr+Jstyn2rZDketrOulGpiIM39MlNUQnvE=\""
+          "Value": "\"vKwwJdxMWOHrtreHmrmMAG/w0Ubf6eeibXLYpfoNHZw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:27 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10398,7 +10398,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-wg1DGqjCVyr+Jstyn2rZDketrOulGpiIM39MlNUQnvE="
+          "Value": "sha256-vKwwJdxMWOHrtreHmrmMAG/w0Ubf6eeibXLYpfoNHZw="
         }
       ]
     },
@@ -10519,7 +10519,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Sep 2024 23:13:08 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10617,7 +10617,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Sep 2024 23:13:08 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10701,7 +10701,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Sep 2024 23:13:44 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10854,7 +10854,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Sep 2024 23:13:44 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10938,7 +10938,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Sep 2024 23:13:44 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11091,7 +11091,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Sep 2024 23:13:44 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11175,7 +11175,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Sep 2024 23:13:18 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11328,7 +11328,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 16 Sep 2024 23:13:18 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12086,7 +12086,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:19 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12141,7 +12141,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:19 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12194,7 +12194,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:19 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12231,7 +12231,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:19 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12276,7 +12276,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:19 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12323,7 +12323,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:43 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12378,7 +12378,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:43 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12431,7 +12431,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:43 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12468,7 +12468,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:43 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12513,7 +12513,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:43 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12560,7 +12560,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:41 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12615,7 +12615,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:41 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12668,7 +12668,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:41 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12705,7 +12705,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:41 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12750,7 +12750,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:41 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12797,7 +12797,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Oct 2024 16:49:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12852,7 +12852,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Oct 2024 16:49:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12905,7 +12905,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Oct 2024 16:49:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12942,7 +12942,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Oct 2024 16:49:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -12987,7 +12987,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Oct 2024 16:49:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13034,7 +13034,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:44 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13089,7 +13089,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:44 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13142,7 +13142,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:44 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13179,7 +13179,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:44 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13224,7 +13224,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:44 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13271,7 +13271,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:20 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13326,7 +13326,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:20 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13379,7 +13379,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:20 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13416,7 +13416,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:20 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13461,7 +13461,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:20 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13508,7 +13508,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13563,7 +13563,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13616,7 +13616,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13653,7 +13653,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13698,7 +13698,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13745,7 +13745,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13800,7 +13800,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13853,7 +13853,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13890,7 +13890,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13935,7 +13935,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13982,7 +13982,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14037,7 +14037,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14090,7 +14090,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14127,7 +14127,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14172,7 +14172,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14219,7 +14219,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14274,7 +14274,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14327,7 +14327,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14364,7 +14364,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14409,7 +14409,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14456,7 +14456,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:45 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14511,7 +14511,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:45 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14564,7 +14564,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:45 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14601,7 +14601,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:45 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14646,7 +14646,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:45 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14693,7 +14693,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:45 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14748,7 +14748,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:45 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14801,7 +14801,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:45 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14838,7 +14838,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:45 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14883,7 +14883,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:45 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14930,7 +14930,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14985,7 +14985,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15038,7 +15038,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15075,7 +15075,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15120,7 +15120,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:21 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15167,7 +15167,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15222,7 +15222,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15275,7 +15275,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15312,7 +15312,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15357,7 +15357,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15404,7 +15404,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Oct 2024 16:49:24 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15459,7 +15459,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Oct 2024 16:49:24 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15512,7 +15512,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Oct 2024 16:49:24 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15549,7 +15549,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Oct 2024 16:49:24 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15594,7 +15594,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Oct 2024 16:49:24 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15641,7 +15641,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15696,7 +15696,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15749,7 +15749,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15786,7 +15786,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15831,7 +15831,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15878,7 +15878,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15933,7 +15933,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15986,7 +15986,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16023,7 +16023,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16068,7 +16068,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:22 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16115,7 +16115,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16170,7 +16170,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16223,7 +16223,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16260,7 +16260,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16305,7 +16305,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16329,12 +16329,12 @@
     },
     {
       "Route": "_framework/System.Collections.Immutable.wasm",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-3yq7chxela.br",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-ber0y40c87.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.000180897250"
+          "Quality": "0.000057887120"
         }
       ],
       "ResponseHeaders": [
@@ -16344,15 +16344,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5527"
+          "Value": "17274"
         },
         {
           "Name": "ETag",
-          "Value": "\"wywhvaP6zQfuzjTrDyrDMaSbbIl/9JzGF03OOVvdmhA=\""
+          "Value": "\"V77nrKCZdjCV88SVZprckHP3A5jFnXLmpR4g+QWo1ow=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 08 Nov 2024 00:25:57 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16372,24 +16372,24 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"1Xt8yy4ve7iHqqVCN6BiXniFqOSRbrs0OKYuihceSHI=\""
+          "Value": "W/\"TYP+I4F8mmbWOYc4t7jPbY7h3j05reDrdySMK7FOH24=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1Xt8yy4ve7iHqqVCN6BiXniFqOSRbrs0OKYuihceSHI="
+          "Value": "sha256-TYP+I4F8mmbWOYc4t7jPbY7h3j05reDrdySMK7FOH24="
         }
       ]
     },
     {
       "Route": "_framework/System.Collections.Immutable.wasm",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-3yq7chxela.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-ber0y40c87.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000156201187"
+          "Quality": "0.000048770972"
         }
       ],
       "ResponseHeaders": [
@@ -16399,15 +16399,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6401"
+          "Value": "20503"
         },
         {
           "Name": "ETag",
-          "Value": "\"yBLysZOiiAP0CjHCOPiEa5kek127I+Db6rN2zFyHquo=\""
+          "Value": "\"V5MnFk4ALzB4mXgHLsuvyqzS+YEL6ymJ46NNvYcXQvo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 08 Nov 2024 00:25:57 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16427,13 +16427,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"1Xt8yy4ve7iHqqVCN6BiXniFqOSRbrs0OKYuihceSHI=\""
+          "Value": "W/\"TYP+I4F8mmbWOYc4t7jPbY7h3j05reDrdySMK7FOH24=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1Xt8yy4ve7iHqqVCN6BiXniFqOSRbrs0OKYuihceSHI="
+          "Value": "sha256-TYP+I4F8mmbWOYc4t7jPbY7h3j05reDrdySMK7FOH24="
         }
       ]
     },
@@ -16448,7 +16448,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "15125"
+          "Value": "45333"
         },
         {
           "Name": "Content-Type",
@@ -16456,11 +16456,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1Xt8yy4ve7iHqqVCN6BiXniFqOSRbrs0OKYuihceSHI=\""
+          "Value": "\"TYP+I4F8mmbWOYc4t7jPbY7h3j05reDrdySMK7FOH24=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 08 Nov 2024 00:25:57 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16470,13 +16470,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1Xt8yy4ve7iHqqVCN6BiXniFqOSRbrs0OKYuihceSHI="
+          "Value": "sha256-TYP+I4F8mmbWOYc4t7jPbY7h3j05reDrdySMK7FOH24="
         }
       ]
     },
     {
       "Route": "_framework/System.Collections.Immutable.wasm.br",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-3yq7chxela.br",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-ber0y40c87.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -16485,7 +16485,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5527"
+          "Value": "17274"
         },
         {
           "Name": "Content-Type",
@@ -16493,11 +16493,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wywhvaP6zQfuzjTrDyrDMaSbbIl/9JzGF03OOVvdmhA=\""
+          "Value": "\"V77nrKCZdjCV88SVZprckHP3A5jFnXLmpR4g+QWo1ow=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 08 Nov 2024 00:25:57 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16515,13 +16515,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-wywhvaP6zQfuzjTrDyrDMaSbbIl/9JzGF03OOVvdmhA="
+          "Value": "sha256-V77nrKCZdjCV88SVZprckHP3A5jFnXLmpR4g+QWo1ow="
         }
       ]
     },
     {
       "Route": "_framework/System.Collections.Immutable.wasm.gz",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-3yq7chxela.gz",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\compressed\\publish\\88dnkz24kw-ber0y40c87.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -16530,7 +16530,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6401"
+          "Value": "20503"
         },
         {
           "Name": "Content-Type",
@@ -16538,11 +16538,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yBLysZOiiAP0CjHCOPiEa5kek127I+Db6rN2zFyHquo=\""
+          "Value": "\"V5MnFk4ALzB4mXgHLsuvyqzS+YEL6ymJ46NNvYcXQvo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 08 Nov 2024 00:25:57 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16560,7 +16560,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-yBLysZOiiAP0CjHCOPiEa5kek127I+Db6rN2zFyHquo="
+          "Value": "sha256-V5MnFk4ALzB4mXgHLsuvyqzS+YEL6ymJ46NNvYcXQvo="
         }
       ]
     },
@@ -16589,7 +16589,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16644,7 +16644,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16697,7 +16697,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16734,7 +16734,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16779,7 +16779,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16826,7 +16826,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16881,7 +16881,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16934,7 +16934,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16971,7 +16971,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17016,7 +17016,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17063,7 +17063,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17118,7 +17118,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17171,7 +17171,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17208,7 +17208,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17253,7 +17253,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:46 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17300,7 +17300,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:43 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17355,7 +17355,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:43 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17408,7 +17408,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:43 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17445,7 +17445,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:43 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17490,7 +17490,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:43 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17537,7 +17537,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17592,7 +17592,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17645,7 +17645,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17682,7 +17682,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17727,7 +17727,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17774,7 +17774,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17829,7 +17829,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17882,7 +17882,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17919,7 +17919,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17964,7 +17964,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18011,7 +18011,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:23 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18066,7 +18066,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:23 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18119,7 +18119,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:23 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18156,7 +18156,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:23 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18201,7 +18201,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:23 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18248,7 +18248,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18303,7 +18303,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18356,7 +18356,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18393,7 +18393,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18438,7 +18438,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:47 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18485,7 +18485,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:48 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18540,7 +18540,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:48 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18593,7 +18593,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:48 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18630,7 +18630,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:48 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18675,7 +18675,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:48 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18722,7 +18722,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18777,7 +18777,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18830,7 +18830,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18867,7 +18867,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18912,7 +18912,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18959,7 +18959,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19014,7 +19014,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19067,7 +19067,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19104,7 +19104,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19149,7 +19149,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19196,7 +19196,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19251,7 +19251,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19304,7 +19304,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19341,7 +19341,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19386,7 +19386,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19433,7 +19433,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19488,7 +19488,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19541,7 +19541,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19578,7 +19578,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19623,7 +19623,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:25 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19670,7 +19670,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19725,7 +19725,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19778,7 +19778,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19815,7 +19815,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19860,7 +19860,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19907,7 +19907,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19962,7 +19962,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20015,7 +20015,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20052,7 +20052,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20097,7 +20097,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:49 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20144,7 +20144,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20199,7 +20199,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20252,7 +20252,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20289,7 +20289,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20334,7 +20334,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20381,7 +20381,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20436,7 +20436,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20489,7 +20489,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20526,7 +20526,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20571,7 +20571,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20618,7 +20618,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20673,7 +20673,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20726,7 +20726,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20763,7 +20763,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20808,7 +20808,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20855,7 +20855,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20910,7 +20910,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -20963,7 +20963,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21000,7 +21000,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21045,7 +21045,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21092,7 +21092,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21147,7 +21147,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21200,7 +21200,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21237,7 +21237,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21282,7 +21282,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21329,7 +21329,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21384,7 +21384,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21437,7 +21437,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21474,7 +21474,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21519,7 +21519,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:50 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21566,7 +21566,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:51 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21621,7 +21621,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:51 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21674,7 +21674,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:51 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21711,7 +21711,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:51 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21756,7 +21756,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:51 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21803,7 +21803,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21858,7 +21858,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21911,7 +21911,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21948,7 +21948,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21993,7 +21993,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22040,7 +22040,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22095,7 +22095,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22148,7 +22148,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22185,7 +22185,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22230,7 +22230,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22277,7 +22277,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22332,7 +22332,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22385,7 +22385,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22422,7 +22422,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22467,7 +22467,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:29 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22514,7 +22514,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22569,7 +22569,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22622,7 +22622,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22659,7 +22659,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22704,7 +22704,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22751,7 +22751,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:30 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22806,7 +22806,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:30 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22859,7 +22859,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:30 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22896,7 +22896,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:30 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22941,7 +22941,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:30 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22988,7 +22988,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:37 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23043,7 +23043,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:37 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23096,7 +23096,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:37 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23133,7 +23133,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:37 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23178,7 +23178,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:34:37 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23225,7 +23225,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23280,7 +23280,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23333,7 +23333,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23370,7 +23370,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23415,7 +23415,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23462,7 +23462,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:31 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23517,7 +23517,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:31 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23570,7 +23570,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:31 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23607,7 +23607,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:31 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23652,7 +23652,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:31 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23699,7 +23699,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23754,7 +23754,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23807,7 +23807,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23844,7 +23844,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23889,7 +23889,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 03 Nov 2024 22:18:52 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23936,7 +23936,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:53 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23991,7 +23991,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:53 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24044,7 +24044,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:53 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24081,7 +24081,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:53 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24126,7 +24126,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:53 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24173,7 +24173,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 08 Nov 2024 00:26:06 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24228,7 +24228,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 08 Nov 2024 00:26:06 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24281,7 +24281,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 08 Nov 2024 00:26:06 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24318,7 +24318,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 08 Nov 2024 00:26:06 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24363,7 +24363,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 08 Nov 2024 00:26:06 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24410,7 +24410,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:53 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24465,7 +24465,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:53 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24518,7 +24518,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:53 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24555,7 +24555,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:53 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24600,7 +24600,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 15:41:53 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24647,7 +24647,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:32 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24702,7 +24702,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:32 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24755,7 +24755,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:32 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24792,7 +24792,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:32 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -24837,7 +24837,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 29 Oct 2024 16:21:32 GMT"
+          "Value": "Thu, 21 Nov 2024 15:32:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -25270,96 +25270,6 @@
       ]
     },
     {
-      "Route": "Client.61jceystp7.bundle.scp.css",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\Client.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "6101"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pn6OEZVPZRn5P1hX0W/11ZU3CxNXwZWYQavGIHHbukg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 14 Nov 2024 15:04:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "61jceystp7"
-        },
-        {
-          "Name": "label",
-          "Value": "Client.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-pn6OEZVPZRn5P1hX0W/11ZU3CxNXwZWYQavGIHHbukg="
-        }
-      ]
-    },
-    {
-      "Route": "Client.61jceystp7.styles.css",
-      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\scopedcss\\bundle\\Client.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "6101"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pn6OEZVPZRn5P1hX0W/11ZU3CxNXwZWYQavGIHHbukg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 14 Nov 2024 15:04:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "61jceystp7"
-        },
-        {
-          "Name": "label",
-          "Value": "Client.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-pn6OEZVPZRn5P1hX0W/11ZU3CxNXwZWYQavGIHHbukg="
-        }
-      ]
-    },
-    {
       "Route": "Client.bundle.scp.css",
       "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\Client.bundle.scp.css",
       "Selectors": [],
@@ -25370,7 +25280,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6101"
+          "Value": "6480"
         },
         {
           "Name": "Content-Type",
@@ -25378,11 +25288,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pn6OEZVPZRn5P1hX0W/11ZU3CxNXwZWYQavGIHHbukg=\""
+          "Value": "\"D4AWaJwggSlydsS3eQo5NmPfJwoWM7YNwMRWQbD98QY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 14 Nov 2024 15:04:38 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -25392,7 +25302,97 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-pn6OEZVPZRn5P1hX0W/11ZU3CxNXwZWYQavGIHHbukg="
+          "Value": "sha256-D4AWaJwggSlydsS3eQo5NmPfJwoWM7YNwMRWQbD98QY="
+        }
+      ]
+    },
+    {
+      "Route": "Client.f4bnocioye.bundle.scp.css",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\Client.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6480"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"D4AWaJwggSlydsS3eQo5NmPfJwoWM7YNwMRWQbD98QY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 21 Nov 2024 15:31:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f4bnocioye"
+        },
+        {
+          "Name": "label",
+          "Value": "Client.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-D4AWaJwggSlydsS3eQo5NmPfJwoWM7YNwMRWQbD98QY="
+        }
+      ]
+    },
+    {
+      "Route": "Client.f4bnocioye.styles.css",
+      "AssetFile": "C:\\localrepos\\DrawingNumberGenerator\\Client\\obj\\Release\\net8.0\\scopedcss\\bundle\\Client.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6480"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"D4AWaJwggSlydsS3eQo5NmPfJwoWM7YNwMRWQbD98QY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 21 Nov 2024 15:31:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f4bnocioye"
+        },
+        {
+          "Name": "label",
+          "Value": "Client.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-D4AWaJwggSlydsS3eQo5NmPfJwoWM7YNwMRWQbD98QY="
         }
       ]
     },
@@ -25407,7 +25407,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6101"
+          "Value": "6480"
         },
         {
           "Name": "Content-Type",
@@ -25415,11 +25415,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pn6OEZVPZRn5P1hX0W/11ZU3CxNXwZWYQavGIHHbukg=\""
+          "Value": "\"D4AWaJwggSlydsS3eQo5NmPfJwoWM7YNwMRWQbD98QY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 14 Nov 2024 15:04:38 GMT"
+          "Value": "Thu, 21 Nov 2024 15:31:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -25429,7 +25429,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-pn6OEZVPZRn5P1hX0W/11ZU3CxNXwZWYQavGIHHbukg="
+          "Value": "sha256-D4AWaJwggSlydsS3eQo5NmPfJwoWM7YNwMRWQbD98QY="
         }
       ]
     },
@@ -25456,7 +25456,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 18:02:58 GMT"
+          "Value": "Mon, 18 Nov 2024 21:32:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -25501,7 +25501,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 12 Nov 2024 18:02:58 GMT"
+          "Value": "Mon, 18 Nov 2024 21:32:47 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -26686,7 +26686,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:12:43 GMT"
+          "Value": "Thu, 21 Nov 2024 14:18:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -26723,7 +26723,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Nov 2024 14:12:43 GMT"
+          "Value": "Thu, 21 Nov 2024 14:18:45 GMT"
         },
         {
           "Name": "Cache-Control",

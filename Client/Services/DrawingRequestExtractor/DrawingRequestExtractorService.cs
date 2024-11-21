@@ -1,7 +1,7 @@
 using DNG.Library.Models;
 using System.Text.RegularExpressions;
 
-namespace DNG.Library.Services
+namespace DNG.Library.Models
 {
     public class DrawingRequestExtractorService
     {

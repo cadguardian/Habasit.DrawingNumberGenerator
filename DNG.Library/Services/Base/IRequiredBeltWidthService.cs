@@ -1,4 +1,6 @@
-﻿public interface IRequiredBeltWidthService
+﻿namespace DNG.Library.Services.Base;
+
+public interface IRequiredBeltWidthService
 {
     List<RequiredBeltWidth> GetRequiredBeltWidthStandards();
 

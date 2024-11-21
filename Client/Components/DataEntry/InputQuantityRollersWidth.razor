@@ -9,13 +9,14 @@
         <label for="qtyRollersAcrossWidth">Qty. Rollers Width</label>
     </div>
 
-    <span class="input-group-text">@(rollerWidthCode ?? "❌")</span>
+    <span class="input-group-text">@rollerWidthCode</span>
 </div>
 
 @code {
     protected override void OnInitialized()
     {
         qtyRollersAcrossWidth = 0; // Set a default value if needed
+        UpdateRollerWidthCode(0);
     }
 
     private int qtyRollersAcrossWidth
@@ -36,6 +37,6 @@
     private void UpdateRollerWidthCode(int value)
     {
         rollerWidthCode = Flights_Rollers_Grips.GetFRGQuantityAcrossWidthCode(value);
-        State.UpdateProperty(State.DrawingNumber, dn => dn.QtyRollersAcrossWidth = rollerWidthCode ?? string.Empty);
+        State.UpdateProperty(State.DrawingNumber, dn => dn.QtyRollersAcrossWidth = rollerWidthCode);
     }
 }

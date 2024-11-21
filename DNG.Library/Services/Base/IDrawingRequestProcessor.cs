@@ -1,4 +1,6 @@
-﻿using DNG.Library.Services.Base;
+﻿using DNG.Library.Models.Base;
+
+namespace DNG.Library.Services.Base;
 
 public interface IDrawingRequestProcessor
 {

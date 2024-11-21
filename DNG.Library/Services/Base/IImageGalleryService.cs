@@ -1,4 +1,6 @@
-﻿public interface IImageGalleryService
+﻿namespace DNG.Library.Services.Base;
+
+public interface IImageGalleryService
 {
     IEnumerable<string> FilterImages(List<string> images, string searchQuery);
 

@@ -1,4 +1,6 @@
-﻿public interface ICADLibraryService
+﻿namespace DNG.Library.Services.Base;
+
+public interface ICADLibraryService
 {
     /// <summary>
     /// Loads metadata for the CAD library from a specified JSON file.

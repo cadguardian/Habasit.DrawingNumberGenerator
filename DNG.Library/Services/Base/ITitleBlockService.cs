@@ -1,6 +1,8 @@
 ﻿using DNG.Library.Models;
 using DNG.Library.Models.Base;
 
+namespace DNG.Library.Services.Base;
+
 public interface ITitleBlockService
 {
     string GetDrawnDate();

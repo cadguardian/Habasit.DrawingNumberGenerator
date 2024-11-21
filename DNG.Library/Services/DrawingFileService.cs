@@ -3,7 +3,10 @@ using System.IO;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using DNG.Library.Services.Base;
 using Microsoft.JSInterop;
+
+namespace DNG.Library.Services;
 
 public class DrawingFileService : IDrawingFileService
 {

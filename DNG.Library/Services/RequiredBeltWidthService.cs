@@ -1,5 +1,8 @@
+using DNG.Library.Services.Base;
 using Microsoft.Extensions.Logging;
 using System.Text;
+
+namespace DNG.Library.Services;
 
 public class RequiredBeltWidth
 {

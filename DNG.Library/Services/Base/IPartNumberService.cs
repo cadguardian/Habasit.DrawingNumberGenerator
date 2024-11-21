@@ -1,14 +1,13 @@
 ﻿using DNG.Library.Models;
 using DNG.Library.Models.Base;
 
-namespace DNG.Library.Services.Base
+namespace DNG.Library.Services.Base;
+
+public interface IPartNumberService
 {
-    public interface IPartNumberService
-    {
-        IEnumerable<KeyValuePair<string, string>> FilterPartNumbers(IDrawingRequest drawingRequest, string universalSearch = "", bool isFreeSearchMode = false);
+    IEnumerable<KeyValuePair<string, string>> FilterPartNumbers(IDrawingRequest drawingRequest, string universalSearch = "", bool isFreeSearchMode = false);
 
-        List<PartNumber> GetParts();
+    List<PartNumber> GetParts();
 
-        Task InitializeAsync();
-    }
+    Task InitializeAsync();
 }

@@ -1,4 +1,6 @@
-﻿public interface IBeltSeriesService
+﻿namespace DNG.Library.Services.Base;
+
+public interface IBeltSeriesService
 {
     Task<List<string>> LoadImageFilesAsync(HttpClient httpClient);
 
