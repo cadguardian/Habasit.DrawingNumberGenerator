@@ -16,7 +16,7 @@ public class DrawingRequestProcessor : IDrawingRequestProcessor
     {
         try
         {
-            if (string.IsNullOrWhiteSpace(State.DrawingRequest.BeltType))
+            if (string.IsNullOrWhiteSpace(State!.DrawingRequest!.BeltType!))
             {
                 throw new ArgumentException("Belt Type is required.");
             }
@@ -42,20 +42,7 @@ public class DrawingRequestProcessor : IDrawingRequestProcessor
         }
         catch (Exception ex)
         {
-            Console.WriteLine("====== Exception Details ======");
-            Console.WriteLine($"Timestamp: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
-            Console.WriteLine($"Message: {ex.Message}");
-            Console.WriteLine($"Source: {ex.Source}");
-            Console.WriteLine($"Target Method: {ex.TargetSite?.Name}");
-            Console.WriteLine($"Stack Trace: {ex.StackTrace}");
-
-            if (ex.InnerException != null)
-            {
-                Console.WriteLine("------ Inner Exception ------");
-                Console.WriteLine($"Inner Message: {ex.InnerException.Message}");
-                Console.WriteLine($"Inner Stack Trace: {ex.InnerException.StackTrace}");
-            }
-            Console.WriteLine("==============================");
+            Console.WriteLine($"Drawing # Incomplete: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
         }
     }
 

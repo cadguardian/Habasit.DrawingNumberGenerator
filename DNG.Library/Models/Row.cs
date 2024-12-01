@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Immutable;
 
 namespace DNG.Library.Models;
 
@@ -18,6 +13,6 @@ public sealed record Row(
     public string GetRowReport()
     {
         var partDescriptions = Parts.Select(p => $"{p.Length}{(p.IsCut ? "C" : "")}");
-        return $"Row{Index + 1}: {string.Join(",", partDescriptions)}{(IsFlightRow ? " (Flight Row)" : "")}";
+        return $"Row{Index + 1}: {string.Join(", ", partDescriptions)}{(IsFlightRow ? " (Flight Row)" : "")}";
     }
 }

@@ -36,13 +36,11 @@
     <None Remove="Components\UserInput\InputBeltWidth.razor.bk" />
     <None Remove="Docs\Instructions-10-24-24.md" />
     <None Remove="Docs\Overall-ImproveApp-10-24-24.md" />
-    <None Remove="Features\BeltDesigner\BeltDesignerView - Copy.razor.bak" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Docs\Overall-ImproveApp-10-24-24.md" />
     <Content Include="Docs\Instructions-10-24-24.md" />
-    <Content Include="Features\BeltDesigner\BeltDesignerView - Copy.razor.bak" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,6 +50,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.10" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>

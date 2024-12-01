@@ -1,13 +1,7 @@
 ﻿using DNG.Library.Models;
-using DNG.Library.Models.Base;
 using DNG.Library.Services.Base;
 using DNG.Library.Utility;
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DNG.Library.Services;
 
@@ -46,12 +40,12 @@ public class BeltDesignerService : IBeltDesignerService
     }
 
     private static Row BuildRow(
-        int beltWidth,
-        int rowIndex,
-        ImmutableList<int> seamPositions,
-        bool isFlightRow,
-        ImmutableList<Part> availableParts,
-        ImmutableHashSet<string>.Builder warnings)
+    int beltWidth,
+    int rowIndex,
+    ImmutableList<int> seamPositions,
+    bool isFlightRow,
+    ImmutableList<Part> availableParts,
+    ImmutableHashSet<string>.Builder warnings)
     {
         var parts = ImmutableList.CreateBuilder<PartInstance>();
         int currentPosition = 0;
@@ -75,6 +69,12 @@ public class BeltDesignerService : IBeltDesignerService
 
             parts.Add(partInstance);
             currentPosition += partInstance.Length;
+        }
+
+        // Validate total length
+        if (currentPosition != beltWidth)
+        {
+            warnings.Add($"Row{rowIndex + 1}: Total length mismatch. Expected {beltWidth}, but got {currentPosition}.");
         }
 
         return new Row(

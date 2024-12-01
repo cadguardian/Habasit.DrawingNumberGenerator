@@ -3,6 +3,8 @@ using DNG.Library.Models.Base;
 using DNG.Library.Services.Base;
 using Microsoft.Extensions.Logging;
 using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace DNG.Library.Services;
 
@@ -35,7 +37,7 @@ public class PartNumberService : IPartNumberService
     /// <summary>
     /// Initializes the service and loads part numbers from the CSV file asynchronously.
     /// </summary>
-    public async Task InitializeAsync()
+    public async Task InitializeCSVAsync()
     {
         try
         {
@@ -85,6 +87,53 @@ public class PartNumberService : IPartNumberService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error loading part numbers from the CSV file.");
+        }
+    }
+
+    public async Task InitializeAsync()
+    {
+        try
+        {
+            var jsonFilePath = "data/partNumbers.json";
+
+            using var responseStream = await _httpClient.GetStreamAsync(jsonFilePath);
+            using var reader = new StreamReader(responseStream);
+
+            // Read and parse the JSON
+            var jsonContent = await reader.ReadToEndAsync();
+            var jsonArray = JArray.Parse(jsonContent);
+
+            foreach (var token in jsonArray)
+            {
+                try
+                {
+                    // Attempt to extract Part and Description, skipping invalid entries
+                    var part = token["Part"]?.ToString() ?? string.Empty;
+                    var description = token["Description"]?.ToString() ?? string.Empty;
+
+                    if (string.IsNullOrWhiteSpace(part))
+                    {
+                        _logger.LogWarning("Skipping entry with missing 'Part': {Entry}", token);
+                        continue;
+                    }
+
+                    _parts.Add(new PartNumber
+                    {
+                        Part = part,
+                        Description = description
+                    });
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogWarning(ex, "Skipping invalid JSON entry: {Entry}", token);
+                }
+            }
+
+            _logger.LogInformation("Successfully loaded {Count} part numbers from JSON.", _parts.Count);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error loading part numbers from the JSON file.");
         }
     }
 
