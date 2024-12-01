@@ -5,37 +5,36 @@ namespace DNG.Library.Utility;
 public static class SeamGenerator
 {
     public static ImmutableList<int> GenerateSeamPositions(
-    int beltWidth,
-    int rowIndex,
-    ImmutableList<int> previousRowSeams,
-    bool isFlightRow)
+        int beltWidth,
+        int rowIndex,
+        ImmutableList<int> previousRowSeams,
+        bool isFlightRow)
     {
         if (isFlightRow)
         {
-            return ImmutableList.CreateRange(new[] { 5, 13, 21, 29 }.Where(s => s < beltWidth));
+            // For flight rows, calculate evenly spaced seams for symmetry
+            return GenerateSymmetricSeams(beltWidth, spacing: 8);
         }
 
-        // Base seam positions
-        var proposedSeams = rowIndex % 2 == 0
-            ? ImmutableList.CreateRange(new[] { 8, 20, 32 }.Where(s => s < beltWidth))
-            : ImmutableList.CreateRange(new[] { 12, 24 }.Where(s => s < beltWidth));
+        // Alternate seam placements to avoid vertical alignment
+        return rowIndex % 2 == 0
+            ? GenerateDynamicSeams(beltWidth, start: 8, spacing: 12)
+            : GenerateDynamicSeams(beltWidth, start: 12, spacing: 12);
+    }
 
-        // Adjust to prevent violations
-        var adjustedSeams = ImmutableList.CreateBuilder<int>();
-        foreach (var seam in proposedSeams)
-        {
-            if (previousRowSeams.All(prevSeam => Math.Abs(prevSeam - seam) >= 2))
-            {
-                adjustedSeams.Add(seam);
-            }
-        }
+    private static ImmutableList<int> GenerateSymmetricSeams(int beltWidth, int spacing)
+    {
+        // Generate evenly spaced seam positions based on the given spacing
+        return ImmutableList.CreateRange(
+            Enumerable.Range(1, beltWidth / spacing).Select(i => i * spacing).Where(pos => pos < beltWidth)
+        );
+    }
 
-        // Ensure at least one valid seam remains
-        //if (adjustedSeams.Count == 0)
-        //{
-        //    throw new Exception($"No valid seam positions available for row {rowIndex + 1}.");
-        //}
-
-        return adjustedSeams.ToImmutable();
+    private static ImmutableList<int> GenerateDynamicSeams(int beltWidth, int start, int spacing)
+    {
+        // Generate dynamic seam positions starting at start with the specified spacing
+        return ImmutableList.CreateRange(
+            Enumerable.Range(0, beltWidth / spacing + 1).Select(i => start + i * spacing).Where(pos => pos < beltWidth)
+        );
     }
 }

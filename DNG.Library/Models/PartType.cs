@@ -3,5 +3,8 @@
 public enum PartType
 {
     Module,
-    Flight
+    Flight,
+    Grip,
+    Sideplate,
+    Saniclip
 }

@@ -40,12 +40,12 @@ public class BeltDesignerService : IBeltDesignerService
     }
 
     private static Row BuildRow(
-    int beltWidth,
-    int rowIndex,
-    ImmutableList<int> seamPositions,
-    bool isFlightRow,
-    ImmutableList<Part> availableParts,
-    ImmutableHashSet<string>.Builder warnings)
+        int beltWidth,
+        int rowIndex,
+        ImmutableList<int> seamPositions,
+        bool isFlightRow,
+        ImmutableList<Part> availableParts,
+        ImmutableHashSet<string>.Builder warnings)
     {
         var parts = ImmutableList.CreateBuilder<PartInstance>();
         int currentPosition = 0;
@@ -69,12 +69,6 @@ public class BeltDesignerService : IBeltDesignerService
 
             parts.Add(partInstance);
             currentPosition += partInstance.Length;
-        }
-
-        // Validate total length
-        if (currentPosition != beltWidth)
-        {
-            warnings.Add($"Row{rowIndex + 1}: Total length mismatch. Expected {beltWidth}, but got {currentPosition}.");
         }
 
         return new Row(

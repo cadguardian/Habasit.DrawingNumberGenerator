@@ -1,8 +1,9 @@
 ﻿.bricklay-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    overflow-x: auto;
+    display: block; /* Change from flex to block to prevent stretching */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Ensure rows do not wrap */
+    max-width: 100%; /* Prevent container from exceeding its parent width */
+    box-sizing: border-box; /* Include padding and border in width calculations */
 }
 
 .bricklay-row {
