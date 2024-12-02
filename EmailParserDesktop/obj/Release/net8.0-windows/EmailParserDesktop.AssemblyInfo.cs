@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EmailParserDesktop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e20673f3a277549a350b00f9242b89b8863262b6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77779cef4a905e958f2ae3d96ba2859516775017")]
 [assembly: System.Reflection.AssemblyProductAttribute("EmailParserDesktop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EmailParserDesktop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

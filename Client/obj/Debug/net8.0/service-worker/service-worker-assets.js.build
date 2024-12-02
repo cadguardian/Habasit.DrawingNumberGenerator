@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "5uloAkbO",
+  "version": "LWtBaa5l",
   "assets": [
     {
       "hash": "sha256-fKQz3jJDqpgzRFhVTtjZjL1heths7erCYWvsQQsRYrE=",
@@ -38,11 +38,11 @@ self.assetsManifest = {
       "url": "_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"
     },
     {
-      "hash": "sha256-IrD8AnJJchr9vXEJ61N+duTPjzY6XsK9Sh5Ot0VfYqU=",
+      "hash": "sha256-tEcoLdyK4Gkg0tk9sHwzdOJtqtmtXTzuaobivhQRENw=",
       "url": "_framework/Client.pdb"
     },
     {
-      "hash": "sha256-z+scpfpEvphRzh9ETnhC1Qbmc5fMCbu3oMSdmlVed6s=",
+      "hash": "sha256-YFNv5FQ73z5YijseaHPLLG06GRC4vxBg0mBVqfu2gLo=",
       "url": "_framework/Client.wasm"
     },
     {
@@ -54,11 +54,11 @@ self.assetsManifest = {
       "url": "_framework/CsvHelper.wasm"
     },
     {
-      "hash": "sha256-bfVTDERDcKj4B22accD3ae9xRvEwUk3OnqP+QUa2gdw=",
+      "hash": "sha256-lNFcIxuWrBWrex6QdWiPeTZa8l17HWKPHUKErWueD/Q=",
       "url": "_framework/DNG.Library.pdb"
     },
     {
-      "hash": "sha256-llZPlAE+3AX6MeMZx+ZSJnzIJ+nGtZsnh4r0og1RQx0=",
+      "hash": "sha256-fP4JuLUqzfZLXMH5h71eu7Ti1qNW/fbNYeRqyEOe8sI=",
       "url": "_framework/DNG.Library.wasm"
     },
     {
@@ -838,7 +838,7 @@ self.assetsManifest = {
       "url": "_framework/WindowsBase.wasm"
     },
     {
-      "hash": "sha256-xiNTYAuojzF67hxP3BbbqNbwm0Fqv9Pbb6MAVSKe1gg=",
+      "hash": "sha256-7JTPqa0eEmaTn/slZ+bVu0JWHiy75PyclMDoXsc+beU=",
       "url": "_framework/blazor.boot.json"
     },
     {
