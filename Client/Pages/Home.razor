@@ -3,6 +3,7 @@
 @using Client.Features.BeltDesigner
 @using Client.Features.CADTemplates.Archive
 @using Client.Features.DWGNumberDecipher
+@using Client.Features.DWGRequestParser
 @using Client.Services
 @using DNG.Library.Models
 @using Microsoft.AspNetCore.Components.Forms
@@ -31,9 +32,9 @@
 </div>
 
 
-
 <EditForm EditContext="editContext" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
+
     <DWGRequestForm />
 </EditForm>
 

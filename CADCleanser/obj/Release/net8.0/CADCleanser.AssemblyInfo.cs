@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CADCleanser")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9cef7f2ec173b7f6ab4f79a16a69d1c74d5666f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e20673f3a277549a350b00f9242b89b8863262b6")]
 [assembly: System.Reflection.AssemblyProductAttribute("CADCleanser")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CADCleanser")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

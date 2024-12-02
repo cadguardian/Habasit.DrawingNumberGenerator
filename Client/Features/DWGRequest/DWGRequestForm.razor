@@ -1,4 +1,5 @@
 ﻿@page "/drawing-request"
+@using Client.Features.DWGRequestParser
 @using Microsoft.AspNetCore.Components
 
 @code {
@@ -52,7 +53,8 @@
                             </div>
 
                             <div class="col-12">
-                                <InputStructuredText />
+                                @* <InputStructuredText /> *@
+                                <DWGRequestParser />
                             </div>
                         </form>
                     </div>

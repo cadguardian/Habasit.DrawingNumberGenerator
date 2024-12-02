@@ -26,6 +26,7 @@ builder.Services.AddScoped<IDrawingFileService, DrawingFileService>();
 builder.Services.AddScoped<IStateContainer, StateContainer>();
 builder.Services.AddSingleton<IDrawingNumberDecipherService, DNG.Library.Services.DrawingNumberDecipherService>();
 builder.Services.AddScoped<IBeltDesignerService, BeltDesignerService>();
+builder.Services.AddScoped<IDrawingRequestParserService, DrawingRequestParserService>();
 
 // reference drawing service and script needed in c#
 

@@ -64,7 +64,7 @@ public class BeltSeriesThumnbnailService : IBeltSeriesService
     public string GetBeltSeriesType(string beltSeriesCode)
     {
         // Mock example, implement as needed
-        return string.IsNullOrWhiteSpace(beltSeriesCode) ? "Unknown Series" : beltSeriesCode;
+        return string.IsNullOrWhiteSpace(beltSeriesCode) ? "❌" : beltSeriesCode;
     }
 
     // Tokenizes a given string into alphabetical and numeric parts
