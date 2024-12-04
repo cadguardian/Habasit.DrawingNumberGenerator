@@ -9,7 +9,7 @@
     <div class="summary-sheet print-mode" style="display: block;" id="summarySheet">
         <div class="text-center">
             <h4 class="text-muted mb-3">Drawing Request - @State.DrawingRequest.GetProjectFolderName()</h4>
-        <div class="text-center no-print alert alert-warning">Summarize and print detailed project information for seamless documentation and review.</div>
+        <div class="text-center small no-print alert alert-secondary">Summarize and print detailed project information for seamless documentation and review.</div>
         </div>
         
         <div class="row">
@@ -25,7 +25,7 @@
                         }
                         else
                         {
-                            <div class="alert alert-danger">
+                            <div class="alert alert-danger small">
                                 <p>Structured text is currently empty. Please complete the drawing request form to display CSR request (structured text).</p>
                             </div>
                         }
@@ -93,7 +93,7 @@
                             }
                             else
                             {
-                                <div class="alert alert-danger">
+                                <div class="alert alert-danger small">
                                 <p class="text-danger">No CAD Template available. Please complete the drawing request.</p></div>
                             }
                         </div>
@@ -107,7 +107,7 @@
                             }
                             else
                             {
-                                <div class="alert alert-danger">
+                                <div class="alert alert-danger small">
                                 <p class="text-danger">No Reference Drawing available. Please complete the drawing request and configure the query string for wider results.</p>
                                 </div>
                             }
@@ -135,7 +135,7 @@
                         }
                         else
                         {
-                            <div class="alert alert-danger">
+                        <div class="alert alert-danger small mt-3">
                             <p class="text-danger">No thumbnail is available. Please select a belt series.</p>
                             </div>
                         }
@@ -172,7 +172,7 @@
                         {
                             <tr>
                                 <td colspan="3" class="text-center text-danger p-3">
-                                    <div class="alert alert-danger">
+                                    <div class="alert alert-danger small">
                                     No parts available. Please complete the drawing request.
                                     </div>
                                 </td>

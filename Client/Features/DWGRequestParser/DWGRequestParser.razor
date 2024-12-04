@@ -14,6 +14,14 @@
         <div class="alert alert-secondary p-3 mb-2" style="font-size: 0.8rem;">
             Paste your drawing request in the textbox below and click "Parse" to extract parameters.
 
+            
+        </div>
+
+        <!-- Input Section -->
+        <div class="card-body">
+            <textarea @bind="structuredText" rows="10" class="form-control mb-3" placeholder="Paste drawing request here..."></textarea>
+            <button type="button" class="btn btn-primary w-100" @onclick="ParseInput">Parse</button>
+
             <div class="alert alert-warning my-3">
                 <h5 class="mb-2">⚠ Experimental Feature</h5>
                 <p class="mb-1"><strong>Purpose:</strong> Automates parameter extraction from structured text for CAD documentation.</p>
@@ -21,12 +29,6 @@
                 <p class="mb-1"><strong>Room for Improvement:</strong> Enhanced flexibility, error handling, and integration with dropdown menus.</p>
                 <p class="mb-0"><strong>Expected Time Savings:</strong> Reduces manual input time by approximately 50% when complete.</p>
             </div>
-        </div>
-
-        <!-- Input Section -->
-        <div class="card-body">
-            <textarea @bind="structuredText" rows="10" class="form-control mb-3" placeholder="Paste drawing request here..."></textarea>
-            <button type="button" class="btn btn-primary w-100" @onclick="ParseInput">Parse</button>
         </div>
 
         <!-- Parsed Parameters Display -->

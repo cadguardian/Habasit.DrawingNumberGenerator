@@ -10,12 +10,12 @@
 <div class="belt-designer-output print-mode no-print" id="beltDesignerOutput">
     <div class="text-center">
         <h4 class="text-muted mb-3">Belt Design Layout for Custom Builds</h4>
-        <div class="text-center no-print alert alert-warning">
+        <div class="text-center no-print alert alert-secondary small">
             Generate and review detailed belt designs for seamless production.
         </div>
     </div>
 
-    <div class="alert alert-info text-center mt-3">
+    <div class="alert alert-info text-center mt-3 small">
         <h4><i class="fa-solid fa-flask"></i> Experimental Feature Notice</h4>
         <p>
             This belt design feature is currently in development and may not produce optimal results.
@@ -86,7 +86,7 @@
         <h4 class="card-header small d-flex justify-content-between align-items-center">
             <i class="fa-solid fa-layer-group"></i> Visual Bricklay Rows
         </h4>
-        <div class="card-body">
+        <div class="card-body small">
             <p>🟥 - CUT PART, ⚫ - LAST LINK, 🟩 - FLIGHT, 🟦 - STANDARD MODULE</p>
             <div class="bricklay-container">
                 @foreach (var row in _beltLayout.Rows)
@@ -105,7 +105,7 @@
                     <div class="card-body">
                         @foreach (var warning in _beltLayout.Warnings)
                         {
-                            <p class="text-danger">@warning</p>
+                            <p class="text-danger small">@warning</p>
                         }
                     </div>
                 </div>
@@ -119,7 +119,7 @@
             <i class="fa-solid fa-list"></i> Belt Layout Report
         </h4>
         <div class="card-body">
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-sm table-bordered">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Row Number</th>

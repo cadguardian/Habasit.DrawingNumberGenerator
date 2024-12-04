@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "K9264AdN",
+  "version": "lN4lo3uh",
   "assets": [
     {
       "hash": "sha256-fKQz3jJDqpgzRFhVTtjZjL1heths7erCYWvsQQsRYrE=",
@@ -18,10 +18,6 @@ self.assetsManifest = {
       "url": "Data/output.json"
     },
     {
-      "hash": "sha256-+wwyCE1JRJve47LPdr6lAbhlkGQRSG/pyAnD2VKICqM=",
-      "url": "Data/partNumbers.csv"
-    },
-    {
       "hash": "sha256-3gdQ4Zvrc+TZsUu7tR3wWNYlNiheDj0vyP6RcrP5nvE=",
       "url": "Data/partNumbers.json"
     },
@@ -38,11 +34,11 @@ self.assetsManifest = {
       "url": "_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"
     },
     {
-      "hash": "sha256-ELQimuJn2yY3EEfCUnNkQLtEm8bwwx282VXeSoQXNAE=",
+      "hash": "sha256-HyqSMekvV78L6pIveP1Sd5wNm0M41Ru4CdijMM12tfk=",
       "url": "_framework/Client.pdb"
     },
     {
-      "hash": "sha256-9HM7pgY/j9u1Hn5jCr0Szkiw7IJnuHX43rh224C/YFw=",
+      "hash": "sha256-zUskIG73tlioNrATumoeP9mlnoCrLE7cz9k0jaVImec=",
       "url": "_framework/Client.wasm"
     },
     {
@@ -54,11 +50,11 @@ self.assetsManifest = {
       "url": "_framework/CsvHelper.wasm"
     },
     {
-      "hash": "sha256-ULd4S5PZVyig2rIKuL1JF0eLjZWZssxeLvXD8jzN59s=",
+      "hash": "sha256-wH0t+1rDvTBAxoAIeBp8ID7T0tjzJerT9GClmnktHsU=",
       "url": "_framework/DNG.Library.pdb"
     },
     {
-      "hash": "sha256-I8gXHhYWLnuzIj2fEEZdhMJPo8fAtNNWh0WUyIgbMF0=",
+      "hash": "sha256-VMTRm7WpRTEB0Y/dFrOJv4ZXeSFSKv+WkZEBkNSaAPY=",
       "url": "_framework/DNG.Library.wasm"
     },
     {
@@ -838,7 +834,7 @@ self.assetsManifest = {
       "url": "_framework/WindowsBase.wasm"
     },
     {
-      "hash": "sha256-qrofTRZWypqPQ2ogXvWLod+IrwTWMgMsDFc9Q9N8F0s=",
+      "hash": "sha256-s0vh7OdmCTNfOc9dyjA4YXkXdraFj9J8pPNckJ3Xd8g=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -1746,12 +1742,8 @@ self.assetsManifest = {
       "url": "images/plastic-modular-belting-conveyor.jpg"
     },
     {
-      "hash": "sha256-Qi4R+Tz7xBX3G1e4Lb9HfU/Ug3yLoDQA7Sk2TZai+I4=",
+      "hash": "sha256-Bekb6SwGtMjQrz8ubrAx1/k/2MfKt4Z3Tj6m+wXJwvc=",
       "url": "index.html"
-    },
-    {
-      "hash": "sha256-gjcHSItx6LSwTv15yJrkB1jn8HV9EvjPJDUGj9HHzwE=",
-      "url": "manifest.json"
     },
     {
       "hash": "sha256-FLlVmeXcpEm9fv31zyQMkdyjNBi2vrjg9LsHdOz2TkQ=",

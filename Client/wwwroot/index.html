@@ -17,8 +17,6 @@
     <link rel="apple-touch-icon" sizes="192x192" href="icons/habasit-icon-192.png" />
     <link href="Client.styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/app.css" />
-    <link rel="manifest" href="manifest.json" />
-
 </head>
 
 <body class="print-mode">
@@ -39,10 +37,10 @@
         </div>
     </div>
 
-    <!--<div id="blazor-error-ui">
+    <div id="blazor-error-ui">
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
-    </div>-->
+    </div>
     <script src="_framework/blazor.webassembly.js"></script>
 
     <script>
@@ -94,19 +92,5 @@
             return new bootstrap.Tooltip(tooltipTriggerEl)
         })
     </script>
-    <script>
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js')
-              .then(registration => {
-                console.log('Service Worker registered with scope:', registration.scope);
-              })
-              .catch(error => {
-                console.error('Service Worker registration failed:', error);
-              });
-          });
-        }
-      </script>
-      
 </body>
 </html>

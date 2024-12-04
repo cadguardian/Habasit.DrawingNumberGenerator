@@ -15,11 +15,12 @@ public class ParsedDrawingRequest
     public string LinkCount { get; set; } = string.Empty;
     public string FlightOrGripInfo { get; set; } = string.Empty;
     public string RodMaterial { get; set; } = string.Empty;
-    public string GeneralComments { get; set; } = string.Empty;
     public string DrawingNumber { get; set; } = string.Empty;
 
     // Additional parameters
     public string Subject { get; set; } = string.Empty;
+
+    public string GeneralComments { get; set; } = string.Empty;
 
     public string AssignedTo { get; set; } = string.Empty;
     public string Priority { get; set; } = string.Empty;
