@@ -21,6 +21,7 @@ public class BeltAccessories : RuleWithOptions, IOptions
         ["PW"] = "2.0 Rad. Exp. Plug",
         ["PB"] = "2.2 Rad. Exp. Plug",
         ["PF"] = "2.5 Rad. Exp. Plug",
-        ["PD"] = "3.0 Rad. Exp. Plug"
+        ["PD"] = "3.0 Rad. Exp. Plug",
+        ["SC"] = "SaniClip"
     };
 }

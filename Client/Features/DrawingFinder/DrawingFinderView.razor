@@ -6,7 +6,7 @@
 @inject IStateContainer State
 @inject IDrawingFileService DrawingFileService
 
-<div class="container-fluid no-print mb-3" style="max-width: 650px;">
+<div class="container-fluid no-print mb-3 mt-3" style="max-width: 650px;">
 
     <div class="card">
         <div class="d-flex justify-content-between align-items-center card-header">
@@ -50,7 +50,7 @@
                             <span class="me-2">@GetFileIcon(file.FileType)</span>
                             <div class="flex-grow-1">
                                 <h6 class="mb-1">@file.DisplayName</h6>
-                                <small class="text-muted">File Path: @file.RelativePath</small>
+                                <small class="text-muted"> @file.RelativePath</small>
                             </div>
                             <button class="btn btn-outline-primary btn-sm"
                                     @onclick="() => CopyFilePathToClipboard(file.RelativePath)"

@@ -5126,9 +5126,8 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "all"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+        "auditMode": "direct"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -5166,43 +5165,13 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.10, 8.0.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[8.0.10, 8.0.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.10, 8.0.10]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.10, 8.0.10]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'MessagePack' 2.5.140 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4qm4-8hg2-g2xm",
-      "libraryId": "MessagePack",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }

@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "26Q0yet5",
+  "version": "7NqjynJ5",
   "assets": [
     {
       "hash": "sha256-fKQz3jJDqpgzRFhVTtjZjL1heths7erCYWvsQQsRYrE=",
@@ -34,11 +34,11 @@ self.assetsManifest = {
       "url": "_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"
     },
     {
-      "hash": "sha256-Zcl5Qlaq6jIVdbizxKXiUFhc85B/QsSzK4ZFjiwODDE=",
+      "hash": "sha256-GJv9HxjeobVmDvO/35+FTLZPNAnA8P5Rj8d3Ovj1vT8=",
       "url": "_framework/Client.pdb"
     },
     {
-      "hash": "sha256-yZH3Zb98SMAXylxOzCoXCfLEKAkAfMiS5m1H8woNH8M=",
+      "hash": "sha256-X1QojuMNt75XEc27QaJHjEPs5TtBzPcOXODD6f4SFCY=",
       "url": "_framework/Client.wasm"
     },
     {
@@ -46,15 +46,11 @@ self.assetsManifest = {
       "url": "_framework/ColorCode.Core.wasm"
     },
     {
-      "hash": "sha256-BXz5RCSFBrg3KCDZD4lxgyWmw1YH6vUT0N/oIQdCKfA=",
-      "url": "_framework/CsvHelper.wasm"
-    },
-    {
-      "hash": "sha256-XUg0uC75r6j17Sjn0ci03T5de6snksPJXvUgOj9u1ps=",
+      "hash": "sha256-qEwmxmCP3CWCSqMM2Va+0uaMvYLVWzHO1XNKZ6KX7ng=",
       "url": "_framework/DNG.Library.pdb"
     },
     {
-      "hash": "sha256-yps2QgtwyWhXrthTYOyiaVFJ6NCD8j62QPnz4zryfdg=",
+      "hash": "sha256-SfLjLQqi/QEReiPiYgKeNNKW7BRmZbTN7gSU5rT+Afc=",
       "url": "_framework/DNG.Library.wasm"
     },
     {
@@ -834,7 +830,7 @@ self.assetsManifest = {
       "url": "_framework/WindowsBase.wasm"
     },
     {
-      "hash": "sha256-RMX2NRnd01n+/Q7pLNdOJr+ZPBcVl0B0XJotxMLmdAY=",
+      "hash": "sha256-Be1WuGMy/xP7Vqj08S9SedRo0AyA2ePZZ3W4nAkNz5s=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -940,10 +936,6 @@ self.assetsManifest = {
     {
       "hash": "sha256-9otOM1eHHHczFdZ930xTTa5mlhGXkMD9pEI3L73BSIA=",
       "url": "icons/habasit-icon-512.png"
-    },
-    {
-      "hash": "sha256-GMZ4DX47cTDUF5EhX7EvgTo+49gL45aYz1gQorDC6AU=",
-      "url": "images/belt named images.zip"
     },
     {
       "hash": "sha256-XyN/gTBhYi3Y7WIYcwZBQtwssoq6uOLp3tjgCCfDvOM=",

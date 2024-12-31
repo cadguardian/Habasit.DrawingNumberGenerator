@@ -93,7 +93,7 @@ public class DrawingNumberDecipherService : IDrawingNumberDecipherService
 
     private void LogAttributeResult(string attributeName, string codeSegment, string drawingRequestValue)
     {
-        if (drawingRequestValue == "Unknown")
+        if (drawingRequestValue == "❌")
         {
             _logger.LogWarning("Unknown code '{CodeSegment}' for attribute '{AttributeName}'. Unable to map to a known value.", codeSegment, attributeName);
         }

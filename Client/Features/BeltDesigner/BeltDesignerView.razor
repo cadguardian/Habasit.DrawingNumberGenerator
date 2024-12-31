@@ -5,23 +5,28 @@
 
 <div style="page-break-after: always"></div>
 
+<div class="container-fluid no-print mb-3 mt-3">
 
+    <div class="card">
+        <div class="d-flex justify-content-between align-items-center card-header">
+            <h4 class="small"><i class="fa-solid fa-folder-tree"></i> Belt Design Layout for Special Builds</h4>
+        </div>
 
-<div class="belt-designer-output print-mode no-print" id="beltDesignerOutput">
+<div class="belt-designer-output print-mode" id="beltDesignerOutput">
     <div class="text-center">
-        <h4 class="text-muted mb-3">Belt Design Layout for Custom Builds</h4>
-        <div class="text-center no-print alert alert-secondary small">
+       
+        <div class="text-center no-print alert alert-secondary small rounded-0">
             Generate and review detailed belt designs for seamless production.
         </div>
     </div>
 
-    <div class="alert alert-info text-center mt-3 small">
+    <div class="alert alert-info text-center small">
         <h4><i class="fa-solid fa-flask"></i> Experimental Feature Notice</h4>
         <p>
             This belt design feature is currently in development and may not produce optimal results.
             I appreciate your understanding as I work to refine the algorithm.
         </p>
-        <hr>
+        @* <hr>
         <h5>Current Challenges:</h5>
         <ul class="text-start">
             <li>Ensuring proper seam placement for all rows without overlap violations.</li>
@@ -29,7 +34,7 @@
             <li>Preventing adjacent rows from having less than a 2-link offset.</li>
             <li>Avoiding 1-link modules, which are not permitted in the design.</li>
             <li>Balancing flight row symmetry with minimal waste.</li>
-        </ul>
+        </ul> *@
         <p class="mt-2">
             Thank you for your patience as I work to address these issues.
         </p>
@@ -37,7 +42,7 @@
 
 
     <div class="row">
-        <div class="col-md-4 col-sm-4">
+                <div class="col-md-4 col-sm-6">
             <div class="card mb-3">
                 <h4 class="card-header small d-flex justify-content-between align-items-center">
                     <i class="fa-solid fa-info"></i> Drawing Request Details
@@ -50,7 +55,7 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-sm-4">
+                <div class="col-md-4 col-sm-6">
             <div class="card mb-3">
                 <h4 class="card-header small d-flex justify-content-between align-items-center">
                     <i class="fa-solid fa-list"></i> Available Parts
@@ -66,7 +71,7 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-sm-4">
+                <div class="col-md-4 col-sm-6">
             <div class="card mb-3">
                 <h4 class="card-header small d-flex justify-content-between align-items-center">
                     <i class="fa-solid fa-chart-line"></i> Seam Placement Report
@@ -79,6 +84,23 @@
                 </div>
             </div>
         </div>
+
+                <div class="col-md-4 col-sm-6">
+                    @if (_beltLayout.Warnings.Any())
+                    {
+                        <div class="card mb-3">
+                            <h4 class="card-header small d-flex justify-content-between align-items-center">
+                                <i class="fa-solid fa-exclamation-triangle"></i> Warnings
+                            </h4>
+                            <div class="card-body">
+                                @foreach (var warning in _beltLayout.Warnings)
+                                {
+                                    <p class="text-danger small">@warning</p>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
     </div>
 
 
@@ -95,22 +117,7 @@
                 }
             </div>
         </div>
-        <div class="col-md-6 col-sm-6">
-            @if (_beltLayout.Warnings.Any())
-            {
-                <div class="card mb-3">
-                    <h4 class="card-header small d-flex justify-content-between align-items-center">
-                        <i class="fa-solid fa-exclamation-triangle"></i> Warnings
-                    </h4>
-                    <div class="card-body">
-                        @foreach (var warning in _beltLayout.Warnings)
-                        {
-                            <p class="text-danger small">@warning</p>
-                        }
-                    </div>
-                </div>
-            }
-        </div>
+        
     </div>
 
 
@@ -139,7 +146,7 @@
                             {
                                 <tr>
                                     <td colspan="2">
-                                        <table class="table table-hover table-sm">
+                                                <table style="max-width: 350px;" class="table table-hover table-sm">
                                             <thead>
                                                 <tr>
                                                     <th>Link Count</th>
@@ -175,6 +182,8 @@
     </div>
 
 
+        </div>
+    </div>
 </div>
 
 

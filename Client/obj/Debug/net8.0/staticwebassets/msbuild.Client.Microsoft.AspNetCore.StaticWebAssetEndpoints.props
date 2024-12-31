@@ -228,29 +228,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"y13631vvyd"},{"Name":"integrity","Value":"sha256-9otOM1eHHHczFdZ930xTTa5mlhGXkMD9pEI3L73BSIA="},{"Name":"label","Value":"icons/habasit-icon-512.png"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"9059"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u00229otOM1eHHHczFdZ930xTTa5mlhGXkMD9pEI3L73BSIA=\u0022"},{"Name":"Last-Modified","Value":"Tue, 22 Oct 2024 17:15:45 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="images/belt named images.0yy8bn3w1f.zip">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\belt named images.zip'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"0yy8bn3w1f"},{"Name":"integrity","Value":"sha256-GMZ4DX47cTDUF5EhX7EvgTo\u002B49gL45aYz1gQorDC6AU="},{"Name":"label","Value":"images/belt named images.zip"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4589159"},{"Name":"Content-Type","Value":"application/x-zip-compressed"},{"Name":"ETag","Value":"\u0022GMZ4DX47cTDUF5EhX7EvgTo\u002B49gL45aYz1gQorDC6AU=\u0022"},{"Name":"Last-Modified","Value":"Wed, 30 Oct 2024 20:56:08 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="images/belt named images.zip">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\belt named images.zip'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-GMZ4DX47cTDUF5EhX7EvgTo\u002B49gL45aYz1gQorDC6AU="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4589159"},{"Name":"Content-Type","Value":"application/x-zip-compressed"},{"Name":"ETag","Value":"\u0022GMZ4DX47cTDUF5EhX7EvgTo\u002B49gL45aYz1gQorDC6AU=\u0022"},{"Name":"Last-Modified","Value":"Wed, 30 Oct 2024 20:56:08 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="images/belts/images.json">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\belts\images.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-DdE7ew0n0sCwUuJ9KoQ/nPS3YYc7/tOt2GguRBJiEhM="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5798"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022DdE7ew0n0sCwUuJ9KoQ/nPS3YYc7/tOt2GguRBJiEhM=\u0022"},{"Name":"Last-Modified","Value":"Mon, 02 Dec 2024 16:25:55 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5798"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022DdE7ew0n0sCwUuJ9KoQ/nPS3YYc7/tOt2GguRBJiEhM=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Dec 2024 22:02:27 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="images/belts/images.nv02u4hpby.json">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\belts\images.json'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"nv02u4hpby"},{"Name":"integrity","Value":"sha256-DdE7ew0n0sCwUuJ9KoQ/nPS3YYc7/tOt2GguRBJiEhM="},{"Name":"label","Value":"images/belts/images.json"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5798"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022DdE7ew0n0sCwUuJ9KoQ/nPS3YYc7/tOt2GguRBJiEhM=\u0022"},{"Name":"Last-Modified","Value":"Mon, 02 Dec 2024 16:25:55 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5798"},{"Name":"Content-Type","Value":"application/json"},{"Name":"ETag","Value":"\u0022DdE7ew0n0sCwUuJ9KoQ/nPS3YYc7/tOt2GguRBJiEhM=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Dec 2024 22:02:27 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="images/belts/ModularBelt_106_10_01.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\belts\ModularBelt_106_10_01.jpg'))</AssetFile>

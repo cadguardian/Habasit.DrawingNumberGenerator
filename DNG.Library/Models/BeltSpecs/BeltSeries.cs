@@ -14,6 +14,7 @@ public class BeltSeries : RuleWithOptions, IOptions
         ["SM605"] = "KVP",
         ["CM605"] = "KVP",
         ["HDS605FT"] = "KVP",
+        ["HDS605RT"] = "KVP",
         ["HDS05TT"] = "KVP",
         ["106-10"] = "KVP",
         ["106-22"] = "KVP",
