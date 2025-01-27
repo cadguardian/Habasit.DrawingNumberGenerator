@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "lN4lo3uh",
+  "version": "FYxTzahI",
   "assets": [
     {
       "hash": "sha256-fKQz3jJDqpgzRFhVTtjZjL1heths7erCYWvsQQsRYrE=",
@@ -34,11 +34,11 @@ self.assetsManifest = {
       "url": "_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"
     },
     {
-      "hash": "sha256-HyqSMekvV78L6pIveP1Sd5wNm0M41Ru4CdijMM12tfk=",
+      "hash": "sha256-jZyMmLDjblYjsFCVWMgx63mK0iZPU3tPBHwLx7aaUCE=",
       "url": "_framework/Client.pdb"
     },
     {
-      "hash": "sha256-zUskIG73tlioNrATumoeP9mlnoCrLE7cz9k0jaVImec=",
+      "hash": "sha256-RMTSYGQLX+qr8KBKM6U3kgwj7SxEr2hpwz/zbF2W5rw=",
       "url": "_framework/Client.wasm"
     },
     {
@@ -46,15 +46,11 @@ self.assetsManifest = {
       "url": "_framework/ColorCode.Core.wasm"
     },
     {
-      "hash": "sha256-BXz5RCSFBrg3KCDZD4lxgyWmw1YH6vUT0N/oIQdCKfA=",
-      "url": "_framework/CsvHelper.wasm"
-    },
-    {
-      "hash": "sha256-wH0t+1rDvTBAxoAIeBp8ID7T0tjzJerT9GClmnktHsU=",
+      "hash": "sha256-H45GtDZegAe+tSjhaUcfI4MBfzimR/g/B2CcQVegm6w=",
       "url": "_framework/DNG.Library.pdb"
     },
     {
-      "hash": "sha256-VMTRm7WpRTEB0Y/dFrOJv4ZXeSFSKv+WkZEBkNSaAPY=",
+      "hash": "sha256-pNVppBzE6ZXKjA+9q2AM6H/g1MH6aBtgnC0vFaL6f2w=",
       "url": "_framework/DNG.Library.wasm"
     },
     {
@@ -834,7 +830,7 @@ self.assetsManifest = {
       "url": "_framework/WindowsBase.wasm"
     },
     {
-      "hash": "sha256-s0vh7OdmCTNfOc9dyjA4YXkXdraFj9J8pPNckJ3Xd8g=",
+      "hash": "sha256-ziv25JDXfV0wxvpJ8/kXOjuV6vyLaxftSzX1o6Y3b2w=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -940,10 +936,6 @@ self.assetsManifest = {
     {
       "hash": "sha256-9otOM1eHHHczFdZ930xTTa5mlhGXkMD9pEI3L73BSIA=",
       "url": "icons/habasit-icon-512.png"
-    },
-    {
-      "hash": "sha256-GMZ4DX47cTDUF5EhX7EvgTo+49gL45aYz1gQorDC6AU=",
-      "url": "images/belt named images.zip"
     },
     {
       "hash": "sha256-XyN/gTBhYi3Y7WIYcwZBQtwssoq6uOLp3tjgCCfDvOM=",
@@ -1742,7 +1734,7 @@ self.assetsManifest = {
       "url": "images/plastic-modular-belting-conveyor.jpg"
     },
     {
-      "hash": "sha256-Bekb6SwGtMjQrz8ubrAx1/k/2MfKt4Z3Tj6m+wXJwvc=",
+      "hash": "sha256-l4Nu/bp3a7H2F71ewgdVa8U1+s6chHW5/xlXb+vRXlw=",
       "url": "index.html"
     },
     {
