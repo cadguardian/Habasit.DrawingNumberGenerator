@@ -23,6 +23,7 @@ public class MaterialColor : RuleWithOptions, IOptions
         ["R"] = "Red",
         ["T"] = "Tan",
         ["W"] = "White",
-        ["Y"] = "Yellow"
+        ["Y"] = "Yellow",
+        ["X"] = "WHI"
     };
 }

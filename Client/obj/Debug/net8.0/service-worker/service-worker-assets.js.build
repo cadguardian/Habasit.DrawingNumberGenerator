@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "7NqjynJ5",
+  "version": "h1JA5Iq2",
   "assets": [
     {
       "hash": "sha256-fKQz3jJDqpgzRFhVTtjZjL1heths7erCYWvsQQsRYrE=",
@@ -34,11 +34,11 @@ self.assetsManifest = {
       "url": "_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"
     },
     {
-      "hash": "sha256-GJv9HxjeobVmDvO/35+FTLZPNAnA8P5Rj8d3Ovj1vT8=",
+      "hash": "sha256-kQtRsFDfuArRstThwfoeHsAx1mp3o0Z0t9ZDBQ9c+HU=",
       "url": "_framework/Client.pdb"
     },
     {
-      "hash": "sha256-X1QojuMNt75XEc27QaJHjEPs5TtBzPcOXODD6f4SFCY=",
+      "hash": "sha256-fup6CltAoQIkCT/UawLwex4lo0yGqq42oJAFlJtsCYs=",
       "url": "_framework/Client.wasm"
     },
     {
@@ -46,11 +46,11 @@ self.assetsManifest = {
       "url": "_framework/ColorCode.Core.wasm"
     },
     {
-      "hash": "sha256-qEwmxmCP3CWCSqMM2Va+0uaMvYLVWzHO1XNKZ6KX7ng=",
+      "hash": "sha256-LJpXk8aetZgSWykEfu3WQl0hJs/PjHE3QNV6VTfEcZA=",
       "url": "_framework/DNG.Library.pdb"
     },
     {
-      "hash": "sha256-SfLjLQqi/QEReiPiYgKeNNKW7BRmZbTN7gSU5rT+Afc=",
+      "hash": "sha256-4vUQk2jAeT5jHddy2LiZ4SxxFTen6q19QCz6BM7bXIY=",
       "url": "_framework/DNG.Library.wasm"
     },
     {
@@ -830,7 +830,7 @@ self.assetsManifest = {
       "url": "_framework/WindowsBase.wasm"
     },
     {
-      "hash": "sha256-Be1WuGMy/xP7Vqj08S9SedRo0AyA2ePZZ3W4nAkNz5s=",
+      "hash": "sha256-OP33K+RTc5Sgx31SLJCOhmH1a9Vsg+vyFgM6QCJgPPo=",
       "url": "_framework/blazor.boot.json"
     },
     {
@@ -1734,7 +1734,7 @@ self.assetsManifest = {
       "url": "images/plastic-modular-belting-conveyor.jpg"
     },
     {
-      "hash": "sha256-Bekb6SwGtMjQrz8ubrAx1/k/2MfKt4Z3Tj6m+wXJwvc=",
+      "hash": "sha256-l4Nu/bp3a7H2F71ewgdVa8U1+s6chHW5/xlXb+vRXlw=",
       "url": "index.html"
     },
     {

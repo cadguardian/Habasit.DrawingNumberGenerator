@@ -6,5 +6,6 @@ public enum PartType
     Flight,
     Grip,
     Sideplate,
-    Saniclip
+    Saniclip,
+    Sprocket
 }

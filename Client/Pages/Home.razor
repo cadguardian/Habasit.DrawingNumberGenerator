@@ -11,8 +11,9 @@
 @inject IJSRuntime JSRuntime
 @inject IStateContainer State
 @inject IDrawingRequestProcessor DrawingRequestProcessor
+@inject ITitleBlockService TitleBlockService
 
-<PageTitle>belt-tools.vercel.app</PageTitle>
+<PageTitle>@($"{State.DrawingRequest.GetJobNumber()} | {State.DrawingNumber.DrawingCode}")</PageTitle>
 
 @* <h3 class="display-6">Special Build - Plastic Modular Belt</h3> *@
 

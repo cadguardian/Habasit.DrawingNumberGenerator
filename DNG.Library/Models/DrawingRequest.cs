@@ -111,5 +111,85 @@ namespace DNG.Library.Models
                 IndentCode
             };
         }
+
+        /// <summary>
+        /// Returns the name of the output text file based on JobNumber, BeltType, and BeltSeries.
+        /// Example: "SO123456 M1220 properties.txt"
+        /// </summary>
+        public string GetExportFileName()
+        {
+            // If GetJobNumber() is empty, we use "UNDEFINED"
+            string jobNumber = string.IsNullOrWhiteSpace(GetJobNumber()) ? "UNDEFINED" : GetJobNumber();
+
+            // BeltType or BeltSeries can be empty => "UNDEFINED"
+            string beltType = string.IsNullOrWhiteSpace(BeltType) ? "UNDEFINED" : BeltType;
+            string beltSeries = string.IsNullOrWhiteSpace(BeltSeries) ? "UNDEFINED" : BeltSeries;
+
+            return $"{jobNumber} {beltType}{beltSeries} properties.txt";
+        }
+
+        /// <summary>
+        /// Builds a multi-line text string where each line is "Property=Value".
+        /// If a string property is empty, uses "UNDEFINED".
+        /// </summary>
+        public string ExportPropertiesToText()
+        {
+            // Local helper to handle empty strings
+            Func<string, string> StrOrUndefined = s =>
+                string.IsNullOrWhiteSpace(s) ? "UNDEFINED" : s;
+
+            // For the PartsList
+            string partsListValue = PartsList?.Count > 0
+                ? string.Join(";", PartsList.Select(kvp => $"{kvp.Key}={kvp.Value}"))
+                : "UNDEFINED";
+
+            // For the SpecialCaseInfo dictionary
+            string specialCaseValue = SpecialCaseInfo?.Count > 0
+                ? string.Join(";", SpecialCaseInfo.Select(kvp => $"{kvp.Key}={kvp.Value}"))
+                : "UNDEFINED";
+
+            // Build each line.
+            // Note: Numeric/date properties are simply converted to string.
+            // Adjust if you need "UNDEFINED" for zero or default values.
+            var lines = new List<string>
+            {
+                $"Id={Id}",
+                $"PurchaseOrderNumber={StrOrUndefined(PurchaseOrderNumber)}",
+                $"BeltType={StrOrUndefined(BeltType)}",
+                $"BeltSeries={StrOrUndefined(BeltSeries)}",
+                $"Color={StrOrUndefined(Color)}",
+                $"Material={StrOrUndefined(Material)}",
+                $"AdderMaterial={StrOrUndefined(AdderMaterial)}",
+                $"RodMaterial={StrOrUndefined(RodMaterial)}",
+                $"BeltWidth={BeltWidth}", // Using actual numeric value; change if 0 => "UNDEFINED"
+                $"ThumbnailImageFilePath={StrOrUndefined(ThumbnailImageFilePath)}",
+                $"QtyRollersAcrossWidth={QtyRollersAcrossWidth}",
+                $"FRGCenters={FRGCenters}",
+                $"FlightsRollersGrip={StrOrUndefined(FlightsRollersGrip)}",
+                $"BeltAccessories={StrOrUndefined(BeltAccessories)}",
+                $"FrictionAntiStatic={StrOrUndefined(FrictionAntiStatic)}",
+                $"SidePLLaneDV={StrOrUndefined(SidePLLaneDV)}",
+                $"UniqueIdentification={StrOrUndefined(UniqueIdentification)}",
+                $"IndentCode={StrOrUndefined(IndentCode)}",
+                $"SalesOrderNumber={StrOrUndefined(SalesOrderNumber)}",
+                $"StartDate={StartDate:yyyy-MM-dd HH:mm:ss}", // Example format; change as needed
+                $"AssignedTo={StrOrUndefined(AssignedTo)}",
+                $"QueryString={StrOrUndefined(QueryString)}",
+                $"PartsList={partsListValue}",
+                $"SpecialCaseInfo={specialCaseValue}",
+                $"QuoteNumber={StrOrUndefined(QuoteNumber)}",
+                $"SugarCRMTaskLink={StrOrUndefined(SugarCRMTaskLink)}",
+                $"FinalDrawingFilePath={StrOrUndefined(FinalDrawingFilePath)}",
+                $"NumberOfLinks={NumberOfLinks}",
+                $"BeltLengthLinearFeet={BeltLengthLinearFeet}",
+                $"BeltLengthSquareFeet={BeltLengthSquareFeet}",
+                $"StructuredText={StrOrUndefined(StructuredText)}",
+                $"CadTemplatePath={StrOrUndefined(CadTemplatePath)}",
+                $"ReferenceDrawingPath={StrOrUndefined(ReferenceDrawingPath)}"
+            };
+
+            // Combine all lines into a single string with line breaks
+            return string.Join(Environment.NewLine, lines);
+        }
     }
 }
