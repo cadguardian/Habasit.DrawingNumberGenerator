@@ -1,6 +1,8 @@
 ﻿@page "/parse-drawing-request"
+@using DNG.Library.Models.BeltSpecs
 @inherits BaseInputComponent
 @inject IDrawingRequestParserService ParserService
+@inject IStateContainer State
 
 <div class="container-fluid no-print my-2" style="max-width: 800px;">
     <div class="card">
@@ -10,14 +12,16 @@
             </h4>
         </div>
 
-        <!-- Instructions -->
         <div class="alert alert-secondary p-3 mb-2 rounded-0" style="font-size: 0.8rem;">
             Paste your drawing request in the textbox below and click "Parse" to extract parameters.
 
             
         </div>
 
-        
+        <div class="card-body">
+            <textarea @bind="structuredText" rows="13" class="form-control mb-3" placeholder="Paste drawing request here..."></textarea>
+            <button type="button" class="btn btn-primary w-100" @onclick="ParseInput">Parse</button>
+        </div>
 
         <!-- Parsed Parameters Display -->
         @if (ParsedRequest != null)
@@ -31,6 +35,7 @@
                             <tr>
                                 <th scope="row">Belt Series</th>
                                 <td>@ParsedRequest.BeltSeries</td>
+                                @* <td><button type="button" class="btn btn-sm btn-primary w-100" @onclick="UpdateBeltSeries">Apply</button></td> *@
                             </tr>
                         }
 
@@ -40,6 +45,7 @@
                             <tr>
                                 <th scope="row">Belt Type</th>
                                 <td>@ParsedRequest.BeltType</td>
+                                 @* <td><button type="button" class="btn btn-sm btn-primary w-100" @onclick="UpdateBeltType">Apply</button></td> *@
                             </tr>
                         }
 
@@ -49,6 +55,7 @@
                             <tr>
                                 <th scope="row">Belt Material</th>
                                 <td>@ParsedRequest.Material</td>
+                                @* <td><button type="button" class="btn btn-sm btn-primary w-100" @onclick="UpdateMaterial">Apply</button></td> *@
                             </tr>
                         }
 
@@ -58,6 +65,7 @@
                             <tr>
                                 <th scope="row">Belt Color</th>
                                 <td>@ParsedRequest.Color</td>
+                                @* <td><button type="button" class="btn btn-sm btn-primary w-100" @onclick="UpdateColor">Apply</button></td> *@
                             </tr>
                         }
 
@@ -67,6 +75,7 @@
                             <tr>
                                 <th scope="row">Rods</th>
                                 <td>@ParsedRequest.RodMaterial</td>
+                                @* <td><button type="button" class="btn btn-sm btn-primary w-100" @onclick="UpdateRodMaterial">Apply</button></td> *@
                             </tr>
                         }
 
@@ -76,6 +85,7 @@
                             <tr>
                                 <th scope="row">Belt Width (IN)</th>
                                 <td>@ParsedRequest.BeltWidth</td>
+                                @* <td><button type="button" class="btn btn-sm btn-primary w-100" @onclick="UpdateBeltWidth">Apply</button></td> *@
                             </tr>
                         }
 
@@ -85,6 +95,7 @@
                             <tr>
                                 <th scope="row">Links</th>
                                 <td>@ParsedRequest.NumberOfLinks</td>
+                                @* <td><button type="button" class="btn btn-sm btn-primary w-100" @onclick="UpdateNumberOfLinks">Apply</button></td> *@
                             </tr>
                         }
 
@@ -94,6 +105,7 @@
                             <tr>
                                 <th scope="row">Flight</th>
                                 <td>@ParsedRequest.FlightsRollersGrip</td>
+                                @* <td><button type="button" class="btn btn-sm btn-primary w-100" @onclick="UpdateFlightsRollersGrip">Apply</button></td> *@
                             </tr>
                         }
 
@@ -103,6 +115,7 @@
                             <tr>
                                 <th scope="row">Spacing (IN)</th>
                                 <td>@ParsedRequest.FRGCenters</td>
+                                @* <td><button type="button" class="btn btn-sm btn-primary w-100" @onclick="UpdateFRGCenters">Apply</button></td> *@
                             </tr>
                         }
 
@@ -112,6 +125,7 @@
                             <tr>
                                 <th scope="row">Indent (IN)</th>
                                 <td>@ParsedRequest.IndentCode</td>
+                                @* <td><button type="button" class="btn btn-sm btn-primary w-100" @onclick="UpdateIndentCode">Apply</button></td> *@
                             </tr>
                         }
 
@@ -178,15 +192,65 @@
         }
     }
 
-        private string structuredText
+    private string structuredText
+    {
+        get => State!.DrawingRequest?.StructuredText ?? string.Empty;
+        set
         {
-            get => State!.DrawingRequest?.StructuredText ?? string.Empty;
-            set
+            if (State!.DrawingRequest != null && State.DrawingRequest.StructuredText != value)
             {
-                if (State!.DrawingRequest != null && State.DrawingRequest.StructuredText != value)
-                {
-                    State.UpdateProperty(State.DrawingRequest, dr => dr.StructuredText = value);
-                }
+                State.UpdateProperty(State.DrawingRequest, dr => dr.StructuredText = value);
             }
         }
+    }
+
+    private void UpdateBeltSeries()
+    {
+        State.UpdateProperty(State.DrawingRequest, dr => dr.BeltSeries = ParsedRequest.BeltSeries);
+    }
+    private void UpdateMaterial()
+    {
+        string material = ParsedRequest.Material.ToLower();
+
+        var result = BeltMaterial.Options.Values.Where(_ => _.ToLower()
+        .Contains(material))
+        .ToList()
+        .FirstOrDefault()!;
+
+        State.UpdateProperty(State.DrawingRequest, dr => dr.Material = result);
+    }
+    private void UpdateColor()
+    {
+        State.UpdateProperty(State.DrawingRequest, dr => dr.Color = ParsedRequest.Color);
+    }
+    private void UpdateRodMaterial()
+    {
+        string rodMaterial = ParsedRequest.RodMaterial.ToLower();
+
+        var result = RodMaterial.Options.Values.Where(_ => _.ToLower()
+        .Contains(rodMaterial))
+        .ToList()
+        .FirstOrDefault()!;
+        State.UpdateProperty(State.DrawingRequest, dr => dr.RodMaterial = result);
+    }
+    private void UpdateBeltWidth()
+    {
+        State.UpdateProperty(State.DrawingRequest, dr => dr.BeltWidth = ParsedRequest.BeltWidth);
+    }
+    private void UpdateNumberOfLinks()
+    {
+        State.UpdateProperty(State.DrawingRequest, dr => dr.NumberOfLinks = ParsedRequest.NumberOfLinks);
+    }
+    private void UpdateFlightsRollersGrip()
+    {
+        State.UpdateProperty(State.DrawingRequest, dr => dr.FlightsRollersGrip = ParsedRequest.FlightsRollersGrip);
+    }
+    private void UpdateFRGCenters()
+    {
+        State.UpdateProperty(State.DrawingRequest, dr => dr.FRGCenters = ParsedRequest.FRGCenters);
+    }
+    private void UpdateIndentCode()
+    {
+        State.UpdateProperty(State.DrawingRequest, dr => dr.IndentCode = ParsedRequest.IndentCode);
+    }
 }

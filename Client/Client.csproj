@@ -32,11 +32,6 @@
 		<ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
 	</ItemGroup>
 
-
-	<ItemGroup>
-    <Compile Remove="Services\BeltAssemblyService.cs" />
-  </ItemGroup>
-
   <ItemGroup>
     <None Remove="Components\UserInput\InputBeltWidth.razor.bk" />
     <None Remove="Docs\Instructions-10-24-24.md" />

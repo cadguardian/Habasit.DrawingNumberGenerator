@@ -74,11 +74,11 @@ namespace DNG.Library.Models
             if (viewModel.IncludeAdderMaterial) values.Add(AdderMaterialCode);
             if (viewModel.IncludeRodMaterial) values.Add(RodMaterialCode);
             if (viewModel.IncludeBeltWidth) values.Add(BeltWidthCode);
+            if (viewModel.IncludeFlightsRollersGrips) values.Add(FlightsRollersGripsCode);
             if (viewModel.IncludeQtyRollersAcrossWidth) values.Add(QtyRollersAcrossWidth);
             if (viewModel.IncludeFRGCenters) values.Add(FRGCenters);
             if (viewModel.IncludeBeltAccessories) values.Add(BeltAccessoriesCode);
             if (viewModel.IncludeFrictionAntiStatic) values.Add(FrictionAntiStaticCode);
-            if (viewModel.IncludeFlightsRollersGrips) values.Add(FlightsRollersGripsCode);
             if (viewModel.IncludeSidePLLaneDV) values.Add(SidePLLaneDVCode);
             if (viewModel.IncludeUniqueIdentification) values.Add(UniqueIdentification);
             if (viewModel.IncludeIndentCode) values.Add(IndentCode);

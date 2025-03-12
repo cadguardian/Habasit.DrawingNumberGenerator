@@ -6,6 +6,8 @@ public interface IDrawingFileService
 {
     Task<List<FileItem>> LoadAllFilesAsync(HttpClient httpClient, string jsonPath);
 
+    Task<List<FileItem>> LoadAllFilesAsync(string jsonPath);
+
     Task<ReportHeader?> LoadReportHeaderAsync(HttpClient httpClient, string jsonPath);
 
     List<FileItemDisplay> SearchFiles(string searchQuery, List<FileItem> allFiles, string drawingNumberQuery);

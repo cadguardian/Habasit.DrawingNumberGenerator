@@ -20,6 +20,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CADCleanser", "CADCleanser\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailParserDesktop", "EmailParserDesktop\EmailParserDesktop.csproj", "{E74E172C-4F29-403F-A25C-74EC4D8A3A32}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBP_DWG_PDM_Winforms", "SBP_DWG_PDM_Winforms\SBP_DWG_PDM_Winforms.csproj", "{CCBD5D85-269C-47DB-94B9-D003EA3D338F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{E74E172C-4F29-403F-A25C-74EC4D8A3A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E74E172C-4F29-403F-A25C-74EC4D8A3A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E74E172C-4F29-403F-A25C-74EC4D8A3A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCBD5D85-269C-47DB-94B9-D003EA3D338F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCBD5D85-269C-47DB-94B9-D003EA3D338F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCBD5D85-269C-47DB-94B9-D003EA3D338F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCBD5D85-269C-47DB-94B9-D003EA3D338F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,7 +3,7 @@
 @inject IDrawingNumberDecipherService DecipherService
 
 <!-- Header Section -->
-<div class="container-fluid no-print" style="max-width: 800px;">
+<div class="container-fluid no-print mt-3" style="max-width: 800px;">
 
     <div class="card shadow-sm">
         <div class="d-flex justify-content-between align-items-center card-header">
@@ -20,19 +20,19 @@
             <div class="input-group me-2 flex-grow-1">
                 <input type="text" class="form-control" placeholder="Enter Drawing Number..."
                        @bind="drawingNumberInput" @bind:event="oninput" @onkeypress="HandleKeyPress" />
-                <button class="btn btn-sm btn-primary" @onclick="HandleDecipher">
-                    <i class="fa-solid fa-arrow-right-to-bracket"></i> Decipher
-                </button>
+                
                 @if (!string.IsNullOrWhiteSpace(drawingNumberInput))
                 {
-                    <button class="btn btn-outline-secondary btn-sm" @onclick="ClearInput">
+                    <button class="btn btn-sm btn-danger " @onclick="ClearInput">
                         <i class="fa-solid fa-eraser"></i> Clear
                     </button>
                 }
+                <button class="btn btn-sm btn-primary" @onclick="HandleDecipher">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> Decipher
+                </button>
             </div>
         </div>
 
-        <!-- Deciphered Results Section -->
         <!-- Deciphered Results Section -->
         @if (decipheredResult != null && decipheredResult.Any())
         {

@@ -75,33 +75,33 @@ public class Flights_Rollers_Grips : IOptions
     private static Dictionary<string, string> GetFlights()
     {
         return new Dictionary<string, string>
-        {
-            { "00", "No Flights" },
-            { "01", "1” Straight Flight" },
-            { "02", "2” Straight Flight" },
-            { "03", "3” Straight Flight" },
-            { "04", "4” Straight Flight" },
-            { "06", "6” Straight Flight" },
-            { "07", "6” EZR Flight" },
-            { "0A", "1-½” Straight Flight" },
-            { "0B", "6” Bucket Flight" },
-            { "0C", "4” Bucket Flight" },
-            { "0D", "3” Bucket Flight" },
-            { "0E", "3\" Scoop/Curved Flight" },
-            { "0H", "½” Straight Flight" },
-            { "0K", "4” Scoop/Curved Flight" },
-            { "0L", "6” Scoop/Curved Flight" },
-            { "0N", "Bent Flight–See Dwg." },
-            { "0Q", "¼” Mini-Cleat" },
-            { "0R", "4” Radius Base Flight" },
-            { "0S", "6” Super Flight (Slide)" },
-            { "0U", "3” Curve Urethane Flight" },
-            { "0V", "3” Str. Urethane Flight" },
-            { "0W", "4” Curve Urethane Flight" },
-            { "0X", "Special Cut Flight" },
-            { "0Y", "2” Str. Urethane Flight" },
-            { "0Z", "4” Str. Urethane Flight" }
-        };
+{
+    { "00", "No Flights" },
+    { "01", "1\" Straight Flight" }, // Using double prime (U+2033)
+    { "02", "2\" Straight Flight" },
+    { "03", "3\" Straight Flight" },
+    { "04", "4\" Straight Flight" },
+    { "06", "6\" Straight Flight" },
+    { "07", "6\" EZR Flight" },
+    { "0A", "1-½\" Straight Flight" },
+    { "0B", "6\" Bucket Flight" },
+    { "0C", "4\" Bucket Flight" },
+    { "0D", "3\" Bucket Flight" },
+    { "0E", "3\" Scoop/Curved Flight" },
+    { "0H", "½\" Straight Flight" },
+    { "0K", "4\" Scoop/Curved Flight" },
+    { "0L", "6\" Scoop/Curved Flight" },
+    { "0N", "Bent Flight–See Dwg." },
+    { "0Q", "¼\" Mini-Cleat" },
+    { "0R", "4\" Radius Base Flight" },
+    { "0S", "6\" Super Flight (Slide)" },
+    { "0U", "3\" Curve Urethane Flight" },
+    { "0V", "3\" Str. Urethane Flight" },
+    { "0W", "4\" Curve Urethane Flight" },
+    { "0X", "Special Cut Flight" },
+    { "0Y", "2\" Str. Urethane Flight" },
+    { "0Z", "4\" Str. Urethane Flight" }
+};
     }
 
     private static Dictionary<string, string> GetGripTops()

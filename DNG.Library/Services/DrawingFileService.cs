@@ -32,6 +32,34 @@ public class DrawingFileService : IDrawingFileService
         return allFiles;
     }
 
+    public async Task<List<FileItem>> LoadAllFilesAsync(string jsonPath)
+    {
+        var allFiles = new List<FileItem>();
+
+        try
+        {
+            if (!File.Exists(jsonPath))
+            {
+                Console.Error.WriteLine($"File not found: {jsonPath}");
+                return allFiles;
+            }
+
+            using var stream = File.OpenRead(jsonPath);
+            var jsonDoc = await JsonDocument.ParseAsync(stream);
+
+            if (jsonDoc.RootElement.TryGetProperty("directory_structure", out JsonElement directoryStructure))
+            {
+                ExtractFiles(directoryStructure, "", allFiles);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"Error parsing JSON: {ex.Message}");
+        }
+
+        return allFiles;
+    }
+
     public async Task<ReportHeader?> LoadReportHeaderAsync(HttpClient httpClient, string jsonPath)
     {
         try

@@ -67,9 +67,9 @@ public class BeltSeries : RuleWithOptions, IOptions
         ["PR620TTR"] = "KVP",
 
         // Habasit Link Belt Series
-        ["870"] = "HabasitLink",
-        ["873"] = "HabasitLink",
-        ["885"] = "HabasitLink",
+        ["0870"] = "HabasitLink",
+        ["0873"] = "HabasitLink",
+        ["0885"] = "HabasitLink",
         ["1185"] = "HabasitLink",
         ["1220"] = "HabasitLink",
         ["1233"] = "HabasitLink",
