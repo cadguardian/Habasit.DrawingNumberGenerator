@@ -1,6 +1,6 @@
 # Habasit.CAD.DrawingCodeManager
 
-To modernize the drawing code cheat sheet you provided and convert it into a .NET 8 application, I suggest building a **desktop or web application** using **C#** with the following components:
+Modernize an existing legacy excel drawing code cheat sheet and convert it into a .NET 8 application by building a **desktop and web application** using **C#** with the following components:
 
 ### 1. **Architecture and App Type**
 - **App Type**: This can be either a **WPF (Windows Presentation Foundation)** desktop app or an **ASP.NET Core MVC/Blazor** web application. Given that this is a tool for reducing user error, either approach can support a dynamic and user-friendly interface.
@@ -26,7 +26,7 @@ To modernize the drawing code cheat sheet you provided and convert it into a .NE
 - **Responsive Design (if Web)**: Ensure the app works on multiple devices if you go with a web solution.
 
 ### 4. **Data Structures**
-- **Code Structure**: Represent codes (like ìTIS610BAON02500200120î) as an object with distinct properties for each part.
+- **Code Structure**: Represent codes (like ‚ÄúTIS610BAON02500200120‚Äù) as an object with distinct properties for each part.
     ```csharp
     class DrawingCode
     {
