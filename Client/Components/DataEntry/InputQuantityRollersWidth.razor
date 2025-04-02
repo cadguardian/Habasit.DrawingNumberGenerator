@@ -1,7 +1,8 @@
 ﻿@using DNG.Library.Models.BeltSpecs
 @inherits BaseInputComponent
 
-<div class="input-group mb-3">
+<div class="col-6">
+<div class="input-group">
     <div class="form-floating">
         <InputNumber @bind-Value="qtyRollersAcrossWidth" id="qtyRollersAcrossWidth" aria-required="true"
                      aria-describedby="qtyRollersAcrossWidthHelp" Min="1" Max="20"
@@ -10,6 +11,7 @@
     </div>
 
     <span class="input-group-text">@rollerWidthCode</span>
+</div>
 </div>
 
 @code {

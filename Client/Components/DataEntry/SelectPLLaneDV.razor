@@ -1,20 +1,21 @@
 ﻿@using DNG.Library.Models.BeltSpecs
 @inherits BaseInputComponent
 
-<div class="input-group mb-3">
-    <div class="form-floating">
-        <select @bind="sidePLLaneDV" id="sidePLLaneDV" class="form-select form-select-sm" required>
-            <option value="" disabled>Select Side-PL/Lane-DV</option>
-            @foreach (var type in SidePLLaneDV.Options.Values)
-            {
-                <option value="@type">@type</option>
-            }
-        </select>
-        <label for="sidePLLaneDV">Side-PL/Lane-DV</label>
+<div class="col-6 col-md-4">
+    <div class="input-group mb-3">
+        <div class="form-floating">
+            <select @bind="sidePLLaneDV" id="sidePLLaneDV" class="form-select form-select-sm" required>
+                <option value="" disabled>Select Side-PL/Lane-DV</option>
+                @foreach (var type in SidePLLaneDV.Options.Values)
+                {
+                    <option value="@type">@type</option>
+                }
+            </select>
+            <label for="sidePLLaneDV">Side-PL/Lane-DV</label>
+        </div>
+
+        <span class="input-group-text">@(State!.DrawingNumber?.SidePLLaneDVCode ?? "❌")</span>
     </div>
-
-    <span class="input-group-text">@(State!.DrawingNumber?.SidePLLaneDVCode ?? "❌")</span>
-
 </div>
 
 @code {

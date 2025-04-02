@@ -5,4 +5,5 @@
     public double SizeMb { get; set; }
     public DateTime CreatedDate { get; set; }
     public string FileType { get; set; } = string.Empty;
+
 }

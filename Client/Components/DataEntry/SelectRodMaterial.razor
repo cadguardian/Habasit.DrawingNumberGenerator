@@ -1,7 +1,8 @@
 ﻿@using DNG.Library.Models.BeltSpecs
 @inherits BaseInputComponent
 
-<div class="input-group mb-3">
+<div class="col-lg-4 input-group mb-3">
+    <div class="input-group">
     <div class="form-floating">
         <select @bind="rodMaterial" id="rodMaterial" class="form-select form-select-sm" required>
             <option value="" disabled>Select Rod Material</option>
@@ -15,6 +16,7 @@
 
     <span class="input-group-text">@(State!.DrawingNumber?.RodMaterialCode ?? "❌")</span>
 
+</div>
 </div>
 
 @code {

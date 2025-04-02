@@ -219,7 +219,12 @@
 
         UpdateQueryString();
 
-        Console.WriteLine("Input Handled!");
+        Console.WriteLine("Drawing Number Updated");
+    }
+
+    private async Task UpdateTitle()
+    {
+        await JSRuntime.InvokeVoidAsync("setTabTitle", "New Title - Updated!");
     }
 
     protected override async Task OnParametersSetAsync()

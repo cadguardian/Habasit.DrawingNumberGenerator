@@ -9,7 +9,7 @@
 
     <!-- Search Bar and Buttons -->
             <div class="d-flex justify-content-between align-items-center card-header">
-            <h4 class="small"><i class="fa-solid fa-search"></i> Available Parts</h4>
+            <h4 class="small"><i class="fa-solid fa-search"></i> Available Parts
 
             @if (PartNumberService.GetParts() != null)
             {
@@ -17,11 +17,10 @@
                     <span>Total Parts: @PartNumberService.GetParts().Count</span>
                 </small>
             }
+                </h4>
+
                 </div>
 
-        <div class="alert alert-secondary p-3 p-2" style="font-size: 0.8rem;">
-            Click <strong>Apply Filters</strong> to set specific criteria before searching. Use this to refine results based on selected attributes.
-        </div>
 
         <div class="input-group me-md-2 flex-grow-1 mb-2 mb-md-0 p-3">
 
@@ -36,22 +35,22 @@
             </div>
         </div>
 
-    <!-- Parts Found Header -->
-    @if (isSearchMode)
-    {
-            
-
-        <div class="mb-3 text-center">
-            <h5>Parts Found: @FilteredPartNumbers.Count()</h5>
-        </div>
-    }
+    
 
     <div class="row">
         <!-- Search Results List -->
         <div class="col-12 col-md-6 mb-3">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <span>Search Results</span>
+                    <span>
+
+                        @if (isSearchMode)
+    {
+        <div class="mb-3 text-center small">
+            <p>Parts Found: @FilteredPartNumbers.Count()</p>
+        </div>
+    }
+                    </span>
                     <button class="btn btn-link text-dark p-0" @onclick="ToggleSort" style="text-decoration: none;">
                         Sort @if (isSortedAsc)
                         {

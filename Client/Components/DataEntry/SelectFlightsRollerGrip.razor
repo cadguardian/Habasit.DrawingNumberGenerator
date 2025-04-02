@@ -1,6 +1,7 @@
 ﻿@using DNG.Library.Models.BeltSpecs
 @inherits BaseInputComponent
 
+<div class="col-6">
 <div class="input-group mb-3">
     <div class="form-floating">
         <select @bind="flightsRollersGrip" id="flightsRollersGrip" class="form-select form-select-sm" required>
@@ -15,6 +16,7 @@
 
     <span class="input-group-text">@(State!.DrawingNumber?.FlightsRollersGripsCode ?? "❌")</span>
 
+</div>
 </div>
 
 @code {

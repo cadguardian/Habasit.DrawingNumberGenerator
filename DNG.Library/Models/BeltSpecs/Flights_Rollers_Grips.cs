@@ -174,6 +174,23 @@ public class Flights_Rollers_Grips : IOptions
         return $"{tensInt}{onesInt}{decimalInt}";
     }
 
+    public static decimal ConvertFRGCentersCodeToInches(string frgCentersCode)
+    {
+        if (string.IsNullOrWhiteSpace(frgCentersCode) || frgCentersCode.Length != 3 || !frgCentersCode.All(char.IsDigit))
+        {
+            return 0;
+        }
+
+        // Extract digits
+        int tens = int.Parse(frgCentersCode[0].ToString()) * 10;
+        int ones = int.Parse(frgCentersCode[1].ToString());
+        int decimalPart = int.Parse(frgCentersCode[2].ToString());
+
+        // Combine into decimal inches
+        decimal result = tens + ones + (decimalPart / 10.0m);
+        return result;
+    }
+
     public static string GetFRGQuantityAcrossWidthCode(int quantity)
     {
         return FormatQuantityDecimal(quantity);

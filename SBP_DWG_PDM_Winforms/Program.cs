@@ -20,6 +20,7 @@ namespace SBP_DWG_PDM_Winforms
             using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
                 var form1 = serviceProvider.GetRequiredService<Form1>();
+                Application.EnableVisualStyles();
                 Application.Run(form1);
             }
         }
@@ -30,6 +31,7 @@ namespace SBP_DWG_PDM_Winforms
             services.AddScoped<IDrawingNumberDecipherService, DrawingNumberDecipherService>();
             services.AddHttpClient(); // Add HttpClient if you're using it in your service.
             services.AddScoped<Form1>(); // Register your form
+            services.AddSingleton<IDrawingNumberDecipherService, DrawingNumberDecipherService>();
         }
     }
 }

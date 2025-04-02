@@ -61,4 +61,42 @@ public class BeltWidth : IRule, INumberRule
     {
         return $"{HundredsPlace}{TensPlace}{OnesPlace}{DecimalPlace}";
     }
+
+    public static string ConvertToInches(string beltWidthCode)
+    {
+        if (string.IsNullOrWhiteSpace(beltWidthCode) || beltWidthCode.Length != 4 || !int.TryParse(beltWidthCode, out int numericValue))
+        {
+            throw new ArgumentException("Invalid belt width code. It must be a 4-digit numeric string.");
+        }
+
+        // Convert: First 3 digits are whole inches, last digit is tenths of an inch
+        double inches = numericValue / 10.0;
+
+        // Return as formatted string with inch symbol
+        return $"{inches:0.0}\"";
+    }
+
+    public static decimal ConvertToInchesDecimal(string beltWidthCode)
+    {
+        if (string.IsNullOrWhiteSpace(beltWidthCode) || beltWidthCode.Length != 4 || !int.TryParse(beltWidthCode, out int numericValue))
+        {
+            throw new ArgumentException("Invalid belt width code. It must be a 4-digit numeric string.");
+        }
+
+        // Convert: First 3 digits are whole inches, last digit is tenths of an inch
+        decimal inches = numericValue / 10.0m;
+
+        // Round to 2 decimal places, remove trailing zeros
+        return decimal.Round(inches, 2).Normalize();
+    }
+
+
+}
+
+public static class DecimalExtensions
+{
+    public static decimal Normalize(this decimal value)
+    {
+        return value / 1.000000000000000000000000000000000m;
+    }
 }

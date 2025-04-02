@@ -17,169 +17,59 @@
 <!-- Minimal Drawing Request Component -->
 <div class="container-fluid my-3 no-print p-0" style="max-width: 800px;">
 
-    <div class="text-center alert alert-secondary small no-print">
-        Effortlessly create and customize drawing requests with structured inputs.
-    </div>
-    
     <div class="card shadow-sm">
 
-        <div class="d-flex justify-content-between align-items-center card-header">
-            <h1 class="small"><i class="fa-solid fa-bullhorn"></i> Drawing Request</h1>
-            </div>
-
-        <!-- Accordion for Drawing Request Steps -->
         <div class="accordion" id="drawingRequestAccordion">
-            <!-- Order Information Section -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOrderInfo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrderInfo" aria-expanded="true" aria-controls="collapseOrderInfo" >
-                        <i class="fa-solid fa-file-invoice me-2"></i> Order Information
-                    </button>
-                </h2>
-                <div id="collapseOrderInfo" class="accordion-collapse collapse show" aria-labelledby="headingOrderInfo" State.DrawingRequest.="#drawingRequestAccordion">
-                    <div class="accordion-body" style=" 1em; font-size: 0.85em;">
+            <div class="accordion-body">
+                <form class="row mb-3">
+                    <InputQuoteNumber />
+                    <InputPurchaseOrderNumber />
+                    <InputSalesOrderNumber />
+                    @* <InputStructuredText />
+                    <DWGRequestParser /> *@
+                </form>
 
-                        <form class="row g-1">
-                            <div class="col-6">
-                                <InputQuoteNumber />
-                            </div>
+                <form class="row g-1">
+                    <form class="row g-1">
+                        <SelectBeltType />
+                        <BeltSeriesSelector />
+                        <ThumbnailGalleryView />
+                    </form>
 
-                            <div class="col-6">
-                                <InputPurchaseOrderNumber/>
-                            </div>
-
-                            <div class="col-12 col-md-6">
-                                <InputSalesOrderNumber />
-                            </div>
-
-                            <div class="col-12">
-                                @* <InputStructuredText /> *@
-                                <DWGRequestParser />
-                            </div>
-                        </form>
+                    <div class="row">
+                        <SelectBeltMaterial />
+                        <SelectMaterialColor />
+                        <SelectRodMaterial />
                     </div>
-                </div>
+
+                    <div class="row">
+                        <InputBeltWidth />
+                        <InputNumberOfLinks />
+                    </div>
+                </form>
+
+                <form class="row g-1">
+                    <SelectAdderMaterial />
+                    <SelectFlightsRollerGrip />
+                    <InputFlightRollersGripTopCenters />
+                    <InputQuantityRollersWidth />
+                </form>
             </div>
 
-            <!-- Core Attributes Section -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingCoreAttributes">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCoreAttributes" aria-expanded="true" aria-controls="collapseCoreAttributes" >
-                        <i class="fa-solid fa-cogs me-2"></i> Belt Properties
-                    </button>
-                </h2>
-                <div id="collapseCoreAttributes" class="accordion-collapse collapse show" aria-labelledby="headingCoreAttributes" State.DrawingRequest.="#drawingRequestAccordion">
-                    <div class="accordion-body" style=" 1em; font-size: 0.85em;">
-                        <form class="row g-1">
-                            <div class="small alert alert-secondary p-3">Filling out belt properties defines drawing title block and required materials, as well as searches for required cad templates and autocad blocks for starting a new CAD drawing.</div>
-
-                            <div class="col-12">
-                                <SelectBeltType />
-                                <BeltSeriesSelector />
-                            </div>
-
-                            <div class="row p-0 m-0">
-                                <div class="col-6 p-0">
-                                    <SelectBeltMaterial />
-                                </div>
-                                <div class="col-6">
-                                    <SelectMaterialColor />
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <SelectRodMaterial />
-                            </div>
-
-                            <div class="row p-0 m-0">
-                                <div class="col-6">
-                                    <InputBeltWidth />
-                                </div>
-                                <div class="col-6">
-                                    <InputNumberOfLinks />
-                                </div>
-                            </div>
-                        </form>
+            <div class="accordion-body">
+                <form class="row">
+                    <SelectBeltAccessories />
+                    <SelectFrictionAntiFriction />
+                    <SelectPLLaneDV />     
+                    
+                    <div class="col-6">
+                        <InputUniqueIdentification />
                     </div>
-                </div>
-            </div>
 
-            <!-- Additional Features Section -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingAdditionalFeatures">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdditionalFeatures" aria-expanded="true" aria-controls="collapseAdditionalFeatures" >
-                        <i class="fa-solid fa-tools me-2"></i> Additional Features
-                    </button>
-                </h2>
-                <div id="collapseAdditionalFeatures" class="accordion-collapse collapse show" aria-labelledby="headingAdditionalFeatures" State.DrawingRequest.="#drawingRequestAccordion">
-                    <div class="accordion-body" style=" 1em; font-size: 0.85em;">
-                        <form class="row g-1">
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <SelectFlightsRollerGrip />
-                            </div>
-
-                            <div class="col-6">
-                                <InputQuantityRollersWidth />
-                            </div>
-
-                            <div class="col-6">
-                                <InputFlightRollersGripTopCenters />
-
-                            </div>
-
-                            <SelectAdderMaterial />
-
-                        </form>
+                    <div class="col-6">
+                        <SelectIndentCode />
                     </div>
-                </div>
-            </div>
-
-            <!-- Accessories Section -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingAccessories">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAccessories" aria-expanded="true" aria-controls="collapseAccessories" >
-                        <i class="fa-solid fa-box-open me-2"></i> Accessories
-                    </button>
-                </h2>
-                <div id="collapseAccessories" class="accordion-collapse collapse show" aria-labelledby="headingAccessories" State.DrawingRequest.="#drawingRequestAccordion">
-                    <div class="accordion-body" style=" 1em; font-size: 0.85em;">
-                        <form class="row g-1">
-                            <div class="col-6">
-                                <SelectBeltAccessories />
-                            </div>
-
-                            <div class="col-6">
-                                <SelectFrictionAntiFriction />
-                            </div>
-
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <SelectPLLaneDV />
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Identification Section -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingIdentification">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIdentification" aria-expanded="true" aria-controls="collapseIdentification" >
-                        <i class="fa-solid fa-id-badge me-2"></i> Identification
-                    </button>
-                </h2>
-                <div id="collapseIdentification" class="accordion-collapse collapse show" aria-labelledby="headingIdentification" State.DrawingRequest.="#drawingRequestAccordion">
-                    <div class="accordion-body" style=" 1em; font-size: 0.85em;">
-                        <form class="row g-1">
-                            <div class="col-6">
-                                <InputUniqueIdentification />
-                            </div>
-
-                            <div class="col-6">
-                                <SelectIndentCode />
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

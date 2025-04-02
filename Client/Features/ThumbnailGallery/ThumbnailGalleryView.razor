@@ -4,14 +4,14 @@
 
 
 
-<div class="container-fluid no-print my-3">
+<div class="container-fluid no-print my-3 col-12">
     <div class="card">
         <!-- Header Section -->
         <div class="d-flex justify-content-between align-items-center card-header">
             @if (imageFiles != null)
             {
                 <small class="text-muted">
-                    <span>@State.DrawingNumber.BeltSeriesCode: @FilteredImages.ToList().Count Versions</span>
+                    <span>@State.DrawingNumber.BeltSeriesCode: @FilteredImages.ToList().Count Thumbnail Images Found</span>
                 </small>
             }
         </div>

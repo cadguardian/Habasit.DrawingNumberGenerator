@@ -69,6 +69,7 @@ public class BeltSeries : RuleWithOptions, IOptions
         // Habasit Link Belt Series
         ["0870"] = "HabasitLink",
         ["0873"] = "HabasitLink",
+        ["0863"] = "HabasitLink",
         ["0885"] = "HabasitLink",
         ["1185"] = "HabasitLink",
         ["1220"] = "HabasitLink",

@@ -62,6 +62,28 @@ public class DrawingNumberDecipherService : IDrawingNumberDecipherService
 
             // Lookup and log
             drawingRequestValue = lookupFunc(codeSegment);
+            decimal drawingRequestDecimal = 0;
+
+            // ✅ Special Handling for BeltWidth - Convert to Inches
+            if (attributeName == "BeltWidth")
+            {
+                try
+                {
+                    drawingRequestDecimal = BeltWidth.ConvertToInchesDecimal(codeSegment);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError("Error converting BeltWidth {CodeSegment} to inches: {ErrorMessage}", codeSegment, ex.Message);
+                    drawingRequestValue = "Invalid Width"; // Fallback
+                }
+            }
+
+            // ✅ Convert FRGCenters Code to Inches
+            if (attributeName == "FRGCenters")
+            {
+                drawingRequestValue = Flights_Rollers_Grips.ConvertFRGCentersCodeToInches(codeSegment).ToString("0.0") + "\"";
+            }
+
             result[attributeName] = (codeSegment, drawingRequestValue);
             LogAttributeResult(attributeName, codeSegment, drawingRequestValue);
         }

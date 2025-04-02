@@ -5,12 +5,8 @@
 @inject IStateContainer State
 @inject IImageGalleryService ImageGalleryService
 
-<div class="input-group mb-3">
-    <div class="container px-4">
-       
-
-        <div class="col gx-5">
-            <div class="input-group mb-3">
+<div class="col-6">
+            <div class="input-group">
                 <div class="form-floating">
                     <select id="beltSeries" class="form-select form-select-sm"
                             @bind="beltSeries"
@@ -24,10 +20,6 @@
                     <label for="beltSeries">Series</label>
                 </div>
                 <span class="input-group-text">@BeltSeriesService.GetBeltSeriesType(State.DrawingRequest?.BeltSeries ?? "")</span>
-            </div>
-
-            <ThumbnailGalleryView />
-        </div>
     </div>
 </div>
 
