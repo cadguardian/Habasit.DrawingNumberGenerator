@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Client</name>
+    </assembly>
+    <members>
+        <member name="M:Client.Features.Print.DrawingDetailsTable.RenderRow``1(System.String,``0,``0)">
+            <summary>
+            Renders a row in the table for the given label, request value, and code value.
+            </summary>
+        </member>
+        <member name="M:Client.Features.Print.DrawingDetailsTable.FormatValue``1(``0)">
+            <summary>
+            Formats a value for display in the table. Handles both strings and numbers.
+            Displays ❌ for null, empty strings, or numeric 0.
+            </summary>
+        </member>
+    </members>
+</doc>

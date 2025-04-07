@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SBP_DWG_PDM_Winforms")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fa608535746880bfa90087a3e2f161b77f1d15b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e608aa4e7927da827cc2d0794088a7c3ffa5ed7b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SBP_DWG_PDM_Winforms")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SBP_DWG_PDM_Winforms")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

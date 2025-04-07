@@ -1,0 +1,277 @@
+/* /Features/BeltDesigner/BeltDesignerView.razor.rz.scp.css */
+.bricklay-container[b-mz9q45v20i] {
+    display: block; /* Change from flex to block to prevent stretching */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Ensure rows do not wrap */
+    max-width: 100%; /* Prevent container from exceeding its parent width */
+    box-sizing: border-box; /* Include padding and border in width calculations */
+}
+
+.bricklay-row[b-mz9q45v20i] {
+    white-space: nowrap;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .bricklay-row[b-mz9q45v20i] {
+        font-size: 0.5rem;
+    }
+}
+/* /Features/DWGNumber/DrawingNumberGeneratorInstructions.razor.rz.scp.css */
+.form-container[b-iriz8n72r8] {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: auto;
+    padding: 4rem;
+}
+
+.form-group[b-iriz8n72r8] {
+    margin-bottom: 1rem;
+}
+
+input[b-iriz8n72r8], select[b-iriz8n72r8], button[b-iriz8n72r8] {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .form-container[b-iriz8n72r8] {
+        padding: 1rem 0.5rem;
+    }
+
+    button[b-iriz8n72r8] {
+        font-size: 1rem;
+    }
+}
+/* /Features/FeatureManager/FeatureManagerView.razor.rz.scp.css */
+/* Enhanced Styling for Better Readability and Accessibility */
+.container-fluid[b-vi81fyi840] {
+    font-size: 1rem; /* Increased text size for better readability */
+}
+
+h2[b-vi81fyi840],
+h3[b-vi81fyi840],
+h5[b-vi81fyi840],
+h6[b-vi81fyi840] {
+    font-weight: bold;
+}
+
+/* Ensuring no overlap and maintaining clarity */
+.carousel-item[b-vi81fyi840] {
+    padding: 10px; /* Add some padding to ensure text does not touch edges */
+}
+
+.card[b-vi81fyi840] {
+    margin: auto; /* Center cards */
+    transition: transform 0.3s; /* Smooth transition on hover */
+}
+
+    .card:hover[b-vi81fyi840] {
+        transform: scale(1.05); /* Slight zoom on hover for emphasis */
+    }
+
+@media (max-width: 768px) {
+    .card[b-vi81fyi840] {
+        max-width: 90%; /* Make cards responsive on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption[b-vi81fyi840] {
+        font-size: 0.9rem; /* Smaller captions on very small screens */
+    }
+}
+/* /Features/PartsFinder/PartsFinderView.razor.rz.scp.css */
+/* General Table Styling */
+.table-responsive[b-ie6yohu0bu] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.table[b-ie6yohu0bu] {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+    .table th[b-ie6yohu0bu], .table td[b-ie6yohu0bu] {
+        padding: 12px;
+        vertical-align: middle;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+/* Responsive Font and Padding Adjustments */
+@media (max-width: 768px) {
+    .table[b-ie6yohu0bu] {
+        font-size: 0.9rem;
+    }
+
+        .table th[b-ie6yohu0bu], .table td[b-ie6yohu0bu] {
+            padding: 8px;
+        }
+}
+
+@media (max-width: 576px) {
+    .table[b-ie6yohu0bu] {
+        font-size: 0.8rem;
+    }
+
+        .table th[b-ie6yohu0bu], .table td[b-ie6yohu0bu] {
+            padding: 6px;
+        }
+}
+
+/* Stacked View for Very Small Screens */
+@media (max-width: 400px) {
+    .table th[b-ie6yohu0bu], .table td[b-ie6yohu0bu] {
+        display: block;
+        width: 100%;
+        padding: 6px;
+        text-align: left;
+    }
+
+        .table th[b-ie6yohu0bu]::before {
+            content: attr(data-label);
+            font-weight: bold;
+            float: left;
+            margin-right: 8px;
+        }
+
+    .table tr[b-ie6yohu0bu] {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table th[b-ie6yohu0bu], .table td[b-ie6yohu0bu] {
+        text-align: left;
+    }
+}
+/* /Layout/MainLayout.razor.rz.scp.css */
+/* Reset and Page Layout */
+.page[b-tmopy668it] {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 130px;
+    position: relative;
+    background-color: #fff;
+}
+
+/* Header Styling */
+header[b-tmopy668it] {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Navbar Styling */
+.navbar[b-tmopy668it] {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    border-bottom: 2px solid #27950b;
+}
+
+.navbar-brand small[b-tmopy668it] {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.navbar .ms-auto small[b-tmopy668it] {
+    color: #f5c518;
+}
+
+/* Footer Styling */
+footer[b-tmopy668it] {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f1f3f1;
+    color: #333;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+    footer .form-check-label[b-tmopy668it] {
+        color: #333;
+        font-weight: bold;
+    }
+
+/* Tooltip Styling */
+.tooltip-inner[b-tmopy668it] {
+    font-size: 0.875rem;
+    background-color: #333;
+    color: #fff;
+    padding: 0.5em; /* Improved readability */
+}
+
+/* Content Wrapper for Centered Main Content */
+.content-wrapper[b-tmopy668it] {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #fff; /* Ensure a consistent background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .navbar-brand small[b-tmopy668it], .navbar .ms-auto small[b-tmopy668it] {
+        font-size: 0.9rem;
+    }
+}
+
+/* Footer Container Styling and Transition */
+.footer-container[b-tmopy668it] {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: transform 0.4s ease-in-out; /* Smooth transition for showing/hiding */
+    z-index: 10;
+}
+
+    .footer-container.hidden[b-tmopy668it] {
+        transform: translateY(800%); /* Move footer out of view */
+    }
+
+/* Toggle Button Styling */
+.footer-toggle-btn[b-tmopy668it] {
+    position: fixed;
+    bottom: 105px;
+    right: 10px;
+    background-color: #343a40;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 11; /* Keep above footer */
+    transition: background-color 0.3s;
+}
+
+    .footer-toggle-btn:hover[b-tmopy668it] {
+        background-color: #495057;
+    }
+
+    /* Icon Styling */
+    .footer-toggle-btn i[b-tmopy668it] {
+        font-size: 1.2rem;
+    }
